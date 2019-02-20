@@ -1,3 +1,4 @@
+import json
 import os
 import pathlib
 import re
@@ -127,7 +128,7 @@ class MyParser(argparse.ArgumentParser):
 parser = MyParser(description='Match sprites between steam and ps3 scripts, given two input folders containing scripts as .txt files.')
 parser.add_argument('steam_scripts_folder', type=str, help='path containing steam scripts as .txt files')
 parser.add_argument('ps3_scripts_folder', type=str, help='path containing ps3 scripts as .txt files')
-parser.add_argument('output_file_path', type=str, help='name of output file where results are written')
+parser.add_argument('output_file_path', type=str, help='name of file where results are written (JSON format)')
 
 args = parser.parse_args()
 
@@ -137,8 +138,9 @@ matching_script_paths = get_matching_script_paths_between_folders(args.steam_scr
 for steam_script_path, ps3_script_path in matching_script_paths:
 	update_match_statistics(match_statistics, steam_script_path, ps3_script_path)
 
-pp = pprint.PrettyPrinter(indent=4)
-pp.pprint(match_statistics)
+json_string = json.dumps(match_statistics, sort_keys=True, indent=4)
+
+print(json_string)
 
 with open(args.output_file_path, 'w', encoding='utf-8') as output_file:
-	pprint.pprint(match_statistics, output_file)
+	output_file.write(json_string)
