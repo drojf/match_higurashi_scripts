@@ -63,7 +63,7 @@ def try_get_steam_to_ps3_matching_from_chunks(steam_chunk : str, ps3_chunk : str
 		return None
 
 
-def update_match_statistics(match_statistics, steam_script_path, ps3_script_path):
+def update_match_statistics(match_statistics, reverse_match_statistics, steam_script_path, ps3_script_path):
 	original_to_steam_chunk_list = get_matching_chunks_from_file(steam_script_path, ps3_script_path)
 
 	# 'match_statistics' is a dict of dicts. It records how many of each type of match has been seen previously.
@@ -86,9 +86,14 @@ def update_match_statistics(match_statistics, steam_script_path, ps3_script_path
 		mapping = try_get_steam_to_ps3_matching_from_chunks(original_chunk, ps3_chunk)
 		if mapping:
 			steam_name, ps3_name = mapping
+			#do the forward mapping
 			match_count = match_statistics.setdefault(ps3_name, {})
 			match_count.setdefault(steam_name, 0)
 			match_count[steam_name] += 1
+			#do the backward mapping
+			match_count = reverse_match_statistics.setdefault(steam_name, {})
+			match_count.setdefault(ps3_name, 0)
+			match_count[ps3_name] += 1
 
 	return match_statistics
 
@@ -133,14 +138,23 @@ parser.add_argument('output_file_path', type=str, help='name of file where resul
 args = parser.parse_args()
 
 match_statistics = {}
+reverse_match_statistics = {}
 
 matching_script_paths = get_matching_script_paths_between_folders(args.steam_scripts_folder, args.ps3_scripts_folder)
 for steam_script_path, ps3_script_path in matching_script_paths:
-	update_match_statistics(match_statistics, steam_script_path, ps3_script_path)
+	update_match_statistics(match_statistics, reverse_match_statistics, steam_script_path, ps3_script_path)
 
 json_string = json.dumps(match_statistics, sort_keys=True, indent=4)
 
 print(json_string)
 
 with open(args.output_file_path, 'w', encoding='utf-8') as output_file:
+	output_file.write(json_string)
+
+#dump reverse statistics
+json_string = json.dumps(reverse_match_statistics, sort_keys=True, indent=4)
+
+print(json_string)
+
+with open(args.output_file_path + '.reversed.txt', 'w', encoding='utf-8') as output_file:
 	output_file.write(json_string)
