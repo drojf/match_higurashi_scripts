@@ -146,6 +146,10 @@ class MatchRow:
 		self.sorted_scores = sorted_scores
 
 
+def pad_array(arr, target_length, pad_value):
+	addon = [pad_value] * (target_length - len(arr))
+	return arr + addon
+
 def convertMatchingToCSV(match_statistics : dict) -> [str]:
 	rows = []
 	for sourceMatch, destinationMatches in match_statistics.items():
@@ -159,11 +163,19 @@ def convertMatchingToCSV(match_statistics : dict) -> [str]:
 
 	rows.sort(key=lambda x: x.highestCount, reverse=True)
 
-	rows_as_strings = []
-	rows_as_strings.append('source image, count of best match, confidence, all matches')
+	#for consistent CSV rows, determine the max number of columns first
+	max_matches = 0
 	for row in rows:
-		sorted_scores_as_csv = ', '.join([f'{x[1]}:{x[0]}' for x in row.sorted_scores])
-		rows_as_strings.append(f"{row.source}, {row.highestCount}, {row.confidence:.0f}%, {sorted_scores_as_csv}")
+		if len(row.sorted_scores) > max_matches:
+			max_matches = len(row.sorted_scores)
+
+	rows_as_strings = []
+	header_matches = ','.join(pad_array(['all matches'], max_matches, 'match'))
+	rows_as_strings.append(f'source image, count of best match, confidence,{header_matches}')
+	for row in rows:
+		matches = [f'{x[1]}:{x[0]}' for x in row.sorted_scores]
+		matches = pad_array(matches, max_matches, '')
+		rows_as_strings.append(f"{row.source}, {row.highestCount}, {row.confidence:.0f}%, {', '.join(matches)}")
 
 	return rows_as_strings
 

@@ -1,288 +1,288 @@
-source image, count of best match, confidence, all matches
-sprite/re1a_def_a1_, 87, 96%, 87:re_se_de_a1, 1:tm_si_de_a1, 1:si_si_fu_a1, 1:re_se_de_b1, 1:re_se_wa_b1
-sprite/oisi1_2_, 71, 100%, 71:oi_si_wa_a1
+source image, count of best match, confidence,all matches,match,match,match,match,match,match
+sprite/re1a_def_a1_, 87, 96%, 87:re_se_de_a1, 1:tm_si_de_a1, 1:si_si_fu_a1, 1:re_se_de_b1, 1:re_se_wa_b1, , 
+sprite/oisi1_2_, 71, 100%, 71:oi_si_wa_a1, , , , , , 
 sprite/re1a_warai_a1_, 71, 91%, 71:re_se_wa_a1, 2:re_se_ik_b1, 1:me_se_bi_a1, 1:me_se_ik_a2, 1:re_se_ko_a1, 1:cinema, 1:re_se_de_a1
-sprite/oisi1_1_, 69, 99%, 69:oi_si_de_a1, 1:oi_si_wa_a1
-sprite/ri1_def_a1_, 57, 98%, 57:ri_se_de_a1, 1:me_se_wi_a2
-sprite/re1a_nande_a1_, 51, 85%, 51:re_se_na_a1, 5:re_se_de_a1, 1:me_se_ik_a2, 1:re_si_na_a1, 1:re_se_wa_a1, 1:re_se_de_b1
-sprite/tomi1_def_, 45, 100%, 45:tm_si_de_a1
-sprite/re1b_warai_b1_, 44, 98%, 44:re_se_wa_b1, 1:wata_rena01
-sprite/si1a_def_a1_, 43, 90%, 43:si_si_de_a1, 4:si_si_de_b1, 1:ta_si_de_a1
-sprite/me1a_def_a1_, 42, 75%, 42:me_se_de_a1, 11:me_se_de_a2, 2:re_se_de_a1, 1:me_se_wi_a2
-sprite/re2a_warai_a1_, 41, 98%, 41:re_si_wa_a1, 1:me_si_wa_a2
-sprite/sa1a_akuwarai_a1_, 40, 93%, 40:sa_se_aw_a1, 2:sa_se_bi_b1, 1:si_si_fu_a1
-sprite/re2a_def_a1_, 40, 100%, 40:re_si_de_a1
-sprite/tomi1_warai_, 39, 95%, 39:tm_si_wa_a1, 2:ti_si_ko_a1
-sprite/ta1_def_, 39, 95%, 39:ta_si_de_a1, 2:ta_si_wa_a1
-sprite/ri1_niko_a1_, 37, 95%, 37:ri_se_ni_a1, 1:me_se_bi_a1, 1:si_si_fu_a1
-sprite/ri1_warai_a1_, 36, 90%, 36:ri_se_wa_a1, 2:me_se_bi_a1, 2:si_si_fu_a1
-sprite/me2_wink_a1_, 35, 57%, 35:me_si_wi_a2, 26:me_si_wi_a1
-sprite/sa2a_odoroki_a1_, 34, 100%, 34:sa_si_bi_a1
-sprite/me1a_wink_a1_, 33, 50%, 33:me_se_wi_a2, 33:me_se_wi_a1
-sprite/re1a_hau_a1_, 33, 97%, 33:re_se_ha_a1, 1:si_si_wa_a1
-sprite/me2_def_a1_, 32, 58%, 32:me_si_de_a1, 21:me_si_de_a2, 1:me_si_si_a1, 1:me_si_si_a2
-sprite/re1a_komaru_a1_, 31, 89%, 31:re_se_ko_a1, 2:re_se_de_a1, 1:me_se_bi_a1, 1:si_si_fu_a1
-sprite/re2b_warai_b1_, 30, 100%, 30:re_si_wa_b1
-sprite/re2a_hau_a1_, 28, 100%, 28:re_si_ha_a1
-sprite/sa1a_odoroki_a1_, 26, 100%, 26:sa_se_bi_a1
-sprite/sa1a_def_a1_, 25, 100%, 25:sa_se_de_a1
-sprite/tomi1_komaru_, 24, 89%, 24:tm_si_ko_a1, 1:re_se_ik_b1, 1:re_se_wa_b1, 1:sa_si_aw_a1
-sprite/sa2a_akuwarai_a1_, 24, 92%, 24:sa_si_aw_a1, 1:me_si_wi_a2, 1:re_si_wa_a1
-sprite/sa2a_warai_a1_, 23, 96%, 23:sa_si_wa_a1, 1:ri_mk_de_a1
-sprite/re2b_kaii_b1_, 23, 100%, 23:re_si_ka_b1
-sprite/me2_warai_a1_, 23, 57%, 23:me_si_wa_a1, 16:me_si_wa_a2, 1:sa_si_aw_a1
-sprite/re1b_def_b1_, 21, 84%, 21:re_se_de_b1, 1:me_se_bi_a1, 1:me_se_ik_a2, 1:re_se_de_a1, 1:re_se_wa_b1
-sprite/sa1a_akireru_a1_, 20, 100%, 20:sa_se_ak_a1
-sprite/ta1_warai_, 20, 91%, 20:ta_si_wa_a1, 1:me_se_bi_a1, 1:re_se_ko_a1
-sprite/re2a_nande_a1_, 20, 100%, 20:re_si_na_a1
-sprite/me1a_warai_a1_, 18, 62%, 18:me_se_wa_a1, 10:me_se_wa_a2, 1:me_se_ik_a2
-sprite/si1a_wink_a1_, 18, 69%, 18:si_si_wi_a1, 4:si_si_wi_b1, 2:si_si_fu_a1, 1:re_se_wa_b1, 1:si_si_aw_b1
-sprite/sa1a_warai_a1_, 17, 100%, 17:sa_se_wa_a1
-sprite/re1b_bikkuri_b1_, 17, 94%, 17:re_se_bi_b1, 1:me_se_ik_a2
-sprite/si1a_warai_a1_, 17, 85%, 17:si_si_wa_a1, 2:si_si_wa_b1, 1:si_si_fu_a1
-sprite/me2_majime_a1_, 16, 57%, 16:me_si_ma_a1, 9:me_si_ma_a2, 3:me_si_de_a2
-sprite/oisi1_4_, 15, 100%, 15:oi_si_de_a2
-sprite/oisi2_6_, 15, 100%, 15:oi_yk_de_a1
-sprite/me1b_wink_a1_, 15, 65%, 15:me_se_wi_b2, 7:me_se_wi_b1, 1:re_se_wa_a1
-sprite/me1a_akuwarai_a1_, 15, 88%, 15:me_se_aw_a1, 1:me_se_aw_a2, 1:me_se_wi_a2
-sprite/re1b_hau_b1_, 15, 100%, 15:re_se_ha_b1
-sprite/si2_def_a1_, 15, 100%, 15:si_ma_de_a1
-sprite/rim_def_, 14, 88%, 14:ri_si_de_a1, 2:ri_si_ni_a1
-sprite/re1a_bikkuri_a1_, 14, 93%, 14:re_se_bi_a1, 1:re_se_ko_a1
-sprite/si1a_akuwarai_a1_, 14, 88%, 14:si_si_aw_a1, 2:me_se_bi_a1
-sprite/me2_sinmyou_a1_, 14, 82%, 14:me_si_si_a1, 3:me_si_si_a2
-sprite/sa2a_akireru_a1_, 12, 92%, 12:sa_si_ak_a1, 1:ri_mk_de_a1
-sprite/ri5_def_a1_, 12, 92%, 12:ri_mk_de_a1, 1:sa_si_aw_a1
+sprite/oisi1_1_, 69, 99%, 69:oi_si_de_a1, 1:oi_si_wa_a1, , , , , 
+sprite/ri1_def_a1_, 57, 98%, 57:ri_se_de_a1, 1:me_se_wi_a2, , , , , 
+sprite/re1a_nande_a1_, 51, 85%, 51:re_se_na_a1, 5:re_se_de_a1, 1:me_se_ik_a2, 1:re_si_na_a1, 1:re_se_wa_a1, 1:re_se_de_b1, 
+sprite/tomi1_def_, 45, 100%, 45:tm_si_de_a1, , , , , , 
+sprite/re1b_warai_b1_, 44, 98%, 44:re_se_wa_b1, 1:wata_rena01, , , , , 
+sprite/si1a_def_a1_, 43, 90%, 43:si_si_de_a1, 4:si_si_de_b1, 1:ta_si_de_a1, , , , 
+sprite/me1a_def_a1_, 42, 75%, 42:me_se_de_a1, 11:me_se_de_a2, 2:re_se_de_a1, 1:me_se_wi_a2, , , 
+sprite/re2a_warai_a1_, 41, 98%, 41:re_si_wa_a1, 1:me_si_wa_a2, , , , , 
+sprite/sa1a_akuwarai_a1_, 40, 93%, 40:sa_se_aw_a1, 2:sa_se_bi_b1, 1:si_si_fu_a1, , , , 
+sprite/re2a_def_a1_, 40, 100%, 40:re_si_de_a1, , , , , , 
+sprite/tomi1_warai_, 39, 95%, 39:tm_si_wa_a1, 2:ti_si_ko_a1, , , , , 
+sprite/ta1_def_, 39, 95%, 39:ta_si_de_a1, 2:ta_si_wa_a1, , , , , 
+sprite/ri1_niko_a1_, 37, 95%, 37:ri_se_ni_a1, 1:me_se_bi_a1, 1:si_si_fu_a1, , , , 
+sprite/ri1_warai_a1_, 36, 90%, 36:ri_se_wa_a1, 2:me_se_bi_a1, 2:si_si_fu_a1, , , , 
+sprite/me2_wink_a1_, 35, 57%, 35:me_si_wi_a2, 26:me_si_wi_a1, , , , , 
+sprite/sa2a_odoroki_a1_, 34, 100%, 34:sa_si_bi_a1, , , , , , 
+sprite/me1a_wink_a1_, 33, 50%, 33:me_se_wi_a2, 33:me_se_wi_a1, , , , , 
+sprite/re1a_hau_a1_, 33, 97%, 33:re_se_ha_a1, 1:si_si_wa_a1, , , , , 
+sprite/me2_def_a1_, 32, 58%, 32:me_si_de_a1, 21:me_si_de_a2, 1:me_si_si_a1, 1:me_si_si_a2, , , 
+sprite/re1a_komaru_a1_, 31, 89%, 31:re_se_ko_a1, 2:re_se_de_a1, 1:me_se_bi_a1, 1:si_si_fu_a1, , , 
+sprite/re2b_warai_b1_, 30, 100%, 30:re_si_wa_b1, , , , , , 
+sprite/re2a_hau_a1_, 28, 100%, 28:re_si_ha_a1, , , , , , 
+sprite/sa1a_odoroki_a1_, 26, 100%, 26:sa_se_bi_a1, , , , , , 
+sprite/sa1a_def_a1_, 25, 100%, 25:sa_se_de_a1, , , , , , 
+sprite/tomi1_komaru_, 24, 89%, 24:tm_si_ko_a1, 1:re_se_ik_b1, 1:re_se_wa_b1, 1:sa_si_aw_a1, , , 
+sprite/sa2a_akuwarai_a1_, 24, 92%, 24:sa_si_aw_a1, 1:me_si_wi_a2, 1:re_si_wa_a1, , , , 
+sprite/sa2a_warai_a1_, 23, 96%, 23:sa_si_wa_a1, 1:ri_mk_de_a1, , , , , 
+sprite/re2b_kaii_b1_, 23, 100%, 23:re_si_ka_b1, , , , , , 
+sprite/me2_warai_a1_, 23, 57%, 23:me_si_wa_a1, 16:me_si_wa_a2, 1:sa_si_aw_a1, , , , 
+sprite/re1b_def_b1_, 21, 84%, 21:re_se_de_b1, 1:me_se_bi_a1, 1:me_se_ik_a2, 1:re_se_de_a1, 1:re_se_wa_b1, , 
+sprite/sa1a_akireru_a1_, 20, 100%, 20:sa_se_ak_a1, , , , , , 
+sprite/ta1_warai_, 20, 91%, 20:ta_si_wa_a1, 1:me_se_bi_a1, 1:re_se_ko_a1, , , , 
+sprite/re2a_nande_a1_, 20, 100%, 20:re_si_na_a1, , , , , , 
+sprite/me1a_warai_a1_, 18, 62%, 18:me_se_wa_a1, 10:me_se_wa_a2, 1:me_se_ik_a2, , , , 
+sprite/si1a_wink_a1_, 18, 69%, 18:si_si_wi_a1, 4:si_si_wi_b1, 2:si_si_fu_a1, 1:re_se_wa_b1, 1:si_si_aw_b1, , 
+sprite/sa1a_warai_a1_, 17, 100%, 17:sa_se_wa_a1, , , , , , 
+sprite/re1b_bikkuri_b1_, 17, 94%, 17:re_se_bi_b1, 1:me_se_ik_a2, , , , , 
+sprite/si1a_warai_a1_, 17, 85%, 17:si_si_wa_a1, 2:si_si_wa_b1, 1:si_si_fu_a1, , , , 
+sprite/me2_majime_a1_, 16, 57%, 16:me_si_ma_a1, 9:me_si_ma_a2, 3:me_si_de_a2, , , , 
+sprite/oisi1_4_, 15, 100%, 15:oi_si_de_a2, , , , , , 
+sprite/oisi2_6_, 15, 100%, 15:oi_yk_de_a1, , , , , , 
+sprite/me1b_wink_a1_, 15, 65%, 15:me_se_wi_b2, 7:me_se_wi_b1, 1:re_se_wa_a1, , , , 
+sprite/me1a_akuwarai_a1_, 15, 88%, 15:me_se_aw_a1, 1:me_se_aw_a2, 1:me_se_wi_a2, , , , 
+sprite/re1b_hau_b1_, 15, 100%, 15:re_se_ha_b1, , , , , , 
+sprite/si2_def_a1_, 15, 100%, 15:si_ma_de_a1, , , , , , 
+sprite/rim_def_, 14, 88%, 14:ri_si_de_a1, 2:ri_si_ni_a1, , , , , 
+sprite/re1a_bikkuri_a1_, 14, 93%, 14:re_se_bi_a1, 1:re_se_ko_a1, , , , , 
+sprite/si1a_akuwarai_a1_, 14, 88%, 14:si_si_aw_a1, 2:me_se_bi_a1, , , , , 
+sprite/me2_sinmyou_a1_, 14, 82%, 14:me_si_si_a1, 3:me_si_si_a2, , , , , 
+sprite/sa2a_akireru_a1_, 12, 92%, 12:sa_si_ak_a1, 1:ri_mk_de_a1, , , , , 
+sprite/ri5_def_a1_, 12, 92%, 12:ri_mk_de_a1, 1:sa_si_aw_a1, , , , , 
 sprite/re1a_komaru_a2_, 12, 57%, 12:re_se_ko_a2, 3:re_se_ko_a1, 2:re_se_wa_b1, 1:re_se_wa_a1, 1:re_se_ha_a1, 1:re_se_ko_b1, 1:re_se_de_a1
-sprite/ri2_warai_a1_, 12, 100%, 12:ri_si_wa_a1
-sprite/me1a_tokui_a1_, 11, 79%, 11:me_se_to_a1, 3:me_se_to_a2
-sprite/me2_tokui_a1_, 11, 55%, 11:me_si_to_a1, 9:me_si_to_a2
-sprite/ri2_niko_a1_, 11, 92%, 11:ri_si_ni_a1, 1:ri_si_wa_a1
-sprite/ri5_niko_a1_, 11, 85%, 11:ri_mk_ni_a1, 2:ri_mk_de_a1
-sprite/si2_warai_a1_, 11, 100%, 11:si_ma_wa_a1
-sprite/oisi2_9_, 10, 100%, 10:oi_yk_de_a2
-sprite/me1b_def_a1_, 10, 59%, 10:me_se_de_b1, 7:me_se_de_b2
-sprite/sa1b_warai_b1_, 10, 100%, 10:sa_se_wa_b1
-sprite/re2b_def_b1_, 10, 91%, 10:re_si_de_b1, 1:re_si_de_a1
-sprite/sa2a_def_a1_, 10, 91%, 10:sa_si_de_a1, 1:sa_si_aw_a1
-sprite/ri1_komaru_a1_, 9, 90%, 9:ri_se_ko_a1, 1:si_si_fu_a1
-sprite/si1b_wink_b1_, 9, 100%, 9:si_si_wi_b1
-sprite/re1b_kaii_b1_, 9, 100%, 9:re_se_ka_b1
-sprite/me2_tohoho_a1_, 9, 56%, 9:me_si_th_a2, 6:me_si_th_a1, 1:me_si_de_a1
-sprite/ri2_def_a1_, 9, 100%, 9:ri_si_de_a1
-sprite/si2_wink_a1_, 9, 100%, 9:si_ma_wi_a1
-sprite/rim_warai_, 8, 67%, 8:ri_si_wa_a1, 4:ri_si_ni_a1
-sprite/sa1b_odoroki_b1_, 8, 50%, 8:sa_se_bi_b1, 4:sa_se_bi_b2, 2:si_si_fu_a1, 1:re_se_ik_b1, 1:sa_se_na_b2
-sprite/re1b_komaru_b1_, 8, 100%, 8:re_se_ko_b1
-sprite/me1a_tohoho_a1_, 8, 50%, 8:me_se_th_a1, 7:me_se_th_a2, 1:ti_si_ik_a1
-sprite/me1b_akuwarai_a1_, 8, 57%, 8:me_se_aw_b2, 5:me_se_aw_b1, 1:me_se_th_a2
-sprite/me2_akuwarai_a1_, 8, 50%, 8:me_si_aw_a1, 6:me_si_aw_a2, 1:me_si_fu_a2, 1:me_si_de_a1
-sprite/re2b_hau_b1_, 8, 89%, 8:re_si_ha_b1, 1:re_si_ka_b1
-sprite/me2_huteki_a1_, 8, 47%, 8:me_si_fu_a1, 6:me_si_fu_a2, 1:me_si_th_a2, 1:me_si_aw_a1, 1:me_si_si_a2
-sprite/me2_odoroki_a1_, 8, 57%, 8:me_si_bi_a2, 4:me_si_bi_a1, 1:me_si_th_a2, 1:me_si_th_a1
-sprite/si2_odoroki_a1_, 8, 100%, 8:si_ma_bi_a1
-sprite/si2_yowaki_a1_, 8, 89%, 8:si_ma_yw_a1, 1:si_ma_de_a1
-sprite/si2_hau_a1_, 8, 100%, 8:si_ma_ha_a1
-sprite/ri5_warai_a1_, 8, 100%, 8:ri_mk_wa_a1
-sprite/oisi2_7_, 7, 100%, 7:oi_yk_wa_a1
-sprite/ta1_akuwarai_, 7, 88%, 7:ta_si_aw_a1, 1:ta_si_de_a1
-sprite/sa1b_akuwarai_b1_, 7, 88%, 7:sa_se_aw_b1, 1:sa_se_wa_b1
-sprite/re2a_kaii_a1_, 7, 100%, 7:re_si_ka_a1
-sprite/re3a_def_a1_, 7, 100%, 7:re_ta_de_a1
-sprite/re2b_bikkuri_b1_, 7, 100%, 7:re_si_bi_b1
-portrait/re1a_warai_a1_, 7, 100%, 7:re_se_wa_a1
-sprite/re1b_nande_b1_, 7, 58%, 7:re_se_na_b1, 3:re_se_de_b1, 1:re_se_bi_b1, 1:re_se_de_a1
-portrait/me2_sinmyou_a1_, 7, 88%, 7:me_si_si_a1, 1:me_si_si_a2
-portrait/rim_komaru_, 6, 86%, 6:ri_si_ko_a1, 1:ri_si_ni_a1
-sprite/me1b_warai_a1_, 6, 46%, 6:me_se_wa_b1, 5:me_se_wa_b2, 1:me_se_ik_a2, 1:re_se_wa_a1
-sprite/si1b_warai_b1_, 6, 86%, 6:si_si_wa_b1, 1:si_si_fu_a1
-sprite/me1b_tohoho_a1_, 6, 60%, 6:me_se_th_b1, 3:me_se_th_b2, 1:re_se_ik_b1
-sprite/re2b_komaru_b1_, 6, 100%, 6:re_si_ko_b1
-sprite/me3_def_a1_, 6, 86%, 6:me_ta_de_a1, 1:me_ta_de_a2
-sprite/sa3_odoroki_a1_, 6, 100%, 6:sa_ta_bi_a1
-sprite/re2a_bikkuri_a1_, 6, 100%, 6:re_si_bi_a1
-sprite/ri5_komaru_a1_, 6, 100%, 6:ri_mk_ko_a1
-sprite/si1a_majime_a1_, 6, 60%, 6:si_si_ma_a1, 3:si_si_de_a1, 1:si_si_bi_a1
-portrait/rim_def_, 5, 71%, 5:ri_si_de_a1, 1:ri_si_wa_a1, 1:ri_si_fu_a1
-portrait/rim_warai_, 5, 62%, 5:ri_si_wa_a1, 3:ri_si_ni_a1
-sprite/iri2_def1_, 5, 100%, 5:ir_hk_de_a1
-sprite/rim_majime_, 5, 83%, 5:ri_si_fu_a1, 1:ri_se_fu_a1
-sprite/me1a_odoroki_a1_, 5, 50%, 5:me_se_bi_a1, 3:me_se_bi_a2, 1:ti_si_ik_a1, 1:me_se_th_a2
-sprite/re1a_kaii_a1_, 5, 100%, 5:re_se_ka_a1
-sprite/me1a_huteki_a1_, 5, 56%, 5:me_se_fu_a1, 2:me_se_fu_a2, 1:re_se_de_a1, 1:me_se_wi_a1
-sprite/me3_warai_a1_, 5, 100%, 5:me_ta_wa_a2
-sprite/sa3_akuwarai_a1_, 5, 100%, 5:sa_ta_aw_a1
-sprite/ri3_def_a1_, 5, 100%, 5:ri_ta_de_a1
-sprite/re2a_komaru_a1_, 5, 100%, 5:re_si_ko_a1
-portrait/re1a_hig_def_a1_, 5, 83%, 5:re_se_hi_a1, 1:re_se_hi_b1
-sprite/si1b_def_b1_, 5, 100%, 5:si_si_de_b1
-sprite/oisi1_5_, 4, 57%, 4:oi_si_aw_a1, 1:Furiker_b, 1:oi_si_wa_a1, 1:oi_si_de_a1
-sprite/me1a_majime_a1_, 4, 67%, 4:me_se_ma_a1, 1:me_se_ma_a2, 1:me_se_bi_a1
-sprite/sa1a_hannbeso_a1_, 4, 67%, 4:sa_se_hn_a1, 1:me_se_ik_a2, 1:re_se_ik_b1
-sprite/sa1a_naku_a1_, 4, 100%, 4:sa_se_na_a1
-sprite/me1b_tokui_a1_, 4, 57%, 4:me_se_to_b2, 3:me_se_to_b1
-sprite/si1b_akuwarai_b1_, 4, 57%, 4:si_si_aw_b1, 1:si_si_fu_a1, 1:ti_si_ik_a1, 1:ti_si_ko_a1
-sprite/sa1b_hannbeso_b1_, 4, 80%, 4:sa_se_hn_b2, 1:sa_se_hn_b1
-sprite/ri2_komaru_a1_, 4, 100%, 4:ri_si_ko_a1
-sprite/me3_wink_a1_, 4, 100%, 4:me_ta_wi_a1
-sprite/re3b_bikkuri_b1_, 4, 100%, 4:re_ta_bi_b1
-sprite/re3b_kaii_b1_, 4, 100%, 4:re_ta_ka_b1
-sprite/re3a_hau_a1_, 4, 100%, 4:re_ta_ha_a1
-sprite/si1a_hau_a1_, 4, 80%, 4:si_si_ha_a1, 1:si_si_ha_b1
-sprite/rim_komaru_, 3, 50%, 3:ri_si_ko_a1, 2:ri_si_de_a1, 1:ri_si_ni_a1
-sprite/iri2_majime_, 3, 100%, 3:ir_hk_ma_a1
-sprite/chibimion_def_, 3, 75%, 3:me_si_de_a1, 1:me_si_de_a2
-sprite/iri2_def2_, 3, 100%, 3:ir_hk_de_a2
-sprite/sa1b_naku_b1_, 3, 75%, 3:sa_se_na_b1, 1:me_se_ik_a2
-sprite/me1b_odoroki_a1_, 3, 33%, 3:me_se_bi_b2, 3:me_se_bi_b1, 1:me_se_ik_a2, 1:re_se_ik_b1, 1:me_se_wi_b2
-sprite/re1a_okoru_a1_, 3, 38%, 3:re_se_ik_a1, 2:re_se_de_a1, 1:re_se_ik_b1, 1:re_se_wa_a1, 1:re_se_ko_a1
-sprite/re1b_okoru_b1_, 3, 60%, 3:re_se_ik_b1, 1:re_se_ko_a2, 1:re_se_de_b1
-sprite/sa3_def_a1_, 3, 100%, 3:sa_ta_de_a1
-sprite/ri3_niko_a1_, 3, 100%, 3:ri_ta_ni_a1
-sprite/re3a_warai_a1_, 3, 100%, 3:re_ta_wa_a1
-sprite/re3a_nande_a1_, 3, 100%, 3:re_ta_na_a1
-sprite/me3_akuwarai_a1_, 3, 60%, 3:me_ta_aw_a2, 2:me_ta_aw_a1
-sprite/ri3_warai_a1_, 3, 100%, 3:ri_ta_wa_a1
-sprite/re3a_bikkuri_a1_, 3, 100%, 3:re_ta_bi_a1
-sprite/re3b_hau_b1_, 3, 100%, 3:re_ta_ha_b1
-sprite/me4_akuwarai_a1_, 3, 100%, 3:me_mi_aw_a1
-sprite/sa4_odoroki_a1_, 3, 100%, 3:sa_ku_bi_a1
-sprite/ri4_komaru_a1_, 3, 100%, 3:ri_nk_ko_a1
-sprite/oisi1_3_, 3, 100%, 3:oi_si_ma_a1
-sprite/re1b_komaru_b2_, 3, 60%, 3:re_se_ko_b1, 1:re_se_de_b1, 1:re_se_ko_b2
-sprite/si1a_odoroki_a1_, 3, 75%, 3:si_si_bi_a1, 1:si_si_bi_b1
-portrait/si1b_wink_b1_, 3, 100%, 3:si_si_wi_a1
-portrait/rim_majime_, 2, 67%, 2:ri_si_fu_a1, 1:ri_si_ko_a2
-portrait/rim_niyari_, 2, 100%, 2:ri_si_ny_a1
-sprite/chibimion_wink_, 2, 100%, 2:me_si_wi_a1
-sprite/me1a_ikari_a1_, 2, 50%, 2:me_se_ik_a2, 1:me_se_bi_a1, 1:me_se_ik_a1
-sprite/si1a_huteki_a1_, 2, 100%, 2:si_si_fu_a1
-sprite/me1b_majime_a1_, 2, 50%, 2:me_se_ma_b1, 2:me_se_ma_b2
-sprite/me3_tokui_a1_, 2, 67%, 2:me_ta_to_a2, 1:me_ta_to_a1
-sprite/sa3_warai_a1_, 2, 100%, 2:sa_ta_wa_a1
-sprite/sa3_hannbeso_a1_, 2, 100%, 2:sa_ta_hn_a1
-sprite/sa3_akireru_a1_, 2, 100%, 2:sa_ta_ak_a1
-sprite/re3b_warai_b1_, 2, 100%, 2:re_ta_wa_b1
-sprite/me3_tohoho_a1_, 2, 100%, 2:me_ta_th_a1
-sprite/me1a_yowaki_a1_, 2, 29%, 2:me_se_yw_a1, 1:me_se_th_a2, 1:me_se_yw_a2, 1:me_se_th_a1, 1:me_se_th_b2, 1:me_se_de_a1
-sprite/re3a_kaii_a1_, 2, 100%, 2:re_ta_ka_a1
-portrait/sa1b_naku_b1_, 2, 100%, 2:sa_se_na_b1
-sprite/re1a_hig_muhyou_a1_, 2, 100%, 2:re_se_him_a1
-sprite/re2a_komaru_a2_, 2, 50%, 2:re_si_ko_a2, 2:re_si_ko_a1
-sprite/me1b_yowaki_a1_, 2, 100%, 2:me_se_yw_b2
-portrait/me2_def_a1_, 2, 50%, 2:me_si_de_a1, 2:me_si_de_a2
-portrait/oisi1_1_, 2, 100%, 2:oi_si_de_a1
-sprite/si2_akuwarai_a1_, 2, 100%, 2:si_ma_aw_a1
-sprite/ri1_fuman_a1_, 2, 50%, 2:ri_se_de_a1, 1:ri_se_ko_a1, 1:ri_se_ni_a1
-sprite/re2b_nande_b1_, 2, 50%, 2:re_si_na_b1, 1:re_si_na_a1, 1:re_si_wa_b1
-sprite/flashback/me2_warai_a1_, 2, 100%, 2:me_si_wa_a1
-sprite/me1a_hau_a1_, 2, 100%, 2:me_se_ha_a1
-portrait/re2a_warai_a1_, 2, 50%, 2:re_si_wa_b1, 2:re_si_wa_a1
-portrait/si1a_akuwarai_a1_, 2, 100%, 2:si_si_aw_a1
-sprite/ta1_hatena_, 2, 100%, 2:ta_si_de_a1
-sprite/si1a_yowaki_a1_, 2, 100%, 2:si_si_yw_a1
-portrait/me2_majime_a1_, 2, 67%, 2:me_si_ma_a1, 1:me_si_ma_a2
-portrait/oisi1_2_, 2, 100%, 2:oi_si_wa_a1
-sprite/ri1_komaru_a2_, 2, 100%, 2:ri_se_ko_a1
-portrait/ri1_warai_a1_, 2, 100%, 2:ri_se_wa_a1
-sprite/re2b_okoru_b1_, 2, 100%, 2:re_si_ik_b1
-portrait/re2a_nande_a1_, 2, 100%, 2:re_si_na_a1
-sprite/flashback/sa1a_def_a1_, 2, 100%, 2:sa_se_de_a1
-sprite/iri2_majime2_, 1, 100%, 1:ir_hk_ma_a2
-portrait/iri2_def1_, 1, 100%, 1:ir_hk_de_a1
-portrait/iri2_majime_, 1, 100%, 1:ir_hk_ma_a1
-sprite/rim_niyari_, 1, 100%, 1:ri_si_ny_a1
-sprite/oisi2_8_, 1, 50%, 1:oi_yk_de_a1, 1:oi_yk_ma_a1
-sprite/iri2_warai_, 1, 100%, 1:ir_hk_wa_a1
-sprite/chibimion_warai_, 1, 50%, 1:me_si_wa_a2, 1:me_si_wa_a1
-sprite/chibimion_shinken_, 1, 100%, 1:me_si_ma_a1
-sprite/tie_3_, 1, 50%, 1:me_se_bi_a1, 1:ti_si_ko_a1
-sprite/si1a_tokui_a1_, 1, 100%, 1:si_si_to_a1
-sprite/iri1_def1_, 1, 100%, 1:ir_si_de_a1
-sprite/iri1_majime2_, 1, 100%, 1:me_se_bi_a1
-sprite/iri1_warai_, 1, 100%, 1:re_se_ik_b1
-sprite/iri1_def2_, 1, 100%, 1:ir_si_de_a2
-sprite/tie_2_, 1, 50%, 1:ti_si_ik_a1, 1:Furiker_b
-sprite/sa2a_hannbeso_a1_, 1, 50%, 1:sa_si_hn_a1, 1:sa_si_bi_a1
-sprite/me1b_huteki_a1_, 1, 25%, 1:me_se_aw_a2, 1:me_se_fu_b1, 1:me_se_aw_a1, 1:me_se_fu_b2
-sprite/me3_huteki_a1_, 1, 50%, 1:me_ta_fu_a2, 1:me_ta_fu_a1
-sprite/re3a_komaru_a1_, 1, 100%, 1:re_ta_ko_a1
-sprite/re3a_komaru_a2_, 1, 100%, 1:re_ta_ko_a2
-sprite/me1b_ikari_a1_, 1, 50%, 1:me_se_fu_b2, 1:me_se_aw_a1
-sprite/me4_wink_a1_, 1, 50%, 1:me_mi_wi_a1, 1:me_mi_wi_a2
-sprite/sa4_akuwarai_a1_, 1, 50%, 1:sa_ku_bi_a1, 1:sa_ku_aw_a1
-sprite/sa4_warai_a1_, 1, 100%, 1:sa_ku_wa_a1
-sprite/me4_huteki_a1_, 1, 100%, 1:me_mi_fu_a2
-sprite/sa2b_warai_b1_, 1, 100%, 1:sa_si_bi_a1
-portrait/re1a_bikkuri_a1_, 1, 100%, 1:re_se_bi_b1
-portrait/sa1b_akuwarai_b1_, 1, 100%, 1:sa_se_aw_b1
-sprite/me2_hig_maji_a1_, 1, 50%, 1:me_si_him_a1, 1:me_se_him_a1
-sprite/re2a_hig_muhyou_a1_, 1, 100%, 1:re_si_him_a1
-sprite/re2a_hig_def_a1_, 1, 100%, 1:re_si_hi_a1
-sprite/re1a_hig_def_a1_, 1, 100%, 1:re_se_hi_a1
-sprite/re2b_hig_muhyou_b1_, 1, 100%, 1:re_si_him_b1
-portrait/re1a_hig_okoru_a1_, 1, 100%, 1:re_se_hii_a1
-portrait/me2_warai_a1_, 1, 50%, 1:me_si_wa_a2, 1:me_si_wa_a1
-portrait/me2_hig_maji_a1_, 1, 50%, 1:me_si_him_a2, 1:me_si_to_a2
-sprite/flashback/re1a_hig_def_a1_, 1, 100%, 1:re_se_hi_a1
-sprite/sa1b_def_b1_, 1, 100%, 1:sa_se_de_b1
-sprite/flashback/me1b_odoroki_a1_, 1, 100%, 1:me_se_th_a1
-sprite/sa2a_naku_a1_, 1, 100%, 1:sa_si_na_a1
-sprite/sa2b_akuwarai_b1_, 1, 100%, 1:sa_si_ak_a1
-sprite/sa2b_def_b1_, 1, 100%, 1:sa_si_aw_a1
-sprite/sa2b_yareyare_b1_, 1, 100%, 1:sa_si_ak_a1
-sprite/sa1a_yareyare_a1_, 1, 100%, 1:sa_se_bi_a1
-sprite/sa1b_akireru_b1_, 1, 100%, 1:sa_se_ak_a2
-sprite/ri3_komaru_a1_, 1, 100%, 1:ri_ta_ko_a1
-sprite/si2_tokui_a1_, 1, 100%, 1:si_ma_to_a1
-sprite/si1b_tokui_b1_, 1, 100%, 1:si_si_to_b1
-sprite/flashback/me2_tohoho_a1_, 1, 100%, 1:me_si_th_a1
-sprite/flashback/sa2a_warai_a1_, 1, 100%, 1:sa_si_wa_a1
-sprite/flashback/re2b_kaii_b1_, 1, 100%, 1:re_si_ka_b1
-sprite/flashback/me2_wink_a1_, 1, 100%, 1:me_si_wi_a1
-sprite/flashback/me2_tokui_a1_, 1, 100%, 1:me_si_to_a1
-sprite/flashback/si2_def_a1_, 1, 100%, 1:si_ma_de_a1
-sprite/flashback/si2_hau_a1_, 1, 100%, 1:si_ma_ha_a1
-sprite/flashback/re1a_nande_a1_, 1, 100%, 1:re_se_na_a1
-sprite/flashback/si1a_wink_a1_, 1, 100%, 1:si_si_wi_a1
-sprite/flashback/re1a_def_a1_, 1, 100%, 1:re_se_de_a1
-sprite/flashback/re1b_hau_b1_, 1, 100%, 1:re_se_ha_b1
-sprite/si1b_hau_b1_, 1, 100%, 1:si_si_ha_b1
-sprite/me2_ikari_a1_, 1, 50%, 1:me_si_th_a1, 1:me_si_ik_a2
-sprite/me2_yowaki_a1_, 1, 33%, 1:me_si_bi_a2, 1:me_si_th_a1, 1:me_si_yw_a1
-sprite/me2_hau_a1_, 1, 50%, 1:me_si_ha_a1, 1:me_si_si_a2
-portrait/si1a_def_a1_, 1, 100%, 1:si_si_de_a1
-portrait/si1a_warai_a1_, 1, 100%, 1:si_si_wa_a1
-portrait/si1a_wink_a1_, 1, 100%, 1:si_si_wi_a1
-sprite/si1a_ikari_a1_, 1, 100%, 1:si_si_ik_a1
-portrait/si1b_def_b1_, 1, 100%, 1:si_si_de_b1
-portrait/si1a_odoroki_a1_, 1, 50%, 1:si_si_bi_a1, 1:si_si_bi_b1
-portrait/me2_akuwarai_a1_, 1, 100%, 1:me_si_aw_a1
-sprite/me1a_hig_maji_a1_, 1, 100%, 1:me_se_him_a1
-portrait/re1a_nande_a1_, 1, 100%, 1:re_se_wa_b1
-portrait/sa1a_odoroki_a1_, 1, 100%, 1:sa_se_bi_a1
-portrait/sa1b_warai_b1_, 1, 100%, 1:sa_se_wa_b1
-portrait/sa1b_odoroki_b1_, 1, 50%, 1:sa_se_bi_b2, 1:sa_se_bi_b1
-portrait/sa1a_warai_a1_, 1, 100%, 1:sa_se_wa_a1
-portrait/sa1a_naku_a1_, 1, 100%, 1:sa_se_hn_a1
-portrait/sa1a_hannbeso_a1_, 1, 100%, 1:re_se_wa_b1
-portrait/re1a_hau_a1_, 1, 100%, 1:re_se_ha_a1
-portrait/re1a_def_a1_, 1, 100%, 1:re_se_de_a1
-portrait/sa1a_def_a1_, 1, 100%, 1:sa_se_de_b1
-portrait/re1a_kaii_a1_, 1, 100%, 1:re_se_ka_a1
-portrait/sa1a_akireru_a1_, 1, 100%, 1:sa_se_ak_a1
-portrait/ri1_fuman_a1_, 1, 100%, 1:ri_se_ko_a1
-portrait/ri1_def_a1_, 1, 100%, 1:ri_se_de_a1
-portrait/ri1_niko_a1_, 1, 100%, 1:ri_se_ni_a1
-sprite/ri1_majime_a1_, 1, 100%, 1:ri_se_wa_a1
-sprite/re2a_okoru_a1_, 1, 50%, 1:re_si_ko_a2, 1:re_si_de_a1
-sprite/re2b_komaru_b2_, 1, 100%, 1:re_si_ko_b2
-portrait/re2a_def_a1_, 1, 50%, 1:re_si_de_a1, 1:re_si_de_b1
-portrait/re2a_komaru_a1_, 1, 100%, 1:re_si_ko_a1
-portrait/re2a_bikkuri_a1_, 1, 100%, 1:re_si_bi_a1
-sprite/flashback/ri1_def_a1_, 1, 100%, 1:ri_se_de_a1
-sprite/flashback/ri1_warai_a1_, 1, 100%, 1:ri_se_wa_a1
-sprite/flashback/sa1a_akireru_a1_, 1, 100%, 1:sa_se_ak_a1
-sprite/ta1_human_, 1, 100%, 1:ta_si_de_a1
-portrait/me2_hau_a1_, 1, 100%, 1:me_si_ha_a1
-portrait/me2_yowaki_a1_, 1, 100%, 1:me_si_yw_a1
+sprite/ri2_warai_a1_, 12, 100%, 12:ri_si_wa_a1, , , , , , 
+sprite/me1a_tokui_a1_, 11, 79%, 11:me_se_to_a1, 3:me_se_to_a2, , , , , 
+sprite/me2_tokui_a1_, 11, 55%, 11:me_si_to_a1, 9:me_si_to_a2, , , , , 
+sprite/ri2_niko_a1_, 11, 92%, 11:ri_si_ni_a1, 1:ri_si_wa_a1, , , , , 
+sprite/ri5_niko_a1_, 11, 85%, 11:ri_mk_ni_a1, 2:ri_mk_de_a1, , , , , 
+sprite/si2_warai_a1_, 11, 100%, 11:si_ma_wa_a1, , , , , , 
+sprite/oisi2_9_, 10, 100%, 10:oi_yk_de_a2, , , , , , 
+sprite/me1b_def_a1_, 10, 59%, 10:me_se_de_b1, 7:me_se_de_b2, , , , , 
+sprite/sa1b_warai_b1_, 10, 100%, 10:sa_se_wa_b1, , , , , , 
+sprite/re2b_def_b1_, 10, 91%, 10:re_si_de_b1, 1:re_si_de_a1, , , , , 
+sprite/sa2a_def_a1_, 10, 91%, 10:sa_si_de_a1, 1:sa_si_aw_a1, , , , , 
+sprite/ri1_komaru_a1_, 9, 90%, 9:ri_se_ko_a1, 1:si_si_fu_a1, , , , , 
+sprite/si1b_wink_b1_, 9, 100%, 9:si_si_wi_b1, , , , , , 
+sprite/re1b_kaii_b1_, 9, 100%, 9:re_se_ka_b1, , , , , , 
+sprite/me2_tohoho_a1_, 9, 56%, 9:me_si_th_a2, 6:me_si_th_a1, 1:me_si_de_a1, , , , 
+sprite/ri2_def_a1_, 9, 100%, 9:ri_si_de_a1, , , , , , 
+sprite/si2_wink_a1_, 9, 100%, 9:si_ma_wi_a1, , , , , , 
+sprite/rim_warai_, 8, 67%, 8:ri_si_wa_a1, 4:ri_si_ni_a1, , , , , 
+sprite/sa1b_odoroki_b1_, 8, 50%, 8:sa_se_bi_b1, 4:sa_se_bi_b2, 2:si_si_fu_a1, 1:re_se_ik_b1, 1:sa_se_na_b2, , 
+sprite/re1b_komaru_b1_, 8, 100%, 8:re_se_ko_b1, , , , , , 
+sprite/me1a_tohoho_a1_, 8, 50%, 8:me_se_th_a1, 7:me_se_th_a2, 1:ti_si_ik_a1, , , , 
+sprite/me1b_akuwarai_a1_, 8, 57%, 8:me_se_aw_b2, 5:me_se_aw_b1, 1:me_se_th_a2, , , , 
+sprite/me2_akuwarai_a1_, 8, 50%, 8:me_si_aw_a1, 6:me_si_aw_a2, 1:me_si_fu_a2, 1:me_si_de_a1, , , 
+sprite/re2b_hau_b1_, 8, 89%, 8:re_si_ha_b1, 1:re_si_ka_b1, , , , , 
+sprite/me2_huteki_a1_, 8, 47%, 8:me_si_fu_a1, 6:me_si_fu_a2, 1:me_si_th_a2, 1:me_si_aw_a1, 1:me_si_si_a2, , 
+sprite/me2_odoroki_a1_, 8, 57%, 8:me_si_bi_a2, 4:me_si_bi_a1, 1:me_si_th_a2, 1:me_si_th_a1, , , 
+sprite/si2_odoroki_a1_, 8, 100%, 8:si_ma_bi_a1, , , , , , 
+sprite/si2_yowaki_a1_, 8, 89%, 8:si_ma_yw_a1, 1:si_ma_de_a1, , , , , 
+sprite/si2_hau_a1_, 8, 100%, 8:si_ma_ha_a1, , , , , , 
+sprite/ri5_warai_a1_, 8, 100%, 8:ri_mk_wa_a1, , , , , , 
+sprite/oisi2_7_, 7, 100%, 7:oi_yk_wa_a1, , , , , , 
+sprite/ta1_akuwarai_, 7, 88%, 7:ta_si_aw_a1, 1:ta_si_de_a1, , , , , 
+sprite/sa1b_akuwarai_b1_, 7, 88%, 7:sa_se_aw_b1, 1:sa_se_wa_b1, , , , , 
+sprite/re2a_kaii_a1_, 7, 100%, 7:re_si_ka_a1, , , , , , 
+sprite/re3a_def_a1_, 7, 100%, 7:re_ta_de_a1, , , , , , 
+sprite/re2b_bikkuri_b1_, 7, 100%, 7:re_si_bi_b1, , , , , , 
+portrait/re1a_warai_a1_, 7, 100%, 7:re_se_wa_a1, , , , , , 
+sprite/re1b_nande_b1_, 7, 58%, 7:re_se_na_b1, 3:re_se_de_b1, 1:re_se_bi_b1, 1:re_se_de_a1, , , 
+portrait/me2_sinmyou_a1_, 7, 88%, 7:me_si_si_a1, 1:me_si_si_a2, , , , , 
+portrait/rim_komaru_, 6, 86%, 6:ri_si_ko_a1, 1:ri_si_ni_a1, , , , , 
+sprite/me1b_warai_a1_, 6, 46%, 6:me_se_wa_b1, 5:me_se_wa_b2, 1:me_se_ik_a2, 1:re_se_wa_a1, , , 
+sprite/si1b_warai_b1_, 6, 86%, 6:si_si_wa_b1, 1:si_si_fu_a1, , , , , 
+sprite/me1b_tohoho_a1_, 6, 60%, 6:me_se_th_b1, 3:me_se_th_b2, 1:re_se_ik_b1, , , , 
+sprite/re2b_komaru_b1_, 6, 100%, 6:re_si_ko_b1, , , , , , 
+sprite/me3_def_a1_, 6, 86%, 6:me_ta_de_a1, 1:me_ta_de_a2, , , , , 
+sprite/sa3_odoroki_a1_, 6, 100%, 6:sa_ta_bi_a1, , , , , , 
+sprite/re2a_bikkuri_a1_, 6, 100%, 6:re_si_bi_a1, , , , , , 
+sprite/ri5_komaru_a1_, 6, 100%, 6:ri_mk_ko_a1, , , , , , 
+sprite/si1a_majime_a1_, 6, 60%, 6:si_si_ma_a1, 3:si_si_de_a1, 1:si_si_bi_a1, , , , 
+portrait/rim_def_, 5, 71%, 5:ri_si_de_a1, 1:ri_si_wa_a1, 1:ri_si_fu_a1, , , , 
+portrait/rim_warai_, 5, 62%, 5:ri_si_wa_a1, 3:ri_si_ni_a1, , , , , 
+sprite/iri2_def1_, 5, 100%, 5:ir_hk_de_a1, , , , , , 
+sprite/rim_majime_, 5, 83%, 5:ri_si_fu_a1, 1:ri_se_fu_a1, , , , , 
+sprite/me1a_odoroki_a1_, 5, 50%, 5:me_se_bi_a1, 3:me_se_bi_a2, 1:ti_si_ik_a1, 1:me_se_th_a2, , , 
+sprite/re1a_kaii_a1_, 5, 100%, 5:re_se_ka_a1, , , , , , 
+sprite/me1a_huteki_a1_, 5, 56%, 5:me_se_fu_a1, 2:me_se_fu_a2, 1:re_se_de_a1, 1:me_se_wi_a1, , , 
+sprite/me3_warai_a1_, 5, 100%, 5:me_ta_wa_a2, , , , , , 
+sprite/sa3_akuwarai_a1_, 5, 100%, 5:sa_ta_aw_a1, , , , , , 
+sprite/ri3_def_a1_, 5, 100%, 5:ri_ta_de_a1, , , , , , 
+sprite/re2a_komaru_a1_, 5, 100%, 5:re_si_ko_a1, , , , , , 
+portrait/re1a_hig_def_a1_, 5, 83%, 5:re_se_hi_a1, 1:re_se_hi_b1, , , , , 
+sprite/si1b_def_b1_, 5, 100%, 5:si_si_de_b1, , , , , , 
+sprite/oisi1_5_, 4, 57%, 4:oi_si_aw_a1, 1:Furiker_b, 1:oi_si_wa_a1, 1:oi_si_de_a1, , , 
+sprite/me1a_majime_a1_, 4, 67%, 4:me_se_ma_a1, 1:me_se_ma_a2, 1:me_se_bi_a1, , , , 
+sprite/sa1a_hannbeso_a1_, 4, 67%, 4:sa_se_hn_a1, 1:me_se_ik_a2, 1:re_se_ik_b1, , , , 
+sprite/sa1a_naku_a1_, 4, 100%, 4:sa_se_na_a1, , , , , , 
+sprite/me1b_tokui_a1_, 4, 57%, 4:me_se_to_b2, 3:me_se_to_b1, , , , , 
+sprite/si1b_akuwarai_b1_, 4, 57%, 4:si_si_aw_b1, 1:si_si_fu_a1, 1:ti_si_ik_a1, 1:ti_si_ko_a1, , , 
+sprite/sa1b_hannbeso_b1_, 4, 80%, 4:sa_se_hn_b2, 1:sa_se_hn_b1, , , , , 
+sprite/ri2_komaru_a1_, 4, 100%, 4:ri_si_ko_a1, , , , , , 
+sprite/me3_wink_a1_, 4, 100%, 4:me_ta_wi_a1, , , , , , 
+sprite/re3b_bikkuri_b1_, 4, 100%, 4:re_ta_bi_b1, , , , , , 
+sprite/re3b_kaii_b1_, 4, 100%, 4:re_ta_ka_b1, , , , , , 
+sprite/re3a_hau_a1_, 4, 100%, 4:re_ta_ha_a1, , , , , , 
+sprite/si1a_hau_a1_, 4, 80%, 4:si_si_ha_a1, 1:si_si_ha_b1, , , , , 
+sprite/rim_komaru_, 3, 50%, 3:ri_si_ko_a1, 2:ri_si_de_a1, 1:ri_si_ni_a1, , , , 
+sprite/iri2_majime_, 3, 100%, 3:ir_hk_ma_a1, , , , , , 
+sprite/chibimion_def_, 3, 75%, 3:me_si_de_a1, 1:me_si_de_a2, , , , , 
+sprite/iri2_def2_, 3, 100%, 3:ir_hk_de_a2, , , , , , 
+sprite/sa1b_naku_b1_, 3, 75%, 3:sa_se_na_b1, 1:me_se_ik_a2, , , , , 
+sprite/me1b_odoroki_a1_, 3, 33%, 3:me_se_bi_b2, 3:me_se_bi_b1, 1:me_se_ik_a2, 1:re_se_ik_b1, 1:me_se_wi_b2, , 
+sprite/re1a_okoru_a1_, 3, 38%, 3:re_se_ik_a1, 2:re_se_de_a1, 1:re_se_ik_b1, 1:re_se_wa_a1, 1:re_se_ko_a1, , 
+sprite/re1b_okoru_b1_, 3, 60%, 3:re_se_ik_b1, 1:re_se_ko_a2, 1:re_se_de_b1, , , , 
+sprite/sa3_def_a1_, 3, 100%, 3:sa_ta_de_a1, , , , , , 
+sprite/ri3_niko_a1_, 3, 100%, 3:ri_ta_ni_a1, , , , , , 
+sprite/re3a_warai_a1_, 3, 100%, 3:re_ta_wa_a1, , , , , , 
+sprite/re3a_nande_a1_, 3, 100%, 3:re_ta_na_a1, , , , , , 
+sprite/me3_akuwarai_a1_, 3, 60%, 3:me_ta_aw_a2, 2:me_ta_aw_a1, , , , , 
+sprite/ri3_warai_a1_, 3, 100%, 3:ri_ta_wa_a1, , , , , , 
+sprite/re3a_bikkuri_a1_, 3, 100%, 3:re_ta_bi_a1, , , , , , 
+sprite/re3b_hau_b1_, 3, 100%, 3:re_ta_ha_b1, , , , , , 
+sprite/me4_akuwarai_a1_, 3, 100%, 3:me_mi_aw_a1, , , , , , 
+sprite/sa4_odoroki_a1_, 3, 100%, 3:sa_ku_bi_a1, , , , , , 
+sprite/ri4_komaru_a1_, 3, 100%, 3:ri_nk_ko_a1, , , , , , 
+sprite/oisi1_3_, 3, 100%, 3:oi_si_ma_a1, , , , , , 
+sprite/re1b_komaru_b2_, 3, 60%, 3:re_se_ko_b1, 1:re_se_de_b1, 1:re_se_ko_b2, , , , 
+sprite/si1a_odoroki_a1_, 3, 75%, 3:si_si_bi_a1, 1:si_si_bi_b1, , , , , 
+portrait/si1b_wink_b1_, 3, 100%, 3:si_si_wi_a1, , , , , , 
+portrait/rim_majime_, 2, 67%, 2:ri_si_fu_a1, 1:ri_si_ko_a2, , , , , 
+portrait/rim_niyari_, 2, 100%, 2:ri_si_ny_a1, , , , , , 
+sprite/chibimion_wink_, 2, 100%, 2:me_si_wi_a1, , , , , , 
+sprite/me1a_ikari_a1_, 2, 50%, 2:me_se_ik_a2, 1:me_se_bi_a1, 1:me_se_ik_a1, , , , 
+sprite/si1a_huteki_a1_, 2, 100%, 2:si_si_fu_a1, , , , , , 
+sprite/me1b_majime_a1_, 2, 50%, 2:me_se_ma_b1, 2:me_se_ma_b2, , , , , 
+sprite/me3_tokui_a1_, 2, 67%, 2:me_ta_to_a2, 1:me_ta_to_a1, , , , , 
+sprite/sa3_warai_a1_, 2, 100%, 2:sa_ta_wa_a1, , , , , , 
+sprite/sa3_hannbeso_a1_, 2, 100%, 2:sa_ta_hn_a1, , , , , , 
+sprite/sa3_akireru_a1_, 2, 100%, 2:sa_ta_ak_a1, , , , , , 
+sprite/re3b_warai_b1_, 2, 100%, 2:re_ta_wa_b1, , , , , , 
+sprite/me3_tohoho_a1_, 2, 100%, 2:me_ta_th_a1, , , , , , 
+sprite/me1a_yowaki_a1_, 2, 29%, 2:me_se_yw_a1, 1:me_se_th_a2, 1:me_se_yw_a2, 1:me_se_th_a1, 1:me_se_th_b2, 1:me_se_de_a1, 
+sprite/re3a_kaii_a1_, 2, 100%, 2:re_ta_ka_a1, , , , , , 
+portrait/sa1b_naku_b1_, 2, 100%, 2:sa_se_na_b1, , , , , , 
+sprite/re1a_hig_muhyou_a1_, 2, 100%, 2:re_se_him_a1, , , , , , 
+sprite/re2a_komaru_a2_, 2, 50%, 2:re_si_ko_a2, 2:re_si_ko_a1, , , , , 
+sprite/me1b_yowaki_a1_, 2, 100%, 2:me_se_yw_b2, , , , , , 
+portrait/me2_def_a1_, 2, 50%, 2:me_si_de_a1, 2:me_si_de_a2, , , , , 
+portrait/oisi1_1_, 2, 100%, 2:oi_si_de_a1, , , , , , 
+sprite/si2_akuwarai_a1_, 2, 100%, 2:si_ma_aw_a1, , , , , , 
+sprite/ri1_fuman_a1_, 2, 50%, 2:ri_se_de_a1, 1:ri_se_ko_a1, 1:ri_se_ni_a1, , , , 
+sprite/re2b_nande_b1_, 2, 50%, 2:re_si_na_b1, 1:re_si_na_a1, 1:re_si_wa_b1, , , , 
+sprite/flashback/me2_warai_a1_, 2, 100%, 2:me_si_wa_a1, , , , , , 
+sprite/me1a_hau_a1_, 2, 100%, 2:me_se_ha_a1, , , , , , 
+portrait/re2a_warai_a1_, 2, 50%, 2:re_si_wa_b1, 2:re_si_wa_a1, , , , , 
+portrait/si1a_akuwarai_a1_, 2, 100%, 2:si_si_aw_a1, , , , , , 
+sprite/ta1_hatena_, 2, 100%, 2:ta_si_de_a1, , , , , , 
+sprite/si1a_yowaki_a1_, 2, 100%, 2:si_si_yw_a1, , , , , , 
+portrait/me2_majime_a1_, 2, 67%, 2:me_si_ma_a1, 1:me_si_ma_a2, , , , , 
+portrait/oisi1_2_, 2, 100%, 2:oi_si_wa_a1, , , , , , 
+sprite/ri1_komaru_a2_, 2, 100%, 2:ri_se_ko_a1, , , , , , 
+portrait/ri1_warai_a1_, 2, 100%, 2:ri_se_wa_a1, , , , , , 
+sprite/re2b_okoru_b1_, 2, 100%, 2:re_si_ik_b1, , , , , , 
+portrait/re2a_nande_a1_, 2, 100%, 2:re_si_na_a1, , , , , , 
+sprite/flashback/sa1a_def_a1_, 2, 100%, 2:sa_se_de_a1, , , , , , 
+sprite/iri2_majime2_, 1, 100%, 1:ir_hk_ma_a2, , , , , , 
+portrait/iri2_def1_, 1, 100%, 1:ir_hk_de_a1, , , , , , 
+portrait/iri2_majime_, 1, 100%, 1:ir_hk_ma_a1, , , , , , 
+sprite/rim_niyari_, 1, 100%, 1:ri_si_ny_a1, , , , , , 
+sprite/oisi2_8_, 1, 50%, 1:oi_yk_de_a1, 1:oi_yk_ma_a1, , , , , 
+sprite/iri2_warai_, 1, 100%, 1:ir_hk_wa_a1, , , , , , 
+sprite/chibimion_warai_, 1, 50%, 1:me_si_wa_a2, 1:me_si_wa_a1, , , , , 
+sprite/chibimion_shinken_, 1, 100%, 1:me_si_ma_a1, , , , , , 
+sprite/tie_3_, 1, 50%, 1:me_se_bi_a1, 1:ti_si_ko_a1, , , , , 
+sprite/si1a_tokui_a1_, 1, 100%, 1:si_si_to_a1, , , , , , 
+sprite/iri1_def1_, 1, 100%, 1:ir_si_de_a1, , , , , , 
+sprite/iri1_majime2_, 1, 100%, 1:me_se_bi_a1, , , , , , 
+sprite/iri1_warai_, 1, 100%, 1:re_se_ik_b1, , , , , , 
+sprite/iri1_def2_, 1, 100%, 1:ir_si_de_a2, , , , , , 
+sprite/tie_2_, 1, 50%, 1:ti_si_ik_a1, 1:Furiker_b, , , , , 
+sprite/sa2a_hannbeso_a1_, 1, 50%, 1:sa_si_hn_a1, 1:sa_si_bi_a1, , , , , 
+sprite/me1b_huteki_a1_, 1, 25%, 1:me_se_aw_a2, 1:me_se_fu_b1, 1:me_se_aw_a1, 1:me_se_fu_b2, , , 
+sprite/me3_huteki_a1_, 1, 50%, 1:me_ta_fu_a2, 1:me_ta_fu_a1, , , , , 
+sprite/re3a_komaru_a1_, 1, 100%, 1:re_ta_ko_a1, , , , , , 
+sprite/re3a_komaru_a2_, 1, 100%, 1:re_ta_ko_a2, , , , , , 
+sprite/me1b_ikari_a1_, 1, 50%, 1:me_se_fu_b2, 1:me_se_aw_a1, , , , , 
+sprite/me4_wink_a1_, 1, 50%, 1:me_mi_wi_a1, 1:me_mi_wi_a2, , , , , 
+sprite/sa4_akuwarai_a1_, 1, 50%, 1:sa_ku_bi_a1, 1:sa_ku_aw_a1, , , , , 
+sprite/sa4_warai_a1_, 1, 100%, 1:sa_ku_wa_a1, , , , , , 
+sprite/me4_huteki_a1_, 1, 100%, 1:me_mi_fu_a2, , , , , , 
+sprite/sa2b_warai_b1_, 1, 100%, 1:sa_si_bi_a1, , , , , , 
+portrait/re1a_bikkuri_a1_, 1, 100%, 1:re_se_bi_b1, , , , , , 
+portrait/sa1b_akuwarai_b1_, 1, 100%, 1:sa_se_aw_b1, , , , , , 
+sprite/me2_hig_maji_a1_, 1, 50%, 1:me_si_him_a1, 1:me_se_him_a1, , , , , 
+sprite/re2a_hig_muhyou_a1_, 1, 100%, 1:re_si_him_a1, , , , , , 
+sprite/re2a_hig_def_a1_, 1, 100%, 1:re_si_hi_a1, , , , , , 
+sprite/re1a_hig_def_a1_, 1, 100%, 1:re_se_hi_a1, , , , , , 
+sprite/re2b_hig_muhyou_b1_, 1, 100%, 1:re_si_him_b1, , , , , , 
+portrait/re1a_hig_okoru_a1_, 1, 100%, 1:re_se_hii_a1, , , , , , 
+portrait/me2_warai_a1_, 1, 50%, 1:me_si_wa_a2, 1:me_si_wa_a1, , , , , 
+portrait/me2_hig_maji_a1_, 1, 50%, 1:me_si_him_a2, 1:me_si_to_a2, , , , , 
+sprite/flashback/re1a_hig_def_a1_, 1, 100%, 1:re_se_hi_a1, , , , , , 
+sprite/sa1b_def_b1_, 1, 100%, 1:sa_se_de_b1, , , , , , 
+sprite/flashback/me1b_odoroki_a1_, 1, 100%, 1:me_se_th_a1, , , , , , 
+sprite/sa2a_naku_a1_, 1, 100%, 1:sa_si_na_a1, , , , , , 
+sprite/sa2b_akuwarai_b1_, 1, 100%, 1:sa_si_ak_a1, , , , , , 
+sprite/sa2b_def_b1_, 1, 100%, 1:sa_si_aw_a1, , , , , , 
+sprite/sa2b_yareyare_b1_, 1, 100%, 1:sa_si_ak_a1, , , , , , 
+sprite/sa1a_yareyare_a1_, 1, 100%, 1:sa_se_bi_a1, , , , , , 
+sprite/sa1b_akireru_b1_, 1, 100%, 1:sa_se_ak_a2, , , , , , 
+sprite/ri3_komaru_a1_, 1, 100%, 1:ri_ta_ko_a1, , , , , , 
+sprite/si2_tokui_a1_, 1, 100%, 1:si_ma_to_a1, , , , , , 
+sprite/si1b_tokui_b1_, 1, 100%, 1:si_si_to_b1, , , , , , 
+sprite/flashback/me2_tohoho_a1_, 1, 100%, 1:me_si_th_a1, , , , , , 
+sprite/flashback/sa2a_warai_a1_, 1, 100%, 1:sa_si_wa_a1, , , , , , 
+sprite/flashback/re2b_kaii_b1_, 1, 100%, 1:re_si_ka_b1, , , , , , 
+sprite/flashback/me2_wink_a1_, 1, 100%, 1:me_si_wi_a1, , , , , , 
+sprite/flashback/me2_tokui_a1_, 1, 100%, 1:me_si_to_a1, , , , , , 
+sprite/flashback/si2_def_a1_, 1, 100%, 1:si_ma_de_a1, , , , , , 
+sprite/flashback/si2_hau_a1_, 1, 100%, 1:si_ma_ha_a1, , , , , , 
+sprite/flashback/re1a_nande_a1_, 1, 100%, 1:re_se_na_a1, , , , , , 
+sprite/flashback/si1a_wink_a1_, 1, 100%, 1:si_si_wi_a1, , , , , , 
+sprite/flashback/re1a_def_a1_, 1, 100%, 1:re_se_de_a1, , , , , , 
+sprite/flashback/re1b_hau_b1_, 1, 100%, 1:re_se_ha_b1, , , , , , 
+sprite/si1b_hau_b1_, 1, 100%, 1:si_si_ha_b1, , , , , , 
+sprite/me2_ikari_a1_, 1, 50%, 1:me_si_th_a1, 1:me_si_ik_a2, , , , , 
+sprite/me2_yowaki_a1_, 1, 33%, 1:me_si_bi_a2, 1:me_si_th_a1, 1:me_si_yw_a1, , , , 
+sprite/me2_hau_a1_, 1, 50%, 1:me_si_ha_a1, 1:me_si_si_a2, , , , , 
+portrait/si1a_def_a1_, 1, 100%, 1:si_si_de_a1, , , , , , 
+portrait/si1a_warai_a1_, 1, 100%, 1:si_si_wa_a1, , , , , , 
+portrait/si1a_wink_a1_, 1, 100%, 1:si_si_wi_a1, , , , , , 
+sprite/si1a_ikari_a1_, 1, 100%, 1:si_si_ik_a1, , , , , , 
+portrait/si1b_def_b1_, 1, 100%, 1:si_si_de_b1, , , , , , 
+portrait/si1a_odoroki_a1_, 1, 50%, 1:si_si_bi_a1, 1:si_si_bi_b1, , , , , 
+portrait/me2_akuwarai_a1_, 1, 100%, 1:me_si_aw_a1, , , , , , 
+sprite/me1a_hig_maji_a1_, 1, 100%, 1:me_se_him_a1, , , , , , 
+portrait/re1a_nande_a1_, 1, 100%, 1:re_se_wa_b1, , , , , , 
+portrait/sa1a_odoroki_a1_, 1, 100%, 1:sa_se_bi_a1, , , , , , 
+portrait/sa1b_warai_b1_, 1, 100%, 1:sa_se_wa_b1, , , , , , 
+portrait/sa1b_odoroki_b1_, 1, 50%, 1:sa_se_bi_b2, 1:sa_se_bi_b1, , , , , 
+portrait/sa1a_warai_a1_, 1, 100%, 1:sa_se_wa_a1, , , , , , 
+portrait/sa1a_naku_a1_, 1, 100%, 1:sa_se_hn_a1, , , , , , 
+portrait/sa1a_hannbeso_a1_, 1, 100%, 1:re_se_wa_b1, , , , , , 
+portrait/re1a_hau_a1_, 1, 100%, 1:re_se_ha_a1, , , , , , 
+portrait/re1a_def_a1_, 1, 100%, 1:re_se_de_a1, , , , , , 
+portrait/sa1a_def_a1_, 1, 100%, 1:sa_se_de_b1, , , , , , 
+portrait/re1a_kaii_a1_, 1, 100%, 1:re_se_ka_a1, , , , , , 
+portrait/sa1a_akireru_a1_, 1, 100%, 1:sa_se_ak_a1, , , , , , 
+portrait/ri1_fuman_a1_, 1, 100%, 1:ri_se_ko_a1, , , , , , 
+portrait/ri1_def_a1_, 1, 100%, 1:ri_se_de_a1, , , , , , 
+portrait/ri1_niko_a1_, 1, 100%, 1:ri_se_ni_a1, , , , , , 
+sprite/ri1_majime_a1_, 1, 100%, 1:ri_se_wa_a1, , , , , , 
+sprite/re2a_okoru_a1_, 1, 50%, 1:re_si_ko_a2, 1:re_si_de_a1, , , , , 
+sprite/re2b_komaru_b2_, 1, 100%, 1:re_si_ko_b2, , , , , , 
+portrait/re2a_def_a1_, 1, 50%, 1:re_si_de_a1, 1:re_si_de_b1, , , , , 
+portrait/re2a_komaru_a1_, 1, 100%, 1:re_si_ko_a1, , , , , , 
+portrait/re2a_bikkuri_a1_, 1, 100%, 1:re_si_bi_a1, , , , , , 
+sprite/flashback/ri1_def_a1_, 1, 100%, 1:ri_se_de_a1, , , , , , 
+sprite/flashback/ri1_warai_a1_, 1, 100%, 1:ri_se_wa_a1, , , , , , 
+sprite/flashback/sa1a_akireru_a1_, 1, 100%, 1:sa_se_ak_a1, , , , , , 
+sprite/ta1_human_, 1, 100%, 1:ta_si_de_a1, , , , , , 
+portrait/me2_hau_a1_, 1, 100%, 1:me_si_ha_a1, , , , , , 
+portrait/me2_yowaki_a1_, 1, 100%, 1:me_si_yw_a1, , , , , , 
