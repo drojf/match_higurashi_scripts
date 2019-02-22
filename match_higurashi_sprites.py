@@ -63,9 +63,11 @@ def try_get_steam_to_ps3_matching_from_chunks(steam_chunk : str, ps3_chunk : str
 		return None
 
 
-def update_match_statistics(match_statistics, reverse_match_statistics, steam_script_path, ps3_script_path):
+def update_match_statistics(match_statistics, reverse_match_statistics, steam_script_path, ps3_script_path, ps3_filter_function=None):
 	original_to_steam_chunk_list = get_matching_chunks_from_file(steam_script_path, ps3_script_path)
 
+	if not ps3_filter_function:
+		ps3_filter_function = lambda x: x
 	# 'match_statistics' is a dict of dicts. It records how many of each type of match has been seen previously.
 	# The key of the outer dict is the ps3 filename. The value of the outer dict is another dict, described below
 	# The key of the inner dict is the steam filename. The value of the inner dict is the count of number of matches for that steam filename.
@@ -86,6 +88,7 @@ def update_match_statistics(match_statistics, reverse_match_statistics, steam_sc
 		mapping = try_get_steam_to_ps3_matching_from_chunks(original_chunk, ps3_chunk)
 		if mapping:
 			steam_name, ps3_name = mapping
+			ps3_name = ps3_filter_function(ps3_name)
 			#do the forward mapping
 			match_count = match_statistics.setdefault(ps3_name, {})
 			match_count.setdefault(steam_name, 0)
@@ -160,42 +163,57 @@ def convertMatchingToCSV(match_statistics : dict) -> [str]:
 
 	return rows_as_strings
 
+def write_to_file(text : str, path : str):
+	with open(path, 'w', encoding='utf-8') as output_file:
+		output_file.write(text)
+
+def normalize_time_of_day(ps3_image_path : str):
+	return ps3_image_path.replace('/normal/','/').replace('/sunset/', '/').replace('/night/','/')
+
 parser = MyParser(description='Match sprites between steam and ps3 scripts, given two input folders containing scripts as .txt files.')
 parser.add_argument('steam_scripts_folder', type=str, help='path containing steam scripts as .txt files')
 parser.add_argument('ps3_scripts_folder', type=str, help='path containing ps3 scripts as .txt files')
 parser.add_argument('output_file_path', type=str, help='name of file where results are written (JSON format)')
+parser.add_argument('--ignore_time_of_day', type=bool, default=False, help='ignore "normal", "sunset", "night" in ps3 paths')
 
 args = parser.parse_args()
 
 match_statistics = {}
 reverse_match_statistics = {}
 
+ps3_filter_function = None
+if args.ignore_time_of_day:
+	print("NOTE: ignoring time of day")
+	ps3_filter_function = normalize_time_of_day
+else:
+	print("NOTE: Keeping time of day")
+
 matching_script_paths = get_matching_script_paths_between_folders(args.steam_scripts_folder, args.ps3_scripts_folder)
 for steam_script_path, ps3_script_path in matching_script_paths:
-	update_match_statistics(match_statistics, reverse_match_statistics, steam_script_path, ps3_script_path)
+	update_match_statistics(match_statistics, reverse_match_statistics, steam_script_path, ps3_script_path, ps3_filter_function)
 
 print("\n\n----------------------------------------------")
 y = convertMatchingToCSV(match_statistics)
 for x in y:
 	print(x)
+write_to_file('\n'.join(y), args.output_file_path + '.csv')
 
 print("\n\n----------------------------------------------")
 y = convertMatchingToCSV(reverse_match_statistics)
 for x in y:
 	print(x)
+write_to_file('\n'.join(y), args.output_file_path + '.reversed.csv')
 
 
 json_string = json.dumps(match_statistics, sort_keys=True, indent=4)
 
 print(json_string)
-
-with open(args.output_file_path, 'w', encoding='utf-8') as output_file:
-	output_file.write(json_string)
+write_to_file(json_string, args.output_file_path)
 
 #dump reverse statistics
 json_string = json.dumps(reverse_match_statistics, sort_keys=True, indent=4)
 
 print(json_string)
+write_to_file(json_string, args.output_file_path + '.reversed.txt')
 
-with open(args.output_file_path + '.reversed.txt', 'w', encoding='utf-8') as output_file:
-	output_file.write(json_string)
+#normal night sunset
