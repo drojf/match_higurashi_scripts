@@ -129,6 +129,36 @@ class MyParser(argparse.ArgumentParser):
 		self.print_help()
 		sys.exit(2)
 
+def get_sorted_matches(matches):
+	return sorted(matches.items(), key=lambda x:x[1], reverse=True)
+
+class MatchRow:
+	def __init__(self, source, highestCount, confidence, sorted_scores):
+		self.source = source
+		self.highestCount = highestCount
+		self.confidence = confidence
+		self.sorted_scores = sorted_scores
+
+
+def convertMatchingToCSV(match_statistics : dict) -> [str]:
+	rows = []
+	for sourceMatch, destinationMatches in match_statistics.items():
+		sorted_matches = get_sorted_matches(destinationMatches)
+		best_match = sorted_matches[0]
+		total_score = sum([x[1] for x in sorted_matches])
+		best_match_confidence = best_match[1] / total_score * 100
+
+		# highestCountName, highestCount, confidence = getBestMatchAndConfidence(destinationMatches)
+		rows.append(MatchRow(sourceMatch, best_match[1], best_match_confidence, sorted_matches))
+
+	rows.sort(key=lambda x: x.highestCount, reverse=True)
+
+	rows_as_strings = []
+	for row in rows:
+		sorted_scores_as_csv = ', '.join([f'{x[1]}:{x[0]}' for x in row.sorted_scores])
+		rows_as_strings.append(f"{row.source}, {row.highestCount}, {row.confidence:.0f}%, {sorted_scores_as_csv}")
+
+	return rows_as_strings
 
 parser = MyParser(description='Match sprites between steam and ps3 scripts, given two input folders containing scripts as .txt files.')
 parser.add_argument('steam_scripts_folder', type=str, help='path containing steam scripts as .txt files')
@@ -143,6 +173,17 @@ reverse_match_statistics = {}
 matching_script_paths = get_matching_script_paths_between_folders(args.steam_scripts_folder, args.ps3_scripts_folder)
 for steam_script_path, ps3_script_path in matching_script_paths:
 	update_match_statistics(match_statistics, reverse_match_statistics, steam_script_path, ps3_script_path)
+
+print("\n\n----------------------------------------------")
+y = convertMatchingToCSV(match_statistics)
+for x in y:
+	print(x)
+
+print("\n\n----------------------------------------------")
+y = convertMatchingToCSV(reverse_match_statistics)
+for x in y:
+	print(x)
+
 
 json_string = json.dumps(match_statistics, sort_keys=True, indent=4)
 
