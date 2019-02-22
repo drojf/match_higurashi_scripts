@@ -88,6 +88,9 @@ def update_match_statistics(match_statistics, reverse_match_statistics, steam_sc
 		mapping = try_get_steam_to_ps3_matching_from_chunks(original_chunk, ps3_chunk)
 		if mapping:
 			steam_name, ps3_name = mapping
+			#the image 'black' is not a sprite, so shouldn't be used for matching
+			if steam_name == 'black' or ps3_name == 'black':
+				continue
 			ps3_name = ps3_filter_function(ps3_name)
 			#do the forward mapping
 			match_count = match_statistics.setdefault(ps3_name, {})
