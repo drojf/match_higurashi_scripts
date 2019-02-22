@@ -1,3 +1,4 @@
+source image, count of best match, confidence, all matches
 sprite/normal/re1a_def_a1_, 84, 95%, 84:re_se_de_a1, 1:tm_si_de_a1, 1:si_si_fu_a1, 1:re_se_de_b1, 1:re_se_wa_b1
 sprite/normal/re1a_warai_a1_, 70, 91%, 70:re_se_wa_a1, 2:re_se_ik_b1, 1:me_se_bi_a1, 1:me_se_ik_a2, 1:re_se_ko_a1, 1:cinema, 1:re_se_de_a1
 sprite/normal/oisi1_1_, 59, 98%, 59:oi_si_de_a1, 1:oi_si_wa_a1

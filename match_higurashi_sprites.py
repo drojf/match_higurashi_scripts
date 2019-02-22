@@ -160,6 +160,7 @@ def convertMatchingToCSV(match_statistics : dict) -> [str]:
 	rows.sort(key=lambda x: x.highestCount, reverse=True)
 
 	rows_as_strings = []
+	rows_as_strings.append('source image, count of best match, confidence, all matches')
 	for row in rows:
 		sorted_scores_as_csv = ', '.join([f'{x[1]}:{x[0]}' for x in row.sorted_scores])
 		rows_as_strings.append(f"{row.source}, {row.highestCount}, {row.confidence:.0f}%, {sorted_scores_as_csv}")

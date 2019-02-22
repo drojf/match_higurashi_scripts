@@ -1,3 +1,4 @@
+source image, count of best match, confidence, all matches
 re_se_de_a1, 84, 80%, 84:sprite/normal/re1a_def_a1_, 5:sprite/normal/re1a_nande_a1_, 3:sprite/sunset/re1a_def_a1_, 2:sprite/normal/me1a_def_a1_, 2:sprite/normal/re1a_komaru_a1_, 2:sprite/normal/re1a_okoru_a1_, 1:sprite/normal/me1a_huteki_a1_, 1:sprite/normal/re1a_warai_a1_, 1:sprite/flashback/re1a_def_a1_, 1:portrait/normal/re1a_def_a1_, 1:sprite/normal/re1b_def_b1_, 1:sprite/normal/re1a_komaru_a2_, 1:sprite/normal/re1b_nande_b1_
 re_se_wa_a1, 70, 84%, 70:sprite/normal/re1a_warai_a1_, 7:portrait/normal/re1a_warai_a1_, 1:sprite/normal/me1b_warai_a1_, 1:sprite/normal/me1b_wink_a1_, 1:sprite/normal/re1a_okoru_a1_, 1:sprite/sunset/re1a_warai_a1_, 1:sprite/normal/re1a_komaru_a2_, 1:sprite/normal/re1a_nande_a1_
 oi_si_de_a1, 59, 82%, 59:sprite/normal/oisi1_1_, 6:sprite/sunset/oisi1_1_, 4:sprite/night/oisi1_1_, 1:portrait/night/oisi1_1_, 1:portrait/normal/oisi1_1_, 1:sprite/normal/oisi1_5_
