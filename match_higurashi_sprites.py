@@ -12,6 +12,16 @@ steamBustRegex = re.compile(r'DrawBust[^\(]+\(\s*\d*\s*,\s*\"([^\"]+)')
 ps3BustRegex = re.compile(r'ModDraw[^\(]+\(\s*\d*\s*,\s*\d*\s*,\s*\"([^\"]+)')
 
 
+def get_ps3_sprite_names_from_file(ps3_script_path, ps3FilterFunction) -> set:
+	all_sprite_names = set()
+	with open(ps3_script_path, encoding='utf-8') as ps3_script_file:
+		for line in ps3_script_file.readlines():
+			match = ps3BustRegex.search(line)
+			if match:
+				all_sprite_names.add(ps3FilterFunction(match.group(1)))
+
+	return all_sprite_names
+
 def get_comment_chunk_pairs_from_text(text):
 	split_text = re.split(r'(//.*$)', text, flags=re.MULTILINE)
 
@@ -101,6 +111,16 @@ def update_match_statistics(match_statistics, reverse_match_statistics, steam_sc
 			match_count.setdefault(ps3_name, 0)
 			match_count[ps3_name] += 1
 
+	# get the complete list of ps3 sprite names from the ps3 script file
+	# this is done as a separate function to reduce the chance that an error is made and a sprite is missed
+	all_ps3_sprite_names = get_ps3_sprite_names_from_file(ps3_script_path, ps3_filter_function)
+
+	# If any ps3 sprite names are missing from the matching, these sprites were 'never matched'. Set them to match with 'None'
+	for ps3_sprite_name in all_ps3_sprite_names:
+		if ps3_sprite_name not in match_statistics:
+			print("The following sprite was unmatched:" + ps3_sprite_name)
+			match_statistics[ps3_sprite_name] = {}
+
 	return match_statistics
 
 
@@ -153,13 +173,17 @@ def pad_array(arr, target_length, pad_value):
 def convertMatchingToCSV(match_statistics : dict) -> [str]:
 	rows = []
 	for sourceMatch, destinationMatches in match_statistics.items():
-		sorted_matches = get_sorted_matches(destinationMatches)
-		best_match = sorted_matches[0]
-		total_score = sum([x[1] for x in sorted_matches])
-		best_match_confidence = best_match[1] / total_score * 100
+		if len(destinationMatches) > 0:
+			sorted_matches = get_sorted_matches(destinationMatches)
+			best_match = sorted_matches[0]
+			total_score = sum([x[1] for x in sorted_matches])
+			best_match_confidence = best_match[1] / total_score * 100
 
-		# highestCountName, highestCount, confidence = getBestMatchAndConfidence(destinationMatches)
-		rows.append(MatchRow(sourceMatch, best_match[1], best_match_confidence, sorted_matches))
+			# highestCountName, highestCount, confidence = getBestMatchAndConfidence(destinationMatches)
+			rows.append(MatchRow(sourceMatch, best_match[1], best_match_confidence, sorted_matches))
+		else:
+			rows.append(MatchRow(sourceMatch, 0, 0, []))
+
 
 	rows.sort(key=lambda x: x.highestCount, reverse=True)
 
