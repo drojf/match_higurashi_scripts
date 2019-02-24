@@ -72,8 +72,12 @@ def try_get_steam_to_ps3_matching_from_chunks(steam_chunk : str, ps3_chunk : str
 	else:
 		return None
 
+class MatchStatistics:
+	def __init__(self):
+		self.statistics = {}
+		self.sprite_to_file_mapping = {}
 
-def update_match_statistics(match_statistics, reverse_match_statistics, steam_script_path, ps3_script_path, ps3_filter_function=None):
+def update_match_statistics(match_statistics : MatchStatistics, reverse_match_statistics, steam_script_path, ps3_script_path, ps3_filter_function=None):
 	original_to_steam_chunk_list = get_matching_chunks_from_file(steam_script_path, ps3_script_path)
 
 	if not ps3_filter_function:
@@ -103,7 +107,7 @@ def update_match_statistics(match_statistics, reverse_match_statistics, steam_sc
 				continue
 			ps3_name = ps3_filter_function(ps3_name)
 			#do the forward mapping
-			match_count = match_statistics.setdefault(ps3_name, {})
+			match_count = match_statistics.statistics.setdefault(ps3_name, {})
 			match_count.setdefault(steam_name, 0)
 			match_count[steam_name] += 1
 			#do the backward mapping
@@ -117,9 +121,10 @@ def update_match_statistics(match_statistics, reverse_match_statistics, steam_sc
 
 	# If any ps3 sprite names are missing from the matching, these sprites were 'never matched'. Set them to match with 'None'
 	for ps3_sprite_name in all_ps3_sprite_names:
-		if ps3_sprite_name not in match_statistics:
+		match_statistics.sprite_to_file_mapping[ps3_sprite_name] = os.path.basename(ps3_script_path)
+		if ps3_sprite_name not in match_statistics.statistics:
 			print("The following sprite was unmatched:" + ps3_sprite_name)
-			match_statistics[ps3_sprite_name] = {}
+			match_statistics.statistics[ps3_sprite_name] = {}
 
 	return match_statistics
 
@@ -159,7 +164,8 @@ def get_sorted_matches(matches):
 	return sorted(matches.items(), key=lambda x:x[1], reverse=True)
 
 class MatchRow:
-	def __init__(self, source, highestCount, confidence, sorted_scores):
+	def __init__(self, ps3file, source, highestCount, confidence, sorted_scores):
+		self.ps3file = ps3file
 		self.source = source
 		self.highestCount = highestCount
 		self.confidence = confidence
@@ -170,9 +176,11 @@ def pad_array(arr, target_length, pad_value):
 	addon = [pad_value] * (target_length - len(arr))
 	return arr + addon
 
-def convertMatchingToCSV(match_statistics : dict) -> [str]:
+def convertMatchingToCSV(match_statistics : MatchStatistics) -> [str]:
 	rows = []
-	for sourceMatch, destinationMatches in match_statistics.items():
+	for sourceMatch, destinationMatches in match_statistics.statistics.items():
+		sourceFile = match_statistics.sprite_to_file_mapping.get(sourceMatch, "")
+
 		if len(destinationMatches) > 0:
 			sorted_matches = get_sorted_matches(destinationMatches)
 			best_match = sorted_matches[0]
@@ -180,9 +188,9 @@ def convertMatchingToCSV(match_statistics : dict) -> [str]:
 			best_match_confidence = best_match[1] / total_score * 100
 
 			# highestCountName, highestCount, confidence = getBestMatchAndConfidence(destinationMatches)
-			rows.append(MatchRow(sourceMatch, best_match[1], best_match_confidence, sorted_matches))
+			rows.append(MatchRow(sourceFile, sourceMatch, best_match[1], best_match_confidence, sorted_matches))
 		else:
-			rows.append(MatchRow(sourceMatch, 0, 0, []))
+			rows.append(MatchRow(sourceFile, sourceMatch, 0, 0, []))
 
 
 	rows.sort(key=lambda x: x.highestCount, reverse=True)
@@ -195,11 +203,11 @@ def convertMatchingToCSV(match_statistics : dict) -> [str]:
 
 	rows_as_strings = []
 	header_matches = ','.join(pad_array(['all matches'], max_matches, 'match'))
-	rows_as_strings.append(f'source image, count of best match, confidence,{header_matches}')
+	rows_as_strings.append(f'ps3 sprite file, source image, count of best match, confidence,{header_matches}')
 	for row in rows:
 		matches = [f'{x[1]}:{x[0]}' for x in row.sorted_scores]
 		matches = pad_array(matches, max_matches, '')
-		rows_as_strings.append(f"{row.source}, {row.highestCount}, {row.confidence:.0f}%, {', '.join(matches)}")
+		rows_as_strings.append(f"{row.ps3file}, {row.source}, {row.highestCount}, {row.confidence:.0f}%, {', '.join(matches)}")
 
 	return rows_as_strings
 
@@ -218,8 +226,8 @@ parser.add_argument('--ignore_time_of_day', type=bool, default=False, help='igno
 
 args = parser.parse_args()
 
-match_statistics = {}
-reverse_match_statistics = {}
+match_statistics = MatchStatistics()
+reverse_match_statistics = MatchStatistics()
 
 ps3_filter_function = None
 if args.ignore_time_of_day:
@@ -230,7 +238,7 @@ else:
 
 matching_script_paths = get_matching_script_paths_between_folders(args.steam_scripts_folder, args.ps3_scripts_folder)
 for steam_script_path, ps3_script_path in matching_script_paths:
-	update_match_statistics(match_statistics, reverse_match_statistics, steam_script_path, ps3_script_path, ps3_filter_function)
+	update_match_statistics(match_statistics, reverse_match_statistics.statistics, steam_script_path, ps3_script_path, ps3_filter_function)
 
 print("\n\n----------------------------------------------")
 y = convertMatchingToCSV(match_statistics)
@@ -245,13 +253,13 @@ for x in y:
 write_to_file('\n'.join(y), args.output_file_path + '.reversed.csv')
 
 
-json_string = json.dumps(match_statistics, sort_keys=True, indent=4)
+json_string = json.dumps(match_statistics.statistics, sort_keys=True, indent=4)
 
 print(json_string)
 write_to_file(json_string, args.output_file_path)
 
 #dump reverse statistics
-json_string = json.dumps(reverse_match_statistics, sort_keys=True, indent=4)
+json_string = json.dumps(reverse_match_statistics.statistics, sort_keys=True, indent=4)
 
 print(json_string)
 write_to_file(json_string, args.output_file_path + '.reversed.txt')
