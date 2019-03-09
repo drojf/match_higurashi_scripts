@@ -1,4 +1,7 @@
 {
+    "portrait/night/me1a_ikari_a1_": {},
+    "portrait/night/me1a_majime_a1_": {},
+    "portrait/night/me1a_yowaki_a1_": {},
     "portrait/night/me2_akuwarai_a1_": {
         "me_si_aw_a1": 1
     },
@@ -9,6 +12,7 @@
     "portrait/night/me2_hig_maji_a1_": {
         "me_si_to_a2": 1
     },
+    "portrait/night/me2_ikari_a1_": {},
     "portrait/night/me2_majime_a1_": {
         "me_si_ma_a1": 2
     },
@@ -25,6 +29,9 @@
     "portrait/night/oisi1_1_": {
         "oi_si_de_a1": 1
     },
+    "portrait/night/oryou_def_": {},
+    "portrait/night/oryou_sakebi_": {},
+    "portrait/night/oryou_shinken_": {},
     "portrait/night/re2a_bikkuri_a1_": {
         "re_si_bi_a1": 1
     },
@@ -82,9 +89,19 @@
     "portrait/normal/iri2_def1_": {
         "ir_hk_de_a1": 1
     },
+    "portrait/normal/iri2_majime2_": {},
     "portrait/normal/iri2_majime_": {
         "ir_hk_ma_a1": 1
     },
+    "portrait/normal/kei1_def1_": {},
+    "portrait/normal/kei1_def2_": {},
+    "portrait/normal/kei1_komaru_": {},
+    "portrait/normal/kei1_majime2_": {},
+    "portrait/normal/kei1_warai_": {},
+    "portrait/normal/kei2_def1_": {},
+    "portrait/normal/kei2_def2_": {},
+    "portrait/normal/kei2_nayamu_": {},
+    "portrait/normal/kei2_warai_": {},
     "portrait/normal/me2_def_a1_": {
         "me_si_de_a1": 1,
         "me_si_de_a2": 1
@@ -95,21 +112,30 @@
     "portrait/normal/me2_hig_maji_a1_": {
         "me_si_him_a2": 1
     },
+    "portrait/normal/me2_ikari_a1_": {},
     "portrait/normal/me2_majime_a1_": {
         "me_si_ma_a2": 1
     },
+    "portrait/normal/me2_odoroki_a1_": {},
     "portrait/normal/me2_sinmyou_a1_": {
         "me_si_si_a1": 4
     },
+    "portrait/normal/me2_tohoho_a1_": {},
     "portrait/normal/me2_warai_a1_": {
         "me_si_wa_a2": 1
     },
+    "portrait/normal/miyuki_def_": {},
+    "portrait/normal/miyuki_hatena_": {},
+    "portrait/normal/miyuki_huan_": {},
+    "portrait/normal/miyuki_warai_": {},
     "portrait/normal/oisi1_1_": {
         "oi_si_de_a1": 1
     },
     "portrait/normal/oisi1_2_": {
         "oi_si_wa_a1": 2
     },
+    "portrait/normal/oisi1_5_": {},
+    "portrait/normal/oisi2_8_": {},
     "portrait/normal/re1a_bikkuri_a1_": {
         "re_se_bi_b1": 1
     },
@@ -123,15 +149,18 @@
         "re_se_hi_a1": 5,
         "re_se_hi_b1": 1
     },
+    "portrait/normal/re1a_hig_muhyou_a1_": {},
     "portrait/normal/re1a_hig_okoru_a1_": {
         "re_se_hii_a1": 1
     },
     "portrait/normal/re1a_kaii_a1_": {
         "re_se_ka_a1": 1
     },
+    "portrait/normal/re1a_komaru_a1_": {},
     "portrait/normal/re1a_nande_a1_": {
         "re_se_wa_b1": 1
     },
+    "portrait/normal/re1a_okoru_a1_": {},
     "portrait/normal/re1a_warai_a1_": {
         "re_se_wa_a1": 7
     },
@@ -147,6 +176,8 @@
     "portrait/normal/ri1_warai_a1_": {
         "ri_se_wa_a1": 2
     },
+    "portrait/normal/ri2_komaru_a1_": {},
+    "portrait/normal/ri5_warai_a1_": {},
     "portrait/normal/rim_def_": {
         "ri_si_wa_a1": 1
     },
@@ -162,6 +193,7 @@
     "portrait/normal/sa1a_akireru_a1_": {
         "sa_se_ak_a1": 1
     },
+    "portrait/normal/sa1a_akuwarai_a1_": {},
     "portrait/normal/sa1a_def_a1_": {
         "sa_se_de_b1": 1
     },
@@ -180,6 +212,7 @@
     "portrait/normal/sa1b_akuwarai_b1_": {
         "sa_se_aw_b1": 1
     },
+    "portrait/normal/sa1b_hannbeso_b1_": {},
     "portrait/normal/sa1b_naku_b1_": {
         "sa_se_na_b1": 2
     },
@@ -190,15 +223,29 @@
     "portrait/normal/sa1b_warai_b1_": {
         "sa_se_wa_b1": 1
     },
+    "portrait/normal/sato1_def2_": {},
+    "portrait/normal/sato1_ikari_": {},
+    "portrait/normal/sato1_komaru2_": {},
+    "portrait/normal/sato1_komaru_": {},
+    "portrait/normal/sato1_warai_": {},
+    "portrait/normal/sato2_def2_": {},
     "portrait/normal/si1a_akuwarai_a1_": {
         "si_si_aw_a1": 1
     },
     "portrait/normal/si1b_wink_b1_": {
         "si_si_wi_a1": 1
     },
+    "portrait/normal/ta1_akuwarai_": {},
+    "portrait/normal/ta1_def_": {},
+    "portrait/normal/ta1_warai_": {},
+    "portrait/sunset/chibimion_warai_": {},
+    "portrait/sunset/ki_def_": {},
+    "portrait/sunset/ki_komaru_": {},
+    "portrait/sunset/oryou_warai_": {},
     "portrait/sunset/re2a_warai_a1_": {
         "re_si_wa_b1": 1
     },
+    "portrait/sunset/ri2_niyari_a1_": {},
     "portrait/sunset/rim_def_": {
         "ri_si_de_a1": 3
     },
@@ -215,9 +262,21 @@
         "ri_si_ni_a1": 2,
         "ri_si_wa_a1": 2
     },
+    "portrait/sunset/sato1_def1_": {},
+    "portrait/sunset/sato1_def2_": {},
+    "portrait/sunset/sato1_komaru_": {},
+    "portrait/sunset/sato1_warai_": {},
+    "sprite/flashback/chibimion_def_": {},
+    "sprite/flashback/chibimion_shinken_": {},
+    "sprite/flashback/kasa_2_": {},
+    "sprite/flashback/kasa_3_": {},
+    "sprite/flashback/ki_def_": {},
+    "sprite/flashback/ki_komaru_": {},
+    "sprite/flashback/me1a_odoroki_a1_": {},
     "sprite/flashback/me1b_odoroki_a1_": {
         "me_se_th_a1": 1
     },
+    "sprite/flashback/me2_hig_maji_a1_": {},
     "sprite/flashback/me2_tohoho_a1_": {
         "me_si_th_a1": 1
     },
@@ -230,12 +289,16 @@
     "sprite/flashback/me2_wink_a1_": {
         "me_si_wi_a1": 1
     },
+    "sprite/flashback/oryou_def_": {},
+    "sprite/flashback/oryou_shinken_": {},
+    "sprite/flashback/oryou_warai_": {},
     "sprite/flashback/re1a_def_a1_": {
         "re_se_de_a1": 1
     },
     "sprite/flashback/re1a_hig_def_a1_": {
         "re_se_hi_a1": 1
     },
+    "sprite/flashback/re1a_komaru_a1_": {},
     "sprite/flashback/re1a_nande_a1_": {
         "re_se_na_a1": 1
     },
@@ -251,6 +314,9 @@
     "sprite/flashback/ri1_warai_a1_": {
         "ri_se_wa_a1": 1
     },
+    "sprite/flashback/rim_def_": {},
+    "sprite/flashback/rim_majime_": {},
+    "sprite/flashback/rim_warai_": {},
     "sprite/flashback/sa1a_akireru_a1_": {
         "sa_se_ak_a1": 1
     },
@@ -269,6 +335,24 @@
     "sprite/flashback/si2_hau_a1_": {
         "si_ma_ha_a1": 1
     },
+    "sprite/flashback/si2_warai_a1_": {},
+    "sprite/flashback/si2_wink_a1_": {},
+    "sprite/night/iri1_def1_": {},
+    "sprite/night/iri1_majime2_": {},
+    "sprite/night/iri1_majime_": {},
+    "sprite/night/kasa_1_": {},
+    "sprite/night/kasa_2_": {},
+    "sprite/night/kei1_def2_": {},
+    "sprite/night/kei1_majime_": {},
+    "sprite/night/kei2_def1_": {},
+    "sprite/night/kei2_def2_": {},
+    "sprite/night/kei2_komaru_": {},
+    "sprite/night/kei2_majime_": {},
+    "sprite/night/kei2_warai_": {},
+    "sprite/night/ki_komaru_": {},
+    "sprite/night/kuma_def_": {},
+    "sprite/night/kuma_komaru_": {},
+    "sprite/night/me1a_majime_a1_": {},
     "sprite/night/me2_akuwarai_a1_": {
         "me_si_aw_a1": 2,
         "me_si_aw_a2": 1
@@ -277,6 +361,7 @@
         "me_si_de_a1": 4,
         "me_si_de_a2": 5
     },
+    "sprite/night/me2_hig_maji_a1_": {},
     "sprite/night/me2_huteki_a1_": {
         "me_si_fu_a1": 2
     },
@@ -316,6 +401,7 @@
     "sprite/night/oisi1_4_": {
         "oi_si_de_a2": 2
     },
+    "sprite/night/oisi1_5_": {},
     "sprite/night/re2a_bikkuri_a1_": {
         "re_si_bi_a1": 1
     },
@@ -325,6 +411,8 @@
     "sprite/night/re2a_hau_a1_": {
         "re_si_ha_a1": 2
     },
+    "sprite/night/re2a_kaii_a1_": {},
+    "sprite/night/re2a_komaru_a1_": {},
     "sprite/night/re2a_komaru_a2_": {
         "re_si_ko_a1": 1,
         "re_si_ko_a2": 2
@@ -411,6 +499,7 @@
     "sprite/night/sa3_akuwarai_a1_": {
         "sa_ta_aw_a1": 1
     },
+    "sprite/night/sato1_komaru_": {},
     "sprite/night/si1a_akuwarai_a1_": {
         "si_si_aw_a1": 7
     },
@@ -488,6 +577,9 @@
     "sprite/night/tomi1_warai_": {
         "tm_si_wa_a1": 15
     },
+    "sprite/normal/aka_def_": {},
+    "sprite/normal/aka_sakebi_": {},
+    "sprite/normal/aka_warai_": {},
     "sprite/normal/chibimion_def_": {
         "me_si_de_a1": 2
     },
@@ -509,6 +601,7 @@
     "sprite/normal/iri1_majime2_": {
         "me_se_bi_a1": 1
     },
+    "sprite/normal/iri1_majime_": {},
     "sprite/normal/iri1_warai_": {
         "re_se_ik_b1": 1
     },
@@ -521,6 +614,35 @@
     "sprite/normal/iri2_majime_": {
         "ir_hk_ma_a1": 2
     },
+    "sprite/normal/iri3_def1_": {},
+    "sprite/normal/iri3_def2_": {},
+    "sprite/normal/iri3_majime2_": {},
+    "sprite/normal/iri3_majime_": {},
+    "sprite/normal/iri3_warai_": {},
+    "sprite/normal/kasa_1_": {},
+    "sprite/normal/kasa_2_": {},
+    "sprite/normal/kasa_3_": {},
+    "sprite/normal/kei1_def1_": {},
+    "sprite/normal/kei1_def2_": {},
+    "sprite/normal/kei1_ikari1_": {},
+    "sprite/normal/kei1_komaru_": {},
+    "sprite/normal/kei1_majime2_": {},
+    "sprite/normal/kei1_majime_": {},
+    "sprite/normal/kei1_nayamu_": {},
+    "sprite/normal/kei1_warai_": {},
+    "sprite/normal/kei2_def1_": {},
+    "sprite/normal/kei2_def2_": {},
+    "sprite/normal/kei2_ikari1_": {},
+    "sprite/normal/kei2_ikari2_": {},
+    "sprite/normal/kei2_komaru_": {},
+    "sprite/normal/kei2_majime2_": {},
+    "sprite/normal/kei2_majime_": {},
+    "sprite/normal/kei2_warai_": {},
+    "sprite/normal/ki_def_": {},
+    "sprite/normal/ki_komaru_": {},
+    "sprite/normal/ki_warai_": {},
+    "sprite/normal/kuma_def_": {},
+    "sprite/normal/kuma_komaru_": {},
     "sprite/normal/me1a_akuwarai_a1_": {
         "me_se_aw_a1": 15,
         "me_se_aw_a2": 1,
@@ -595,6 +717,7 @@
         "me_se_de_b1": 10,
         "me_se_de_b2": 7
     },
+    "sprite/normal/me1b_hau_a1_": {},
     "sprite/normal/me1b_huteki_a1_": {
         "me_se_aw_a1": 1,
         "me_se_aw_a2": 1,
@@ -738,6 +861,11 @@
         "me_mi_wi_a1": 1,
         "me_mi_wi_a2": 1
     },
+    "sprite/normal/miyuki_def_": {},
+    "sprite/normal/miyuki_hatena_": {},
+    "sprite/normal/miyuki_huan_": {},
+    "sprite/normal/miyuki_kanashimi_": {},
+    "sprite/normal/miyuki_neboke_": {},
     "sprite/normal/oisi1_1_": {
         "oi_si_de_a1": 59,
         "oi_si_wa_a1": 1
@@ -770,6 +898,14 @@
     "sprite/normal/oisi2_9_": {
         "oi_yk_de_a2": 10
     },
+    "sprite/normal/oka1_def_": {},
+    "sprite/normal/oka1_odoroki_": {},
+    "sprite/normal/oka1_shinken_": {},
+    "sprite/normal/oka1_tere_": {},
+    "sprite/normal/oka1_warai_": {},
+    "sprite/normal/oryou_def_": {},
+    "sprite/normal/oryou_shinken_": {},
+    "sprite/normal/oryou_warai_": {},
     "sprite/normal/re1a_bikkuri_a1_": {
         "re_se_bi_a1": 14,
         "re_se_ko_a1": 1
@@ -917,6 +1053,7 @@
     "sprite/normal/re2b_komaru_b1_": {
         "re_si_ko_b1": 6
     },
+    "sprite/normal/re2b_komaru_b2_": {},
     "sprite/normal/re2b_nande_b1_": {
         "re_si_na_a1": 1,
         "re_si_na_b1": 1
@@ -1041,6 +1178,7 @@
     "sprite/normal/rim_majime_": {
         "ri_se_fu_a1": 1
     },
+    "sprite/normal/rim_niyari_": {},
     "sprite/normal/rim_warai_": {
         "ri_si_ni_a1": 1,
         "ri_si_wa_a1": 4
@@ -1061,12 +1199,15 @@
         "re_se_ik_b1": 1,
         "sa_se_hn_a1": 4
     },
+    "sprite/normal/sa1a_hannbeso_a3_": {},
+    "sprite/normal/sa1a_muhyou_a1_": {},
     "sprite/normal/sa1a_naku_a1_": {
         "sa_se_na_a1": 4
     },
     "sprite/normal/sa1a_odoroki_a1_": {
         "sa_se_bi_a1": 26
     },
+    "sprite/normal/sa1a_sakebu_a1_": {},
     "sprite/normal/sa1a_warai_a1_": {
         "sa_se_wa_a1": 17
     },
@@ -1087,6 +1228,7 @@
         "sa_se_hn_b1": 1,
         "sa_se_hn_b2": 4
     },
+    "sprite/normal/sa1b_hannbeso_b3_": {},
     "sprite/normal/sa1b_naku_b1_": {
         "me_se_ik_a2": 1,
         "sa_se_na_b1": 3
@@ -1098,9 +1240,11 @@
         "sa_se_na_b2": 1,
         "si_si_fu_a1": 2
     },
+    "sprite/normal/sa1b_sakebu_b1_": {},
     "sprite/normal/sa1b_warai_b1_": {
         "sa_se_wa_b1": 10
     },
+    "sprite/normal/sa1b_yareyare_b2_": {},
     "sprite/normal/sa2a_akireru_a1_": {
         "ri_mk_de_a1": 1,
         "sa_si_ak_a1": 12
@@ -1118,6 +1262,8 @@
         "sa_si_bi_a1": 1,
         "sa_si_hn_a1": 1
     },
+    "sprite/normal/sa2a_muhyou_a1_": {},
+    "sprite/normal/sa2a_muhyou_a2_": {},
     "sprite/normal/sa2a_naku_a1_": {
         "sa_si_na_a1": 1
     },
@@ -1128,12 +1274,17 @@
         "ri_mk_de_a1": 1,
         "sa_si_wa_a1": 23
     },
+    "sprite/normal/sa2a_yareyare_a1_": {},
+    "sprite/normal/sa2b_akireru_b1_": {},
     "sprite/normal/sa2b_akuwarai_b1_": {
         "sa_si_ak_a1": 1
     },
     "sprite/normal/sa2b_def_b1_": {
         "sa_si_aw_a1": 1
     },
+    "sprite/normal/sa2b_muhyou_b1_": {},
+    "sprite/normal/sa2b_naku_b1_": {},
+    "sprite/normal/sa2b_odoroki_b1_": {},
     "sprite/normal/sa2b_warai_b1_": {
         "sa_si_bi_a1": 1
     },
@@ -1168,6 +1319,19 @@
     "sprite/normal/sa4_warai_a1_": {
         "sa_ku_wa_a1": 1
     },
+    "sprite/normal/sato1_def1_": {},
+    "sprite/normal/sato1_def2_": {},
+    "sprite/normal/sato1_ikari_": {},
+    "sprite/normal/sato1_komaru2_": {},
+    "sprite/normal/sato1_komaru_": {},
+    "sprite/normal/sato1_tukare_": {},
+    "sprite/normal/sato1_warai_": {},
+    "sprite/normal/sato2_def1_": {},
+    "sprite/normal/sato2_def2_": {},
+    "sprite/normal/sato2_komaru2_": {},
+    "sprite/normal/sato2_komaru_": {},
+    "sprite/normal/sato2_tukare_": {},
+    "sprite/normal/sato2_warai_": {},
     "sprite/normal/si1a_akuwarai_a1_": {
         "me_se_bi_a1": 2,
         "si_si_aw_a1": 5
@@ -1206,6 +1370,7 @@
         "ti_si_ik_a1": 1,
         "ti_si_ko_a1": 1
     },
+    "sprite/normal/si1b_huteki_b1_": {},
     "sprite/normal/si1b_warai_b1_": {
         "si_si_fu_a1": 1,
         "si_si_wa_b1": 1
@@ -1222,6 +1387,8 @@
     "sprite/normal/si2_hau_a1_": {
         "si_ma_ha_a1": 8
     },
+    "sprite/normal/si2_huteki_a1_": {},
+    "sprite/normal/si2_majime_a1_": {},
     "sprite/normal/si2_odoroki_a1_": {
         "si_ma_bi_a1": 8
     },
@@ -1238,16 +1405,25 @@
         "si_ma_de_a1": 1,
         "si_ma_yw_a1": 8
     },
+    "sprite/normal/si3_akuwarai_a1_": {},
+    "sprite/normal/si3_def_a1_": {},
+    "sprite/normal/si3_tokui_a1_": {},
+    "sprite/normal/si3_warai_a1_": {},
+    "sprite/normal/si3_wink_a1_": {},
     "sprite/normal/ta1_akuwarai_": {
         "ta_si_aw_a1": 1
     },
     "sprite/normal/ta1_def_": {
         "ta_si_de_a1": 1
     },
+    "sprite/normal/ta1_hatena_": {},
+    "sprite/normal/ta1_human_": {},
     "sprite/normal/ta1_warai_": {
         "me_se_bi_a1": 1,
         "re_se_ko_a1": 1
     },
+    "sprite/normal/tetu_1_": {},
+    "sprite/normal/tie_1_": {},
     "sprite/normal/tie_2_": {
         "Furiker_b": 1,
         "ti_si_ik_a1": 1
@@ -1256,6 +1432,7 @@
         "me_se_bi_a1": 1,
         "ti_si_ko_a1": 1
     },
+    "sprite/normal/tie_4_": {},
     "sprite/normal/tomi1_def_": {
         "tm_si_de_a1": 20
     },
@@ -1268,6 +1445,13 @@
         "ti_si_ko_a1": 2,
         "tm_si_wa_a1": 14
     },
+    "sprite/normal/tomita1_def_": {},
+    "sprite/normal/tomita1_ikari_": {},
+    "sprite/normal/tomita1_kanashimi_": {},
+    "sprite/normal/tomita1_odoroki_": {},
+    "sprite/normal/tomita1_shinken_": {},
+    "sprite/normal/tomita1_tere_": {},
+    "sprite/normal/tomita1_warai_": {},
     "sprite/sunset/chibimion_def_": {
         "me_si_de_a1": 1,
         "me_si_de_a2": 1
@@ -1290,6 +1474,8 @@
     "sprite/sunset/iri2_warai_": {
         "ir_hk_wa_a1": 1
     },
+    "sprite/sunset/ki_def_": {},
+    "sprite/sunset/ki_warai_": {},
     "sprite/sunset/me2_def_a1_": {
         "me_si_de_a2": 3
     },
@@ -1304,9 +1490,12 @@
         "me_si_bi_a1": 1,
         "me_si_bi_a2": 2
     },
+    "sprite/sunset/me2_tohoho_a1_": {},
+    "sprite/sunset/me2_warai_a1_": {},
     "sprite/sunset/me2_wink_a1_": {
         "me_si_wi_a1": 4
     },
+    "sprite/sunset/me2_yowaki_a1_": {},
     "sprite/sunset/oisi1_1_": {
         "oi_si_de_a1": 6
     },
@@ -1316,6 +1505,7 @@
     "sprite/sunset/oisi1_4_": {
         "oi_si_de_a2": 3
     },
+    "sprite/sunset/oryou_def_": {},
     "sprite/sunset/re1a_def_a1_": {
         "re_se_de_a1": 3
     },
@@ -1357,6 +1547,8 @@
     "sprite/sunset/re2b_warai_b1_": {
         "re_si_wa_b1": 1
     },
+    "sprite/sunset/ri2_niyari_a1_": {},
+    "sprite/sunset/ri2_warai_a1_": {},
     "sprite/sunset/rim_def_": {
         "ri_si_de_a1": 3,
         "ri_si_ni_a1": 2
@@ -1368,6 +1560,10 @@
         "ri_si_ni_a1": 1,
         "ri_si_wa_a1": 3
     },
+    "sprite/sunset/sato1_def1_": {},
+    "sprite/sunset/sato1_def2_": {},
+    "sprite/sunset/sato1_komaru_": {},
+    "sprite/sunset/sato1_warai_": {},
     "sprite/sunset/si1a_akuwarai_a1_": {
         "si_si_aw_a1": 2
     },
@@ -1378,6 +1574,7 @@
         "si_si_ha_a1": 2,
         "si_si_ha_b1": 1
     },
+    "sprite/sunset/si1a_huteki_a1_": {},
     "sprite/sunset/si1a_majime_a1_": {
         "si_si_de_a1": 3,
         "si_si_ma_a1": 3
@@ -1397,6 +1594,7 @@
     "sprite/sunset/si1b_def_b1_": {
         "si_si_de_b1": 2
     },
+    "sprite/sunset/si1b_huteki_b1_": {},
     "sprite/sunset/si1b_warai_b1_": {
         "si_si_wa_b1": 2
     },
@@ -1417,5 +1615,6 @@
     },
     "sprite/sunset/tomi1_warai_": {
         "tm_si_wa_a1": 10
-    }
+    },
+    "transparent": {}
 }
