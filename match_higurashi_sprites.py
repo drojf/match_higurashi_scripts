@@ -192,7 +192,8 @@ def convertMatchingToCSV(match_statistics : MatchStatistics) -> [str]:
 		else:
 			rows.append(MatchRow(sourceFile, sourceMatch, 0, 0, []))
 
-
+	rows.sort(key=lambda x: x.source)
+	rows.sort(key=lambda x: x.confidence, reverse=True)
 	rows.sort(key=lambda x: x.highestCount, reverse=True)
 
 	#for consistent CSV rows, determine the max number of columns first
