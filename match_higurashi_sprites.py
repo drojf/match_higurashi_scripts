@@ -19,7 +19,7 @@ def write_to_file(text : str, path : str):
 	with open(path, 'w', encoding='utf-8') as output_file:
 		output_file.write(text)
 
-def normalize_time_of_day(ps3_image_path : str):
+def normalize_time_of_day(ps3_image_path : str) -> str:
 	return ps3_image_path.replace('/normal/','/').replace('/sunset/', '/').replace('/night/','/')
 
 
@@ -56,7 +56,7 @@ else:
 matching_script_paths = get_matching_script_paths_between_folders(args.steam_scripts_folder, args.ps3_scripts_folder)
 for steam_script_path, ps3_script_path in matching_script_paths:
 	update_match_statistics(match_statistics,
-	                        reverse_match_statistics.statistics,
+	                        reverse_match_statistics,
 	                        steam_script_path,
 	                        ps3_script_path,
 	                        ps3_filter_function,

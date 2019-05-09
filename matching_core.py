@@ -1,6 +1,7 @@
 import os
 import pathlib
 import re
+from typing import Callable, Set, List, Tuple, Iterator
 
 from match_statistics import MatchStatistics
 
@@ -8,31 +9,55 @@ steamBustRegex = re.compile(r'DrawBust[^\(]+\(\s*\d*\s*,\s*\"([^\"]+)')
 ps3BustRegex = re.compile(r'ModDraw[^\(]+\(\s*\d*\s*,\s*\d*\s*,\s*\"([^\"]+)')
 
 
-def get_ps3_sprite_names_from_file(ps3_script_path, ps3FilterFunction) -> set:
+def get_ps3_sprite_names_from_file(ps3_script_path: str, name_modification_function: Callable[[str], str]) -> Set[str]:
+	"""
+	This function extracts all the ps3 sprite names from a Higurashi script (assuming it has been modded with the ps3
+	sprites)
+
+	:param ps3_script_path: a path to a Higurashi script file, modded with the ps3 sprites
+	:param name_modification_function: a function taking a ps3 sprite name as argument and returning a modified ps3 sprite name.
+	Each ps3 sprite name will be modified by this function before being returned
+
+	:return: a set containing the found ps3 sprite names
+	"""
 	all_sprite_names = set()
 	with open(ps3_script_path, encoding='utf-8') as ps3_script_file:
 		for line in ps3_script_file.readlines():
 			match = ps3BustRegex.search(line)
 			if match:
-				all_sprite_names.add(ps3FilterFunction(match.group(1)))
+				all_sprite_names.add(name_modification_function(match.group(1)))
 
 	return all_sprite_names
 
-def get_comment_chunk_pairs_from_text(text):
+
+def get_comment_chunk_pairs_from_text(text: str) -> Iterator[Tuple[str, str]]:
+	"""
+	Take every odd/even result from the split_text array.
+	There will always be one more child text than comment line,
+	so skip the first child text (start at index 2 instead of 0)
+
+	:param text: The text which will be split on comment lines
+	:return: The text split into a list of tuples. Each tuple is of the form (comment, textBetweenComment).
+	"""
 	split_text = re.split(r'(//.*$)', text, flags=re.MULTILINE)
 
-	# take every odd/even result from the split_text array
-	# there will always be one more child text than comment line,
-	# so skip the first child text (start at index 2 instead of 0)
 	child_text = split_text[2::2]
 	comment_lines = split_text[1::2]
 
 	return zip(comment_lines, child_text)
 
 
-# tries to match chunks from steam script to ps3 script.
-# any unmatched chunks are ignored
-def get_matching_chunks_from_file(steam_script_path, ps3_script_path):
+
+def get_matching_chunks_from_file(steam_script_path: str, ps3_script_path: str) -> List[Tuple[str, str]]:
+	"""
+	Tries to match chunks from steam script to ps3 script. The matching assumes the commented lines are
+	identical between the two scripts, and matches the chunks just after each identical commented line together.
+	Any unmatched chunks are ignored.
+
+	:param steam_script_path: path to a unmodified higurashi script
+	:param ps3_script_path: path to a higurashi script modified with the ps3 sprites
+	:return: A list of tuples of the form (original_chunk, ps3_chunk), representing matched chunks
+	"""
 	original_text = pathlib.Path(steam_script_path).read_text(encoding='utf-8')
 	ps3_script_text = pathlib.Path(ps3_script_path).read_text(encoding='utf-8')
 
@@ -46,7 +71,7 @@ def get_matching_chunks_from_file(steam_script_path, ps3_script_path):
 	ps3_chunk_to_steam_chunk = []
 
 	for ps3_comment, ps3_chunk in ps3_pairs:
-		original_chunk = original_chunk_dictionary.get(ps3_comment, False)
+		original_chunk = original_chunk_dictionary.get(ps3_comment, None)
 		if original_chunk:
 			ps3_chunk_to_steam_chunk.append((original_chunk, ps3_chunk))
 
@@ -54,6 +79,16 @@ def get_matching_chunks_from_file(steam_script_path, ps3_script_path):
 
 
 def try_get_steam_to_ps3_matching_from_chunks(steam_chunk : str, ps3_chunk : str):
+	"""
+	Given two matched chunks, matches the first found steam sprite name with the first found ps3 sprite name.
+	If either the steam or ps3 sprite name is missing, it is not matched
+	If there is more than one sprite per chunk, they are ignored - only the first one is used.
+
+	:param steam_chunk: A chunk of the unmodified higurashi script
+	:param ps3_chunk: A chunk of the higurashi script modified with ps3 sprites. Must be the matching chunk to the
+	'steam_chunk' argument.
+	:return:
+	"""
 	# print(steam_chunk)
 	steam_match = steamBustRegex.search(steam_chunk)
 	if not steam_match:
@@ -68,26 +103,45 @@ def try_get_steam_to_ps3_matching_from_chunks(steam_chunk : str, ps3_chunk : str
 	else:
 		return None
 
-def update_match_statistics(match_statistics : MatchStatistics, reverse_match_statistics, steam_script_path, ps3_script_path, ps3_filter_function=None, ps3_whitelist_function=None):
+def update_match_statistics(match_statistics: MatchStatistics,
+							reverse_match_statistics: MatchStatistics,
+							steam_script_path: str,
+							ps3_script_path: str,
+							ps3_name_modification_function:Callable[[str], str]=None,
+							ps3_whitelist_function:Callable[[str], bool]=None):
+	"""
+	Given the paths to a folder contain the unmodified steam scripts and a path to the ps3-modded scripts, updates the
+	two input match statistics objects with any found sprite mappings.
+
+	TODO: python has built in "defaultdict" and "counter" which I've used before. It can simplify the logic for this function.
+	'match_statistics' is a dict of dicts. It records how many of each type of match has been seen previously.
+	The key of the outer dict is the ps3 filename. The value of the outer dict is another dict, described below
+	The key of the inner dict is the steam filename. The value of the inner dict is the count of number of matches for that steam filename.
+	Example:
+
+	{
+	 'sprite/normal/me1a_def_a1_': {'me_se_de_a1': 5, 'me_se_wi_a2': 1},
+	 'sprite/normal/me1a_huteki_a1_': {'re_se_de_a1': 1},
+	 'sprite/normal/me1a_tohoho_a1_': {'me_se_th_a1': 1},
+	 'sprite/normal/me1a_warai_a1_': {'me_se_wa_a1': 4},
+	 'sprite/normal/me1a_wink_a1_': {'me_se_wi_a1': 6, 'me_se_wi_a2': 1},
+	 'sprite/normal/me1b_akuwarai_a1_': {'me_se_aw_b1': 1, 'me_se_aw_b2': 1},
+	 }
+
+	match statistics is provided as an argument so that a single object reused as each new file has it's matches collected
+
+	:param match_statistics: match statistics object to be updated with any matches found
+	:param reverse_match_statistics: reverse match statistics object to be updated with any matches found
+	:param steam_script_path: path to a unmodified higurashi script
+	:param ps3_script_path: path to a higurashi script modified with the ps3 sprites
+	:param ps3_name_modification_function: all ps3 paths will be modified by this function before being used
+	:param ps3_whitelist_function: all ps3 paths will only be used if this function returns true when the path is used as argument
+	:return: No return value, arguments match_statistics and reverse_match_statistics are updated
+	"""
 	original_to_steam_chunk_list = get_matching_chunks_from_file(steam_script_path, ps3_script_path)
 
-	if not ps3_filter_function:
-		ps3_filter_function = lambda x: x
-	# 'match_statistics' is a dict of dicts. It records how many of each type of match has been seen previously.
-	# The key of the outer dict is the ps3 filename. The value of the outer dict is another dict, described below
-	# The key of the inner dict is the steam filename. The value of the inner dict is the count of number of matches for that steam filename.
-	# Example:
-	#
-	# {
-	#  'sprite/normal/me1a_def_a1_': {'me_se_de_a1': 5, 'me_se_wi_a2': 1},
-	#  'sprite/normal/me1a_huteki_a1_': {'re_se_de_a1': 1},
-	#  'sprite/normal/me1a_tohoho_a1_': {'me_se_th_a1': 1},
-	#  'sprite/normal/me1a_warai_a1_': {'me_se_wa_a1': 4},
-	#  'sprite/normal/me1a_wink_a1_': {'me_se_wi_a1': 6, 'me_se_wi_a2': 1},
-	#  'sprite/normal/me1b_akuwarai_a1_': {'me_se_aw_b1': 1, 'me_se_aw_b2': 1},
-	#  }
-	#
-	# match statistics is provided as an argument so that a single object reused as each new file has it's matches collected
+	if not ps3_name_modification_function:
+		ps3_name_modification_function = lambda x: x
 
 	for (original_chunk, ps3_chunk) in original_to_steam_chunk_list:
 		mapping = try_get_steam_to_ps3_matching_from_chunks(original_chunk, ps3_chunk)
@@ -96,7 +150,7 @@ def update_match_statistics(match_statistics : MatchStatistics, reverse_match_st
 			#the image 'black' is not a sprite, so shouldn't be used for matching
 			if steam_name == 'black' or ps3_name == 'black':
 				continue
-			ps3_name = ps3_filter_function(ps3_name)
+			ps3_name = ps3_name_modification_function(ps3_name)
 
 			# If the filtered ps3 filename is not in the white list, don't try to match it
 			if ps3_whitelist_function:
@@ -108,13 +162,14 @@ def update_match_statistics(match_statistics : MatchStatistics, reverse_match_st
 			match_count.setdefault(steam_name, 0)
 			match_count[steam_name] += 1
 			#do the backward mapping
-			match_count = reverse_match_statistics.setdefault(steam_name, {})
+			match_count = reverse_match_statistics.statistics.setdefault(steam_name, {})
 			match_count.setdefault(ps3_name, 0)
 			match_count[ps3_name] += 1
 
+	###### Code below this point is just for checking if any ps3 sprites were missed
 	# get the complete list of ps3 sprite names from the ps3 script file
 	# this is done as a separate function to reduce the chance that an error is made and a sprite is missed
-	all_ps3_sprite_names = get_ps3_sprite_names_from_file(ps3_script_path, ps3_filter_function)
+	all_ps3_sprite_names = get_ps3_sprite_names_from_file(ps3_script_path, ps3_name_modification_function)
 
 	# If any ps3 sprite names are missing from the matching, these sprites were 'never matched'. Set them to match with 'None'
 	for ps3_sprite_name in all_ps3_sprite_names:
@@ -122,12 +177,16 @@ def update_match_statistics(match_statistics : MatchStatistics, reverse_match_st
 		if ps3_sprite_name not in match_statistics.statistics:
 			print("The following sprite was unmatched:" + ps3_sprite_name)
 			match_statistics.statistics[ps3_sprite_name] = {}
+	###### End missed ps3 sprites checking
 
 	return match_statistics
 
 
 def get_matching_script_paths_between_folders(steam_folder_path, ps3_folder_path):
 	"""
+	Gets a list of files with the same name between two folders
+	Note that if a file exists in the 'ps3_folder_path' but not in the 'steam_folder_path', it won't be detected
+	TODO: should re-implement this by listdir()ing both directories, and then comparing the results
 
 	:param steam_folder_path: path to folder containing steam scripts (will only search root folder)
 	:param ps3_folder_path:   path to folder containing ps3   scripts (will only search root folder)
