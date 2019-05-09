@@ -77,7 +77,7 @@ class MatchStatistics:
 		self.statistics = {}
 		self.sprite_to_file_mapping = {}
 
-def update_match_statistics(match_statistics : MatchStatistics, reverse_match_statistics, steam_script_path, ps3_script_path, ps3_filter_function=None):
+def update_match_statistics(match_statistics : MatchStatistics, reverse_match_statistics, steam_script_path, ps3_script_path, ps3_filter_function=None, ps3_whitelist_function=None):
 	original_to_steam_chunk_list = get_matching_chunks_from_file(steam_script_path, ps3_script_path)
 
 	if not ps3_filter_function:
@@ -106,6 +106,12 @@ def update_match_statistics(match_statistics : MatchStatistics, reverse_match_st
 			if steam_name == 'black' or ps3_name == 'black':
 				continue
 			ps3_name = ps3_filter_function(ps3_name)
+
+			# If the filtered ps3 filename is not in the white list, don't try to match it
+			if ps3_whitelist_function:
+				if not ps3_whitelist_function(ps3_name):
+					continue
+
 			#do the forward mapping
 			match_count = match_statistics.statistics.setdefault(ps3_name, {})
 			match_count.setdefault(steam_name, 0)
@@ -219,11 +225,16 @@ def write_to_file(text : str, path : str):
 def normalize_time_of_day(ps3_image_path : str):
 	return ps3_image_path.replace('/normal/','/').replace('/sunset/', '/').replace('/night/','/')
 
+
+def keep_only_ryushiki_ps3(ps3_name):
+	raise NotImplemented()
+
 parser = MyParser(description='Match sprites between steam and ps3 scripts, given two input folders containing scripts as .txt files.')
 parser.add_argument('steam_scripts_folder', type=str, help='path containing steam scripts as .txt files')
 parser.add_argument('ps3_scripts_folder', type=str, help='path containing ps3 scripts as .txt files')
 parser.add_argument('output_file_path', type=str, help='name of file where results are written (JSON format)')
 parser.add_argument('--ignore_time_of_day', type=bool, default=False, help='ignore "normal", "sunset", "night" in ps3 paths')
+parser.add_argument('--whitelist', type=bool, default=False, help='whitelist ps3 names')
 
 args = parser.parse_args()
 
@@ -237,9 +248,22 @@ if args.ignore_time_of_day:
 else:
 	print("NOTE: Keeping time of day")
 
+ps3_whitelist_function = None
+if args.whitelist:
+	print("NOTE: whitelist not applied")
+	ps3_whitelist_function = keep_only_ryushiki_ps3
+else:
+	print("NOTE: applying whitelist")
+
+
 matching_script_paths = get_matching_script_paths_between_folders(args.steam_scripts_folder, args.ps3_scripts_folder)
 for steam_script_path, ps3_script_path in matching_script_paths:
-	update_match_statistics(match_statistics, reverse_match_statistics.statistics, steam_script_path, ps3_script_path, ps3_filter_function)
+	update_match_statistics(match_statistics,
+	                        reverse_match_statistics.statistics,
+	                        steam_script_path,
+	                        ps3_script_path,
+	                        ps3_filter_function,
+	                        ps3_whitelist_function=ps3_whitelist_function)
 
 print("\n\n----------------------------------------------")
 y = convertMatchingToCSV(match_statistics)
