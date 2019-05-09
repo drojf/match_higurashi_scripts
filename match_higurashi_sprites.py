@@ -214,7 +214,7 @@ def convertMatchingToCSV(match_statistics : MatchStatistics) -> [str]:
 	for row in rows:
 		matches = [f'{x[1]}:{x[0]}' for x in row.sorted_scores]
 		matches = pad_array(matches, max_matches, '')
-		rows_as_strings.append(f"{row.ps3file}, {row.source}, {row.highestCount}, {row.confidence:.0f}%, {', '.join(matches)}")
+		rows_as_strings.append(f"{row.ps3file},{row.source},{row.highestCount},{row.confidence:.0f}%,{','.join(matches)}")
 
 	return rows_as_strings
 
