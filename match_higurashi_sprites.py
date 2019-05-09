@@ -8,6 +8,9 @@ import argparse
 #these regexes are slightly different as DrawBust* has one argument before the bust name, ModDraw* has two
 import sys
 
+from match_statistics import MatchStatistics
+from match_statistics_to_csv import convertMatchingToCSV
+
 steamBustRegex = re.compile(r'DrawBust[^\(]+\(\s*\d*\s*,\s*\"([^\"]+)')
 ps3BustRegex = re.compile(r'ModDraw[^\(]+\(\s*\d*\s*,\s*\d*\s*,\s*\"([^\"]+)')
 
@@ -71,11 +74,6 @@ def try_get_steam_to_ps3_matching_from_chunks(steam_chunk : str, ps3_chunk : str
 		return (steam_match.group(1), ps3_match.group(1))
 	else:
 		return None
-
-class MatchStatistics:
-	def __init__(self):
-		self.statistics = {}
-		self.sprite_to_file_mapping = {}
 
 def update_match_statistics(match_statistics : MatchStatistics, reverse_match_statistics, steam_script_path, ps3_script_path, ps3_filter_function=None, ps3_whitelist_function=None):
 	original_to_steam_chunk_list = get_matching_chunks_from_file(steam_script_path, ps3_script_path)
@@ -165,58 +163,6 @@ class MyParser(argparse.ArgumentParser):
 		sys.stderr.write('error: %s\n' % message)
 		self.print_help()
 		sys.exit(2)
-
-def get_sorted_matches(matches):
-	return sorted(matches.items(), key=lambda x:x[1], reverse=True)
-
-class MatchRow:
-	def __init__(self, ps3file, source, highestCount, confidence, sorted_scores):
-		self.ps3file = ps3file
-		self.source = source
-		self.highestCount = highestCount
-		self.confidence = confidence
-		self.sorted_scores = sorted_scores
-
-
-def pad_array(arr, target_length, pad_value):
-	addon = [pad_value] * (target_length - len(arr))
-	return arr + addon
-
-def convertMatchingToCSV(match_statistics : MatchStatistics) -> [str]:
-	rows = []
-	for sourceMatch, destinationMatches in match_statistics.statistics.items():
-		sourceFile = match_statistics.sprite_to_file_mapping.get(sourceMatch, "")
-
-		if len(destinationMatches) > 0:
-			sorted_matches = get_sorted_matches(destinationMatches)
-			best_match = sorted_matches[0]
-			total_score = sum([x[1] for x in sorted_matches])
-			best_match_confidence = best_match[1] / total_score * 100
-
-			# highestCountName, highestCount, confidence = getBestMatchAndConfidence(destinationMatches)
-			rows.append(MatchRow(sourceFile, sourceMatch, best_match[1], best_match_confidence, sorted_matches))
-		else:
-			rows.append(MatchRow(sourceFile, sourceMatch, 0, 0, []))
-
-	rows.sort(key=lambda x: x.source)
-	rows.sort(key=lambda x: x.confidence, reverse=True)
-	rows.sort(key=lambda x: x.highestCount, reverse=True)
-
-	#for consistent CSV rows, determine the max number of columns first
-	max_matches = 0
-	for row in rows:
-		if len(row.sorted_scores) > max_matches:
-			max_matches = len(row.sorted_scores)
-
-	rows_as_strings = []
-	header_matches = ','.join(pad_array(['all matches'], max_matches, 'match'))
-	rows_as_strings.append(f'ps3 sprite file, source image, count of best match, confidence,{header_matches}')
-	for row in rows:
-		matches = [f'{x[1]}:{x[0]}' for x in row.sorted_scores]
-		matches = pad_array(matches, max_matches, '')
-		rows_as_strings.append(f"{row.ps3file},{row.source},{row.highestCount},{row.confidence:.0f}%,{','.join(matches)}")
-
-	return rows_as_strings
 
 def write_to_file(text : str, path : str):
 	with open(path, 'w', encoding='utf-8') as output_file:
