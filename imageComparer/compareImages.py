@@ -1,9 +1,7 @@
-import itertools
 import os
 import json
 import platform
 import re
-import zipfile
 import subprocess
 
 import traceback
@@ -231,7 +229,8 @@ class InstallerGUI:
 		self.threadHandle = None # type: Optional[threading.Thread]
 		self.selectedModName = None # type: Optional[str] # user sets this while navigating the website
 		self.workingDirectory = workingDirectory
-		self.currentRow = 0
+		self.currentRows = [['asdf'], ['assdfasdfasf'], ['fsdsfadf']]
+		self.currentRowIndex = 0
 
 	# An example of how this class can be used.
 	def server_test(self):
@@ -248,12 +247,17 @@ class InstallerGUI:
 				}
 
 			def getNext(requestData):
+				# TODO: handle case when there are no rows at all?
+				offset = requestData['offset']
+				self.currentRowIndex = (self.currentRowIndex + int(offset)) % len(self.currentRows)
+
 				retval = {
 					'leftImage': 'test',
 					'rightImage': 'test2',
-					'currentRow': self.currentRow,
+					'currentRow': self.currentRows[self.currentRowIndex],
+					'currentRowIndex': self.currentRowIndex,
+					'totalRows': len(self.currentRows)
 				}
-				self.currentRow += 1
 				return retval
 
 			def unknownRequestHandler(requestData):

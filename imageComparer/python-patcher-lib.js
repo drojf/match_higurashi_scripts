@@ -12,20 +12,27 @@ window.onload = function onWindowLoaded() {
     data: {
       leftImage: null,
       rightImage: null,
-      currentRow: 0,
+      currentRow: [],
+      currentRowIndex: 0, // THIS VALUE IS ZERO INDEXED.
+      totalRows: 0,
     },
     methods: {
-      getNext(subModToInstall, installPath) {
-        doPost('getNext', { }, (responseData) => {
+      getRow(offset) {
+        doPost('getNext', { 'offset': offset}, (responseData) => {
           console.log(responseData);
           app.leftImage = responseData.leftImage;
           app.rightImage = responseData.rightImage;
           app.currentRow = responseData.currentRow;
+          app.currentRowIndex = responseData.currentRowIndex;
+          app.totalRows = responseData.totalRows;
         });
       }
     },
     computed: {
     },
   });
+
+  //restore state of the gui with the current row
+  app.getRow(0);
 
 };

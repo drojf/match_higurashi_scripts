@@ -19,8 +19,9 @@
         <img class="comparison-image" src="external\HigurashiEp04_Data\StreamingAssets\CG\sprite\normal\iri1_def2_2.png" width="600px">
         <p>Left Image: {{ leftImage }}</p>
         <p>Right Image: {{ rightImage }}</p>
-        <p>CurrentRow: {{ currentRow }}</p>
-        <button v-on:click="getNext()">NextImage</button>
+        <p>CurrentRow {{ currentRowIndex + 1 }} / {{ totalRows }}:  {{ currentRow }}</p>
+        <button v-on:click="getRow(-1)">Previous Image</button>
+        <button v-on:click="getRow(1)">Next Image</button>
     </div>
         <script src="js/jquery.min.js"></script>
 		<script src="js/vue.js"></script>
