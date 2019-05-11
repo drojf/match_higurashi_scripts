@@ -300,5 +300,50 @@ class InstallerGUI:
 		             post_handlers=post_handlers,
 		             serverStartedCallback=on_server_started)
 
+def normalizeFilenameAndRemoveExtension(path):
+	name, ext = os.path.splitext(path)
+	return name.lower()
+
+def buildFilenameFilepathMap(folder, pathFilterString, extensionIncludingDot, warnDuplicates=False):
+	"""
+	returns a dict of lowercaseFileNameNoExtension -> fullPathWithExtension
+	pathFilterString must be a string which all expected paths would contain. For example 'StreamingAssets\CG\sprite\normal'
+	:param folder:
+	:param pathFilterString:
+	:param extensionIncludingDot:
+	:param warnDuplicates:
+	:return:
+	"""
+	retDict = {}
+	for root, dirs, files in os.walk(folder):
+		for filename in files:
+			if filename.endswith(extensionIncludingDot):
+				fullPath = os.path.join(root, filename)
+				if pathFilterString is None or pathFilterString in fullPath:
+					normalizedName = normalizeFilenameAndRemoveExtension(filename)
+					existingPath = retDict.get(normalizedName)
+					if existingPath:
+						if warnDuplicates:
+							print(f"WARNING: duplicate filename {filename} in {existingPath} -> {fullPath}")
+					else:
+						retDict[normalizedName] = fullPath
+
+	return retDict
+
+
+################# CONFIG OPTIONS
+WARN_DUPLICATE_IMAGES = False
+################# END CONFIG OPTIONS
+
+ps3_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ps3',
+														pathFilterString=r'sprite\normal', #Only include the 'normal' sprites, not any other variants
+														extensionIncludingDot='.png',
+														warnDuplicates=WARN_DUPLICATE_IMAGES)
+
+ryukishi_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ryukishi',
+														pathFilterString=None,
+														extensionIncludingDot='.png',
+														warnDuplicates=WARN_DUPLICATE_IMAGES)
+
 gui = InstallerGUI(workingDirectory='.')
 gui.server_test()
