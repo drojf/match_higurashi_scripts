@@ -9,15 +9,19 @@
             .comparison-image {
                 border:2px solid black
             }
-            </style>
+        </style>
     </head>
     <body>
     <div id="app">
         <h1>Test Page</h1>
         <img class="comparison-image" src="external\HigurashiEp04_Data\StreamingAssets\CG\sprite\normal\chibimion_shinken_1.png" width="600px">
         <img class="comparison-image" src="external\HigurashiEp04_Data\StreamingAssets\CG\sprite\normal\iri1_def2_2.png" width="600px">
+        <p>Left Image: {{ leftImage }}</p>
+        <p>Right Image: {{ rightImage }}</p>
+        <p>CurrentRow: {{ currentRow }}</p>
+        <button v-on:click="getNext()">NextImage</button>
     </div>
-        <script src="js/jquery.js"></script>
+        <script src="js/jquery.min.js"></script>
 		<script src="js/vue.js"></script>
 		<script src="python-patcher-rest-lib.js"></script>
 		<script src="python-patcher-lib.js"></script>

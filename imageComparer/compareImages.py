@@ -231,6 +231,7 @@ class InstallerGUI:
 		self.threadHandle = None # type: Optional[threading.Thread]
 		self.selectedModName = None # type: Optional[str] # user sets this while navigating the website
 		self.workingDirectory = workingDirectory
+		self.currentRow = 0
 
 	# An example of how this class can be used.
 	def server_test(self):
@@ -246,11 +247,21 @@ class InstallerGUI:
 					'progressPercent': 2,
 				}
 
+			def getNext(requestData):
+				retval = {
+					'leftImage': 'test',
+					'rightImage': 'test2',
+					'currentRow': self.currentRow,
+				}
+				self.currentRow += 1
+				return retval
+
 			def unknownRequestHandler(requestData):
 				return 'Invalid request type [{}]. Should be one of [{}]'.format(requestType, requestTypeToRequestHandlers.items())
 
 			requestTypeToRequestHandlers = {
 				'getDonationStatus' : getDonationStatus,
+				'getNext': getNext,
 			}
 
 			requestHandler = requestTypeToRequestHandlers.get(requestType, None)
