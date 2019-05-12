@@ -6,6 +6,7 @@ import subprocess
 
 import traceback
 import threading
+import csv
 
 import http.server as server
 from http.server import HTTPServer
@@ -304,7 +305,12 @@ def normalizeFilenameAndRemoveExtension(path):
 	name, ext = os.path.splitext(path)
 	return name.lower()
 
-def buildFilenameFilepathMap(folder, pathFilterString, extensionIncludingDot, warnDuplicates=False):
+# Todo: hopefully this method of stripping the facial expression part of the name is good enough
+def normalizePS3PathToName(path):
+	partially_normalized = normalizeFilenameAndRemoveExtension(path)
+	return partially_normalized[:-2]
+
+def buildFilenameFilepathMap(folder, pathFilterString, extensionIncludingDot, pathToNameFunction, warnDuplicates=False):
 	"""
 	returns a dict of lowercaseFileNameNoExtension -> fullPathWithExtension
 	pathFilterString must be a string which all expected paths would contain. For example 'StreamingAssets\CG\sprite\normal'
@@ -320,7 +326,7 @@ def buildFilenameFilepathMap(folder, pathFilterString, extensionIncludingDot, wa
 			if filename.endswith(extensionIncludingDot):
 				fullPath = os.path.join(root, filename)
 				if pathFilterString is None or pathFilterString in fullPath:
-					normalizedName = normalizeFilenameAndRemoveExtension(filename)
+					normalizedName = pathToNameFunction(filename)
 					existingPath = retDict.get(normalizedName)
 					if existingPath:
 						if warnDuplicates:
@@ -330,6 +336,41 @@ def buildFilenameFilepathMap(folder, pathFilterString, extensionIncludingDot, wa
 
 	return retDict
 
+class SpriteMatchResult:
+	def __init__(self, csvRow):
+		"""
+
+		:param csvRow: a csvRow object from a csv.reader
+		"""
+		self.ps3_script = csvRow[0]
+		self.ps3_filename = os.path.basename(csvRow[1])
+		splitRow = csvRow[4].split(':')
+
+		if len(splitRow) > 1:
+			num_matches, self.ryukishi_filename = splitRow
+		else:
+			self.ryukishi_filename = 'NO_MATCH'
+
+		self.ryukishi_filename = self.ryukishi_filename.strip()
+		self.ps3_filename = self.ps3_filename.rstrip('_')
+
+	def __repr__(self):
+		return f'{self.ps3_filename} -> {self.ryukishi_filename}'
+
+def readCSVAsSpriteMatches(csvFilePath):
+	sprite_match_results: List[SpriteMatchResult] = []
+
+	with open(csvFilePath, newline='') as csvfile:
+		spamreader = csv.reader(csvfile)
+		for i, row in enumerate(spamreader):
+			if i == 0:
+				print('CSV Headers (ignored): ' + ', '.join(row))
+				continue
+
+			print(', '.join(row))
+			sprite_match_results.append(SpriteMatchResult(row))
+
+	return sprite_match_results
 
 ################# CONFIG OPTIONS
 WARN_DUPLICATE_IMAGES = False
@@ -338,12 +379,29 @@ WARN_DUPLICATE_IMAGES = False
 ps3_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ps3',
 														pathFilterString=r'sprite\normal', #Only include the 'normal' sprites, not any other variants
 														extensionIncludingDot='.png',
+														pathToNameFunction=normalizePS3PathToName,
 														warnDuplicates=WARN_DUPLICATE_IMAGES)
 
 ryukishi_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ryukishi',
 														pathFilterString=None,
 														extensionIncludingDot='.png',
+														pathToNameFunction=normalizeFilenameAndRemoveExtension,
 														warnDuplicates=WARN_DUPLICATE_IMAGES)
+
+matches = readCSVAsSpriteMatches(csvFilePath='../noconsole_output.txt.csv')
+
+for match in matches:
+	ps3_filepath = ps3_filename_to_filepath_map.get(match.ps3_filename)
+	if ps3_filepath:
+		print("got match at", ps3_filepath)
+	else:
+		print(f"no ps3 match found for {match}")
+
+	ryukishi_filepath = ryukishi_filename_to_filepath_map.get(match.ryukishi_filename)
+	if ryukishi_filepath:
+		print("got match at", ryukishi_filepath)
+	else:
+		print(f"no ryukishi match found for {match}")
 
 gui = InstallerGUI(workingDirectory='.')
 gui.server_test()
