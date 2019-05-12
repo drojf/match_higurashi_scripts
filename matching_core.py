@@ -5,7 +5,7 @@ from typing import Callable, Set, List, Tuple, Iterator
 
 from match_statistics import MatchStatistics
 
-steamBustRegex = re.compile(r'DrawBust[^\(]+\(\s*\d*\s*,\s*\"([^\"]+)')
+steamBustRegex = re.compile(r'(DrawBust|ChangeBust)[^\(]+\(\s*\d*\s*,\s*\"([^\"]+)')
 ps3BustRegex = re.compile(r'ModDraw[^\(]+\(\s*\d*\s*,\s*\d*\s*,\s*\"([^\"]+)')
 
 
@@ -98,8 +98,8 @@ def try_get_steam_to_ps3_matching_from_chunks(steam_chunk : str, ps3_chunk : str
 	if not ps3_match:
 		return None
 
-	if steam_match.group(1) and ps3_match.group(1):
-		return (steam_match.group(1), ps3_match.group(1))
+	if steam_match.group(2) and ps3_match.group(1):
+		return (steam_match.group(2), ps3_match.group(1))
 	else:
 		return None
 
