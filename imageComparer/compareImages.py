@@ -18,6 +18,41 @@ from typing import List, Optional, Dict
 
 collapseWhiteSpaceRegex = re.compile(r"[\s\b]+")
 
+class SpriteMatchResult:
+	def __init__(self, csvRow):
+		"""
+
+		:param csvRow: a csvRow object from a csv.reader
+		"""
+		self.ps3_script = csvRow[0]
+		self.ps3_filename = os.path.basename(csvRow[1])
+		self.ryukishi_filename = csvRow[2]
+
+		#TODO: remove this when creating the CSV, not here!
+		self.ryukishi_filename = self.ryukishi_filename.strip()
+		self.ps3_filename = self.ps3_filename.rstrip('_')
+
+	def __repr__(self):
+		return f'{self.ps3_filename} -> {self.ryukishi_filename}'
+
+	def asArray(self):
+		return [self.ps3_script, self.ps3_filename, self.ryukishi_filename]
+
+class ImageComparison:
+	def __init__(self, sprite_match_reults : List[SpriteMatchResult], ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map):
+		self.sprite_match_reults = sprite_match_reults
+		self.ps3_filename_to_filepath_map = ps3_filename_to_filepath_map
+		self.ryukishi_filename_to_filepath_map = ryukishi_filename_to_filepath_map
+
+	def getRowAndBestMatches(self, rowIndex):
+		row = self.sprite_match_reults[rowIndex]
+		ps3_filepath = ps3_filename_to_filepath_map.get(row.ps3_filename.lower(), f'FILE LOOKUP FAILED ON [{row.ps3_filename}] (lookup name is {row.ps3_filename.lower()})')
+		ryukishi_filepath = ryukishi_filename_to_filepath_map.get(row.ryukishi_filename.lower(), f'FILE_LOOKUP_FAILED_FOR [{row.ryukishi_filename}] (lookup name is {row.ryukishi_filename.lower()})')
+		return row, ps3_filepath, ryukishi_filepath
+
+	def getNumRows(self):
+		return len(self.sprite_match_reults)
+
 class Globals:
 	# Define constants used throughout the script. Use function calls to enforce variables as const
 	IS_WINDOWS = platform.system() == "Windows"
@@ -222,7 +257,7 @@ class InstallerGUIException(Exception):
 		return self.errorReason
 
 class InstallerGUI:
-	def __init__(self, workingDirectory):
+	def __init__(self, workingDirectory, image_comparison : ImageComparison):
 		"""
 		:param allSubModList: a list of SubModConfigs derived from the json file (should contain ALL submods in the file)
 		"""
@@ -230,8 +265,8 @@ class InstallerGUI:
 		self.threadHandle = None # type: Optional[threading.Thread]
 		self.selectedModName = None # type: Optional[str] # user sets this while navigating the website
 		self.workingDirectory = workingDirectory
-		self.currentRows = [['asdf'], ['assdfasdfasf'], ['fsdsfadf']]
 		self.currentRowIndex = 0
+		self.image_comparison = image_comparison
 
 	# An example of how this class can be used.
 	def server_test(self):
@@ -250,14 +285,16 @@ class InstallerGUI:
 			def getNext(requestData):
 				# TODO: handle case when there are no rows at all?
 				offset = requestData['offset']
-				self.currentRowIndex = (self.currentRowIndex + int(offset)) % len(self.currentRows)
+				self.currentRowIndex = (self.currentRowIndex + int(offset)) % self.image_comparison.getNumRows()
+
+				row, ps3_filepath, ryukishi_filepath = self.image_comparison.getRowAndBestMatches(self.currentRowIndex)
 
 				retval = {
-					'leftImage': 'test',
-					'rightImage': 'test2',
-					'currentRow': self.currentRows[self.currentRowIndex],
+					'leftImage': ps3_filepath,
+					'rightImage': ryukishi_filepath,
+					'currentRow': row.asArray(),
 					'currentRowIndex': self.currentRowIndex,
-					'totalRows': len(self.currentRows)
+					'totalRows': self.image_comparison.getNumRows()
 				}
 				return retval
 
@@ -336,22 +373,6 @@ def buildFilenameFilepathMap(folder, pathFilterString, extensionIncludingDot, pa
 
 	return retDict
 
-class SpriteMatchResult:
-	def __init__(self, csvRow):
-		"""
-
-		:param csvRow: a csvRow object from a csv.reader
-		"""
-		self.ps3_script = csvRow[0]
-		self.ps3_filename = os.path.basename(csvRow[1])
-		self.ryukishi_filename = csvRow[2]
-
-		self.ryukishi_filename = self.ryukishi_filename.strip()
-		self.ps3_filename = self.ps3_filename.rstrip('_')
-
-	def __repr__(self):
-		return f'{self.ps3_filename} -> {self.ryukishi_filename}'
-
 def readCSVAsSpriteMatches(csvFilePath):
 	sprite_match_results: List[SpriteMatchResult] = []
 
@@ -366,6 +387,11 @@ def readCSVAsSpriteMatches(csvFilePath):
 			sprite_match_results.append(SpriteMatchResult(row))
 
 	return sprite_match_results
+
+
+
+
+
 
 ################# CONFIG OPTIONS
 WARN_DUPLICATE_IMAGES = False
@@ -398,5 +424,7 @@ for match in matches:
 	else:
 		print(f"no ryukishi match found for {match}")
 
-gui = InstallerGUI(workingDirectory='.')
+image_comparison = ImageComparison(matches, ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map)
+
+gui = InstallerGUI(workingDirectory='.', image_comparison=image_comparison)
 gui.server_test()
