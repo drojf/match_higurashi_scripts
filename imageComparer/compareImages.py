@@ -290,8 +290,8 @@ class InstallerGUI:
 				row, ps3_filepath, ryukishi_filepath = self.image_comparison.getRowAndBestMatches(self.currentRowIndex)
 
 				retval = {
-					'leftImage': ps3_filepath,
-					'rightImage': ryukishi_filepath,
+					'leftImage': ps3_filepath.replace('\\','/'),
+					'rightImage': ryukishi_filepath.replace('\\','/'),
 					'currentRow': row.asArray(),
 					'currentRowIndex': self.currentRowIndex,
 					'totalRows': self.image_comparison.getNumRows()

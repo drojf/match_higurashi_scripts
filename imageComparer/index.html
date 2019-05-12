@@ -15,8 +15,8 @@
     <body>
     <div id="app">
         <h1>Test Page</h1>
-        <img class="comparison-image" v-bind:src="leftImage" height="300px">
-        <img class="comparison-image" v-bind:src="rightImage" height="300px">
+        <img class="comparison-image" v-bind:src="encodeURIComponent(leftImage)" height="300px">
+        <img class='comparison-image' v-bind:src="encodeURIComponent(rightImage)" height="300px">
         <p>Left Image: {{ leftImage }}</p>
         <p>Right Image: {{ rightImage }}</p>
         <p>CurrentRow {{ currentRowIndex + 1 }} / {{ totalRows }}:  {{ currentRow }}</p>
