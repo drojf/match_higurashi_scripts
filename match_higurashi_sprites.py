@@ -19,8 +19,8 @@ def write_to_file(text : str, path : str):
 	with open(path, 'w', encoding='utf-8') as output_file:
 		output_file.write(text)
 
-def normalize_time_of_day(ps3_image_path : str) -> str:
-	return ps3_image_path.replace('/normal/','/').replace('/sunset/', '/').replace('/night/','/')
+def normalize_time_of_day_and_portrait(ps3_image_path : str) -> str:
+	return ps3_image_path.replace('/normal/','/').replace('/sunset/', '/').replace('/night/','/').replace('portrait/','sprite/')
 
 
 def keep_only_ryushiki_ps3(ps3_name):
@@ -40,14 +40,14 @@ if NO_CONSOLE:
 									reverse_match_statistics,
 									steam_script_path,
 									ps3_script_path,
-									normalize_time_of_day, #set ps3 filter function here
+									normalize_time_of_day_and_portrait,  #set ps3 filter function here
 									ps3_whitelist_function=None) #set ps3 whitelist function here
 else:
 	parser = MyParser(description='Match sprites between steam and ps3 scripts, given two input folders containing scripts as .txt files.')
 	parser.add_argument('steam_scripts_folder', type=str, help='path containing steam scripts as .txt files')
 	parser.add_argument('ps3_scripts_folder', type=str, help='path containing ps3 scripts as .txt files')
 	parser.add_argument('output_file_path', type=str, help='name of file where results are written (JSON format)')
-	parser.add_argument('--ignore_time_of_day', type=bool, default=False, help='ignore "normal", "sunset", "night" in ps3 paths')
+	parser.add_argument('--ignore_time_of_day_and_portrait', type=bool, default=False, help='ignore "normal", "sunset", "night", "portrait" in ps3 paths')
 	parser.add_argument('--whitelist', type=bool, default=False, help='whitelist ps3 names')
 
 	args = parser.parse_args()
@@ -57,7 +57,7 @@ else:
 	ps3_filter_function = None
 	if args.ignore_time_of_day:
 		print("NOTE: ignoring time of day")
-		ps3_filter_function = normalize_time_of_day
+		ps3_filter_function = normalize_time_of_day_and_portrait
 	else:
 		print("NOTE: Keeping time of day")
 
