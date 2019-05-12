@@ -344,12 +344,7 @@ class SpriteMatchResult:
 		"""
 		self.ps3_script = csvRow[0]
 		self.ps3_filename = os.path.basename(csvRow[1])
-		splitRow = csvRow[4].split(':')
-
-		if len(splitRow) > 1:
-			num_matches, self.ryukishi_filename = splitRow
-		else:
-			self.ryukishi_filename = 'NO_MATCH'
+		self.ryukishi_filename = csvRow[2]
 
 		self.ryukishi_filename = self.ryukishi_filename.strip()
 		self.ps3_filename = self.ps3_filename.rstrip('_')
