@@ -2,9 +2,10 @@ from match_statistics import MatchStatistics
 
 
 class MatchRow:
-	def __init__(self, ps3file, source, highestCount, confidence, sorted_scores):
+	def __init__(self, ps3file, source, ryukishiBestMatch, highestCount, confidence, sorted_scores):
 		self.ps3file = ps3file
 		self.source = source
+		self.ryukishiBestMatch = ryukishiBestMatch
 		self.highestCount = highestCount
 		self.confidence = confidence
 		self.sorted_scores = sorted_scores
@@ -31,9 +32,9 @@ def convertMatchingToCSV(match_statistics : MatchStatistics) -> [str]:
 			best_match_confidence = best_match[1] / total_score * 100
 
 			# highestCountName, highestCount, confidence = getBestMatchAndConfidence(destinationMatches)
-			rows.append(MatchRow(sourceFile, sourceMatch, best_match[1], best_match_confidence, sorted_matches))
+			rows.append(MatchRow(sourceFile, sourceMatch, best_match[0], best_match[1], best_match_confidence, sorted_matches))
 		else:
-			rows.append(MatchRow(sourceFile, sourceMatch, 0, 0, []))
+			rows.append(MatchRow(sourceFile, sourceMatch, 'NO_MATCH', 0, 0, []))
 
 	rows.sort(key=lambda x: x.source)
 	rows.sort(key=lambda x: x.confidence, reverse=True)
@@ -47,10 +48,10 @@ def convertMatchingToCSV(match_statistics : MatchStatistics) -> [str]:
 
 	rows_as_strings = []
 	header_matches = ','.join(pad_array(['all matches'], max_matches, 'match'))
-	rows_as_strings.append(f'ps3 sprite file, source image, count of best match, confidence,{header_matches}')
+	rows_as_strings.append(f'ps3 sprite file, ps3 image, ryukishi best match, count of best match, confidence,{header_matches}')
 	for row in rows:
 		matches = [f'{x[1]}:{x[0]}' for x in row.sorted_scores]
 		matches = pad_array(matches, max_matches, '')
-		rows_as_strings.append(f"{row.ps3file},{row.source},{row.highestCount},{row.confidence:.0f}%,{','.join(matches)}")
+		rows_as_strings.append(f"{row.ps3file},{row.source},{row.ryukishiBestMatch},{row.highestCount},{row.confidence:.0f}%,{','.join(matches)}")
 
 	return rows_as_strings
