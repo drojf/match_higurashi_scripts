@@ -46,7 +46,24 @@ def get_comment_chunk_pairs_from_text(text: str) -> Iterator[Tuple[str, str]]:
 
 	return zip(comment_lines, child_text)
 
+#englishTextMarkerRegex = re.compile(r'\s*NULL\s*,\s*([^,]+)', re.IGNORECASE)
+outputLineFunctionCaptureRegex = re.compile(r'OutputLine\([^,]+,\s*"([^"]+)[^)]+\)', re.IGNORECASE)
 
+def get_comment_chunk_pairs_from_text_alt(text: str) -> Iterator[Tuple[str, str]]:
+	"""
+	Take every odd/even result from the split_text array.
+	There will always be one more child text than comment line,
+	so skip the first child text (start at index 2 instead of 0)
+
+	:param text: The text which will be split on comment lines
+	:return: The text split into a list of tuples. Each tuple is of the form (comment, textBetweenComment).
+	"""
+	split_text = outputLineFunctionCaptureRegex.split(text)
+
+	child_text = split_text[2::2]
+	comment_lines = split_text[1::2]
+
+	return zip(comment_lines, child_text)
 
 def get_matching_chunks_from_file(steam_script_path: str, ps3_script_path: str) -> List[Tuple[str, str]]:
 	"""
@@ -62,10 +79,15 @@ def get_matching_chunks_from_file(steam_script_path: str, ps3_script_path: str) 
 	ps3_script_text = pathlib.Path(ps3_script_path).read_text(encoding='utf-8')
 
 	# get chunks from text
-	original_pairs = get_comment_chunk_pairs_from_text(original_text)
-	ps3_pairs = get_comment_chunk_pairs_from_text(ps3_script_text)
+	original_pairs = list(get_comment_chunk_pairs_from_text(original_text))
+	ps3_pairs = list(get_comment_chunk_pairs_from_text(ps3_script_text))
 
-	original_chunk_dictionary = {k: v for (k, v) in original_pairs}
+	# If there are not enough matches, use alternate method using OutputLine(...) instead of comments
+	if len(original_pairs) < 10 or len(ps3_pairs) < 10:
+		original_pairs = list(get_comment_chunk_pairs_from_text_alt(original_text))
+		ps3_pairs = list(get_comment_chunk_pairs_from_text_alt(ps3_script_text))
+
+	original_chunk_dictionary = dict(original_pairs)
 
 	# look up each new ps3 comment in the original dictionary
 	ps3_chunk_to_steam_chunk = []
