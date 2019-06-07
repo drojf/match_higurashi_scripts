@@ -268,6 +268,14 @@ class InstallerGUI:
 		self.currentRowIndex = 0
 		self.image_comparison = image_comparison
 
+		self.mapping = {}
+		with open("mapping.txt", 'r', encoding='utf-8') as mapping_file:
+			for line in mapping_file:
+				lImage, rImage = line.strip().split("|||")
+				self.mapping[lImage] = rImage
+
+		self.mapping_file = open("mapping.txt", 'a', encoding='utf-8')
+
 	# An example of how this class can be used.
 	def server_test(self):
 		def handleInstallerData(body_string):
@@ -276,34 +284,46 @@ class InstallerGUI:
 			if requestType != 'statusUpdate':
 				print('Got Request [{}] Data [{}]\n'.format(requestType, requestData))
 
-			def getDonationStatus(requestData):
-				return  {
-					'monthsRemaining': 1,
-					'progressPercent': 2,
-				}
-
-			def getNext(requestData):
-				# TODO: handle case when there are no rows at all?
-				offset = requestData['offset']
-				self.currentRowIndex = (self.currentRowIndex + int(offset)) % self.image_comparison.getNumRows()
+			def getRowAbsolute(requestData):
+				self.currentRowIndex = int(requestData['index'])
 
 				row, ps3_filepath, ryukishi_filepath = self.image_comparison.getRowAndBestMatches(self.currentRowIndex)
 
+				fixed_ps3_filepath = ps3_filepath.replace('\\','/')
+				fixed_ryukishi_filepath = ryukishi_filepath.replace('\\','/')
+				mapped_val = self.mapping.get(fixed_ps3_filepath)
+
+				already_matched =  mapped_val is not None and mapped_val == fixed_ryukishi_filepath
+
 				retval = {
-					'leftImage': ps3_filepath.replace('\\','/'),
-					'rightImage': ryukishi_filepath.replace('\\','/'),
+					'leftImage': fixed_ps3_filepath,
+					'rightImage': fixed_ryukishi_filepath,
 					'currentRow': row.asArray(),
 					'currentRowIndex': self.currentRowIndex,
+					'alreadyMatched': already_matched,
 					'totalRows': self.image_comparison.getNumRows()
 				}
 				return retval
+
+			def getNext(requestData):
+				offset = requestData['offset']
+				ind = (self.currentRowIndex + int(offset)) % self.image_comparison.getNumRows()
+				return getRowAbsolute({'index': str(ind)})
+
+			def saveMapping(requestData):
+				lImage = requestData["leftImage"]
+				rImage = requestData["rightImage"]
+				self.mapping[lImage] = rImage
+				self.mapping_file.write(f'{lImage}|||{rImage}\n')
+				self.mapping_file.flush()
+				return {'status': 'OK'}
 
 			def unknownRequestHandler(requestData):
 				return 'Invalid request type [{}]. Should be one of [{}]'.format(requestType, requestTypeToRequestHandlers.items())
 
 			requestTypeToRequestHandlers = {
-				'getDonationStatus' : getDonationStatus,
 				'getNext': getNext,
+				'saveMapping': saveMapping,
 			}
 
 			requestHandler = requestTypeToRequestHandlers.get(requestType, None)

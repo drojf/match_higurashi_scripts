@@ -15,18 +15,30 @@ window.onload = function onWindowLoaded() {
       currentRow: [],
       currentRowIndex: 0, // THIS VALUE IS ZERO INDEXED.
       totalRows: 0,
+      alreadyMatched: false,
     },
     methods: {
+      getBase(responseData) {
+        console.log(responseData);
+        app.leftImage = responseData.leftImage;
+        app.rightImage = responseData.rightImage;
+        app.currentRow = responseData.currentRow;
+        app.currentRowIndex = responseData.currentRowIndex;
+        app.totalRows = responseData.totalRows;
+        app.alreadyMatched = responseData.alreadyMatched;
+      },
+      getRowAbsolute(index) {
+        doPost('getRowAbsolute', { 'offset': offset}, (responseData) => { app.getBase(responseData); });
+      },
       getRow(offset) {
-        doPost('getNext', { 'offset': offset}, (responseData) => {
+        doPost('getNext', { 'offset': offset}, (responseData) => { app.getBase(responseData); });
+      },
+      saveMapping() {
+        doPost('saveMapping', { 'leftImage': app.leftImage, 'rightImage': app.rightImage}, (responseData) => {
           console.log(responseData);
-          app.leftImage = responseData.leftImage;
-          app.rightImage = responseData.rightImage;
-          app.currentRow = responseData.currentRow;
-          app.currentRowIndex = responseData.currentRowIndex;
-          app.totalRows = responseData.totalRows;
+          app.getRow(0);
         });
-      }
+      },
     },
     computed: {
     },

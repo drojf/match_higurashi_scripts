@@ -14,7 +14,9 @@
     </head>
     <body>
     <div id="app">
-        <h1>Test Page</h1>
+        <h1>Image Matching</h1>
+        <div v-if="alreadyMatched" style="font-size: 50px">✅ saved</div>
+        <div v-else style="font-size: 50px">❌ not saved</div>
         <img class="comparison-image" v-bind:src="encodeURIComponent(leftImage)" height="300px">
         <img class='comparison-image' v-bind:src="encodeURIComponent(rightImage)" height="300px">
         <p>Left Image: {{ leftImage }}</p>
@@ -22,6 +24,7 @@
         <p>CurrentRow {{ currentRowIndex + 1 }} / {{ totalRows }}:  {{ currentRow }}</p>
         <button v-on:click="getRow(-1)">Previous Image</button>
         <button v-on:click="getRow(1)">Next Image</button>
+        <button v-on:click="saveMapping()">Save Mapping</button>
     </div>
         <script src="js/jquery.min.js"></script>
 		<script src="js/vue.js"></script>
