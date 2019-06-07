@@ -310,6 +310,14 @@ class InstallerGUI:
 				ind = (self.currentRowIndex + int(offset)) % self.image_comparison.getNumRows()
 				return getRowAbsolute({'index': str(ind)})
 
+			def getNextUnsaved(requetData):
+				for i in range(0, self.image_comparison.getNumRows()):
+					retRow = getRowAbsolute({'index': str(i)})
+					if not retRow['alreadyMatched']:
+						return retRow
+
+				return None
+
 			def saveMapping(requestData):
 				lImage = requestData["leftImage"]
 				rImage = requestData["rightImage"]
@@ -324,6 +332,7 @@ class InstallerGUI:
 			requestTypeToRequestHandlers = {
 				'getNext': getNext,
 				'saveMapping': saveMapping,
+				'getNextUnsaved': getNextUnsaved,
 			}
 
 			requestHandler = requestTypeToRequestHandlers.get(requestType, None)

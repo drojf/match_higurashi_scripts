@@ -19,6 +19,11 @@ window.onload = function onWindowLoaded() {
     },
     methods: {
       getBase(responseData) {
+        if(responseData === null)
+        {
+          alert("no row found for your query!");
+        }
+
         console.log(responseData);
         app.leftImage = responseData.leftImage;
         app.rightImage = responseData.rightImage;
@@ -26,6 +31,9 @@ window.onload = function onWindowLoaded() {
         app.currentRowIndex = responseData.currentRowIndex;
         app.totalRows = responseData.totalRows;
         app.alreadyMatched = responseData.alreadyMatched;
+      },
+      getNextUnsaved() {
+        doPost('getNextUnsaved', { }, (responseData) => { app.getBase(responseData); });
       },
       getRowAbsolute(index) {
         doPost('getRowAbsolute', { 'offset': offset}, (responseData) => { app.getBase(responseData); });
