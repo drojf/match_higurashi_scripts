@@ -286,6 +286,8 @@ class InstallerGUI:
 
 			def getRowAbsolute(requestData):
 				self.currentRowIndex = int(requestData['index'])
+				if self.currentRowIndex < 0:
+					return None
 
 				row, ps3_filepath, ryukishi_filepath = self.image_comparison.getRowAndBestMatches(self.currentRowIndex)
 
@@ -331,6 +333,7 @@ class InstallerGUI:
 
 			requestTypeToRequestHandlers = {
 				'getNext': getNext,
+				'getRowAbsolute': getRowAbsolute,
 				'saveMapping': saveMapping,
 				'getNextUnsaved': getNextUnsaved,
 			}

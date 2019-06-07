@@ -26,6 +26,9 @@
         <button v-on:click="getRow(1)">Next Image</button>
         <button v-on:click="saveMapping()">Save Mapping</button>
         <button v-on:click="getNextUnsaved()">Go To Next Unsaved</button>
+        <br><br>
+        <button v-on:click="getRowAbsolute(jumpIndex)">Go To Row</button>
+        <input v-model="jumpIndex" placeholder="edit me" style="width: 60px">
     </div>
         <script src="js/jquery.min.js"></script>
 		<script src="js/vue.js"></script>

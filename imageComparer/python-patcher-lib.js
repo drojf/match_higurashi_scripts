@@ -16,6 +16,7 @@ window.onload = function onWindowLoaded() {
       currentRowIndex: 0, // THIS VALUE IS ZERO INDEXED.
       totalRows: 0,
       alreadyMatched: false,
+      jumpIndex: 1,
     },
     methods: {
       getBase(responseData) {
@@ -36,7 +37,7 @@ window.onload = function onWindowLoaded() {
         doPost('getNextUnsaved', { }, (responseData) => { app.getBase(responseData); });
       },
       getRowAbsolute(index) {
-        doPost('getRowAbsolute', { 'offset': offset}, (responseData) => { app.getBase(responseData); });
+        doPost('getRowAbsolute', { 'index': index-1}, (responseData) => { app.getBase(responseData); });
       },
       getRow(offset) {
         doPost('getNext', { 'offset': offset}, (responseData) => { app.getBase(responseData); });
