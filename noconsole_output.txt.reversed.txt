@@ -1,0 +1,2548 @@
+{
+    "Aka_Def": {
+        "sprite/aka_def_": 10
+    },
+    "Furiker_a": {
+        "sprite/flashback/sa1a_warai_a1_": 1,
+        "sprite/sa2a_warai_a1_": 1
+    },
+    "Furiker_b": {
+        "sprite/oisi1_5_": 1,
+        "sprite/re2a_warai_a1_": 1,
+        "sprite/sa1a_akuwarai_a1_": 1,
+        "sprite/tie_2_": 1
+    },
+    "Iri_Def1!": {
+        "sprite/iri3_def1_": 11
+    },
+    "Iri_Def1#": {
+        "sprite/iri1_def1_": 5
+    },
+    "Iri_Def1+": {
+        "sprite/iri2_def1_": 1
+    },
+    "Iri_Def2!": {
+        "sprite/iri3_def2_": 9
+    },
+    "Iri_Def2#": {
+        "sprite/iri1_def2_": 5
+    },
+    "Iri_Majime#": {
+        "sprite/iri1_majime_": 2
+    },
+    "Iri_Majime+": {
+        "sprite/iri2_majime_": 1
+    },
+    "Iri_Majime2!": {
+        "sprite/iri3_majime2_": 1
+    },
+    "Iri_Majime2#": {
+        "sprite/iri1_majime2_": 2
+    },
+    "Iri_Warai!": {
+        "sprite/iri3_warai_": 4
+    },
+    "Iri_Warai#": {
+        "sprite/iri1_warai_": 2
+    },
+    "Iri_def2!": {
+        "sprite/iri3_def2_": 2
+    },
+    "Iri_majime!": {
+        "sprite/iri3_majime_": 3
+    },
+    "Iri_majime#": {
+        "sprite/iri1_majime2_": 1,
+        "sprite/iri1_majime_": 4,
+        "sprite/oisi1_1_": 1
+    },
+    "Iri_majime2!": {
+        "sprite/iri3_majime2_": 2
+    },
+    "Iri_majime2#": {
+        "sprite/iri1_majime2_": 2
+    },
+    "Iri_warai!": {
+        "sprite/iri3_warai_": 3
+    },
+    "Iri_warai#": {
+        "sprite/iri1_warai_": 1
+    },
+    "Kasa1": {
+        "sprite/kasa_1_": 20,
+        "sprite/me2_warai_a1_": 1
+    },
+    "Kasa2": {
+        "sprite/flashback/kasa_2_": 2,
+        "sprite/kasa_2_": 10
+    },
+    "Kasa3": {
+        "sprite/flashback/kasa_3_": 1,
+        "sprite/kasa_2_": 2,
+        "sprite/kasa_3_": 4
+    },
+    "Kei_Def1": {
+        "sprite/kei1_def1_": 14,
+        "sprite/re1a_okoru_a1_": 1
+    },
+    "Kei_Def1#": {
+        "sprite/kei2_def1_": 9
+    },
+    "Kei_Def2": {
+        "sprite/kei1_def2_": 12
+    },
+    "Kei_Def2#": {
+        "sprite/kei2_def2_": 4
+    },
+    "Kei_Ikari1": {
+        "sprite/kei1_ikari1_": 1
+    },
+    "Kei_Komaru": {
+        "sprite/kei1_komaru_": 6
+    },
+    "Kei_Komaru#": {
+        "sprite/kei2_komaru_": 2,
+        "sprite/re2a_komaru_a1_": 1
+    },
+    "Kei_Majime": {
+        "sprite/kei1_majime_": 4
+    },
+    "Kei_Majime#": {
+        "sprite/kei2_majime_": 2
+    },
+    "Kei_Nayamu": {
+        "sprite/kei1_komaru_": 1,
+        "sprite/kei1_majime_": 1
+    },
+    "Kei_Nayamu#": {
+        "sprite/kei2_komaru_": 1
+    },
+    "Kei_Warai": {
+        "sprite/kei1_warai_": 18
+    },
+    "Kei_Warai#": {
+        "sprite/kei2_warai_": 6
+    },
+    "Kei_komaru": {
+        "sprite/kei1_komaru_": 2
+    },
+    "Kei_komaru#": {
+        "sprite/kei2_komaru_": 1
+    },
+    "Kei_majime#": {
+        "sprite/kei2_majime_": 2
+    },
+    "Kei_majime2": {
+        "sprite/kei1_majime2_": 2
+    },
+    "Kei_majime2#": {
+        "sprite/kei2_majime2_": 1,
+        "sprite/kei2_majime_": 1
+    },
+    "Kei_warai#": {
+        "sprite/kei2_warai_": 1
+    },
+    "Me_AkuwaraiA1": {
+        "sprite/flashback/me2_akuwarai_a1_": 1,
+        "sprite/me1a_akuwarai_a1_": 5
+    },
+    "Me_AkuwaraiA1#": {
+        "sprite/me2_akuwarai_a1_": 2
+    },
+    "Me_AkuwaraiA1$": {
+        "sprite/me5_akuwarai_a1_": 2
+    },
+    "Me_AkuwaraiA1&": {
+        "sprite/me3_akuwarai_a1_": 4
+    },
+    "Me_AkuwaraiA2": {
+        "sprite/me1a_akuwarai_a1_": 1
+    },
+    "Me_AkuwaraiA2$": {
+        "sprite/me5_akuwarai_a1_": 1
+    },
+    "Me_AkuwaraiA2&": {
+        "sprite/me3_akuwarai_a1_": 1
+    },
+    "Me_AkuwaraiB1": {
+        "sprite/flashback/me2_akuwarai_a1_": 1,
+        "sprite/me1b_akuwarai_a1_": 8,
+        "sprite/me1b_warai_a1_": 1
+    },
+    "Me_AkuwaraiB2": {
+        "sprite/flashback/me2_akuwarai_a1_": 1,
+        "sprite/me1b_akuwarai_a1_": 2
+    },
+    "Me_DefA1": {
+        "sprite/me1a_def_a1_": 19
+    },
+    "Me_DefA1#": {
+        "sprite/me2_def_a1_": 2
+    },
+    "Me_DefA1&": {
+        "sprite/me3_def_a1_": 1
+    },
+    "Me_DefA2": {
+        "sprite/me1a_def_a1_": 10
+    },
+    "Me_DefA2$": {
+        "sprite/iri1_majime2_": 1
+    },
+    "Me_DefB1": {
+        "sprite/me1a_def_a1_": 1,
+        "sprite/me1b_def_a1_": 9
+    },
+    "Me_DefB2": {
+        "sprite/flashback/me2_def_a1_": 1,
+        "sprite/me1a_def_a1_": 1,
+        "sprite/me1b_def_a1_": 9
+    },
+    "Me_HauA1": {
+        "sprite/me1a_hau_a1_": 1
+    },
+    "Me_HauA1#": {
+        "sprite/me2_hau_a1_": 2
+    },
+    "Me_HauB1": {
+        "sprite/me1b_hau_a1_": 2
+    },
+    "Me_Hi_majiA2#": {
+        "sprite/me2_hig_maji_a1_": 1
+    },
+    "Me_HutekiA1": {
+        "sprite/me1a_huteki_a1_": 3
+    },
+    "Me_HutekiA1#": {
+        "sprite/me2_huteki_a1_": 1
+    },
+    "Me_HutekiA1$": {
+        "sprite/me5_huteki_a1_": 1
+    },
+    "Me_HutekiA1&": {
+        "sprite/me3_huteki_a1_": 1
+    },
+    "Me_IkariA1": {
+        "sprite/me1a_ikari_a1_": 1
+    },
+    "Me_IkariA2&": {
+        "sprite/me3_ikari_a1_": 1
+    },
+    "Me_MajimeA1": {
+        "sprite/me1a_majime_a1_": 3
+    },
+    "Me_MajimeA1&": {
+        "sprite/me3_majime_a1_": 1
+    },
+    "Me_MajimeA2": {
+        "sprite/me1a_majime_a1_": 4
+    },
+    "Me_MajimeA2&": {
+        "sprite/me3_majime_a1_": 1
+    },
+    "Me_MajimeB1": {
+        "sprite/me1b_majime_a1_": 3
+    },
+    "Me_MajimeB2": {
+        "sprite/me1a_majime_a1_": 3,
+        "sprite/me1b_majime_a1_": 2
+    },
+    "Me_OdorokiA1": {
+        "sprite/me1a_odoroki_a1_": 4
+    },
+    "Me_OdorokiA1#": {
+        "sprite/me2_odoroki_a1_": 2
+    },
+    "Me_OdorokiA1&": {
+        "sprite/me3_odoroki_a1_": 5
+    },
+    "Me_OdorokiA2": {
+        "sprite/me1a_odoroki_a1_": 3
+    },
+    "Me_OdorokiA2#": {
+        "sprite/me2_odoroki_a1_": 3
+    },
+    "Me_OdorokiB1": {
+        "sprite/me1a_odoroki_a1_": 1,
+        "sprite/me1b_odoroki_a1_": 4
+    },
+    "Me_OdorokiB2": {
+        "sprite/me1b_odoroki_a1_": 2
+    },
+    "Me_SinmyouA1": {
+        "sprite/me1a_sinmyou_a1_": 2
+    },
+    "Me_SinmyouA1#": {
+        "sprite/me2_sinmyou_a1_": 4
+    },
+    "Me_SinmyouA2#": {
+        "sprite/me2_sinmyou_a1_": 1,
+        "sprite/me2_yowaki_a1_": 1
+    },
+    "Me_SinmyouB2": {
+        "sprite/me1b_sinmyou_a1_": 1
+    },
+    "Me_TohohoA1": {
+        "sprite/me1a_tohoho_a1_": 7,
+        "sprite/me1a_yowaki_a1_": 1
+    },
+    "Me_TohohoA1#": {
+        "sprite/me2_ikari_a1_": 1,
+        "sprite/me2_tohoho_a1_": 2
+    },
+    "Me_TohohoA1$": {
+        "sprite/me5_tohoho_a1_": 4
+    },
+    "Me_TohohoA1&": {
+        "sprite/me3_tohoho_a1_": 1
+    },
+    "Me_TohohoA2": {
+        "sprite/me1a_tohoho_a1_": 1
+    },
+    "Me_TohohoA2#": {
+        "sprite/me2_tohoho_a1_": 1
+    },
+    "Me_TohohoA2$": {
+        "sprite/me5_tohoho_a1_": 1
+    },
+    "Me_TohohoA2&": {
+        "sprite/me3_tohoho_a1_": 2
+    },
+    "Me_TohohoB1": {
+        "sprite/me1b_tohoho_a1_": 4
+    },
+    "Me_TohohoB2": {
+        "sprite/me1b_tohoho_a1_": 3
+    },
+    "Me_TokuiA1": {
+        "sprite/me1a_tokui_a1_": 9
+    },
+    "Me_TokuiA1#": {
+        "sprite/me2_tokui_a1_": 1
+    },
+    "Me_TokuiA1&": {
+        "sprite/me3_tokui_a1_": 5
+    },
+    "Me_TokuiA2&": {
+        "sprite/me3_tokui_a1_": 1
+    },
+    "Me_TokuiB1": {
+        "sprite/me1b_tokui_a1_": 3
+    },
+    "Me_TokuiB2": {
+        "sprite/me1b_tokui_a1_": 3
+    },
+    "Me_WAraiA2": {
+        "sprite/me1a_warai_a1_": 1
+    },
+    "Me_WAraiA2$": {
+        "sprite/me5_warai_a1_": 1
+    },
+    "Me_WaraiA1": {
+        "sprite/flashback/me2_warai_a1_": 1,
+        "sprite/me1a_warai_a1_": 22
+    },
+    "Me_WaraiA1#": {
+        "sprite/me2_warai_a1_": 2
+    },
+    "Me_WaraiA1$": {
+        "sprite/me5_warai_a1_": 2
+    },
+    "Me_WaraiA1&": {
+        "sprite/me3_warai_a1_": 3
+    },
+    "Me_WaraiA2": {
+        "sprite/me1a_warai_a1_": 1
+    },
+    "Me_WaraiA2#": {
+        "sprite/me2_warai_a1_": 4
+    },
+    "Me_WaraiA2&": {
+        "sprite/me3_warai_a1_": 1
+    },
+    "Me_WaraiB1": {
+        "sprite/me1b_warai_a1_": 7
+    },
+    "Me_WaraiB2": {
+        "sprite/me1b_warai_a1_": 5
+    },
+    "Me_WinkA1": {
+        "sprite/flashback/me2_wink_a1_": 1,
+        "sprite/me1a_def_a1_": 1,
+        "sprite/me1a_wink_a1_": 24
+    },
+    "Me_WinkA1#": {
+        "sprite/me2_wink_a1_": 2
+    },
+    "Me_WinkA1$": {
+        "sprite/me5_wink_a1_": 4
+    },
+    "Me_WinkA1&": {
+        "sprite/me3_wink_a1_": 1
+    },
+    "Me_WinkA2": {
+        "sprite/me1a_tohoho_a1_": 1,
+        "sprite/me1a_wink_a1_": 6
+    },
+    "Me_WinkA2#": {
+        "sprite/me2_wink_a1_": 4
+    },
+    "Me_WinkA2$": {
+        "sprite/me5_wink_a1_": 3
+    },
+    "Me_WinkA2&": {
+        "sprite/me3_wink_a1_": 3
+    },
+    "Me_WinkB1": {
+        "sprite/me1b_wink_a1_": 3
+    },
+    "Me_WinkB2": {
+        "sprite/flashback/me1b_wink_a1_": 1,
+        "sprite/me1b_wink_a1_": 12
+    },
+    "Me_YowakiA1": {
+        "sprite/me1a_yowaki_a1_": 2
+    },
+    "Me_YowakiA1#": {
+        "sprite/me2_yowaki_a1_": 3
+    },
+    "Me_YowakiA2": {
+        "sprite/me1a_yowaki_a1_": 1
+    },
+    "Me_YowakiB1": {
+        "sprite/me1a_yowaki_a1_": 1
+    },
+    "Me_Yowakib2": {
+        "sprite/flashback/me1b_yowaki_a1_": 1
+    },
+    "Me_akuwaraiB2": {
+        "sprite/me1b_akuwarai_a1_": 1
+    },
+    "Me_defA1": {
+        "sprite/flashback/me2_yowaki_a1_": 1,
+        "sprite/me1a_def_a1_": 1
+    },
+    "Me_defB2": {
+        "sprite/me1b_def_a1_": 1
+    },
+    "Me_majimeA1": {
+        "sprite/me1a_majime_a1_": 3
+    },
+    "Me_majimeA2": {
+        "sprite/me1a_majime_a1_": 2
+    },
+    "Me_majimeB1": {
+        "sprite/me1b_majime_a1_": 1
+    },
+    "Me_majimeB2": {
+        "sprite/me1a_majime_a1_": 1,
+        "sprite/me1b_majime_a1_": 2
+    },
+    "Me_odorokiB1": {
+        "sprite/flashback/me1b_odoroki_a1_": 1
+    },
+    "Me_tohohoA1": {
+        "sprite/me1a_tohoho_a1_": 2
+    },
+    "Me_tohohoB1": {
+        "sprite/me1b_tohoho_a1_": 2
+    },
+    "Me_tohohoB2": {
+        "sprite/me1b_tohoho_a1_": 2
+    },
+    "Me_tokuiA1": {
+        "sprite/me1a_tokui_a1_": 1
+    },
+    "Me_tokuiA2": {
+        "sprite/me1a_tokui_a1_": 1
+    },
+    "Me_waraiA1": {
+        "sprite/me1a_warai_a1_": 3
+    },
+    "Me_waraiB1": {
+        "sprite/me1b_warai_a1_": 1
+    },
+    "Me_waraiB2": {
+        "sprite/me1b_warai_a1_": 1
+    },
+    "Me_winkA1": {
+        "sprite/me1a_wink_a1_": 1
+    },
+    "Me_winkA2": {
+        "sprite/flashback/me2_wink_a1_": 1
+    },
+    "Me_winkB1": {
+        "sprite/me1b_wink_a1_": 1
+    },
+    "Me_winkB2": {
+        "sprite/flashback/me2_wink_a1_": 1
+    },
+    "Me_yowakiB1": {
+        "sprite/me1b_yowaki_a1_": 1
+    },
+    "Oisi1": {
+        "sprite/oisi1_1_": 57
+    },
+    "Oisi2": {
+        "sprite/oisi1_2_": 47,
+        "sprite/oisi1_3_": 1
+    },
+    "Oisi3": {
+        "sprite/oisi1_3_": 11
+    },
+    "Oisi4": {
+        "sprite/oisi1_2_": 1,
+        "sprite/oisi1_4_": 51,
+        "sprite/oisi1_5_": 2
+    },
+    "Oisi5": {
+        "sprite/oisi1_4_": 1,
+        "sprite/oisi1_5_": 8
+    },
+    "RE_DefB1": {
+        "sprite/re1b_def_b1_": 1
+    },
+    "Re_BikkuriA1": {
+        "sprite/kei1_komaru_": 1,
+        "sprite/re1a_bikkuri_a1_": 1
+    },
+    "Re_BikkuriA1#": {
+        "sprite/re2a_bikkuri_a1_": 5
+    },
+    "Re_BikkuriB1": {
+        "sprite/flashback/re2b_bikkuri_b1_": 1,
+        "sprite/re1a_bikkuri_a1_": 1,
+        "sprite/re1a_komaru_a2_": 1,
+        "sprite/re1b_bikkuri_b1_": 2
+    },
+    "Re_BikkuriB1#": {
+        "sprite/re2a_hau_a1_": 1,
+        "sprite/re2b_bikkuri_b1_": 4
+    },
+    "Re_BikkuriB1&": {
+        "sprite/re3b_bikkuri_b1_": 1
+    },
+    "Re_DefA1": {
+        "sprite/flashback/re2a_def_a1_": 2,
+        "sprite/kei1_majime_": 1,
+        "sprite/re1a_def_a1_": 7,
+        "sprite/re2a_def_a1_": 2
+    },
+    "Re_DefA1#": {
+        "sprite/re2a_def_a1_": 20,
+        "sprite/re2a_komaru_a2_": 1,
+        "sprite/renasen1_warai_": 1
+    },
+    "Re_DefA1&": {
+        "sprite/re3a_def_a1_": 7
+    },
+    "Re_DefB1": {
+        "sprite/flashback/re2b_def_b1_": 1,
+        "sprite/re1a_def_a1_": 1,
+        "sprite/re1a_nande_a1_": 1,
+        "sprite/re1a_okoru_a1_": 1,
+        "sprite/re1b_def_b1_": 2,
+        "sprite/re2b_def_b1_": 1
+    },
+    "Re_DefB1#": {
+        "sprite/re2a_def_a1_": 3,
+        "sprite/re2a_komaru_a2_": 1,
+        "sprite/re2a_nande_a1_": 1,
+        "sprite/re2b_def_b1_": 18,
+        "sprite/renasen1_warai_": 1,
+        "sprite/renasen2_muhyokaku_": 1,
+        "sprite/renasen2_warai_": 1
+    },
+    "Re_DefB1&": {
+        "sprite/re3b_def_b1_": 9
+    },
+    "Re_Defa1#": {
+        "sprite/re2a_def_a1_": 1
+    },
+    "Re_Defb1#": {
+        "sprite/re2b_def_b1_": 1
+    },
+    "Re_HauA1": {
+        "sprite/flashback/re2a_hau_a1_": 1,
+        "sprite/re1a_hau_a1_": 3
+    },
+    "Re_HauA1#": {
+        "sprite/re2a_hau_a1_": 12
+    },
+    "Re_HauA1&": {
+        "sprite/re3a_hau_a1_": 2
+    },
+    "Re_HauB1#": {
+        "sprite/re2a_warai_a1_": 1,
+        "sprite/re2b_hau_b1_": 3
+    },
+    "Re_Hi_DefA1#": {
+        "sprite/re2a_hig_def_a1_": 8,
+        "sprite/re2a_hig_muhyou_a1_": 1,
+        "sprite/renasen1_tuukaku_": 1,
+        "sprite/renasen2_muhyokaku_": 5
+    },
+    "Re_Hi_DefB1#": {
+        "sprite/re2a_hig_def_a1_": 2,
+        "sprite/re2b_hig_def_b1_": 1,
+        "sprite/renasen1_muhyokaku_": 1,
+        "sprite/renasen1_warai_": 1,
+        "sprite/renasen2_muhyokaku_": 1,
+        "sprite/renasen2_tuukaku_": 2
+    },
+    "Re_Hi_MuhyouA1#": {
+        "sprite/re2a_hig_muhyou_a1_": 2
+    },
+    "Re_Hi_MuhyouB1#": {
+        "sprite/re2a_hig_muhyou_a1_": 2
+    },
+    "Re_Hi_OkoruA1#": {
+        "sprite/re2a_hig_okoru_a1_": 5,
+        "sprite/re2a_komaru_a2_": 1,
+        "sprite/renasen2_ikakaku_": 1
+    },
+    "Re_Hi_OkoruB1#": {
+        "sprite/re2a_hig_okoru_a1_": 5,
+        "sprite/re2b_hig_okoru_b1_": 2,
+        "sprite/renasen2_ikakaku_": 3
+    },
+    "Re_Hi_muhyouA1#": {
+        "sprite/re2a_hig_muhyou_a1_": 8,
+        "sprite/renasen2_muhyokaku_": 1
+    },
+    "Re_Hi_muhyouB1#": {
+        "sprite/re2a_hig_muhyou_a1_": 4,
+        "sprite/re2b_hig_muhyou_b1_": 5,
+        "sprite/renasen1_muhyokaku_": 1,
+        "sprite/renasen2_muhyokaku_": 1
+    },
+    "Re_KaiiA1#": {
+        "sprite/re2a_kaii_a1_": 4
+    },
+    "Re_KaiiB1": {
+        "sprite/flashback/re1b_kaii_b1_": 1
+    },
+    "Re_KaiiB1#": {
+        "sprite/oka1_odoroki_": 1,
+        "sprite/re2b_kaii_b1_": 7,
+        "sprite/ri6_warai_a1_": 1
+    },
+    "Re_KaiiB1&": {
+        "sprite/re3b_kaii_b1_": 2
+    },
+    "Re_KomaruA1": {
+        "sprite/me1a_def_a1_": 1,
+        "sprite/re1a_def_a1_": 1,
+        "sprite/re1a_komaru_a1_": 4,
+        "sprite/re1a_komaru_a2_": 1
+    },
+    "Re_KomaruA1#": {
+        "sprite/re2a_komaru_a1_": 9,
+        "sprite/re2a_komaru_a2_": 1
+    },
+    "Re_KomaruA1&": {
+        "sprite/re3a_komaru_a1_": 1
+    },
+    "Re_KomaruB1": {
+        "sprite/re1a_komaru_a1_": 1,
+        "sprite/re1a_komaru_a2_": 1
+    },
+    "Re_KomaruB1#": {
+        "sprite/re2a_komaru_a1_": 1,
+        "sprite/re2a_nande_a1_": 1,
+        "sprite/re2b_komaru_b1_": 4,
+        "sprite/re2b_komaru_b2_": 2
+    },
+    "Re_KomaruB1&": {
+        "sprite/re3b_komaru_b1_": 1
+    },
+    "Re_NandeA1": {
+        "sprite/flashback/re2a_nande_a1_": 1,
+        "sprite/re1a_nande_a1_": 3
+    },
+    "Re_NandeA1#": {
+        "sprite/re2a_nande_a1_": 8
+    },
+    "Re_NandeB1#": {
+        "sprite/re2b_nande_b1_": 4
+    },
+    "Re_NandeB1&": {
+        "sprite/re3b_nande_b1_": 1
+    },
+    "Re_OkoruA1": {
+        "sprite/re1a_okoru_a1_": 2
+    },
+    "Re_OkoruA1#": {
+        "sprite/re2b_okoru_b1_": 8
+    },
+    "Re_OkoruA1&": {
+        "sprite/re3a_okoru_a1_": 2
+    },
+    "Re_OkoruB1": {
+        "sprite/re1b_okoru_b1_": 1
+    },
+    "Re_OkoruB1#": {
+        "sprite/re2a_okoru_a1_": 2,
+        "sprite/re2b_okoru_b1_": 11
+    },
+    "Re_OkoruB1&": {
+        "sprite/re3b_okoru_b1_": 2
+    },
+    "Re_WaraiA1": {
+        "sprite/flashback/re2a_warai_a1_": 1,
+        "sprite/re1a_def_a1_": 1,
+        "sprite/re1a_warai_a1_": 7
+    },
+    "Re_WaraiA1#": {
+        "sprite/re2a_hig_muhyou_a1_": 1,
+        "sprite/re2a_warai_a1_": 23
+    },
+    "Re_WaraiA1&": {
+        "sprite/re3a_warai_a1_": 5
+    },
+    "Re_WaraiB1": {
+        "sprite/re1a_warai_a1_": 1,
+        "sprite/re1b_warai_b1_": 4
+    },
+    "Re_WaraiB1#": {
+        "sprite/re2a_hig_def_a1_": 1,
+        "sprite/re2a_warai_a1_": 2,
+        "sprite/re2b_hau_b1_": 1,
+        "sprite/re2b_warai_b1_": 16,
+        "sprite/renasen1_ikakaku_": 1,
+        "sprite/renasen1_muhyokaku_": 1,
+        "sprite/renasen2_warai_": 2
+    },
+    "Re_WaraiB1&": {
+        "sprite/re3b_okoru_b1_": 1,
+        "sprite/re3b_warai_b1_": 2
+    },
+    "Re_Waraib1#": {
+        "sprite/re2b_warai_b1_": 1
+    },
+    "Re_bikkuriA1#": {
+        "sprite/re2a_bikkuri_a1_": 1
+    },
+    "Re_defA1": {
+        "sprite/re1a_def_a1_": 1,
+        "sprite/re2a_def_a1_": 1
+    },
+    "Re_hauB1": {
+        "sprite/re1b_hau_b1_": 1
+    },
+    "Re_okoruA1#": {
+        "sprite/re2a_okoru_a1_": 1
+    },
+    "Re_waraiA1#": {
+        "sprite/renasen2_warai_": 1
+    },
+    "Re_waraiB1": {
+        "sprite/re1b_warai_b1_": 1
+    },
+    "Re_waraiB1#": {
+        "sprite/re2b_warai_b1_": 1
+    },
+    "Ri_DefA1": {
+        "sprite/ri1_def_a1_": 23
+    },
+    "Ri_DefA1#": {
+        "sprite/ri2_def_a1_": 3,
+        "sprite/ri5_def_a1_": 1
+    },
+    "Ri_DefA1$": {
+        "sprite/oka1_shinken_": 1,
+        "sprite/ri6_def_a1_": 3
+    },
+    "Ri_DefA1&": {
+        "sprite/ri3_def_a1_": 1
+    },
+    "Ri_FumanA1": {
+        "sprite/ri1_fuman_a1_": 8
+    },
+    "Ri_KomaruA1": {
+        "sprite/ri1_def_a1_": 1,
+        "sprite/ri1_fuman_a1_": 5,
+        "sprite/ri1_komaru_a1_": 10,
+        "sprite/ri1_majime_a1_": 1,
+        "sprite/sa1a_warai_a1_": 1
+    },
+    "Ri_KomaruA1#": {
+        "sprite/ri2_komaru_a1_": 2
+    },
+    "Ri_KomaruA1$": {
+        "sprite/ri6_komaru_a1_": 1
+    },
+    "Ri_KomaruA1%": {
+        "sprite/ri5_def_a1_": 1
+    },
+    "Ri_KomaruA1&": {
+        "sprite/ri3_komaru_a1_": 2
+    },
+    "Ri_KomaruA2": {
+        "sprite/ri1_komaru_a2_": 1
+    },
+    "Ri_NikoA1": {
+        "sprite/ri1_niko_a1_": 5
+    },
+    "Ri_NikoA1#": {
+        "sprite/ri2_niko_a1_": 1
+    },
+    "Ri_NikoA1$": {
+        "sprite/ri6_niko_a1_": 1
+    },
+    "Ri_NikoA1%": {
+        "sprite/ri5_niko_a1_": 1
+    },
+    "Ri_NikoA1&": {
+        "sprite/ri3_niko_a1_": 2
+    },
+    "Ri_NiyariA1": {
+        "sprite/ri1_niyari_a1_": 6
+    },
+    "Ri_NiyariA1#": {
+        "sprite/ri2_niyari_a1_": 2
+    },
+    "Ri_WAraiA1": {
+        "sprite/ri1_warai_a1_": 2
+    },
+    "Ri_WaraiA1": {
+        "sprite/ri1_fuman_a1_": 1,
+        "sprite/ri1_warai_a1_": 23
+    },
+    "Ri_WaraiA1#": {
+        "sprite/ri2_def_a1_": 1,
+        "sprite/ri2_warai_a1_": 6
+    },
+    "Ri_WaraiA1$": {
+        "sprite/ri6_warai_a1_": 3
+    },
+    "Ri_WaraiA1%": {
+        "sprite/ri5_warai_a1_": 4
+    },
+    "Ri_WaraiA1&": {
+        "sprite/ri3_warai_a1_": 4
+    },
+    "Ri_defA1": {
+        "sprite/ri1_def_a1_": 1
+    },
+    "Ri_fumanA1": {
+        "sprite/ri1_fuman_a1_": 3
+    },
+    "Ri_komaruA1": {
+        "sprite/ri1_komaru_a1_": 1
+    },
+    "Ri_komaruA1%": {
+        "sprite/ri5_komaru_a1_": 1
+    },
+    "Ri_majimeA1": {
+        "sprite/ri1_majime_a1_": 4
+    },
+    "Ri_waraiA1$": {
+        "sprite/ri6_warai_a1_": 1
+    },
+    "Rina_Def": {
+        "sprite/rina_def_": 13,
+        "sprite/rina_ikari_": 1,
+        "sprite/rina_warai_": 2
+    },
+    "Rina_Ikari": {
+        "sprite/rina_ikari_": 1
+    },
+    "Rina_Warai": {
+        "sprite/rina_def_": 2,
+        "sprite/rina_warai_": 10
+    },
+    "Rina_warai": {
+        "sprite/rina_def_": 1,
+        "sprite/rina_warai_": 2
+    },
+    "Sa_AkireruA1": {
+        "sprite/flashback/sa1a_akireru_a1_": 1,
+        "sprite/sa1a_akireru_a1_": 13
+    },
+    "Sa_AkireruA1#": {
+        "sprite/sa2a_akireru_a1_": 4
+    },
+    "Sa_AkireruA1&": {
+        "sprite/sa3_akireru_a1_": 8
+    },
+    "Sa_AkireruA1-": {
+        "sprite/sa6_akireru_a1_": 3
+    },
+    "Sa_AkireruB1": {
+        "sprite/sa1b_akireru_b1_": 3
+    },
+    "Sa_AkuwaraiA1": {
+        "sprite/sa1a_akuwarai_a1_": 8
+    },
+    "Sa_AkuwaraiA1&": {
+        "sprite/sa3_akuwarai_a1_": 8
+    },
+    "Sa_AkuwaraiA1-": {
+        "sprite/sa6_akuwarai_a1_": 2
+    },
+    "Sa_AkuwaraiB1": {
+        "sprite/sa1b_akuwarai_b1_": 5
+    },
+    "Sa_DefA1": {
+        "sprite/sa1a_def_a1_": 6
+    },
+    "Sa_DefA1&": {
+        "sprite/sa3_def_a1_": 1
+    },
+    "Sa_DefB1": {
+        "sprite/sa1b_def_b1_": 2
+    },
+    "Sa_HannbesoA1": {
+        "sprite/sa1a_hannbeso_a1_": 2,
+        "sprite/sa2a_hannbeso_a1_": 2
+    },
+    "Sa_HannbesoA1&": {
+        "sprite/sa3_hannbeso_a1_": 1
+    },
+    "Sa_HannbesoA3": {
+        "sprite/sa1a_hannbeso_a3_": 1
+    },
+    "Sa_HannbesoB1": {
+        "sprite/sa1b_hannbeso_b1_": 1
+    },
+    "Sa_HannbesoB3": {
+        "sprite/sa1b_hannbeso_b3_": 1
+    },
+    "Sa_HauA1": {
+        "sprite/sa1a_hau_a1_": 1
+    },
+    "Sa_HauB1": {
+        "sprite/sa1b_hau_b1_": 1
+    },
+    "Sa_MuhyouA1": {
+        "sprite/re2b_komaru_b2_": 1,
+        "sprite/sa1a_muhyou_a1_": 1
+    },
+    "Sa_MuhyouA1#": {
+        "sprite/sa2a_muhyou_a1_": 2
+    },
+    "Sa_MuhyouA2": {
+        "sprite/sa1a_muhyou_a2_": 1
+    },
+    "Sa_MuhyouB1": {
+        "sprite/sa2b_muhyou_b1_": 1
+    },
+    "Sa_MuhyouB2": {
+        "sprite/sa1b_muhyou_b2_": 1
+    },
+    "Sa_NakuA1": {
+        "sprite/sa1b_naku_b1_": 1
+    },
+    "Sa_NakuB1": {
+        "sprite/sa1b_naku_b1_": 1,
+        "sprite/sa2b_naku_b1_": 1
+    },
+    "Sa_OdorokiA1": {
+        "sprite/sa1a_odoroki_a1_": 8
+    },
+    "Sa_OdorokiA1#": {
+        "sprite/sa2a_odoroki_a1_": 3
+    },
+    "Sa_OdorokiA1&": {
+        "sprite/sa3_odoroki_a1_": 4
+    },
+    "Sa_OdorokiA1-": {
+        "sprite/sa6_odoroki_a1_": 1
+    },
+    "Sa_OdorokiB1": {
+        "sprite/sa1b_odoroki_b1_": 10
+    },
+    "Sa_OdorokiB1#": {
+        "sprite/sa2b_odoroki_b1_": 2
+    },
+    "Sa_SakebuB1": {
+        "sprite/sa1b_sakebu_b1_": 2
+    },
+    "Sa_WaraiA1": {
+        "sprite/sa1a_warai_a1_": 5
+    },
+    "Sa_WaraiA1#": {
+        "sprite/sa2a_warai_a1_": 2
+    },
+    "Sa_WaraiA1&": {
+        "sprite/re3b_def_b1_": 1,
+        "sprite/sa3_warai_a1_": 5
+    },
+    "Sa_WaraiA1-": {
+        "sprite/sa6_warai_a1_": 1
+    },
+    "Sa_WaraiB1": {
+        "sprite/sa1b_warai_b1_": 8
+    },
+    "Sa_WaraiB1#": {
+        "sprite/sa2b_warai_b1_": 1
+    },
+    "Sa_YAreyareA1": {
+        "sprite/sa1a_yareyare_a1_": 3
+    },
+    "Sa_YareyareA1": {
+        "sprite/sa1a_yareyare_a1_": 4
+    },
+    "Sa_YareyareA1#": {
+        "sprite/sa2a_yareyare_a1_": 1
+    },
+    "Sa_YareyareA1-": {
+        "sprite/sa6_yareyare_a1_": 1
+    },
+    "Sa_YareyareA2": {
+        "sprite/sa1a_yareyare_a2_": 1
+    },
+    "Sa_YareyareB1": {
+        "sprite/sa1b_yareyare_b1_": 3
+    },
+    "Sa_YareyareB2": {
+        "sprite/sa1a_def_a1_": 1
+    },
+    "Sa_akireruB1": {
+        "sprite/sa1b_akireru_b1_": 1
+    },
+    "Sa_defA1": {
+        "sprite/sa1a_def_a1_": 1
+    },
+    "Sa_defA1#": {
+        "sprite/sa2a_def_a1_": 1
+    },
+    "Sa_muhyouA1": {
+        "sprite/sa1a_muhyou_a1_": 2
+    },
+    "Sa_muhyouA2": {
+        "sprite/sa1a_muhyou_a2_": 1
+    },
+    "Sa_muhyouB1": {
+        "sprite/sa1b_muhyou_b1_": 1
+    },
+    "Sa_nakuB1": {
+        "sprite/ri1_majime_a1_": 1
+    },
+    "Sa_odorokiA1&": {
+        "sprite/sa3_odoroki_a1_": 2
+    },
+    "Sa_odorokiB1#": {
+        "sprite/sa2b_odoroki_b1_": 1
+    },
+    "Sa_waraiB1": {
+        "sprite/sa1b_warai_b1_": 1
+    },
+    "Sato_Def1": {
+        "sprite/sato1_def1_": 12
+    },
+    "Sato_Def1!": {
+        "sprite/sato2_def1_": 2
+    },
+    "Sato_Def2": {
+        "sprite/sato1_def1_": 1,
+        "sprite/sato1_def2_": 15,
+        "sprite/sato1_komaru_": 1
+    },
+    "Sato_Def2!": {
+        "sprite/sato2_def2_": 1,
+        "sprite/sato2_komaru2_": 1,
+        "sprite/sato2_komaru_": 1
+    },
+    "Sato_Ikari": {
+        "sprite/sato1_ikari_": 2
+    },
+    "Sato_Komaru": {
+        "sprite/sato1_komaru2_": 1,
+        "sprite/sato1_komaru_": 8
+    },
+    "Sato_Komaru2": {
+        "sprite/sato1_komaru2_": 8
+    },
+    "Sato_Komaru2!": {
+        "sprite/sato2_komaru2_": 2
+    },
+    "Sato_Tukare": {
+        "sprite/sato1_komaru_": 1
+    },
+    "Sato_Warai": {
+        "sprite/sato1_def2_": 1,
+        "sprite/sato1_warai_": 11
+    },
+    "Sato_Warai!": {
+        "sprite/sato2_def2_": 1,
+        "sprite/sato2_tukare_": 1,
+        "sprite/sato2_warai_": 1
+    },
+    "Sato_ikari": {
+        "sprite/sato1_ikari_": 2
+    },
+    "Sato_komaru": {
+        "sprite/sato1_def1_": 1,
+        "sprite/sato1_komaru_": 3
+    },
+    "Sato_komaru2": {
+        "sprite/sato1_komaru2_": 1
+    },
+    "Sato_tukare": {
+        "sprite/sato1_komaru_": 1
+    },
+    "Sato_warai": {
+        "sprite/sato1_warai_": 2
+    },
+    "Si_AkuwaraiA1": {
+        "sprite/si3_akuwarai_a1_": 1
+    },
+    "Si_AkuwaraiA1#": {
+        "sprite/si1a_akuwarai_a1_": 2
+    },
+    "Si_AkuwaraiA1$": {
+        "sprite/si2_akuwarai_a1_": 2
+    },
+    "Si_AkuwaraiB1#": {
+        "sprite/si1a_akuwarai_a1_": 2
+    },
+    "Si_DefA1": {
+        "sprite/si3_def_a1_": 1
+    },
+    "Si_DefA1#": {
+        "sprite/si1a_def_a1_": 4
+    },
+    "Si_DefA1$": {
+        "sprite/si2_def_a1_": 1
+    },
+    "Si_OdorokiA1#": {
+        "sprite/si1a_odoroki_a1_": 1
+    },
+    "Si_TokuiA1": {
+        "sprite/si3_tokui_a1_": 1
+    },
+    "Si_TokuiB1#": {
+        "sprite/si1a_tokui_a1_": 1
+    },
+    "Si_WaraiA1": {
+        "sprite/si3_warai_a1_": 2
+    },
+    "Si_WaraiA1#": {
+        "sprite/si1a_warai_a1_": 3
+    },
+    "Si_WaraiA1$": {
+        "sprite/si2_warai_a1_": 2
+    },
+    "Si_WaraiB1#": {
+        "sprite/si1a_warai_a1_": 1
+    },
+    "Si_WinkA1": {
+        "sprite/si3_wink_a1_": 2
+    },
+    "Si_WinkA1#": {
+        "sprite/si1a_wink_a1_": 1
+    },
+    "Si_WinkA1$": {
+        "sprite/si2_wink_a1_": 4
+    },
+    "Si_WinkB1#": {
+        "sprite/si1a_wink_a1_": 2,
+        "sprite/si1b_wink_b1_": 1
+    },
+    "Ta_AkuWarai#": {
+        "sprite/ta1_akuwarai_": 1
+    },
+    "Ta_Akuwarai#": {
+        "sprite/ta1_akuwarai_": 6
+    },
+    "Ta_Def#": {
+        "sprite/ta1_def_": 23,
+        "sprite/ta1_hatena_": 1,
+        "sprite/ta1_warai_": 2,
+        "sprite/tomi1_def_": 1
+    },
+    "Ta_Warai#": {
+        "sprite/ta1_warai_": 22
+    },
+    "Ta_def#": {
+        "sprite/ta1_def_": 2
+    },
+    "Ta_warai#": {
+        "sprite/ta1_warai_": 2
+    },
+    "Tetu1": {
+        "sprite/tetu_1_": 3
+    },
+    "Tetu2": {
+        "sprite/tetu_2_": 4
+    },
+    "Tetu3": {
+        "sprite/tetu_3_": 4
+    },
+    "Tie1": {
+        "sprite/tie_1_": 9,
+        "sprite/tie_2_": 2
+    },
+    "Tie2": {
+        "sprite/tie_2_": 2
+    },
+    "Tie3": {
+        "sprite/tie_3_": 4
+    },
+    "Tomi_Def#": {
+        "sprite/ta1_warai_": 1,
+        "sprite/tomi1_def_": 3
+    },
+    "Tomi_Komaru#": {
+        "sprite/tomi1_komaru_": 3
+    },
+    "Tomi_Warai#": {
+        "sprite/tomi1_warai_": 2
+    },
+    "Tomi_def#": {
+        "sprite/tomi1_def_": 1
+    },
+    "cinema": {
+        "sprite/iri1_def2_": 1,
+        "sprite/re1a_warai_a1_": 1
+    },
+    "ir_hk_de_a1": {
+        "sprite/iri2_def1_": 20
+    },
+    "ir_hk_de_a2": {
+        "sprite/iri2_def2_": 11
+    },
+    "ir_hk_ma_a1": {
+        "sprite/iri2_majime2_": 1,
+        "sprite/iri2_majime_": 16
+    },
+    "ir_hk_ma_a2": {
+        "sprite/iri2_majime2_": 4
+    },
+    "ir_hk_wa_a1": {
+        "sprite/iri2_warai_": 6
+    },
+    "ir_si_de_a1": {
+        "sprite/iri1_def1_": 27,
+        "sprite/iri1_majime2_": 1,
+        "sprite/iri1_warai_": 1
+    },
+    "ir_si_de_a2": {
+        "sprite/iri1_def2_": 26,
+        "sprite/iri1_majime_": 1
+    },
+    "ir_si_ma_a1": {
+        "sprite/iri1_majime_": 5
+    },
+    "ir_si_ma_a2": {
+        "sprite/iri1_majime2_": 5
+    },
+    "ir_si_wa_a1": {
+        "sprite/iri1_def2_": 1,
+        "sprite/iri1_warai_": 15,
+        "sprite/me1b_wink_a1_": 1,
+        "sprite/re1a_warai_a1_": 1,
+        "sprite/ri1_warai_a1_": 1,
+        "sprite/sa1a_akireru_a1_": 1,
+        "sprite/tie_1_": 1,
+        "sprite/tie_3_": 1
+    },
+    "ir_yk_de_a1": {
+        "sprite/iri3_def1_": 4
+    },
+    "ir_yk_de_a2": {
+        "sprite/iri3_def2_": 3
+    },
+    "ir_yk_wa_a1": {
+        "sprite/iri3_warai_": 3
+    },
+    "kei_Def2": {
+        "sprite/kei1_def2_": 1
+    },
+    "kei_Warai": {
+        "sprite/kei1_warai_": 2
+    },
+    "me_AkuwaraiA2": {
+        "sprite/me1a_akuwarai_a1_": 1
+    },
+    "me_AkuwaraiB1": {
+        "sprite/me1b_akuwarai_a1_": 1
+    },
+    "me_TohohoA1#": {
+        "sprite/me2_tohoho_a1_": 1
+    },
+    "me_TohohoB2": {
+        "sprite/me1b_tohoho_a1_": 1
+    },
+    "me_WinkA1": {
+        "sprite/me1a_wink_a1_": 1
+    },
+    "me_mi_aw_a1": {
+        "sprite/me4_akuwarai_a1_": 3
+    },
+    "me_mi_fu_a2": {
+        "sprite/me4_huteki_a1_": 1
+    },
+    "me_mi_wi_a1": {
+        "sprite/me4_wink_a1_": 1
+    },
+    "me_mi_wi_a2": {
+        "sprite/me4_wink_a1_": 1
+    },
+    "me_se_aw_a1": {
+        "sprite/flashback/me1a_akuwarai_a1_": 1,
+        "sprite/me1a_akuwarai_a1_": 32,
+        "sprite/me1b_akuwarai_a1_": 1,
+        "sprite/me1b_huteki_a1_": 1,
+        "sprite/me1b_ikari_a1_": 1
+    },
+    "me_se_aw_a2": {
+        "sprite/me1a_akuwarai_a1_": 3,
+        "sprite/me1b_huteki_a1_": 1
+    },
+    "me_se_aw_b1": {
+        "sprite/me1b_akuwarai_a1_": 11
+    },
+    "me_se_aw_b2": {
+        "sprite/me1b_akuwarai_a1_": 11,
+        "sprite/tomita1_kanashimi_": 1
+    },
+    "me_se_bi_a1": {
+        "sprite/iri1_majime2_": 1,
+        "sprite/me1a_ikari_a1_": 1,
+        "sprite/me1a_majime_a1_": 1,
+        "sprite/me1a_odoroki_a1_": 9,
+        "sprite/re1a_komaru_a1_": 1,
+        "sprite/re1a_warai_a1_": 1,
+        "sprite/re1b_def_b1_": 1,
+        "sprite/ri1_niko_a1_": 1,
+        "sprite/ri1_warai_a1_": 2,
+        "sprite/si1a_akuwarai_a1_": 2,
+        "sprite/ta1_warai_": 1,
+        "sprite/tie_3_": 1
+    },
+    "me_se_bi_a2": {
+        "sprite/me1a_odoroki_a1_": 4
+    },
+    "me_se_bi_b1": {
+        "sprite/me1b_odoroki_a1_": 6
+    },
+    "me_se_bi_b2": {
+        "sprite/iri1_majime_": 1,
+        "sprite/me1b_odoroki_a1_": 6
+    },
+    "me_se_de_a1": {
+        "sprite/me1a_def_a1_": 49,
+        "sprite/me1a_majime_a1_": 2,
+        "sprite/me1a_sinmyou_a1_": 1,
+        "sprite/me1a_yowaki_a1_": 1,
+        "sprite/re1a_def_a1_": 2
+    },
+    "me_se_de_a2": {
+        "sprite/me1a_def_a1_": 16
+    },
+    "me_se_de_b1": {
+        "sprite/me1a_sinmyou_a1_": 1,
+        "sprite/me1b_def_a1_": 13
+    },
+    "me_se_de_b2": {
+        "sprite/me1b_def_a1_": 14
+    },
+    "me_se_fu_a1": {
+        "sprite/me1a_huteki_a1_": 9
+    },
+    "me_se_fu_a2": {
+        "sprite/me1a_huteki_a1_": 2
+    },
+    "me_se_fu_b1": {
+        "sprite/me1b_huteki_a1_": 3
+    },
+    "me_se_fu_b2": {
+        "sprite/me1b_huteki_a1_": 5,
+        "sprite/me1b_ikari_a1_": 1
+    },
+    "me_se_ha_a1": {
+        "sprite/me1a_hau_a1_": 2
+    },
+    "me_se_ha_b1": {
+        "sprite/me1a_odoroki_a1_": 1
+    },
+    "me_se_him_a1": {
+        "sprite/me1a_hig_maji_a1_": 1,
+        "sprite/me2_hig_maji_a1_": 1
+    },
+    "me_se_ik_a1": {
+        "sprite/me1a_ikari_a1_": 2
+    },
+    "me_se_ik_a2": {
+        "sprite/me1a_ikari_a1_": 3,
+        "sprite/me1a_warai_a1_": 1,
+        "sprite/me1b_odoroki_a1_": 1,
+        "sprite/me1b_warai_a1_": 1,
+        "sprite/re1a_nande_a1_": 1,
+        "sprite/re1a_warai_a1_": 1,
+        "sprite/re1b_bikkuri_b1_": 1,
+        "sprite/re1b_def_b1_": 1,
+        "sprite/sa1a_hannbeso_a1_": 1,
+        "sprite/sa1b_naku_b1_": 1
+    },
+    "me_se_ik_b1": {
+        "sprite/me1b_ikari_a1_": 1
+    },
+    "me_se_ik_b2": {
+        "sprite/me1b_ikari_a1_": 1
+    },
+    "me_se_ma_a1": {
+        "sprite/me1a_majime_a1_": 9,
+        "sprite/me1a_tokui_a1_": 1,
+        "sprite/me1a_yowaki_a1_": 1
+    },
+    "me_se_ma_a2": {
+        "sprite/me1a_majime_a1_": 6,
+        "sprite/me1a_yowaki_a1_": 1
+    },
+    "me_se_ma_b1": {
+        "sprite/me1a_majime_a1_": 1,
+        "sprite/me1b_majime_a1_": 7
+    },
+    "me_se_ma_b2": {
+        "sprite/me1a_def_a1_": 1,
+        "sprite/me1b_majime_a1_": 10
+    },
+    "me_se_si_a1": {
+        "sprite/me1a_def_a1_": 1,
+        "sprite/me1a_sinmyou_a1_": 1
+    },
+    "me_se_si_a2": {
+        "sprite/me1a_sinmyou_a1_": 2
+    },
+    "me_se_si_b1": {
+        "sprite/me1a_sinmyou_a1_": 1,
+        "sprite/me1b_sinmyou_a1_": 1
+    },
+    "me_se_si_b2": {
+        "sprite/me1a_yowaki_a1_": 1,
+        "sprite/me1b_sinmyou_a1_": 2
+    },
+    "me_se_th_a1": {
+        "sprite/flashback/me1b_odoroki_a1_": 1,
+        "sprite/me1a_tohoho_a1_": 18,
+        "sprite/me1a_yowaki_a1_": 1
+    },
+    "me_se_th_a2": {
+        "sprite/me1a_odoroki_a1_": 1,
+        "sprite/me1a_tohoho_a1_": 9,
+        "sprite/me1a_yowaki_a1_": 1,
+        "sprite/me1b_akuwarai_a1_": 1
+    },
+    "me_se_th_b1": {
+        "sprite/me1b_tohoho_a1_": 9
+    },
+    "me_se_th_b2": {
+        "sprite/me1a_yowaki_a1_": 1,
+        "sprite/me1b_tohoho_a1_": 4
+    },
+    "me_se_to_a1": {
+        "sprite/me1a_tokui_a1_": 16
+    },
+    "me_se_to_a2": {
+        "sprite/me1a_tokui_a1_": 3
+    },
+    "me_se_to_b1": {
+        "sprite/me1b_tokui_a1_": 5
+    },
+    "me_se_to_b2": {
+        "sprite/me1a_hig_maji_a1_": 1,
+        "sprite/me1b_tokui_a1_": 6
+    },
+    "me_se_wa_a1": {
+        "sprite/flashback/me1a_warai_a1_": 1,
+        "sprite/me1a_warai_a1_": 29
+    },
+    "me_se_wa_a2": {
+        "sprite/me1a_warai_a1_": 11
+    },
+    "me_se_wa_b1": {
+        "sprite/me1a_tokui_a1_": 1,
+        "sprite/me1b_warai_a1_": 9,
+        "sprite/tomita1_shinken_": 1
+    },
+    "me_se_wa_b2": {
+        "sprite/me1b_warai_a1_": 8
+    },
+    "me_se_wi_a1": {
+        "sprite/me1a_huteki_a1_": 1,
+        "sprite/me1a_wink_a1_": 45,
+        "sprite/me1b_wink_a1_": 3,
+        "sprite/oisi1_1_": 1,
+        "sprite/ri1_warai_a1_": 1,
+        "sprite/sa1a_warai_a1_": 3,
+        "sprite/tomi1_def_": 2
+    },
+    "me_se_wi_a2": {
+        "sprite/me1a_akuwarai_a1_": 1,
+        "sprite/me1a_def_a1_": 1,
+        "sprite/me1a_wink_a1_": 42,
+        "sprite/ri1_def_a1_": 1
+    },
+    "me_se_wi_b1": {
+        "sprite/me1b_wink_a1_": 16
+    },
+    "me_se_wi_b2": {
+        "sprite/me1b_odoroki_a1_": 1,
+        "sprite/me1b_wink_a1_": 23
+    },
+    "me_se_yw_a1": {
+        "sprite/me1a_yowaki_a1_": 8
+    },
+    "me_se_yw_a2": {
+        "sprite/me1a_yowaki_a1_": 3
+    },
+    "me_se_yw_b1": {
+        "sprite/me1b_yowaki_a1_": 2
+    },
+    "me_se_yw_b2": {
+        "sprite/me1b_yowaki_a1_": 4
+    },
+    "me_si_aw_a1": {
+        "sprite/me2_akuwarai_a1_": 10,
+        "sprite/me2_huteki_a1_": 1
+    },
+    "me_si_aw_a2": {
+        "sprite/me2_akuwarai_a1_": 8
+    },
+    "me_si_bi_a1": {
+        "sprite/me2_odoroki_a1_": 8
+    },
+    "me_si_bi_a2": {
+        "sprite/me2_odoroki_a1_": 11,
+        "sprite/me2_yowaki_a1_": 1
+    },
+    "me_si_de_a1": {
+        "sprite/chibimion_def_": 3,
+        "sprite/me2_akuwarai_a1_": 1,
+        "sprite/me2_def_a1_": 42,
+        "sprite/me2_tohoho_a1_": 1
+    },
+    "me_si_de_a2": {
+        "sprite/chibimion_def_": 1,
+        "sprite/me2_def_a1_": 25,
+        "sprite/me2_majime_a1_": 3
+    },
+    "me_si_fu_a1": {
+        "sprite/me2_huteki_a1_": 8
+    },
+    "me_si_fu_a2": {
+        "sprite/me2_akuwarai_a1_": 1,
+        "sprite/me2_huteki_a1_": 6
+    },
+    "me_si_ha_a1": {
+        "sprite/me2_hau_a1_": 2
+    },
+    "me_si_him_a1": {
+        "sprite/me2_hig_maji_a1_": 1
+    },
+    "me_si_him_a2": {
+        "sprite/me2_hig_maji_a1_": 1
+    },
+    "me_si_ik_a1": {
+        "sprite/me2_ikari_a1_": 2
+    },
+    "me_si_ik_a2": {
+        "sprite/me2_ikari_a1_": 1
+    },
+    "me_si_ma_a1": {
+        "sprite/chibimion_shinken_": 1,
+        "sprite/me2_ikari_a1_": 1,
+        "sprite/me2_majime_a1_": 19
+    },
+    "me_si_ma_a2": {
+        "sprite/me2_majime_a1_": 13
+    },
+    "me_si_si_a1": {
+        "sprite/me2_def_a1_": 1,
+        "sprite/me2_sinmyou_a1_": 23
+    },
+    "me_si_si_a2": {
+        "sprite/me2_def_a1_": 1,
+        "sprite/me2_hau_a1_": 1,
+        "sprite/me2_huteki_a1_": 1,
+        "sprite/me2_sinmyou_a1_": 4
+    },
+    "me_si_th_a1": {
+        "sprite/flashback/me2_tohoho_a1_": 1,
+        "sprite/me2_ikari_a1_": 1,
+        "sprite/me2_odoroki_a1_": 1,
+        "sprite/me2_tohoho_a1_": 10,
+        "sprite/me2_yowaki_a1_": 1
+    },
+    "me_si_th_a2": {
+        "sprite/me2_huteki_a1_": 1,
+        "sprite/me2_ikari_a1_": 1,
+        "sprite/me2_odoroki_a1_": 2,
+        "sprite/me2_tohoho_a1_": 10
+    },
+    "me_si_to_a1": {
+        "sprite/flashback/me2_tokui_a1_": 1,
+        "sprite/me2_tokui_a1_": 11
+    },
+    "me_si_to_a2": {
+        "sprite/me2_hig_maji_a1_": 1,
+        "sprite/me2_tokui_a1_": 9
+    },
+    "me_si_wa_a1": {
+        "sprite/chibimion_warai_": 1,
+        "sprite/flashback/me2_warai_a1_": 2,
+        "sprite/me2_warai_a1_": 27
+    },
+    "me_si_wa_a2": {
+        "sprite/chibimion_warai_": 1,
+        "sprite/me2_warai_a1_": 17,
+        "sprite/re2a_warai_a1_": 1
+    },
+    "me_si_wi_a1": {
+        "sprite/chibimion_wink_": 2,
+        "sprite/flashback/me2_wink_a1_": 1,
+        "sprite/me2_wink_a1_": 32
+    },
+    "me_si_wi_a2": {
+        "sprite/me2_wink_a1_": 39,
+        "sprite/sa2a_akuwarai_a1_": 1
+    },
+    "me_si_yw_a1": {
+        "sprite/me2_yowaki_a1_": 3
+    },
+    "me_si_yw_a2": {
+        "sprite/me2_yowaki_a1_": 1
+    },
+    "me_ta_aw_a1": {
+        "sprite/me3_akuwarai_a1_": 2
+    },
+    "me_ta_aw_a2": {
+        "sprite/me3_akuwarai_a1_": 3
+    },
+    "me_ta_de_a1": {
+        "sprite/me3_def_a1_": 6
+    },
+    "me_ta_de_a2": {
+        "sprite/me3_def_a1_": 1
+    },
+    "me_ta_fu_a1": {
+        "sprite/me3_huteki_a1_": 1
+    },
+    "me_ta_fu_a2": {
+        "sprite/me3_huteki_a1_": 1
+    },
+    "me_ta_th_a1": {
+        "sprite/me3_tohoho_a1_": 2
+    },
+    "me_ta_to_a1": {
+        "sprite/me3_tokui_a1_": 1
+    },
+    "me_ta_to_a2": {
+        "sprite/me3_tokui_a1_": 2
+    },
+    "me_ta_wa_a2": {
+        "sprite/me3_warai_a1_": 5
+    },
+    "me_ta_wi_a1": {
+        "sprite/me3_wink_a1_": 4
+    },
+    "no_data": {
+        "sprite/kameda1b_odoroki_": 1,
+        "sprite/kasa_1_": 1,
+        "sprite/kei1_komaru_": 1,
+        "sprite/kei1_nayamu_": 1,
+        "sprite/kei2_def1_": 1,
+        "sprite/kei2_komaru_": 2,
+        "sprite/kuma_def_": 3,
+        "sprite/me1a_def_a1_": 1,
+        "sprite/me1a_majime_a1_": 1,
+        "sprite/me1a_tohoho_a1_": 1,
+        "sprite/me1b_warai_a1_": 1,
+        "sprite/me2_warai_a1_": 1,
+        "sprite/me3_wink_a1_": 1,
+        "sprite/oisi1_1_": 2,
+        "sprite/oisi1_2_": 2,
+        "sprite/oisi1_5_": 1,
+        "sprite/oryou_def_": 1,
+        "sprite/oryou_sakebi_": 1,
+        "sprite/re1a_okoru_a1_": 1,
+        "sprite/re1b_hau_b1_": 1,
+        "sprite/re2a_bikkuri_a1_": 1,
+        "sprite/re2a_def_a1_": 1,
+        "sprite/re2a_hig_muhyou_a1_": 1,
+        "sprite/re2a_kaii_a1_": 1,
+        "sprite/re2a_nande_a1_": 1,
+        "sprite/re2b_komaru_b2_": 1,
+        "sprite/re2b_okoru_b1_": 2,
+        "sprite/re3b_warai_b1_": 1,
+        "sprite/renasen1_def_": 1,
+        "sprite/renasen1_muhyokaku_": 1,
+        "sprite/renasen2_ikakaku_": 1,
+        "sprite/ri1_def_a1_": 1,
+        "sprite/ri2_niyari_a1_": 1,
+        "sprite/sa1a_odoroki_a1_": 1,
+        "sprite/sa1a_warai_a1_": 1,
+        "sprite/sa3_warai_a1_": 1,
+        "sprite/sato1_komaru_": 3,
+        "sprite/si1a_def_a1_": 1,
+        "sprite/si1a_wink_a1_": 2,
+        "sprite/ta1_akuwarai_": 1,
+        "sprite/ta1_def_": 4,
+        "sprite/ta1_human_": 1,
+        "sprite/ta1_warai_": 1,
+        "sprite/tie_1_": 1,
+        "sprite/tie_2_": 1,
+        "sprite/tomi3_def_": 1,
+        "sprite/tomita2_odoroki_": 1,
+        "sprite/tomita2_warai_": 1,
+        "transparent": 1
+    },
+    "oi_si_aw_a1": {
+        "sprite/oisi1_5_": 13
+    },
+    "oi_si_de_a1": {
+        "sprite/oisi1_1_": 85,
+        "sprite/oisi1_5_": 1
+    },
+    "oi_si_de_a2": {
+        "sprite/oisi1_4_": 23
+    },
+    "oi_si_ma_a1": {
+        "sprite/oisi1_3_": 3
+    },
+    "oi_si_wa_a1": {
+        "sprite/iri1_def2_": 1,
+        "sprite/me1a_tohoho_a1_": 1,
+        "sprite/me1a_tokui_a1_": 1,
+        "sprite/me1a_warai_a1_": 1,
+        "sprite/oisi1_1_": 2,
+        "sprite/oisi1_2_": 90,
+        "sprite/oisi1_5_": 1,
+        "sprite/re1a_komaru_a1_": 1,
+        "sprite/re1b_def_b1_": 1,
+        "sprite/ri1_def_a1_": 1,
+        "sprite/ri1_niko_a1_": 1,
+        "sprite/ri1_warai_a1_": 1,
+        "sprite/sa1b_odoroki_b1_": 1,
+        "sprite/si1a_akuwarai_a1_": 1,
+        "sprite/si1a_def_a1_": 1,
+        "sprite/si1b_wink_b1_": 1,
+        "sprite/tie_1_": 1,
+        "sprite/tomi1_def_": 1
+    },
+    "oi_yk_de_a1": {
+        "sprite/oisi2_6_": 15,
+        "sprite/oisi2_8_": 1
+    },
+    "oi_yk_de_a2": {
+        "sprite/oisi2_9_": 10
+    },
+    "oi_yk_ma_a1": {
+        "sprite/oisi2_8_": 1
+    },
+    "oi_yk_wa_a1": {
+        "sprite/oisi2_7_": 7
+    },
+    "re_DefA1#": {
+        "sprite/re2a_def_a1_": 1
+    },
+    "re_Hi_DefB1#": {
+        "sprite/re2b_hig_def_b1_": 1
+    },
+    "re_Hi_muhyouA1#": {
+        "sprite/renasen2_muhyokaku_": 1
+    },
+    "re_KaiiA1&": {
+        "sprite/re3a_kaii_a1_": 1
+    },
+    "re_WaraiB1#": {
+        "sprite/renasen2_warai_": 1
+    },
+    "re_se_bi_a1": {
+        "sprite/re1a_bikkuri_a1_": 19
+    },
+    "re_se_bi_b1": {
+        "sprite/re1a_bikkuri_a1_": 1,
+        "sprite/re1b_bikkuri_b1_": 29,
+        "sprite/re1b_nande_b1_": 1
+    },
+    "re_se_de_a1": {
+        "sprite/flashback/re1a_def_a1_": 1,
+        "sprite/me1a_def_a1_": 2,
+        "sprite/me1a_huteki_a1_": 1,
+        "sprite/me1a_majime_a1_": 1,
+        "sprite/re1a_def_a1_": 128,
+        "sprite/re1a_komaru_a1_": 2,
+        "sprite/re1a_komaru_a2_": 3,
+        "sprite/re1a_nande_a1_": 5,
+        "sprite/re1a_okoru_a1_": 3,
+        "sprite/re1a_warai_a1_": 1,
+        "sprite/re1b_def_b1_": 1,
+        "sprite/re1b_nande_b1_": 1
+    },
+    "re_se_de_b1": {
+        "sprite/re1a_def_a1_": 2,
+        "sprite/re1a_nande_a1_": 2,
+        "sprite/re1b_def_b1_": 36,
+        "sprite/re1b_komaru_b2_": 3,
+        "sprite/re1b_nande_b1_": 3,
+        "sprite/re1b_okoru_b1_": 1
+    },
+    "re_se_ha_a1": {
+        "sprite/re1a_hau_a1_": 36,
+        "sprite/re1a_komaru_a2_": 1
+    },
+    "re_se_ha_b1": {
+        "sprite/flashback/re1b_hau_b1_": 1,
+        "sprite/re1b_hau_b1_": 18
+    },
+    "re_se_hi_a1": {
+        "sprite/flashback/re1a_hig_def_a1_": 1,
+        "sprite/re1a_hig_def_a1_": 6
+    },
+    "re_se_hi_b1": {
+        "sprite/re1a_hig_def_a1_": 1,
+        "sprite/re1b_hig_def_b1_": 1
+    },
+    "re_se_hii_a1": {
+        "sprite/re1a_hig_okoru_a1_": 1
+    },
+    "re_se_hii_b1": {
+        "sprite/re1b_hig_okoru_b1_": 2
+    },
+    "re_se_him_a1": {
+        "sprite/re1a_hig_muhyou_a1_": 2
+    },
+    "re_se_ik_a1": {
+        "sprite/re1a_okoru_a1_": 5
+    },
+    "re_se_ik_b1": {
+        "sprite/iri1_warai_": 1,
+        "sprite/me1b_odoroki_a1_": 1,
+        "sprite/me1b_tohoho_a1_": 1,
+        "sprite/re1a_okoru_a1_": 1,
+        "sprite/re1a_warai_a1_": 2,
+        "sprite/re1b_okoru_b1_": 5,
+        "sprite/re1b_warai_b1_": 1,
+        "sprite/sa1a_hannbeso_a1_": 1,
+        "sprite/sa1b_odoroki_b1_": 1,
+        "sprite/tomi1_komaru_": 1
+    },
+    "re_se_ka_a1": {
+        "sprite/re1a_kaii_a1_": 7
+    },
+    "re_se_ka_b1": {
+        "sprite/re1b_kaii_b1_": 16
+    },
+    "re_se_ko_a1": {
+        "sprite/me1a_yowaki_a1_": 1,
+        "sprite/re1a_bikkuri_a1_": 1,
+        "sprite/re1a_komaru_a1_": 38,
+        "sprite/re1a_komaru_a2_": 8,
+        "sprite/re1a_okoru_a1_": 1,
+        "sprite/re1a_warai_a1_": 1,
+        "sprite/re1b_komaru_b2_": 1,
+        "sprite/ta1_warai_": 1
+    },
+    "re_se_ko_a2": {
+        "sprite/re1a_komaru_a2_": 12,
+        "sprite/re1b_okoru_b1_": 1
+    },
+    "re_se_ko_b1": {
+        "sprite/re1a_komaru_a2_": 1,
+        "sprite/re1b_komaru_b1_": 10,
+        "sprite/re1b_komaru_b2_": 4,
+        "sprite/sa1a_hannbeso_a1_": 1
+    },
+    "re_se_ko_b2": {
+        "sprite/re1b_komaru_b2_": 1
+    },
+    "re_se_na_a1": {
+        "sprite/flashback/re1a_nande_a1_": 1,
+        "sprite/me1b_majime_a1_": 1,
+        "sprite/re1a_nande_a1_": 67,
+        "sprite/re1a_okoru_a1_": 1
+    },
+    "re_se_na_b1": {
+        "sprite/re1b_nande_b1_": 16
+    },
+    "re_se_wa_a1": {
+        "sprite/me1b_warai_a1_": 1,
+        "sprite/me1b_wink_a1_": 1,
+        "sprite/re1a_hau_a1_": 1,
+        "sprite/re1a_komaru_a2_": 1,
+        "sprite/re1a_nande_a1_": 1,
+        "sprite/re1a_okoru_a1_": 1,
+        "sprite/re1a_warai_a1_": 114
+    },
+    "re_se_wa_b1": {
+        "sprite/re1a_def_a1_": 1,
+        "sprite/re1a_komaru_a2_": 2,
+        "sprite/re1a_nande_a1_": 1,
+        "sprite/re1b_def_b1_": 1,
+        "sprite/re1b_warai_b1_": 86,
+        "sprite/sa1a_hannbeso_a1_": 1,
+        "sprite/sa1b_warai_b1_": 1,
+        "sprite/si1a_wink_a1_": 1,
+        "sprite/tomi1_komaru_": 1
+    },
+    "re_si_bi_a1": {
+        "sprite/re2a_bikkuri_a1_": 7
+    },
+    "re_si_bi_b1": {
+        "sprite/re2b_bikkuri_b1_": 9
+    },
+    "re_si_de_a1": {
+        "sprite/re2a_def_a1_": 45,
+        "sprite/re2a_okoru_a1_": 1,
+        "sprite/re2b_def_b1_": 1,
+        "sprite/ri2_niko_a1_": 1
+    },
+    "re_si_de_b1": {
+        "sprite/re2a_def_a1_": 1,
+        "sprite/re2b_def_b1_": 12
+    },
+    "re_si_ha_a1": {
+        "sprite/re2a_hau_a1_": 29
+    },
+    "re_si_ha_b1": {
+        "sprite/re2b_hau_b1_": 9
+    },
+    "re_si_hi_a1": {
+        "sprite/re2a_hig_def_a1_": 2
+    },
+    "re_si_hii_b1": {
+        "sprite/re2b_hig_okoru_b1_": 1
+    },
+    "re_si_him_a1": {
+        "sprite/re2a_hig_muhyou_a1_": 1
+    },
+    "re_si_him_b1": {
+        "sprite/re2b_hig_muhyou_b1_": 1
+    },
+    "re_si_ik_b1": {
+        "sprite/re2b_okoru_b1_": 2
+    },
+    "re_si_ka_a1": {
+        "sprite/re2a_kaii_a1_": 9
+    },
+    "re_si_ka_b1": {
+        "sprite/flashback/re2b_kaii_b1_": 1,
+        "sprite/re2b_hau_b1_": 1,
+        "sprite/re2b_kaii_b1_": 27
+    },
+    "re_si_ko_a1": {
+        "sprite/re2a_komaru_a1_": 6,
+        "sprite/re2a_komaru_a2_": 2
+    },
+    "re_si_ko_a2": {
+        "sprite/re2a_komaru_a2_": 2,
+        "sprite/re2a_okoru_a1_": 1
+    },
+    "re_si_ko_b1": {
+        "sprite/re2b_komaru_b1_": 7
+    },
+    "re_si_ko_b2": {
+        "sprite/re2b_komaru_b2_": 1
+    },
+    "re_si_na_a1": {
+        "sprite/re1a_nande_a1_": 1,
+        "sprite/re2a_nande_a1_": 23,
+        "sprite/re2b_nande_b1_": 1
+    },
+    "re_si_na_b1": {
+        "sprite/re2b_nande_b1_": 2
+    },
+    "re_si_wa_a1": {
+        "sprite/iri1_def2_": 1,
+        "sprite/re2a_warai_a1_": 52,
+        "sprite/sa2a_akuwarai_a1_": 1
+    },
+    "re_si_wa_b1": {
+        "sprite/re2a_warai_a1_": 2,
+        "sprite/re2b_nande_b1_": 1,
+        "sprite/re2b_warai_b1_": 34
+    },
+    "re_ta_bi_a1": {
+        "sprite/re3a_bikkuri_a1_": 3
+    },
+    "re_ta_bi_b1": {
+        "sprite/re3b_bikkuri_b1_": 4
+    },
+    "re_ta_de_a1": {
+        "sprite/re3a_def_a1_": 7
+    },
+    "re_ta_ha_a1": {
+        "sprite/re3a_hau_a1_": 4
+    },
+    "re_ta_ha_b1": {
+        "sprite/re3b_hau_b1_": 3
+    },
+    "re_ta_ka_a1": {
+        "sprite/re3a_kaii_a1_": 2
+    },
+    "re_ta_ka_b1": {
+        "sprite/re3b_kaii_b1_": 4
+    },
+    "re_ta_ko_a1": {
+        "sprite/re3a_komaru_a1_": 1
+    },
+    "re_ta_ko_a2": {
+        "sprite/re3a_komaru_a2_": 1
+    },
+    "re_ta_na_a1": {
+        "sprite/re3a_nande_a1_": 3
+    },
+    "re_ta_wa_a1": {
+        "sprite/re3a_warai_a1_": 3
+    },
+    "re_ta_wa_b1": {
+        "sprite/re3b_warai_b1_": 2
+    },
+    "ri_defA1": {
+        "sprite/ri1_def_a1_": 1
+    },
+    "ri_mk_de_a1": {
+        "sprite/ri5_def_a1_": 12,
+        "sprite/ri5_niko_a1_": 2,
+        "sprite/sa2a_akireru_a1_": 1,
+        "sprite/sa2a_warai_a1_": 1
+    },
+    "ri_mk_ko_a1": {
+        "sprite/ri5_komaru_a1_": 6
+    },
+    "ri_mk_ni_a1": {
+        "sprite/ri5_niko_a1_": 11
+    },
+    "ri_mk_wa_a1": {
+        "sprite/ri5_warai_a1_": 8
+    },
+    "ri_nk_ko_a1": {
+        "sprite/ri4_komaru_a1_": 3
+    },
+    "ri_se_de_a1": {
+        "sprite/flashback/ri1_def_a1_": 1,
+        "sprite/me1a_akuwarai_a1_": 1,
+        "sprite/me1a_tohoho_a1_": 2,
+        "sprite/me1b_odoroki_a1_": 1,
+        "sprite/oisi1_2_": 2,
+        "sprite/re1a_def_a1_": 1,
+        "sprite/ri1_def_a1_": 86,
+        "sprite/ri1_fuman_a1_": 2,
+        "sprite/sa1a_akireru_a1_": 1,
+        "sprite/sa1b_hau_b2_": 1,
+        "sprite/sa1b_odoroki_b1_": 1
+    },
+    "ri_se_fu_a1": {
+        "sprite/rim_majime_": 1
+    },
+    "ri_se_ko_a1": {
+        "sprite/ri1_fuman_a1_": 5,
+        "sprite/ri1_komaru_a1_": 22,
+        "sprite/ri1_komaru_a2_": 2,
+        "sprite/ri1_majime_a1_": 1,
+        "sprite/tie_2_": 1
+    },
+    "ri_se_ni_a1": {
+        "sprite/ri1_fuman_a1_": 2,
+        "sprite/ri1_niko_a1_": 55,
+        "sprite/sa1a_akireru_a1_": 1
+    },
+    "ri_se_wa_a1": {
+        "sprite/flashback/ri1_warai_a1_": 2,
+        "sprite/re1b_nande_b1_": 1,
+        "sprite/ri1_majime_a1_": 1,
+        "sprite/ri1_warai_a1_": 75,
+        "sprite/sa1a_def_a1_": 1
+    },
+    "ri_si_de_a1": {
+        "sprite/ri2_def_a1_": 20,
+        "sprite/rim_def_": 19,
+        "sprite/rim_komaru_": 2
+    },
+    "ri_si_fu_a1": {
+        "sprite/rim_def_": 1,
+        "sprite/rim_majime_": 7
+    },
+    "ri_si_ko_a1": {
+        "sprite/ri2_komaru_a1_": 5,
+        "sprite/rim_komaru_": 9
+    },
+    "ri_si_ko_a2": {
+        "sprite/rim_majime_": 1
+    },
+    "ri_si_ni_a1": {
+        "sprite/ri2_niko_a1_": 25,
+        "sprite/rim_def_": 2,
+        "sprite/rim_komaru_": 2,
+        "sprite/rim_warai_": 7
+    },
+    "ri_si_ny_a1": {
+        "sprite/rim_niyari_": 3
+    },
+    "ri_si_wa_a1": {
+        "sprite/ri2_niko_a1_": 1,
+        "sprite/ri2_warai_a1_": 35,
+        "sprite/rim_def_": 1,
+        "sprite/rim_warai_": 13
+    },
+    "ri_ta_de_a1": {
+        "sprite/ri3_def_a1_": 5
+    },
+    "ri_ta_ko_a1": {
+        "sprite/ri3_komaru_a1_": 1
+    },
+    "ri_ta_ni_a1": {
+        "sprite/ri3_niko_a1_": 3
+    },
+    "ri_ta_wa_a1": {
+        "sprite/ri3_warai_a1_": 3
+    },
+    "sa_ku_aw_a1": {
+        "sprite/sa4_akuwarai_a1_": 1
+    },
+    "sa_ku_bi_a1": {
+        "sprite/sa4_akuwarai_a1_": 1,
+        "sprite/sa4_odoroki_a1_": 3
+    },
+    "sa_ku_wa_a1": {
+        "sprite/sa4_warai_a1_": 1
+    },
+    "sa_se_ak_a1": {
+        "sprite/flashback/sa1a_akireru_a1_": 1,
+        "sprite/flashback/sa1a_def_a1_": 1,
+        "sprite/sa1a_akireru_a1_": 41
+    },
+    "sa_se_ak_a2": {
+        "sprite/sa1b_akireru_b1_": 8
+    },
+    "sa_se_aw_a1": {
+        "sprite/me1a_def_a1_": 1,
+        "sprite/me1a_wink_a1_": 1,
+        "sprite/re1a_bikkuri_a1_": 1,
+        "sprite/re1b_def_b1_": 1,
+        "sprite/re1b_warai_b1_": 1,
+        "sprite/sa1a_akuwarai_a1_": 69,
+        "sprite/sa1b_akuwarai_b1_": 1,
+        "sprite/sa1b_odoroki_b1_": 1,
+        "sprite/si1a_warai_a1_": 1
+    },
+    "sa_se_aw_b1": {
+        "sprite/me1a_tokui_a1_": 1,
+        "sprite/sa1a_hau_a1_": 1,
+        "sprite/sa1b_akuwarai_b1_": 20
+    },
+    "sa_se_bi_a1": {
+        "sprite/sa1a_odoroki_a1_": 41,
+        "sprite/sa1a_yareyare_a1_": 1
+    },
+    "sa_se_bi_b1": {
+        "sprite/flashback/sa1b_odoroki_b1_": 1,
+        "sprite/sa1a_akuwarai_a1_": 2,
+        "sprite/sa1b_odoroki_b1_": 31
+    },
+    "sa_se_bi_b2": {
+        "sprite/sa1b_odoroki_b1_": 6
+    },
+    "sa_se_de_a1": {
+        "sprite/flashback/sa1a_def_a1_": 3,
+        "sprite/ri1_def_a1_": 1,
+        "sprite/sa1a_def_a1_": 36
+    },
+    "sa_se_de_b1": {
+        "sprite/sa1a_def_a1_": 1,
+        "sprite/sa1b_def_b1_": 2
+    },
+    "sa_se_ha_a1": {
+        "sprite/sa1a_hau_a1_": 8,
+        "sprite/sa1a_muhyou_a1_": 1
+    },
+    "sa_se_ha_a2": {
+        "sprite/sa1a_hau_a2_": 5
+    },
+    "sa_se_ha_b1": {
+        "sprite/sa1a_def_a1_": 1,
+        "sprite/sa1b_hau_b1_": 2
+    },
+    "sa_se_ha_b2": {
+        "sprite/sa1b_hau_b2_": 3
+    },
+    "sa_se_hn_a1": {
+        "sprite/sa1a_hannbeso_a1_": 5,
+        "sprite/sa1a_naku_a1_": 1
+    },
+    "sa_se_hn_a3": {
+        "sprite/sa1a_hannbeso_a3_": 2
+    },
+    "sa_se_hn_b1": {
+        "sprite/sa1b_hannbeso_b1_": 4
+    },
+    "sa_se_hn_b2": {
+        "sprite/sa1b_hannbeso_b1_": 4
+    },
+    "sa_se_hn_b3": {
+        "sprite/sa1b_hannbeso_b3_": 1
+    },
+    "sa_se_mu_a1": {
+        "sprite/flashback/sa1a_muhyou_a1_": 2,
+        "sprite/sa1a_muhyou_a1_": 9
+    },
+    "sa_se_mu_a2": {
+        "sprite/sa1a_muhyou_a2_": 8
+    },
+    "sa_se_na_a1": {
+        "sprite/flashback/sa1a_naku_a1_": 1,
+        "sprite/sa1a_naku_a1_": 7
+    },
+    "sa_se_na_b1": {
+        "sprite/sa1a_sakebu_a1_": 1,
+        "sprite/sa1b_naku_b1_": 8
+    },
+    "sa_se_na_b2": {
+        "sprite/sa1b_naku_b1_": 1,
+        "sprite/sa1b_odoroki_b1_": 1
+    },
+    "sa_se_sa_a1": {
+        "sprite/sa1a_sakebu_a1_": 3
+    },
+    "sa_se_sa_b1": {
+        "sprite/sa1b_sakebu_b1_": 3
+    },
+    "sa_se_wa_a1": {
+        "sprite/iri3_def1_": 1,
+        "sprite/me1a_def_a1_": 1,
+        "sprite/sa1a_warai_a1_": 37
+    },
+    "sa_se_wa_b1": {
+        "sprite/flashback/sa1b_warai_b1_": 1,
+        "sprite/sa1b_akuwarai_b1_": 1,
+        "sprite/sa1b_hau_b2_": 4,
+        "sprite/sa1b_warai_b1_": 26
+    },
+    "sa_se_ya_a1": {
+        "sprite/sa1a_yareyare_a1_": 9
+    },
+    "sa_se_ya_a2": {
+        "sprite/sa1a_yareyare_a2_": 4
+    },
+    "sa_se_yah_b1": {
+        "sprite/sa1b_yareyare_b1_": 4
+    },
+    "sa_se_yah_b2": {
+        "sprite/sa1b_yareyare_b2_": 3
+    },
+    "sa_si_ak_a1": {
+        "sprite/sa2a_akireru_a1_": 16,
+        "sprite/sa2b_akuwarai_b1_": 1,
+        "sprite/sa2b_yareyare_b1_": 1
+    },
+    "sa_si_ak_a2": {
+        "sprite/sa2b_akireru_b1_": 5
+    },
+    "sa_si_aw_a1": {
+        "sprite/me2_warai_a1_": 1,
+        "sprite/ri5_def_a1_": 1,
+        "sprite/sa2a_akuwarai_a1_": 31,
+        "sprite/sa2a_def_a1_": 1,
+        "sprite/sa2b_def_b1_": 1,
+        "sprite/tomi1_komaru_": 1
+    },
+    "sa_si_aw_b1": {
+        "sprite/sa2b_akuwarai_b1_": 3
+    },
+    "sa_si_bi_a1": {
+        "sprite/sa2a_hannbeso_a1_": 1,
+        "sprite/sa2a_odoroki_a1_": 39,
+        "sprite/sa2b_warai_b1_": 1
+    },
+    "sa_si_bi_b1": {
+        "sprite/sa2b_odoroki_b1_": 7
+    },
+    "sa_si_de_a1": {
+        "sprite/sa2a_def_a1_": 11
+    },
+    "sa_si_ha_a1": {
+        "sprite/sa2a_hau_a1_": 3
+    },
+    "sa_si_ha_a2": {
+        "sprite/sa2a_hau_a2_": 1
+    },
+    "sa_si_ha_b2": {
+        "sprite/sa2b_hau_b2_": 3
+    },
+    "sa_si_hn_a1": {
+        "sprite/sa2a_hannbeso_a1_": 1
+    },
+    "sa_si_hn_b1": {
+        "sprite/sa2b_hannbeso_b1_": 1
+    },
+    "sa_si_na_a1": {
+        "sprite/sa2a_naku_a1_": 3
+    },
+    "sa_si_wa_a1": {
+        "sprite/flashback/sa2a_warai_a1_": 1,
+        "sprite/sa2a_warai_a1_": 29
+    },
+    "sa_si_wa_b1": {
+        "sprite/sa2b_warai_b1_": 3
+    },
+    "sa_si_ya_a1": {
+        "sprite/sa2a_yareyare_a1_": 9
+    },
+    "sa_si_ya_a2": {
+        "sprite/sa2a_yareyare_a2_": 1
+    },
+    "sa_si_yah_b1": {
+        "sprite/ri2_komaru_a2_": 1,
+        "sprite/sa2b_yareyare_b1_": 3
+    },
+    "sa_si_yah_b2": {
+        "sprite/sa2b_yareyare_b2_": 2
+    },
+    "sa_ta_ak_a1": {
+        "sprite/sa3_akireru_a1_": 2
+    },
+    "sa_ta_aw_a1": {
+        "sprite/sa3_akuwarai_a1_": 5
+    },
+    "sa_ta_bi_a1": {
+        "sprite/sa3_odoroki_a1_": 6
+    },
+    "sa_ta_de_a1": {
+        "sprite/sa3_def_a1_": 3
+    },
+    "sa_ta_hn_a1": {
+        "sprite/sa3_hannbeso_a1_": 2
+    },
+    "sa_ta_wa_a1": {
+        "sprite/sa3_warai_a1_": 2
+    },
+    "sa_to_bi_a1": {
+        "sprite/sa5_odoroki_a1_": 3,
+        "sprite/sa5_sakebu_a1_": 1
+    },
+    "sa_to_ha_a1": {
+        "sprite/sa5_hau_a1_": 2
+    },
+    "sa_to_hn_a1": {
+        "sprite/sa5_hannbeso_a1_": 4
+    },
+    "sa_to_mu_a1": {
+        "sprite/sa5_muhyou_a1_": 2
+    },
+    "sa_to_mu_a2": {
+        "sprite/sa5_muhyou_a2_": 1
+    },
+    "sa_to_sa_a1": {
+        "sprite/sa5_sakebu_a1_": 2
+    },
+    "sa_to_wa_a1": {
+        "sprite/sa5_warai_a1_": 1
+    },
+    "sa_to_ya_a1": {
+        "sprite/sa5_yareyare_a1_": 4
+    },
+    "sa_to_ya_a2": {
+        "sprite/sa5_yareyare_a2_": 3
+    },
+    "si_ma_aw_a1": {
+        "sprite/si2_akuwarai_a1_": 2
+    },
+    "si_ma_bi_a1": {
+        "sprite/si2_odoroki_a1_": 8
+    },
+    "si_ma_de_a1": {
+        "sprite/flashback/si2_def_a1_": 1,
+        "sprite/si2_def_a1_": 15,
+        "sprite/si2_yowaki_a1_": 1
+    },
+    "si_ma_ha_a1": {
+        "sprite/flashback/si2_hau_a1_": 1,
+        "sprite/si2_hau_a1_": 8
+    },
+    "si_ma_to_a1": {
+        "sprite/si2_tokui_a1_": 1
+    },
+    "si_ma_wa_a1": {
+        "sprite/si2_warai_a1_": 11
+    },
+    "si_ma_wi_a1": {
+        "sprite/si2_wink_a1_": 9
+    },
+    "si_ma_yw_a1": {
+        "sprite/si2_yowaki_a1_": 8
+    },
+    "si_si_aw_a1": {
+        "sprite/iri1_def1_": 1,
+        "sprite/iri1_warai_": 1,
+        "sprite/me1a_akuwarai_a1_": 1,
+        "sprite/me1b_odoroki_a1_": 1,
+        "sprite/me1b_wink_a1_": 1,
+        "sprite/re1a_komaru_a1_": 1,
+        "sprite/re1a_nande_a1_": 1,
+        "sprite/re1a_warai_a1_": 2,
+        "sprite/re1b_warai_b1_": 1,
+        "sprite/ri1_def_a1_": 1,
+        "sprite/sa1a_def_a1_": 1,
+        "sprite/si1a_akuwarai_a1_": 22,
+        "sprite/si1a_warai_a1_": 1,
+        "sprite/ta1_akuwarai_": 1,
+        "sprite/ta1_def_": 2,
+        "sprite/tie_1_": 1,
+        "sprite/tomi1_komaru_": 2
+    },
+    "si_si_aw_b1": {
+        "sprite/si1a_wink_a1_": 1,
+        "sprite/si1b_akuwarai_b1_": 7
+    },
+    "si_si_bi_a1": {
+        "sprite/si1a_majime_a1_": 1,
+        "sprite/si1a_odoroki_a1_": 4
+    },
+    "si_si_bi_b1": {
+        "sprite/si1a_odoroki_a1_": 2
+    },
+    "si_si_de_a1": {
+        "sprite/re2a_warai_a1_": 1,
+        "sprite/si1a_def_a1_": 49,
+        "sprite/si1a_majime_a1_": 3
+    },
+    "si_si_de_b1": {
+        "sprite/si1a_def_a1_": 4,
+        "sprite/si1b_def_b1_": 9
+    },
+    "si_si_fu_a1": {
+        "sprite/re1a_def_a1_": 1,
+        "sprite/re1a_komaru_a1_": 1,
+        "sprite/ri1_komaru_a1_": 1,
+        "sprite/ri1_niko_a1_": 1,
+        "sprite/ri1_warai_a1_": 2,
+        "sprite/sa1a_akuwarai_a1_": 1,
+        "sprite/sa1b_odoroki_b1_": 2,
+        "sprite/si1a_huteki_a1_": 2,
+        "sprite/si1a_warai_a1_": 1,
+        "sprite/si1a_wink_a1_": 2,
+        "sprite/si1b_akuwarai_b1_": 1,
+        "sprite/si1b_warai_b1_": 1
+    },
+    "si_si_ha_a1": {
+        "sprite/si1a_hau_a1_": 4
+    },
+    "si_si_ha_b1": {
+        "sprite/si1a_hau_a1_": 1,
+        "sprite/si1b_hau_b1_": 1
+    },
+    "si_si_ik_a1": {
+        "sprite/si1a_ikari_a1_": 1
+    },
+    "si_si_ma_a1": {
+        "sprite/si1a_majime_a1_": 6
+    },
+    "si_si_th_b1": {
+        "sprite/si1a_tohoho_a1_": 1
+    },
+    "si_si_to_a1": {
+        "sprite/si1a_tokui_a1_": 1
+    },
+    "si_si_to_b1": {
+        "sprite/si1b_tokui_b1_": 2
+    },
+    "si_si_wa_a1": {
+        "sprite/re1a_hau_a1_": 1,
+        "sprite/si1a_warai_a1_": 23
+    },
+    "si_si_wa_b1": {
+        "sprite/iri1_majime2_": 1,
+        "sprite/me1a_tokui_a1_": 1,
+        "sprite/me1b_tohoho_a1_": 1,
+        "sprite/me1b_warai_a1_": 1,
+        "sprite/oisi1_1_": 1,
+        "sprite/oisi1_2_": 1,
+        "sprite/ri1_warai_a1_": 1,
+        "sprite/si1a_akuwarai_a1_": 1,
+        "sprite/si1a_warai_a1_": 2,
+        "sprite/si1a_wink_a1_": 1,
+        "sprite/si1b_warai_b1_": 11,
+        "sprite/ta1_def_": 1,
+        "sprite/ta1_warai_": 1,
+        "sprite/tomi1_def_": 1
+    },
+    "si_si_wi_a1": {
+        "sprite/flashback/si1a_wink_a1_": 1,
+        "sprite/me1b_wink_a1_": 1,
+        "sprite/oisi1_2_": 1,
+        "sprite/oka1_def_": 1,
+        "sprite/re1a_def_a1_": 2,
+        "sprite/re1a_warai_a1_": 1,
+        "sprite/re1b_okoru_b1_": 1,
+        "sprite/ri1_def_a1_": 1,
+        "sprite/sa1a_akireru_a1_": 1,
+        "sprite/sa1a_odoroki_a1_": 1,
+        "sprite/si1a_wink_a1_": 29,
+        "sprite/si1b_wink_b1_": 3,
+        "sprite/ta1_akuwarai_": 1,
+        "sprite/ta1_warai_": 2,
+        "sprite/tie_1_": 1,
+        "sprite/tomi1_komaru_": 1
+    },
+    "si_si_wi_b1": {
+        "sprite/si1a_wink_a1_": 4,
+        "sprite/si1b_wink_b1_": 14
+    },
+    "si_si_yw_a1": {
+        "sprite/si1a_yowaki_a1_": 2
+    },
+    "ta_si_aw_a1": {
+        "sprite/me1b_def_a1_": 1,
+        "sprite/re1a_nande_a1_": 1,
+        "sprite/re1b_def_b1_": 1,
+        "sprite/ri1_niko_a1_": 1,
+        "sprite/ta1_akuwarai_": 18,
+        "sprite/ta1_def_": 1,
+        "sprite/ta1_warai_": 2,
+        "sprite/tomi1_def_": 1,
+        "sprite/tomi1_warai_": 1
+    },
+    "ta_si_de_a1": {
+        "sprite/iri1_def1_": 1,
+        "sprite/re1b_warai_b1_": 1,
+        "sprite/ri1_def_a1_": 1,
+        "sprite/si1a_def_a1_": 1,
+        "sprite/si1b_wink_b1_": 1,
+        "sprite/ta1_akuwarai_": 1,
+        "sprite/ta1_def_": 54,
+        "sprite/ta1_hatena_": 3,
+        "sprite/ta1_human_": 2,
+        "sprite/tomi1_warai_": 1
+    },
+    "ta_si_wa_a1": {
+        "sprite/ta1_akuwarai_": 1,
+        "sprite/ta1_def_": 3,
+        "sprite/ta1_warai_": 29
+    },
+    "ti_si_de_a1": {
+        "sprite/tie_1_": 8
+    },
+    "ti_si_ik_a1": {
+        "sprite/me1a_odoroki_a1_": 1,
+        "sprite/me1a_tohoho_a1_": 1,
+        "sprite/si1b_akuwarai_b1_": 1,
+        "sprite/tie_2_": 7
+    },
+    "ti_si_ko_a1": {
+        "sprite/si1b_akuwarai_b1_": 1,
+        "sprite/tie_2_": 3,
+        "sprite/tie_3_": 3,
+        "sprite/tomi1_warai_": 2
+    },
+    "tm_si_de_a1": {
+        "sprite/flashback/tomi1_def_": 1,
+        "sprite/re1a_def_a1_": 1,
+        "sprite/tomi1_def_": 52
+    },
+    "tm_si_ko_a1": {
+        "sprite/tomi1_komaru_": 32
+    },
+    "tm_si_wa_a1": {
+        "sprite/tomi1_warai_": 42
+    },
+    "wata_rena01": {
+        "sprite/re1b_warai_b1_": 1
+    },
+    "white": {
+        "sprite/me1a_akuwarai_a1_": 1
+    }
+}
