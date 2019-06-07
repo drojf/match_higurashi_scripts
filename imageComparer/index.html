@@ -21,7 +21,8 @@
         <img class='comparison-image' v-bind:src="encodeURIComponent(rightImage)" height="300px">
         <p>Left Image: {{ leftImage }}</p>
         <p>Right Image: {{ rightImage }}</p>
-        <p>CurrentRow {{ currentRowIndex + 1 }} / {{ totalRows }}:  {{ currentRow }}</p>
+        <p>Row in Exel: {{ currentRowIndex + 2 }}</p>
+        <p>Image: {{ currentRowIndex + 1 }} / {{ totalRows }}:  {{ currentRow }}</p>
         <button v-on:click="getRow(-1)">Previous Image</button>
         <button v-on:click="getRow(1)">Next Image</button>
         <button v-on:click="saveMapping()">Save Mapping</button>
@@ -29,6 +30,8 @@
         <br><br>
         <button v-on:click="getRowAbsolute(jumpIndex)">Go To Row</button>
         <input v-model="jumpIndex" placeholder="edit me" style="width: 60px">
+        <br><br>
+        <button v-on:click="reloadCSV()">Reload CSV file</button>
     </div>
         <script src="js/jquery.min.js"></script>
 		<script src="js/vue.js"></script>

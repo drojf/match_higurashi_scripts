@@ -46,8 +46,8 @@ class ImageComparison:
 
 	def getRowAndBestMatches(self, rowIndex):
 		row = self.sprite_match_reults[rowIndex]
-		ps3_filepath = ps3_filename_to_filepath_map.get(row.ps3_filename.lower(), f'FILE LOOKUP FAILED ON [{row.ps3_filename}] (lookup name is {row.ps3_filename.lower()})')
-		ryukishi_filepath = ryukishi_filename_to_filepath_map.get(row.ryukishi_filename.lower(), f'FILE_LOOKUP_FAILED_FOR [{row.ryukishi_filename}] (lookup name is {row.ryukishi_filename.lower()})')
+		ps3_filepath = self.ps3_filename_to_filepath_map.get(row.ps3_filename.lower(), f'FILE LOOKUP FAILED ON [{row.ps3_filename}] (lookup name is {row.ps3_filename.lower()})')
+		ryukishi_filepath = self.ryukishi_filename_to_filepath_map.get(row.ryukishi_filename.lower(), f'FILE_LOOKUP_FAILED_FOR [{row.ryukishi_filename}] (lookup name is {row.ryukishi_filename.lower()})')
 		return row, ps3_filepath, ryukishi_filepath
 
 	def getNumRows(self):
@@ -257,7 +257,7 @@ class InstallerGUIException(Exception):
 		return self.errorReason
 
 class InstallerGUI:
-	def __init__(self, workingDirectory, image_comparison : ImageComparison):
+	def __init__(self, workingDirectory, image_comparison_load_function):
 		"""
 		:param allSubModList: a list of SubModConfigs derived from the json file (should contain ALL submods in the file)
 		"""
@@ -266,15 +266,25 @@ class InstallerGUI:
 		self.selectedModName = None # type: Optional[str] # user sets this while navigating the website
 		self.workingDirectory = workingDirectory
 		self.currentRowIndex = 0
-		self.image_comparison = image_comparison
+
+		self.image_comparison = None # type: ImageComparison
+		def reload_csv():
+			self.image_comparison = image_comparison_load_function() # type: ImageComparison
+
+		self.reload_csv = reload_csv
+		self.reload_csv()
 
 		self.mapping = {}
-		with open("mapping.txt", 'r', encoding='utf-8') as mapping_file:
-			for line in mapping_file:
-				lImage, rImage = line.strip().split("|||")
-				self.mapping[lImage] = rImage
 
-		self.mapping_file = open("mapping.txt", 'a', encoding='utf-8')
+		mapping_path = "../mapping.txt"
+
+		if os.path.exists(mapping_path):
+			with open(mapping_path, 'r', encoding='utf-8') as mapping_file:
+				for line in mapping_file:
+					lImage, rImage = line.strip().split("|||")
+					self.mapping[lImage] = rImage
+
+		self.mapping_file = open(mapping_path, 'a', encoding='utf-8')
 
 	# An example of how this class can be used.
 	def server_test(self):
@@ -320,6 +330,10 @@ class InstallerGUI:
 
 				return None
 
+			def reloadCSV(requestData):
+				self.reload_csv()
+				return {}
+
 			def saveMapping(requestData):
 				lImage = requestData["leftImage"]
 				rImage = requestData["rightImage"]
@@ -336,6 +350,7 @@ class InstallerGUI:
 				'getRowAbsolute': getRowAbsolute,
 				'saveMapping': saveMapping,
 				'getNextUnsaved': getNextUnsaved,
+				'reloadCSV': reloadCSV,
 			}
 
 			requestHandler = requestTypeToRequestHandlers.get(requestType, None)
@@ -422,41 +437,40 @@ def readCSVAsSpriteMatches(csvFilePath):
 
 
 
+def loadImageComparisonObject():
+	################# CONFIG OPTIONS
+	WARN_DUPLICATE_IMAGES = False
+	################# END CONFIG OPTIONS
 
+	ps3_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ps3',
+															pathFilterString=r'sprite\normal', #Only include the 'normal' sprites, not any other variants
+															extensionIncludingDot='.png',
+															pathToNameFunction=normalizePS3PathToName,
+															warnDuplicates=WARN_DUPLICATE_IMAGES)
 
+	ryukishi_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ryukishi',
+															pathFilterString=None,
+															extensionIncludingDot='.png',
+															pathToNameFunction=normalizeFilenameAndRemoveExtension,
+															warnDuplicates=WARN_DUPLICATE_IMAGES)
 
-################# CONFIG OPTIONS
-WARN_DUPLICATE_IMAGES = False
-################# END CONFIG OPTIONS
+	matches = readCSVAsSpriteMatches(csvFilePath='../noconsole_output.txt.csv')
 
-ps3_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ps3',
-														pathFilterString=r'sprite\normal', #Only include the 'normal' sprites, not any other variants
-														extensionIncludingDot='.png',
-														pathToNameFunction=normalizePS3PathToName,
-														warnDuplicates=WARN_DUPLICATE_IMAGES)
+	for match in matches:
+		ps3_filepath = ps3_filename_to_filepath_map.get(match.ps3_filename)
+		if ps3_filepath:
+			print("got match at", ps3_filepath)
+		else:
+			print(f"no ps3 match found for {match}")
 
-ryukishi_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ryukishi',
-														pathFilterString=None,
-														extensionIncludingDot='.png',
-														pathToNameFunction=normalizeFilenameAndRemoveExtension,
-														warnDuplicates=WARN_DUPLICATE_IMAGES)
+		ryukishi_filepath = ryukishi_filename_to_filepath_map.get(match.ryukishi_filename)
+		if ryukishi_filepath:
+			print("got match at", ryukishi_filepath)
+		else:
+			print(f"no ryukishi match found for {match}")
 
-matches = readCSVAsSpriteMatches(csvFilePath='../noconsole_output.txt.csv')
+	image_comparison = ImageComparison(matches, ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map)
+	return image_comparison
 
-for match in matches:
-	ps3_filepath = ps3_filename_to_filepath_map.get(match.ps3_filename)
-	if ps3_filepath:
-		print("got match at", ps3_filepath)
-	else:
-		print(f"no ps3 match found for {match}")
-
-	ryukishi_filepath = ryukishi_filename_to_filepath_map.get(match.ryukishi_filename)
-	if ryukishi_filepath:
-		print("got match at", ryukishi_filepath)
-	else:
-		print(f"no ryukishi match found for {match}")
-
-image_comparison = ImageComparison(matches, ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map)
-
-gui = InstallerGUI(workingDirectory='.', image_comparison=image_comparison)
+gui = InstallerGUI(workingDirectory='.', image_comparison_load_function=loadImageComparisonObject)
 gui.server_test()

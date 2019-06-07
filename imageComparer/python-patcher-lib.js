@@ -48,6 +48,11 @@ window.onload = function onWindowLoaded() {
           app.getRow(0);
         });
       },
+      reloadCSV() {
+        doPost('reloadCSV', { }, (responseData) => { 
+          app.getRow(0);
+        });
+      }
     },
     computed: {
     },
