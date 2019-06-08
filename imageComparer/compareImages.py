@@ -338,6 +338,10 @@ class InstallerGUI:
 			def saveMapping(requestData):
 				lImage = requestData["leftImage"]
 				rImage = requestData["rightImage"]
+
+				if not os.path.exists(lImage) or not os.path.exists(rImage):
+					return None
+
 				self.mapping[lImage] = rImage
 				self.mapping_file.write(f'{lImage}|||{rImage}\n')
 				self.mapping_file.flush()
