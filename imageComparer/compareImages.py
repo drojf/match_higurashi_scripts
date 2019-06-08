@@ -399,7 +399,7 @@ def normalizePS3PathToName(path):
 	partially_normalized = normalizeFilenameAndRemoveExtension(path)
 	return partially_normalized[:-2]
 
-def buildFilenameFilepathMap(folder, pathFilterString, extensionIncludingDot, pathToNameFunction, warnDuplicates=False):
+def buildFilenameFilepathMap(folder, pathFilterString, extensionIncludingDot, pathToNameFunction, warnDuplicates=False, excludeFilterString=None):
 	"""
 	returns a dict of lowercaseFileNameNoExtension -> fullPathWithExtension
 	pathFilterString must be a string which all expected paths would contain. For example 'StreamingAssets\CG\sprite\normal'
@@ -415,13 +415,14 @@ def buildFilenameFilepathMap(folder, pathFilterString, extensionIncludingDot, pa
 			if filename.endswith(extensionIncludingDot):
 				fullPath = os.path.join(root, filename)
 				if pathFilterString is None or pathFilterString in fullPath:
-					normalizedName = pathToNameFunction(filename)
-					existingPath = retDict.get(normalizedName)
-					if existingPath:
-						if warnDuplicates:
-							print(f"WARNING: duplicate filename {filename} in {existingPath} -> {fullPath}")
-					else:
-						retDict[normalizedName] = fullPath
+					if excludeFilterString is None or excludeFilterString not in fullPath:
+						normalizedName = pathToNameFunction(filename)
+						existingPath = retDict.get(normalizedName)
+						if existingPath:
+							if warnDuplicates:
+								print(f"WARNING: duplicate filename {filename} in {existingPath} -> {fullPath}")
+						else:
+							retDict[normalizedName] = fullPath
 
 	return retDict
 
@@ -447,11 +448,35 @@ def loadImageComparisonObject():
 	WARN_DUPLICATE_IMAGES = False
 	################# END CONFIG OPTIONS
 
+	# Load normal sprites only as first choice
 	ps3_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ps3',
 															pathFilterString=r'sprite\normal', #Only include the 'normal' sprites, not any other variants
 															extensionIncludingDot='.png',
 															pathToNameFunction=normalizePS3PathToName,
 															warnDuplicates=WARN_DUPLICATE_IMAGES)
+
+	# Load all sprites, except portrait, as second choice
+	ps3_filename_to_filepath_map_all_images = buildFilenameFilepathMap(folder=r'external\ps3',
+															pathFilterString=None, #Only include the 'normal' sprites, not any other variants
+															extensionIncludingDot='.png',
+															pathToNameFunction=normalizePS3PathToName,
+															warnDuplicates=WARN_DUPLICATE_IMAGES,
+															excludeFilterString=r'sprite\portrait')
+
+	for ps3_filename, ps3_path in ps3_filename_to_filepath_map_all_images.items():
+		if ps3_filename not in ps3_filename_to_filepath_map:
+			ps3_filename_to_filepath_map[ps3_filename] = ps3_path
+
+	# Load portrait sprites as third choice
+	ps3_filename_to_filepath_map_portrait = buildFilenameFilepathMap(folder=r'external\ps3',
+															pathFilterString=r'sprite\portrait', #Only include the 'normal' sprites, not any other variants
+															extensionIncludingDot='.png',
+															pathToNameFunction=normalizePS3PathToName,
+															warnDuplicates=WARN_DUPLICATE_IMAGES)
+
+	for ps3_filename, ps3_path in ps3_filename_to_filepath_map_portrait.items():
+		if ps3_filename not in ps3_filename_to_filepath_map:
+			ps3_filename_to_filepath_map[ps3_filename] = ps3_path
 
 	ryukishi_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ryukishi',
 															pathFilterString=None,
