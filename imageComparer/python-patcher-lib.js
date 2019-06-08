@@ -16,7 +16,8 @@ window.onload = function onWindowLoaded() {
       currentRowIndex: 0, // THIS VALUE IS ZERO INDEXED.
       totalRows: 0,
       alreadyMatched: false,
-      jumpIndex: 1,
+      userEnteredExelRowNumber: 1,
+      showPleaseWait: false,
     },
     methods: {
       getBase(responseData) {
@@ -37,7 +38,7 @@ window.onload = function onWindowLoaded() {
         doPost('getNextUnsaved', { }, (responseData) => { app.getBase(responseData); });
       },
       getRowAbsolute(index) {
-        doPost('getRowAbsolute', { 'index': index-1}, (responseData) => { app.getBase(responseData); });
+        doPost('getRowAbsolute', { 'index': index}, (responseData) => { app.getBase(responseData); });
       },
       getRow(offset) {
         doPost('getNext', { 'offset': offset}, (responseData) => { app.getBase(responseData); });
@@ -48,9 +49,14 @@ window.onload = function onWindowLoaded() {
           app.getRow(0);
         });
       },
+      goToExelRow(exelRowNumber) {
+        app.getRowAbsolute(exelRowNumber-2);
+      },
       reloadCSV() {
+        app.showPleaseWait = true;
         doPost('reloadCSV', { }, (responseData) => { 
           app.getRow(0);
+          app.showPleaseWait = false;
         });
       }
     },

@@ -28,10 +28,11 @@
         <button v-on:click="saveMapping()">Save Mapping</button>
         <button v-on:click="getNextUnsaved()">Go To Next Unsaved</button>
         <br><br>
-        <button v-on:click="getRowAbsolute(jumpIndex)">Go To Row</button>
-        <input v-model="jumpIndex" placeholder="edit me" style="width: 60px">
+        <button v-on:click="goToExelRow(userEnteredExelRowNumber)">Go To Exel Row</button>
+        <input v-model="userEnteredExelRowNumber" placeholder="edit me" style="width: 60px">
         <br><br>
         <button v-on:click="reloadCSV()">Reload CSV file</button>
+        <h1 v-if="showPleaseWait">Please Wait...</h1>
     </div>
         <script src="js/jquery.min.js"></script>
 		<script src="js/vue.js"></script>
