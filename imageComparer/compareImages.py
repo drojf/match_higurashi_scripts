@@ -281,8 +281,9 @@ class InstallerGUI:
 		if os.path.exists(mapping_path):
 			with open(mapping_path, 'r', encoding='utf-8') as mapping_file:
 				for line in mapping_file:
-					lImage, rImage = line.strip().split("|||")
-					self.mapping[lImage] = rImage
+					if len(line.strip()) > 0:
+						lImage, rImage = line.strip().split("|||")
+						self.mapping[lImage] = rImage
 
 		self.mapping_file = open(mapping_path, 'a', encoding='utf-8')
 
