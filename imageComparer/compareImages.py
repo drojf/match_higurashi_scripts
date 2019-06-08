@@ -276,7 +276,7 @@ class InstallerGUI:
 
 		self.mapping = {}
 
-		mapping_path = "../mapping.txt"
+		mapping_path = "mapping.txt"
 
 		if os.path.exists(mapping_path):
 			with open(mapping_path, 'r', encoding='utf-8') as mapping_file:
@@ -454,7 +454,7 @@ def loadImageComparisonObject():
 															pathToNameFunction=normalizeFilenameAndRemoveExtension,
 															warnDuplicates=WARN_DUPLICATE_IMAGES)
 
-	matches = readCSVAsSpriteMatches(csvFilePath='../noconsole_output.txt.csv')
+	matches = readCSVAsSpriteMatches(csvFilePath='noconsole_output.txt.csv')
 
 	for match in matches:
 		ps3_filepath = ps3_filename_to_filepath_map.get(match.ps3_filename)
