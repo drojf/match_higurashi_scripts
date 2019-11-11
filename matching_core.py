@@ -1,15 +1,21 @@
 import os
 import pathlib
 import re
-from typing import Callable, Set, List, Tuple, Iterator
+from typing import Callable, Set, List, Tuple, Iterator, Optional
 
 from match_statistics import MatchStatistics
 
-steamBustRegex = re.compile(r'(DrawBust|ChangeBust)[^\(]+\(\s*\d*\s*,\s*\"([^\"]+)')
-ps3BustRegex = re.compile(r'ModDraw[^\(]+\(\s*\d*\s*,\s*\d*\s*,\s*\"([^\"]+)')
+class MatchConfiguration:
+	def __init__(self, steamRegex: re.Pattern, ps3Regex: re.Pattern):
+		self.ps3_name_modification_function = None #type: Optional[Callable[[str], str]]
+		self.ps3_whitelist_function = None #type: Optional[Callable[[str], bool]]
+		self.steamRegex = steamRegex #type: re.Pattern
+		self.ps3Regex = ps3Regex #type: re.Pattern
 
 
-def get_ps3_sprite_names_from_file(ps3_script_path: str, name_modification_function: Callable[[str], str]) -> Set[str]:
+def get_ps3_sprite_names_from_file(ps3_script_path: str,
+									name_modification_function: Callable[[str], str],
+									match_configuration: MatchConfiguration) -> Set[str]:
 	"""
 	This function extracts all the ps3 sprite names from a Higurashi script (assuming it has been modded with the ps3
 	sprites)
@@ -23,7 +29,7 @@ def get_ps3_sprite_names_from_file(ps3_script_path: str, name_modification_funct
 	all_sprite_names = set()
 	with open(ps3_script_path, encoding='utf-8') as ps3_script_file:
 		for line in ps3_script_file.readlines():
-			match = ps3BustRegex.search(line)
+			match = match_configuration.ps3Regex.search(line)
 			if match:
 				all_sprite_names.add(name_modification_function(match.group(1)))
 
@@ -100,7 +106,7 @@ def get_matching_chunks_from_file(steam_script_path: str, ps3_script_path: str) 
 	return ps3_chunk_to_steam_chunk
 
 
-def try_get_steam_to_ps3_matching_from_chunks(steam_chunk : str, ps3_chunk : str):
+def try_get_steam_to_ps3_matching_from_chunks(steam_chunk: str, ps3_chunk: str, match_configuration: MatchConfiguration):
 	"""
 	Given two matched chunks, matches the first found steam sprite name with the first found ps3 sprite name.
 	If either the steam or ps3 sprite name is missing, it is not matched
@@ -112,11 +118,11 @@ def try_get_steam_to_ps3_matching_from_chunks(steam_chunk : str, ps3_chunk : str
 	:return:
 	"""
 	# print(steam_chunk)
-	steam_match = steamBustRegex.search(steam_chunk)
+	steam_match = match_configuration.steamRegex.search(steam_chunk)
 	if not steam_match:
 		return None
 
-	ps3_match = ps3BustRegex.search(ps3_chunk)
+	ps3_match = match_configuration.ps3Regex.search(ps3_chunk)
 	if not ps3_match:
 		return None
 
@@ -129,8 +135,7 @@ def update_match_statistics(match_statistics: MatchStatistics,
 							reverse_match_statistics: MatchStatistics,
 							steam_script_path: str,
 							ps3_script_path: str,
-							ps3_name_modification_function:Callable[[str], str]=None,
-							ps3_whitelist_function:Callable[[str], bool]=None):
+							match_configuration: MatchConfiguration):
 	"""
 	Given the paths to a folder contain the unmodified steam scripts and a path to the ps3-modded scripts, updates the
 	two input match statistics objects with any found sprite mappings.
@@ -161,6 +166,9 @@ def update_match_statistics(match_statistics: MatchStatistics,
 	:return: No return value, arguments match_statistics and reverse_match_statistics are updated
 	"""
 	original_to_steam_chunk_list = get_matching_chunks_from_file(steam_script_path, ps3_script_path)
+
+	ps3_name_modification_function = match_configuration.ps3_name_modification_function
+	ps3_whitelist_function = match_configuration.ps3_whitelist_function
 
 	if not ps3_name_modification_function:
 		ps3_name_modification_function = lambda x: x

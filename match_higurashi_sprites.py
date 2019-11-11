@@ -2,12 +2,15 @@ import json
 import argparse
 
 #these regexes are slightly different as DrawBust* has one argument before the bust name, ModDraw* has two
+import re
 import sys
 
 from match_statistics import MatchStatistics
 from match_statistics_to_csv import convertMatchingToCSV
-from matching_core import get_matching_script_paths_between_folders, update_match_statistics
+from matching_core import get_matching_script_paths_between_folders, update_match_statistics, MatchConfiguration
 
+steamBustRegex = re.compile(r'(DrawBust|ChangeBust)[^\(]+\(\s*\d*\s*,\s*\"([^\"]+)')
+ps3BustRegex = re.compile(r'ModDraw[^\(]+\(\s*\d*\s*,\s*\d*\s*,\s*\"([^\"]+)')
 
 class MyParser(argparse.ArgumentParser):
 	def error(self, message):
@@ -34,14 +37,17 @@ output_path = 'noconsole_output.txt'
 NO_CONSOLE = True
 if NO_CONSOLE:
 	for episode_num in range(1, 7):
+		config = MatchConfiguration(steamBustRegex, ps3BustRegex)
+		config.ps3_name_modification_function = normalize_time_of_day_and_portrait
+		config.ps3_whitelist_function = None
+
 		matching_script_paths = get_matching_script_paths_between_folders(f'steam_scripts\\ep{episode_num}', f'ps3_scripts\\ep{episode_num}')
 		for steam_script_path, ps3_script_path in matching_script_paths:
 			update_match_statistics(match_statistics,
 									reverse_match_statistics,
 									steam_script_path,
 									ps3_script_path,
-									normalize_time_of_day_and_portrait,  #set ps3 filter function here
-									ps3_whitelist_function=None) #set ps3 whitelist function here
+									match_configuration=config)
 else:
 	parser = MyParser(description='Match sprites between steam and ps3 scripts, given two input folders containing scripts as .txt files.')
 	parser.add_argument('steam_scripts_folder', type=str, help='path containing steam scripts as .txt files')
@@ -68,14 +74,17 @@ else:
 	else:
 		print("NOTE: applying whitelist")
 
+	config = MatchConfiguration(steamBustRegex, ps3BustRegex)
+	config.ps3_name_modification_function = ps3_filter_function
+	config.ps3_whitelist_function = ps3_whitelist_function
+
 	matching_script_paths = get_matching_script_paths_between_folders(args.steam_scripts_folder, args.ps3_scripts_folder)
 	for steam_script_path, ps3_script_path in matching_script_paths:
 		update_match_statistics(match_statistics,
 								reverse_match_statistics,
 								steam_script_path,
 								ps3_script_path,
-								ps3_filter_function,
-								ps3_whitelist_function=ps3_whitelist_function)
+								match_configuration=config)
 
 
 print("\n\n----------------------------------------------")
