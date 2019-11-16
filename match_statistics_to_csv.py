@@ -1,6 +1,5 @@
 from match_statistics import MatchStatistics
 
-
 class MatchRow:
 	def __init__(self, ps3file, source, ryukishiBestMatch, highestCount, confidence, sorted_scores):
 		self.ps3file = ps3file
@@ -20,7 +19,7 @@ def get_sorted_matches(matches):
 	return sorted(matches.items(), key=lambda x:x[1], reverse=True)
 
 
-def convertMatchingToCSV(match_statistics : MatchStatistics) -> [str]:
+def convertMatchingToCSV(match_statistics : MatchStatistics, sort_by_score: bool) -> [str]:
 	rows = []
 	for sourceMatch, destinationMatches in match_statistics.statistics.items():
 		sourceFile = match_statistics.sprite_to_file_mapping.get(sourceMatch, "")

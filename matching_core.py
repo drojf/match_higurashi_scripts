@@ -5,17 +5,27 @@ from typing import Callable, Set, List, Tuple, Iterator, Optional
 
 from match_statistics import MatchStatistics
 
+class CustomMatcher:
+	def __init__(self, regexForMatching : re.Pattern, matchIndex : int):
+		self.regex = regexForMatching
+		self.matchIndex = matchIndex
+
+	def try_get_value(self, input_line : str):
+		match = self.regex.search(input_line)
+		if match:
+			return match.group(self.matchIndex)
+		return None
+
 class MatchConfiguration:
-	def __init__(self, steamRegex: re.Pattern, ps3Regex: re.Pattern):
+	def __init__(self, steamMatcher: CustomMatcher, ps3Matcher: CustomMatcher):
 		self.ps3_name_modification_function = None #type: Optional[Callable[[str], str]]
 		self.ps3_whitelist_function = None #type: Optional[Callable[[str], bool]]
-		self.steamRegex = steamRegex #type: re.Pattern
-		self.ps3Regex = ps3Regex #type: re.Pattern
+		self.steamRegex = steamMatcher #type: CustomMatcher
+		self.ps3Regex = ps3Matcher #type: CustomMatcher
 
 
 def get_ps3_sprite_names_from_file(ps3_script_path: str,
-									name_modification_function: Callable[[str], str],
-									match_configuration: MatchConfiguration) -> Set[str]:
+									config: MatchConfiguration) -> Set[str]:
 	"""
 	This function extracts all the ps3 sprite names from a Higurashi script (assuming it has been modded with the ps3
 	sprites)
@@ -29,9 +39,10 @@ def get_ps3_sprite_names_from_file(ps3_script_path: str,
 	all_sprite_names = set()
 	with open(ps3_script_path, encoding='utf-8') as ps3_script_file:
 		for line in ps3_script_file.readlines():
-			match = match_configuration.ps3Regex.search(line)
-			if match:
-				all_sprite_names.add(name_modification_function(match.group(1)))
+			sprite_name = config.ps3Regex.try_get_value(line)
+			if sprite_name:
+				modified_name = config.ps3_name_modification_function(sprite_name)
+				all_sprite_names.add(modified_name)
 
 	return all_sprite_names
 
@@ -118,18 +129,18 @@ def try_get_steam_to_ps3_matching_from_chunks(steam_chunk: str, ps3_chunk: str, 
 	:return:
 	"""
 	# print(steam_chunk)
-	steam_match = match_configuration.steamRegex.search(steam_chunk)
+	# steam_matcher = match_configuration.steamRegex
+	# ps3_matcher = match_configuration.ps3Regex
+
+	steam_match = match_configuration.steamRegex.try_get_value(steam_chunk)
 	if not steam_match:
 		return None
 
-	ps3_match = match_configuration.ps3Regex.search(ps3_chunk)
+	ps3_match = match_configuration.ps3Regex.try_get_value(ps3_chunk)
 	if not ps3_match:
 		return None
 
-	if steam_match.group(2) and ps3_match.group(1):
-		return (steam_match.group(2), ps3_match.group(1))
-	else:
-		return None
+	return (steam_match, ps3_match)
 
 def update_match_statistics(match_statistics: MatchStatistics,
 							reverse_match_statistics: MatchStatistics,
@@ -174,12 +185,13 @@ def update_match_statistics(match_statistics: MatchStatistics,
 		ps3_name_modification_function = lambda x: x
 
 	for (original_chunk, ps3_chunk) in original_to_steam_chunk_list:
-		mapping = try_get_steam_to_ps3_matching_from_chunks(original_chunk, ps3_chunk)
+		mapping = try_get_steam_to_ps3_matching_from_chunks(original_chunk, ps3_chunk, match_configuration)
 		if mapping:
 			steam_name, ps3_name = mapping
 			#the image 'black' is not a sprite, so shouldn't be used for matching
 			if steam_name == 'black' or ps3_name == 'black':
 				continue
+
 			ps3_name = ps3_name_modification_function(ps3_name)
 
 			# If the filtered ps3 filename is not in the white list, don't try to match it
@@ -199,7 +211,7 @@ def update_match_statistics(match_statistics: MatchStatistics,
 	###### Code below this point is just for checking if any ps3 sprites were missed
 	# get the complete list of ps3 sprite names from the ps3 script file
 	# this is done as a separate function to reduce the chance that an error is made and a sprite is missed
-	all_ps3_sprite_names = get_ps3_sprite_names_from_file(ps3_script_path, ps3_name_modification_function)
+	all_ps3_sprite_names = get_ps3_sprite_names_from_file(ps3_script_path, match_configuration)
 
 	# If any ps3 sprite names are missing from the matching, these sprites were 'never matched'. Set them to match with 'None'
 	for ps3_sprite_name in all_ps3_sprite_names:

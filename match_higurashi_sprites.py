@@ -7,11 +7,13 @@ import sys
 
 from match_statistics import MatchStatistics
 from match_statistics_to_csv import convertMatchingToCSV
-from matching_core import get_matching_script_paths_between_folders, update_match_statistics, MatchConfiguration
+from matching_core import get_matching_script_paths_between_folders, update_match_statistics, MatchConfiguration, CustomMatcher
 
 def doSpriteMatching():
 	steamBustRegex = re.compile(r'(DrawBust|ChangeBust)[^\(]+\(\s*\d*\s*,\s*\"([^\"]+)')
+	steamBustMatcher = CustomMatcher(steamBustRegex, 2)
 	ps3BustRegex = re.compile(r'ModDraw[^\(]+\(\s*\d*\s*,\s*\d*\s*,\s*\"([^\"]+)')
+	ps3BustMatcher = CustomMatcher(ps3BustRegex, 1)
 
 	class MyParser(argparse.ArgumentParser):
 		def error(self, message):
@@ -38,7 +40,7 @@ def doSpriteMatching():
 	NO_CONSOLE = True
 	if NO_CONSOLE:
 		for episode_num in range(1, 7):
-			config = MatchConfiguration(steamBustRegex, ps3BustRegex)
+			config = MatchConfiguration(steamBustMatcher, ps3BustMatcher)
 			config.ps3_name_modification_function = normalize_time_of_day_and_portrait
 			config.ps3_whitelist_function = None
 
@@ -75,7 +77,7 @@ def doSpriteMatching():
 		else:
 			print("NOTE: applying whitelist")
 
-		config = MatchConfiguration(steamBustRegex, ps3BustRegex)
+		config = MatchConfiguration(steamBustMatcher, ps3BustMatcher)
 		config.ps3_name_modification_function = ps3_filter_function
 		config.ps3_whitelist_function = ps3_whitelist_function
 
@@ -89,16 +91,16 @@ def doSpriteMatching():
 
 
 	print("\n\n----------------------------------------------")
-	y = convertMatchingToCSV(match_statistics)
+	y = convertMatchingToCSV(match_statistics, sort_by_score=False)
 	for x in y:
 		print(x)
-	write_to_file('\n'.join(y), output_path + '.csv')
+	write_to_file('\n'.join(y) + '\n', output_path + '.csv')
 
 	print("\n\n----------------------------------------------")
-	y = convertMatchingToCSV(reverse_match_statistics)
+	y = convertMatchingToCSV(reverse_match_statistics, sort_by_score=False)
 	for x in y:
 		print(x)
-	write_to_file('\n'.join(y), output_path + '.reversed.csv')
+	write_to_file('\n'.join(y) + '\n', output_path + '.reversed.csv')
 
 
 	json_string = json.dumps(match_statistics.statistics, sort_keys=True, indent=4)
@@ -115,9 +117,13 @@ def doSpriteMatching():
 	#normal night sunset
 
 def doBackgroundMatching():
-	pass
+	# The steam and ps3 background functions are the same
+	steamBackgroundRegex = re.compile(r'((ChangeScene)|(DrawScene)|(DrawSceneWithMask))\s*\(\s*"[^"]*"')
+	steamBackgroundMatcher = CustomMatcher(steamBackgroundRegex, 2)
+	ps3BackgroundMatcher = steamBackgroundMatcher
 
-matching_type = "background"
+
+matching_type = "sprite" #"background"
 
 if matching_type == "background":
 	doBackgroundMatching()
