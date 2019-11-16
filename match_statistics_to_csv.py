@@ -35,9 +35,13 @@ def convertMatchingToCSV(match_statistics : MatchStatistics, sort_by_score: bool
 		else:
 			rows.append(MatchRow(sourceFile, sourceMatch, 'NO_MATCH', 0, 0, []))
 
-	rows.sort(key=lambda x: x.source)
-	rows.sort(key=lambda x: x.confidence, reverse=True)
-	rows.sort(key=lambda x: x.highestCount, reverse=True)
+	# Strip some special characters from the end to match excel's matching style.
+	# This ensures that ["iri1_majime_", "iri1_majime2_"] will be sorted correctly
+	rows.sort(key=lambda x: x.source.rstrip("+_"))
+
+	if sort_by_score:
+		rows.sort(key=lambda x: x.confidence, reverse=True)
+		rows.sort(key=lambda x: x.highestCount, reverse=True)
 
 	#for consistent CSV rows, determine the max number of columns first
 	max_matches = 0
