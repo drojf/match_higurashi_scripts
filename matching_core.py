@@ -17,9 +17,13 @@ class CustomMatcher:
 		return None
 
 class MatchConfiguration:
-	def __init__(self, steamMatcher: CustomMatcher, ps3Matcher: CustomMatcher):
-		self.ps3_name_modification_function = None #type: Optional[Callable[[str], str]]
-		self.ps3_whitelist_function = None #type: Optional[Callable[[str], bool]]
+	def __init__(self,
+				 steamMatcher: CustomMatcher,
+				 ps3Matcher: CustomMatcher,
+				 ps3_name_modification_function=lambda x:x, #default to a passthrough function
+				 ps3_whitelist_function=lambda x: True): #default to function which allows all names
+		self.ps3_name_modification_function = ps3_name_modification_function #type: Callable[[str], str]
+		self.ps3_whitelist_function = ps3_whitelist_function #type: Callable[[str], bool]
 		self.steamRegex = steamMatcher #type: CustomMatcher
 		self.ps3Regex = ps3Matcher #type: CustomMatcher
 
@@ -178,12 +182,6 @@ def update_match_statistics(match_statistics: MatchStatistics,
 	"""
 	original_to_steam_chunk_list = get_matching_chunks_from_file(steam_script_path, ps3_script_path)
 
-	ps3_name_modification_function = match_configuration.ps3_name_modification_function
-	ps3_whitelist_function = match_configuration.ps3_whitelist_function
-
-	if not ps3_name_modification_function:
-		ps3_name_modification_function = lambda x: x
-
 	for (original_chunk, ps3_chunk) in original_to_steam_chunk_list:
 		mapping = try_get_steam_to_ps3_matching_from_chunks(original_chunk, ps3_chunk, match_configuration)
 		if mapping:
@@ -192,12 +190,11 @@ def update_match_statistics(match_statistics: MatchStatistics,
 			if steam_name == 'black' or ps3_name == 'black':
 				continue
 
-			ps3_name = ps3_name_modification_function(ps3_name)
+			ps3_name = match_configuration.ps3_name_modification_function(ps3_name)
 
 			# If the filtered ps3 filename is not in the white list, don't try to match it
-			if ps3_whitelist_function:
-				if not ps3_whitelist_function(ps3_name):
-					continue
+			if not match_configuration.ps3_whitelist_function(ps3_name):
+				continue
 
 			#do the forward mapping
 			match_count = match_statistics.statistics.setdefault(ps3_name, {})

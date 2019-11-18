@@ -9,6 +9,8 @@ from match_statistics import MatchStatistics
 from match_statistics_to_csv import convertMatchingToCSV
 from matching_core import get_matching_script_paths_between_folders, update_match_statistics, MatchConfiguration, CustomMatcher
 
+NUM_EPISODES = 7
+
 def doSpriteMatching():
 	steamBustRegex = re.compile(r'(DrawBust|ChangeBust)[^\(]+\(\s*\d*\s*,\s*\"([^\"]+)')
 	steamBustMatcher = CustomMatcher(steamBustRegex, 2)
@@ -39,10 +41,10 @@ def doSpriteMatching():
 
 	NO_CONSOLE = True
 	if NO_CONSOLE:
-		for episode_num in range(1, 7):
-			config = MatchConfiguration(steamBustMatcher, ps3BustMatcher)
-			config.ps3_name_modification_function = normalize_time_of_day_and_portrait
-			config.ps3_whitelist_function = None
+		for episode_num in range(1, NUM_EPISODES):
+			config = MatchConfiguration(steamBustMatcher,
+										ps3BustMatcher,
+										ps3_name_modification_function=normalize_time_of_day_and_portrait)
 
 			matching_script_paths = get_matching_script_paths_between_folders(f'steam_scripts\\ep{episode_num}', f'ps3_scripts\\ep{episode_num}')
 			for steam_script_path, ps3_script_path in matching_script_paths:
