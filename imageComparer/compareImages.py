@@ -399,7 +399,7 @@ def normalizePS3PathToName(path):
 	partially_normalized = normalizeFilenameAndRemoveExtension(path)
 	return partially_normalized[:-2]
 
-def buildFilenameFilepathMap(folder, pathFilterString, extensionIncludingDot, pathToNameFunction, warnDuplicates=False, excludeFilterString=None):
+def buildFilenameFilepathMap(folder, pathFilterString, pathToNameFunction, warnDuplicates=False, excludeFilterString=None, allowedExtensions=(".png", ".jpg")):
 	"""
 	returns a dict of lowercaseFileNameNoExtension -> fullPathWithExtension
 	pathFilterString must be a string which all expected paths would contain. For example 'StreamingAssets\CG\sprite\normal'
@@ -412,7 +412,7 @@ def buildFilenameFilepathMap(folder, pathFilterString, extensionIncludingDot, pa
 	retDict = {}
 	for root, dirs, files in os.walk(folder):
 		for filename in files:
-			if filename.endswith(extensionIncludingDot):
+			if os.path.splitext(filename)[1].lower() in allowedExtensions:
 				fullPath = os.path.join(root, filename)
 				if pathFilterString is None or pathFilterString in fullPath:
 					if excludeFilterString is None or excludeFilterString not in fullPath:
@@ -441,26 +441,33 @@ def readCSVAsSpriteMatches(csvFilePath):
 
 	return sprite_match_results
 
+def getBackgroundFilenameMap(warn_duplicate_images):
+	# Load ps3 backgrounds
+	ps3_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ps3',
+															pathFilterString='background', # only allow backgrounds
+															pathToNameFunction=normalizeFilenameAndRemoveExtension,
+															warnDuplicates=warn_duplicate_images)
 
+	# Load ryukishi backgrounds
+	ryukishi_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ryukishi',
+															pathFilterString=None,
+															pathToNameFunction=normalizeFilenameAndRemoveExtension,
+															warnDuplicates=warn_duplicate_images)
 
-def loadImageComparisonObject():
-	################# CONFIG OPTIONS
-	WARN_DUPLICATE_IMAGES = False
-	################# END CONFIG OPTIONS
+	return ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map
 
+def getSpriteFilenameMap(warn_duplicate_images):
 	# Load normal sprites only as first choice
 	ps3_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ps3',
 															pathFilterString=r'sprite\normal', #Only include the 'normal' sprites, not any other variants
-															extensionIncludingDot='.png',
 															pathToNameFunction=normalizePS3PathToName,
-															warnDuplicates=WARN_DUPLICATE_IMAGES)
+															warnDuplicates=warn_duplicate_images)
 
 	# Load all sprites, except portrait, as second choice
 	ps3_filename_to_filepath_map_all_images = buildFilenameFilepathMap(folder=r'external\ps3',
 															pathFilterString=None, #Only include the 'normal' sprites, not any other variants
-															extensionIncludingDot='.png',
 															pathToNameFunction=normalizePS3PathToName,
-															warnDuplicates=WARN_DUPLICATE_IMAGES,
+															warnDuplicates=warn_duplicate_images,
 															excludeFilterString=r'sprite\portrait')
 
 	for ps3_filename, ps3_path in ps3_filename_to_filepath_map_all_images.items():
@@ -470,9 +477,8 @@ def loadImageComparisonObject():
 	# Load portrait sprites as third choice
 	ps3_filename_to_filepath_map_portrait = buildFilenameFilepathMap(folder=r'external\ps3',
 															pathFilterString=r'sprite\portrait', #Only include the 'normal' sprites, not any other variants
-															extensionIncludingDot='.png',
 															pathToNameFunction=normalizePS3PathToName,
-															warnDuplicates=WARN_DUPLICATE_IMAGES)
+															warnDuplicates=warn_duplicate_images)
 
 	for ps3_filename, ps3_path in ps3_filename_to_filepath_map_portrait.items():
 		if ps3_filename not in ps3_filename_to_filepath_map:
@@ -480,9 +486,21 @@ def loadImageComparisonObject():
 
 	ryukishi_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ryukishi',
 															pathFilterString=None,
-															extensionIncludingDot='.png',
 															pathToNameFunction=normalizeFilenameAndRemoveExtension,
-															warnDuplicates=WARN_DUPLICATE_IMAGES)
+															warnDuplicates=warn_duplicate_images)
+
+	return ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map
+
+def loadImageComparisonObject():
+	################# CONFIG OPTIONS
+	WARN_DUPLICATE_IMAGES = False
+	################# END CONFIG OPTIONS
+
+	mode = "background"
+	if mode == "background":
+		ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map = getBackgroundFilenameMap(WARN_DUPLICATE_IMAGES)
+	else:
+		ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map = getSpriteFilenameMap(WARN_DUPLICATE_IMAGES)
 
 	matches = readCSVAsSpriteMatches(csvFilePath='noconsole_output.txt.csv')
 
