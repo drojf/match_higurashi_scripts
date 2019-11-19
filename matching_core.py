@@ -13,6 +13,8 @@ class CustomMatcher:
 	def try_get_value(self, input_line : str):
 		match = self.regex.search(input_line)
 		if match:
+			# all_matches = match.groups()
+			# print(match.group(self.matchIndex))
 			return match.group(self.matchIndex)
 		return None
 
@@ -21,11 +23,14 @@ class MatchConfiguration:
 				 steamMatcher: CustomMatcher,
 				 ps3Matcher: CustomMatcher,
 				 ps3_name_modification_function=lambda x:x, #default to a passthrough function
-				 ps3_whitelist_function=lambda x: True): #default to function which allows all names
+				 ps3_whitelist_function=lambda x: True,
+				 enable_matcher_background_filter=False): #default to function which allows all names
 		self.ps3_name_modification_function = ps3_name_modification_function #type: Callable[[str], str]
 		self.ps3_whitelist_function = ps3_whitelist_function #type: Callable[[str], bool]
-		self.steamRegex = steamMatcher #type: CustomMatcher
-		self.ps3Regex = ps3Matcher #type: CustomMatcher
+		self.enable_matcher_background_filter = enable_matcher_background_filter  #type: Callable[[str], bool]
+		self.steamMatcher = steamMatcher #type: CustomMatcher
+		self.ps3Matcher = ps3Matcher #type: CustomMatcher
+
 
 
 def get_ps3_sprite_names_from_file(ps3_script_path: str,
@@ -43,8 +48,8 @@ def get_ps3_sprite_names_from_file(ps3_script_path: str,
 	all_sprite_names = set()
 	with open(ps3_script_path, encoding='utf-8') as ps3_script_file:
 		for line in ps3_script_file.readlines():
-			sprite_name = config.ps3Regex.try_get_value(line)
-			if sprite_name:
+			sprite_name = config.ps3Matcher.try_get_value(line)
+			if sprite_name and config.ps3_whitelist_function(sprite_name):
 				modified_name = config.ps3_name_modification_function(sprite_name)
 				all_sprite_names.add(modified_name)
 
@@ -121,7 +126,9 @@ def get_matching_chunks_from_file(steam_script_path: str, ps3_script_path: str) 
 	return ps3_chunk_to_steam_chunk
 
 
-def try_get_steam_to_ps3_matching_from_chunks(steam_chunk: str, ps3_chunk: str, match_configuration: MatchConfiguration):
+def try_get_steam_to_ps3_matching_from_chunks(steam_chunk: str,
+											  ps3_chunk: str,
+											  match_configuration: MatchConfiguration):
 	"""
 	Given two matched chunks, matches the first found steam sprite name with the first found ps3 sprite name.
 	If either the steam or ps3 sprite name is missing, it is not matched
@@ -136,15 +143,27 @@ def try_get_steam_to_ps3_matching_from_chunks(steam_chunk: str, ps3_chunk: str, 
 	# steam_matcher = match_configuration.steamRegex
 	# ps3_matcher = match_configuration.ps3Regex
 
-	steam_match = match_configuration.steamRegex.try_get_value(steam_chunk)
-	if not steam_match:
-		return None
+	def get_matches(chunk, matcher : CustomMatcher):
+		matches = []
+		for line in chunk.splitlines():
+			match = matcher.try_get_value(line)
 
-	ps3_match = match_configuration.ps3Regex.try_get_value(ps3_chunk)
-	if not ps3_match:
-		return None
+			if match_configuration.enable_matcher_background_filter:
+				if match == 'black' or match == 'white':
+					continue
 
-	return (steam_match, ps3_match)
+			if match is not None:
+				matches.append(match)
+		return matches
+
+	steam_matches = get_matches(steam_chunk, match_configuration.steamMatcher)
+	ps3_matches = get_matches(ps3_chunk, match_configuration.ps3Matcher)
+
+	# TODO: for now, only accept if the number of ps3 and steam matches are equal
+	if len(steam_matches) == len(ps3_matches):
+		return [x for x in zip(steam_matches, ps3_matches)]
+	else:
+		return []
 
 def update_match_statistics(match_statistics: MatchStatistics,
 							reverse_match_statistics: MatchStatistics,
@@ -183,18 +202,18 @@ def update_match_statistics(match_statistics: MatchStatistics,
 	original_to_steam_chunk_list = get_matching_chunks_from_file(steam_script_path, ps3_script_path)
 
 	for (original_chunk, ps3_chunk) in original_to_steam_chunk_list:
-		mapping = try_get_steam_to_ps3_matching_from_chunks(original_chunk, ps3_chunk, match_configuration)
-		if mapping:
+		mappings = try_get_steam_to_ps3_matching_from_chunks(original_chunk, ps3_chunk, match_configuration)
+		for mapping in mappings:
 			steam_name, ps3_name = mapping
 			#the image 'black' is not a sprite, so shouldn't be used for matching
 			if steam_name == 'black' or ps3_name == 'black':
 				continue
 
-			ps3_name = match_configuration.ps3_name_modification_function(ps3_name)
-
 			# If the filtered ps3 filename is not in the white list, don't try to match it
 			if not match_configuration.ps3_whitelist_function(ps3_name):
 				continue
+
+			ps3_name = match_configuration.ps3_name_modification_function(ps3_name)
 
 			#do the forward mapping
 			match_count = match_statistics.statistics.setdefault(ps3_name, {})
@@ -212,6 +231,8 @@ def update_match_statistics(match_statistics: MatchStatistics,
 
 	# If any ps3 sprite names are missing from the matching, these sprites were 'never matched'. Set them to match with 'None'
 	for ps3_sprite_name in all_ps3_sprite_names:
+		ps3_sprite_name = match_configuration.ps3_name_modification_function(ps3_sprite_name)
+
 		match_statistics.sprite_to_file_mapping[ps3_sprite_name] = os.path.basename(ps3_script_path)
 		if ps3_sprite_name not in match_statistics.statistics:
 			print("The following sprite was unmatched:" + ps3_sprite_name)
@@ -232,6 +253,12 @@ def get_matching_script_paths_between_folders(steam_folder_path, ps3_folder_path
 	"""
 
 	matching_paths = []
+
+	if not os.path.exists(steam_folder_path):
+		raise  Exception(f"Steam folder [{steam_folder_path}] does not exist - can't get matching scripts")
+
+	if not os.path.exists(ps3_folder_path):
+		raise Exception(f"PS3 folder [{ps3_folder_path}] does not exist - can't get matching scripts")
 
 	print(f"Testing that files in [{steam_folder_path}] also exist in [{ps3_folder_path}]:")
 	for steam_filename in os.listdir(steam_folder_path):
