@@ -6,7 +6,7 @@ pushd %~dp0
 @echo off
 
 :: Print whether the user already has python installed on path
-where python >nul 2>&1
+where py >nul 2>&1
 if errorlevel 1 (
     echo INFORMATION: No Python found on path
 ) else (
@@ -16,7 +16,7 @@ if errorlevel 1 (
 :: Running with -E disables checking of environment variables for python libs
 :: This should prevent conflicts with any Python dists already on the user's computer.
 echo INFORMATION: Using bundled Python to run installer
-"python/python.exe" -E compareImages.py
+py -E compareImages.py
 
 echo ----------------------------------------------------------- 
 echo ------------ Batch file has finished executing ------------

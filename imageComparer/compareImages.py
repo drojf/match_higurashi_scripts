@@ -491,12 +491,11 @@ def getSpriteFilenameMap(warn_duplicate_images):
 
 	return ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map
 
-def loadImageComparisonObject():
+def loadImageComparisonObject(mode):
 	################# CONFIG OPTIONS
 	WARN_DUPLICATE_IMAGES = False
 	################# END CONFIG OPTIONS
 
-	mode = "background"
 	if mode == "background":
 		ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map = getBackgroundFilenameMap(WARN_DUPLICATE_IMAGES)
 	else:
@@ -520,5 +519,19 @@ def loadImageComparisonObject():
 	image_comparison = ImageComparison(matches, ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map)
 	return image_comparison
 
-gui = InstallerGUI(workingDirectory='.', image_comparison_load_function=loadImageComparisonObject)
-gui.server_test()
+def startSpriteComparison():
+	def loadObject():
+		return loadImageComparisonObject(mode=None)
+
+	gui = InstallerGUI(workingDirectory='.', image_comparison_load_function=loadObject)
+	gui.server_test()
+
+def startBackgroundComparison():
+	def loadObject():
+		return loadImageComparisonObject(mode="background")
+
+	gui = InstallerGUI(workingDirectory='.', image_comparison_load_function=loadObject)
+	gui.server_test()
+
+if __name__ == '__main__':
+	startSpriteComparison()
