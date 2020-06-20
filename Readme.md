@@ -1,6 +1,14 @@
-Example: 
+# Higurashi Sprite/Background Matching
 
-`python match_higurashi_sprites.py "C:\games\Steam\steamapps\common\Higurashi When They Cry\HigurashiEp01_Data\StreamingAssets\Scripts" "C:\drojf\large_projects\umineko\onikakushi\Update" out.txt`
+## Latest Matching
+
+The latest sprite matching is kept in `imageCompararer/noconsole_output.txt.csv`
+
+## Usage
+
+Double click `run_ignore_time_of_day.bat` or examine it for an exmple usage.
+
+### Arguments
 
 ```
 usage: match_higurashi_sprites.py [-h]  steam_scripts_folder  ps3_scripts_folder  output_file_path
@@ -18,3 +26,7 @@ positional arguments:
 optional arguments:
   -h, --help            show this help message and exit
 ```
+
+## Background matching
+
+See the script `match_higurashi_backgrounds.py`. I can't remember how much I got working, but you can ask me to have a look at it if it would be useful to you.
