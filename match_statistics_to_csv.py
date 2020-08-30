@@ -19,7 +19,7 @@ def get_sorted_matches(matches):
 	return sorted(matches.items(), key=lambda x:x[1], reverse=True)
 
 
-def convertMatchingToCSV(match_statistics : MatchStatistics, sort_by_score: bool) -> [str]:
+def convertMatchingToCSV(match_statistics : MatchStatistics, sort_by_score: bool, simple=False) -> [str]:
 	rows = []
 	for sourceMatch, destinationMatches in match_statistics.statistics.items():
 		sourceFile = match_statistics.sprite_to_file_mapping.get(sourceMatch, "")
@@ -51,10 +51,18 @@ def convertMatchingToCSV(match_statistics : MatchStatistics, sort_by_score: bool
 
 	rows_as_strings = []
 	header_matches = ','.join(pad_array(['all matches'], max_matches, 'match'))
-	rows_as_strings.append(f'ps3 sprite file, ps3 image, ryukishi best match, count of best match, confidence,{header_matches}')
+
+	if simple:
+		rows_as_strings.append(f'ps3 image, ryukishi best match')
+	else:
+		rows_as_strings.append(f'ps3 sprite file, ps3 image, ryukishi best match, count of best match, confidence,{header_matches}')
+
 	for row in rows:
 		matches = [f'{x[1]}:{x[0]}' for x in row.sorted_scores]
 		matches = pad_array(matches, max_matches, '')
-		rows_as_strings.append(f"{row.ps3file},{row.source},{row.ryukishiBestMatch},{row.highestCount},{row.confidence:.0f}%,{','.join(matches)}")
+		if simple:
+			rows_as_strings.append(f"{row.source},{row.ryukishiBestMatch}")
+		else:
+			rows_as_strings.append(f"{row.ps3file},{row.source},{row.ryukishiBestMatch},{row.highestCount},{row.confidence:.0f}%,{','.join(matches)}")
 
 	return rows_as_strings

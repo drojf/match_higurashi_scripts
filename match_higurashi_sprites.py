@@ -24,6 +24,12 @@ def save_statistics(match_statistics, reverse_match_statistics, output_path):
 	write_to_file('\n'.join(y) + '\n', output_path + '.csv')
 
 	print("\n\n----------------------------------------------")
+	y = convertMatchingToCSV(match_statistics, sort_by_score=False, simple=True)
+	for x in y:
+		print(x)
+	write_to_file('\n'.join(y) + '\n', output_path + '.simple.csv')
+
+	print("\n\n----------------------------------------------")
 	y = convertMatchingToCSV(reverse_match_statistics, sort_by_score=False)
 	for x in y:
 		print(x)

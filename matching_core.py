@@ -23,9 +23,11 @@ class MatchConfiguration:
 				 steamMatcher: CustomMatcher,
 				 ps3Matcher: CustomMatcher,
 				 ps3_name_modification_function=lambda x:x, #default to a passthrough function
+				 steam_name_modification_function=lambda x:x,
 				 ps3_whitelist_function=lambda x: True,
 				 enable_matcher_background_filter=False): #default to function which allows all names
 		self.ps3_name_modification_function = ps3_name_modification_function #type: Callable[[str], str]
+		self.steam_name_modification_function = steam_name_modification_function #type: Callable[[str], str]
 		self.ps3_whitelist_function = ps3_whitelist_function #type: Callable[[str], bool]
 		self.enable_matcher_background_filter = enable_matcher_background_filter  #type: Callable[[str], bool]
 		self.steamMatcher = steamMatcher #type: CustomMatcher
@@ -213,6 +215,7 @@ def update_match_statistics(match_statistics: MatchStatistics,
 			if not match_configuration.ps3_whitelist_function(ps3_name):
 				continue
 
+			steam_name = match_configuration.steam_name_modification_function(steam_name)
 			ps3_name = match_configuration.ps3_name_modification_function(ps3_name)
 
 			#do the forward mapping

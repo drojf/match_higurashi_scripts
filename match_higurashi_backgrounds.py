@@ -1,10 +1,6 @@
-import json
-import argparse
-
-#these regexes are slightly different as DrawBust* has one argument before the bust name, ModDraw* has two
 import re
-import sys
 
+from match_higurashi_backgrounds_dup_finder import QuestionArcsBackgroundRemapper
 from match_statistics import MatchStatistics
 from match_statistics_to_csv import convertMatchingToCSV
 from matching_core import get_matching_script_paths_between_folders, update_match_statistics, MatchConfiguration, CustomMatcher
@@ -13,9 +9,19 @@ from match_higurashi_sprites import save_statistics
 LAST_EPISODE = 8
 
 def doBackgroundMatching():
+	remapper = QuestionArcsBackgroundRemapper('ryukishi_sha_dups.csv')
+
 	# Treat blur, background/flashback as the same. Remove the "background/" prefix
 	def ps3_modification_function(ps3_name : str):
-		return ps3_name.replace("blur/", "").replace("background/flashback/", "").replace("background/", "")
+		return ps3_name.replace("blur/", "").replace("background/flashback/", "").replace("background/", "").replace("greyscale/", "").lower()
+
+	def steam_name_modification_function(name: str):
+		remapped_name = remapper.get_mapping(name.lower())
+		if remapped_name is None:
+			return name.lower()
+		else:
+			return remapped_name
+
 
 	# The steam and ps3 background functions are the same
 	steamBackgroundRegex = re.compile(r'((ChangeScene)|(DrawScene)|(DrawSceneWithMask))\s*\(\s*"([^"]*)"')
@@ -31,6 +37,7 @@ def doBackgroundMatching():
 								ps3BackgroundMatcher,
 								ps3_whitelist_function=lambda x: 'background' in x.lower(),
 								ps3_name_modification_function=ps3_modification_function,
+								steam_name_modification_function=steam_name_modification_function,
 								enable_matcher_background_filter=True)
 
 	for episode_num in range(1, LAST_EPISODE + 1):

@@ -124,8 +124,8 @@ class QuestionArcsBackgroundRemapper:
 
 def remap_naegles():
 	"""Remap naegle's question-arc style names"""
-	naegles_matches = load_rows('naegles_mapping.csv')
-	remapper = QuestionArcsBackgroundRemapper('ryukishi_sha_dups.csv')
+	naegles_matches = load_rows(r'background_matching_intermediate\naegles_mapping.csv')
+	remapper = QuestionArcsBackgroundRemapper(r'background_matching_intermediate\ryukishi_sha_dups.csv')
 
 	remapped_rows = []
 	for row in naegles_matches:
@@ -138,18 +138,20 @@ def remap_naegles():
 
 		remapped_rows.append([ps3_name, qa_name])
 
-	save_rows(remapped_rows, 'naegles_remapped.csv')
+	remapped_rows = sorted(remapped_rows)
+
+	save_rows(remapped_rows, 'background_matching_intermediate\naegles_remapped.csv')
 
 scan_folder = r'C:\temp\higu_backgrounds_imageComparer\external\ryukishi'
-csv_path = 'ryukishi_image_signatures.csv'
-sha_dupes_path = 'ryukishi_sha_dups_out.csv'
-phash_dupes_path = 'ryukishi_phash_dups_out.csv'
+csv_path = r'background_matching_intermediate\ryukishi_image_signatures.csv'
+sha_dupes_path = r'background_matching_intermediate\ryukishi_sha_dups_out.csv'
+phash_dupes_path = r'background_matching_intermediate\ryukishi_phash_dups_out.csv'
 do_indexing = False
 
-if do_indexing:
-	index_folder(scan_folder, csv_path)
+# if do_indexing:
+# 	index_folder(scan_folder, csv_path)
+#
+# index = load_index(csv_path)
+# save_dupes(index, sha_dupes_path, phash_dupes_path)
 
-index = load_index(csv_path)
-save_dupes(index, sha_dupes_path, phash_dupes_path)
-
-#remap_naegles()
+# remap_naegles()

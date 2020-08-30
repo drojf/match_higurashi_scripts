@@ -1,2 +1,3 @@
 imageComparer/external
 .idea
+__pycache__
