@@ -9,7 +9,7 @@ from match_higurashi_sprites import save_statistics
 LAST_EPISODE = 8
 
 def doBackgroundMatching():
-	remapper = QuestionArcsBackgroundRemapper('ryukishi_sha_dups.csv')
+	remapper = QuestionArcsBackgroundRemapper('background_matching_intermediate/ryukishi_sha_dups.csv')
 
 	# Treat blur, background/flashback as the same. Remove the "background/" prefix
 	def ps3_modification_function(ps3_name : str):
@@ -30,7 +30,7 @@ def doBackgroundMatching():
 
 	match_statistics = MatchStatistics()
 	reverse_match_statistics = MatchStatistics()
-	output_path = 'noconsole_output.txt'
+	output_path = 'background_matching_intermediate/auto_matching'
 
 	# Set configuration for matching
 	config = MatchConfiguration(steamBackgroundMatcher,

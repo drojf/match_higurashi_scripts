@@ -69,9 +69,11 @@ def find_duplicates(grouped_dict: dict):
 	return duplicates
 
 
-def save_rows(rows, csv_path):
+def save_rows(rows, csv_path, header_row=None):
 	with open(csv_path, 'w', newline='') as csvfile:
 		writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+		if header_row:
+			writer.writerow(header_row)
 		for row in rows:
 			writer.writerow(row)
 
@@ -142,16 +144,78 @@ def remap_naegles():
 
 	save_rows(remapped_rows, 'background_matching_intermediate\naegles_remapped.csv')
 
-scan_folder = r'C:\temp\higu_backgrounds_imageComparer\external\ryukishi'
-csv_path = r'background_matching_intermediate\ryukishi_image_signatures.csv'
-sha_dupes_path = r'background_matching_intermediate\ryukishi_sha_dups_out.csv'
-phash_dupes_path = r'background_matching_intermediate\ryukishi_phash_dups_out.csv'
-do_indexing = False
+def merge_auto_matching_and_naegles(auto_matching_path, naegles_path, output_path):
+	auto_rows = load_rows(auto_matching_path)[1:]  # Skip column description row
+	naegles_rows = load_rows(naegles_path)
 
-# if do_indexing:
-# 	index_folder(scan_folder, csv_path)
-#
-# index = load_index(csv_path)
-# save_dupes(index, sha_dupes_path, phash_dupes_path)
+	# This does a database JOIN where the ps3 name is the common ID
+	all_ps3_names = set()
+	auto_as_dict = {}
+	naegles_as_dict = {}
 
-# remap_naegles()
+	for row in auto_rows:
+		all_ps3_names.add(row[1])
+		auto_as_dict[row[1]] = row[2]
+
+	for row in naegles_rows:
+		all_ps3_names.add(row[0])
+		naegles_as_dict[row[0]] = row[1]
+
+	merged_dict = {}
+
+	for ps3_name in all_ps3_names:
+		merged_dict[ps3_name] = [auto_as_dict.get(ps3_name, 'NO_MATCH'), naegles_as_dict.get(ps3_name, 'NO_MATCH')]
+
+	output_rows = []
+	for ps3_name, v in merged_dict.items():
+		auto_result = v[0]
+		naegles_result = v[1]
+		auto_has_match = auto_result != 'NO_MATCH'
+		naegles_has_match = naegles_result != 'NO_MATCH'
+
+		status = 'UNDEFINED'
+		if auto_has_match and naegles_has_match:
+			# Check for disagreement
+			if auto_result.strip() != naegles_result.strip():
+				status = 'CONTRADICTORY'
+			else:
+				status = 'IDENTICAL'
+		elif auto_has_match:
+			status = 'AUTOMATIC'
+		elif naegles_has_match:
+			status = 'NAEGLES'
+		else:
+			# If neither matched
+			status = 'NO_MATCH'
+
+		if naegles_has_match:
+			final_choice = naegles_result
+		else:
+			final_choice = auto_result
+
+		output_rows.append([ps3_name, auto_result, naegles_result, final_choice, status])
+
+	output_rows = sorted(output_rows)
+
+	save_rows(output_rows, output_path, header_row=["ps3_name", "auto", "naegles", "final_choice", "status"])
+
+
+if __name__ == '__main__':
+	scan_folder = r'C:\temp\higu_backgrounds_imageComparer\external\ryukishi'
+	csv_path = r'background_matching_intermediate\ryukishi_image_signatures.csv'
+	sha_dupes_path = r'background_matching_intermediate\ryukishi_sha_dups_out.csv'
+	phash_dupes_path = r'background_matching_intermediate\ryukishi_phash_dups_out.csv'
+	auto_matching_path = 'background_matching_intermediate/auto_matching.csv'
+	naegles_remapped_path = 'background_matching_intermediate/naegles_remapped.csv'
+	merged_output_path = 'background_matching_intermediate/merged_mapping.csv'
+	do_indexing = False
+
+	# if do_indexing:
+	# 	index_folder(scan_folder, csv_path)
+	#
+	# index = load_index(csv_path)
+	# save_dupes(index, sha_dupes_path, phash_dupes_path)
+
+	# remap_naegles()
+
+	merge_auto_matching_and_naegles(auto_matching_path, naegles_remapped_path, merged_output_path)

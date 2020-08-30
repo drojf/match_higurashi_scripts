@@ -12,7 +12,12 @@ from matching_core import get_matching_script_paths_between_folders, update_matc
 LAST_EPISODE = 8
 
 
-def save_statistics(match_statistics, reverse_match_statistics, output_path):
+def save_statistics(match_statistics,
+                    reverse_match_statistics,
+                    output_path,
+                    generate_json=False,
+                    generate_reversed=False,
+                    generate_simple=False):
 	def write_to_file(text: str, path: str):
 		with open(path, 'w', encoding='utf-8') as output_file:
 			output_file.write(text)
@@ -23,29 +28,33 @@ def save_statistics(match_statistics, reverse_match_statistics, output_path):
 		print(x)
 	write_to_file('\n'.join(y) + '\n', output_path + '.csv')
 
-	print("\n\n----------------------------------------------")
-	y = convertMatchingToCSV(match_statistics, sort_by_score=False, simple=True)
-	for x in y:
-		print(x)
-	write_to_file('\n'.join(y) + '\n', output_path + '.simple.csv')
+	if generate_simple:
+		print("\n\n----------------------------------------------")
+		y = convertMatchingToCSV(match_statistics, sort_by_score=False, simple=True)
+		for x in y:
+			print(x)
+		write_to_file('\n'.join(y) + '\n', output_path + '.simple.csv')
 
-	print("\n\n----------------------------------------------")
-	y = convertMatchingToCSV(reverse_match_statistics, sort_by_score=False)
-	for x in y:
-		print(x)
-	write_to_file('\n'.join(y) + '\n', output_path + '.reversed.csv')
+	if generate_reversed:
+		print("\n\n----------------------------------------------")
+		y = convertMatchingToCSV(reverse_match_statistics, sort_by_score=False)
+		for x in y:
+			print(x)
+		write_to_file('\n'.join(y) + '\n', output_path + '.reversed.csv')
 
 
-	json_string = json.dumps(match_statistics.statistics, sort_keys=True, indent=4)
+	if generate_json:
+		json_string = json.dumps(match_statistics.statistics, sort_keys=True, indent=4)
 
-	print(json_string)
-	write_to_file(json_string, output_path)
+		print(json_string)
+		write_to_file(json_string, output_path + '.json')
 
-	#dump reverse statistics
-	json_string = json.dumps(reverse_match_statistics.statistics, sort_keys=True, indent=4)
+		if generate_reversed:
+			#dump reverse statistics
+			json_string = json.dumps(reverse_match_statistics.statistics, sort_keys=True, indent=4)
 
-	print(json_string)
-	write_to_file(json_string, output_path + '.reversed.txt')
+			print(json_string)
+			write_to_file(json_string, output_path + '.reversed.json')
 
 
 def doSpriteMatching():
