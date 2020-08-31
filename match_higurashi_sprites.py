@@ -136,5 +136,5 @@ def doSpriteMatching():
 	#Save results to csv and json file
 	save_statistics(match_statistics, reverse_match_statistics, output_path)
 
-
-doSpriteMatching()
+if __name__ == '__main__':
+	doSpriteMatching()
