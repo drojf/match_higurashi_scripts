@@ -33,9 +33,10 @@ def doBackgroundMatching():
 	output_path = 'background_matching_intermediate/auto_matching'
 
 	# Set configuration for matching
+	# Only scan files in the 'background' folder
 	config = MatchConfiguration(steamBackgroundMatcher,
 								ps3BackgroundMatcher,
-								ps3_whitelist_function=lambda x: 'background' in x.lower(),
+								ps3_whitelist_function=lambda x: 'background/' in x.lower(),
 								ps3_name_modification_function=ps3_modification_function,
 								steam_name_modification_function=steam_name_modification_function,
 								enable_matcher_background_filter=True)

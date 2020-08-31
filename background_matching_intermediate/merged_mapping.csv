@@ -368,7 +368,6 @@ saiguden_01,jsa3,jsa4,jsa4,CONTRADICTORY
 saiguden_02,jsa3,jsa4,jsa4,CONTRADICTORY
 saten1,saten1,NO_MATCH,saten1,AUTOMATIC
 saten2,saten2,NO_MATCH,saten2,AUTOMATIC
-scenario/background,NO_MATCH,NO_MATCH,NO_MATCH,NO_MATCH
 scenario_a,NO_MATCH,scenario_a,scenario_a,NAEGLES
 scenario_b,NO_MATCH,scenario_b,scenario_b,NAEGLES
 scenario_b_j,NO_MATCH,scenario_b_j,scenario_b_j,NAEGLES
