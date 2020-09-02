@@ -19,8 +19,10 @@
         <div v-else style="font-size: 50px">❌ not saved</div>
         <img class="comparison-image" v-bind:src="encodeURIComponent(leftImage)" height="400px">
         <img class='comparison-image' v-bind:src="encodeURIComponent(rightImage)" height="400px">
+        <img class='comparison-image' v-bind:src="encodeURIComponent(rightMostImage)" height="400px">
         <p>Left Image: {{ leftImage }}</p>
         <p>Right Image: {{ rightImage }}</p>
+        <p>RightMost Image: {{ rightMost }}</p>
         <p>Row in Exel: {{ currentRowIndex + 2 }}</p>
         <p>Image: {{ currentRowIndex + 1 }} / {{ totalRows }}:  {{ currentRow }}</p>
         <button v-on:click="getRow(-1)">Previous Image</button>

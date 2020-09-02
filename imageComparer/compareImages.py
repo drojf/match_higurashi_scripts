@@ -27,9 +27,14 @@ class SpriteMatchResult:
 		self.ps3_script = csvRow[0]
 		self.ps3_filename = os.path.basename(csvRow[1])
 		self.ryukishi_filename = csvRow[2]
+		if len(csvRow) >= 4:
+			self.ryukishi_filename_alt = csvRow[3]
+		else:
+			self.ryukishi_filename_alt = None
 
 		#TODO: remove this when creating the CSV, not here!
 		self.ryukishi_filename = self.ryukishi_filename.strip()
+		self.ryukishi_filename_alt = self.ryukishi_filename_alt.strip()
 		self.ps3_filename = self.ps3_filename.rstrip('_')
 
 	def __repr__(self):
@@ -48,7 +53,9 @@ class ImageComparison:
 		row = self.sprite_match_reults[rowIndex]
 		ps3_filepath = self.ps3_filename_to_filepath_map.get(row.ps3_filename.lower(), f'FILE LOOKUP FAILED ON [{row.ps3_filename}] (lookup name is {row.ps3_filename.lower()})')
 		ryukishi_filepath = self.ryukishi_filename_to_filepath_map.get(row.ryukishi_filename.lower(), f'FILE_LOOKUP_FAILED_FOR [{row.ryukishi_filename}] (lookup name is {row.ryukishi_filename.lower()})')
-		return row, ps3_filepath, ryukishi_filepath
+		ryukishi_filepath_alt = self.ryukishi_filename_to_filepath_map.get(row.ryukishi_filename_alt.lower(),
+		                                                               f'FILE_LOOKUP_FAILED_FOR [{row.ryukishi_filename_alt}] (lookup name is {row.ryukishi_filename_alt.lower()})')
+		return row, ps3_filepath, ryukishi_filepath, ryukishi_filepath_alt
 
 	def getNumRows(self):
 		return len(self.sprite_match_reults)
@@ -300,17 +307,19 @@ class InstallerGUI:
 				if self.currentRowIndex < 0:
 					return None
 
-				row, ps3_filepath, ryukishi_filepath = self.image_comparison.getRowAndBestMatches(self.currentRowIndex)
+				row, ps3_filepath, ryukishi_filepath, ryukishi_filepath_alt = self.image_comparison.getRowAndBestMatches(self.currentRowIndex)
 
 				fixed_ps3_filepath = ps3_filepath.replace('\\','/')
 				fixed_ryukishi_filepath = ryukishi_filepath.replace('\\','/')
+				fixed_ryukishi_filepath_alt = ryukishi_filepath_alt.replace('\\','/')
 				mapped_val = self.mapping.get(fixed_ps3_filepath)
 
-				already_matched =  mapped_val is not None and mapped_val == fixed_ryukishi_filepath
+				already_matched = mapped_val is not None and (mapped_val == fixed_ryukishi_filepath or mapped_val == fixed_ryukishi_filepath_alt)
 
 				retval = {
 					'leftImage': fixed_ps3_filepath,
 					'rightImage': fixed_ryukishi_filepath,
+					'rightMostImage': fixed_ryukishi_filepath_alt,
 					'currentRow': row.asArray(),
 					'currentRowIndex': self.currentRowIndex,
 					'alreadyMatched': already_matched,

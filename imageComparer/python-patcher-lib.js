@@ -12,6 +12,7 @@ window.onload = function onWindowLoaded() {
     data: {
       leftImage: null,
       rightImage: null,
+      rightMostImage: null,
       currentRow: [],
       currentRowIndex: 0, // THIS VALUE IS ZERO INDEXED.
       totalRows: 0,
@@ -29,6 +30,7 @@ window.onload = function onWindowLoaded() {
         console.log(responseData);
         app.leftImage = responseData.leftImage;
         app.rightImage = responseData.rightImage;
+        app.rightMostImage = responseData.rightMostImage;
         app.currentRow = responseData.currentRow;
         app.currentRowIndex = responseData.currentRowIndex;
         app.totalRows = responseData.totalRows;
