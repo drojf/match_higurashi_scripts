@@ -69,4 +69,16 @@ window.onload = function onWindowLoaded() {
   //restore state of the gui with the current row
   app.getRow(0);
 
+  window.addEventListener("keypress", e => {
+    const {code} = e;
+    if (code === "KeyA")
+    {
+        app.getRow(-1);
+    }
+    else if (code === "KeyD")
+    {
+        app.getRow(1);
+    }
+});
+
 };

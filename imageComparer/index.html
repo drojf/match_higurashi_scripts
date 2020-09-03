@@ -25,8 +25,9 @@
         <p>Manual Image: {{ rightMostImage }}</p>
         <p>Row in Exel: {{ currentRowIndex + 2 }}</p>
         <p>Image: {{ currentRowIndex + 1 }} / {{ totalRows }}:  {{ currentRow }}</p>
-        <button v-on:click="getRow(-1)">Previous Image</button>
-        <button v-on:click="getRow(1)">Next Image</button>
+        <p>Press 'd' to go to the next image, and 'a' to go to the previous image.</p>
+        <button v-on:click="getRow(-1)">Previous Image (Press 'a' key)</button>
+        <button v-on:click="getRow(1)">Next Image (Press 'd' key)</button>
         <button v-on:click="saveMapping()">Save Mapping</button>
         <button v-on:click="getNextUnsaved()">Go To Next Unsaved</button>
         <br><br>
