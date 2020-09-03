@@ -152,10 +152,16 @@ def merge_auto_matching_and_naegles(auto_matching_path, naegles_path, output_pat
 	all_ps3_names = set()
 	auto_as_dict = {}
 	naegles_as_dict = {}
+	last_file_found_mapping = {}
 
 	for row in auto_rows:
-		all_ps3_names.add(row[1])
-		auto_as_dict[row[1]] = row[2]
+		auto_first_file_found = row[0]
+		auto_ps3_filename = row[1]
+		auto_ryukishi_filename = row[2]
+		all_ps3_names.add(auto_ps3_filename)
+		auto_as_dict[auto_ps3_filename] = auto_ryukishi_filename
+		last_file_found_mapping[auto_ps3_filename] = auto_first_file_found
+
 
 	for row in naegles_rows:
 		all_ps3_names.add(row[0])
@@ -193,11 +199,12 @@ def merge_auto_matching_and_naegles(auto_matching_path, naegles_path, output_pat
 		else:
 			final_choice = auto_result
 
-		output_rows.append([ps3_name, auto_result, naegles_result, final_choice, status])
+		output_rows.append([last_file_found_mapping.get(ps3_name, "unknown"), ps3_name, auto_result, naegles_result, final_choice, status])
 
-	output_rows = sorted(output_rows)
+	# Sort the rows, but ignore the first row which is the first file the ps3? was found
+	output_rows = sorted(output_rows, key=lambda r: r[1:])
 
-	save_rows(output_rows, output_path, header_row=["ps3_name", "auto", "naegles", "final_choice", "status"])
+	save_rows(output_rows, output_path, header_row=["last_file_found", "ps3_name", "auto", "naegles", "final_choice", "status"])
 
 
 if __name__ == '__main__':

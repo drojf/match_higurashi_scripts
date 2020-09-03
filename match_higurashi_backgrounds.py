@@ -13,7 +13,7 @@ def doBackgroundMatching():
 
 	# Treat blur, background/flashback as the same. Remove the "background/" prefix
 	def ps3_modification_function(ps3_name : str):
-		return ps3_name.replace("blur/", "").replace("background/flashback/", "").replace("background/", "").replace("greyscale/", "").lower()
+		return ps3_name.replace("blur/", "").replace("background/flashback/", "").replace("background/", "").replace("greyscale/", "").replace("negative/", "").lower()
 
 	def steam_name_modification_function(name: str):
 		remapped_name = remapper.get_mapping(name.lower())
