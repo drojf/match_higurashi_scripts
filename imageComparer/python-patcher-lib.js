@@ -79,6 +79,10 @@ window.onload = function onWindowLoaded() {
     {
         app.getRow(1);
     }
+    else if (code === "KeyR")
+    {
+        app.reloadCSV();
+    }
 });
 
 };

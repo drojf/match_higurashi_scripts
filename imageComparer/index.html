@@ -25,16 +25,16 @@
         <p>Manual Image: {{ rightMostImage }}</p>
         <p>Row in Exel: {{ currentRowIndex + 2 }}</p>
         <p>Image: {{ currentRowIndex + 1 }} / {{ totalRows }}:  {{ currentRow }}</p>
-        <p>Press 'd' to go to the next image, and 'a' to go to the previous image.</p>
-        <button v-on:click="getRow(-1)">Previous Image (Press 'a' key)</button>
-        <button v-on:click="getRow(1)">Next Image (Press 'd' key)</button>
+        <p>Press 'd' to go to the next image, and 'a' to go to the previous image, and 'r' to reload the CSV file.</p>
+        <button v-on:click="getRow(-1)">Previous Image (Press 'a')</button>
+        <button v-on:click="getRow(1)">Next Image (Press 'd')</button>
         <button v-on:click="saveMapping()">Save Mapping</button>
         <button v-on:click="getNextUnsaved()">Go To Next Unsaved</button>
         <br><br>
         <button v-on:click="goToExelRow(userEnteredExelRowNumber)">Go To Exel Row</button>
         <input v-model="userEnteredExelRowNumber" placeholder="edit me" style="width: 60px">
         <br><br>
-        <button v-on:click="reloadCSV()">Reload CSV file</button>
+        <button v-on:click="reloadCSV()">Reload CSV file (Press 'r')</button>
         <h1 v-if="showPleaseWait">Please Wait...</h1>
     </div>
         <script src="js/jquery.min.js"></script>
