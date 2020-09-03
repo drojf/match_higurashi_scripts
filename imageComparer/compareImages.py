@@ -510,7 +510,7 @@ def loadImageComparisonObject(mode):
 	else:
 		ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map = getSpriteFilenameMap(WARN_DUPLICATE_IMAGES)
 
-	matches = readCSVAsSpriteMatches(csvFilePath='noconsole_output.txt.csv')
+	matches = readCSVAsSpriteMatches(csvFilePath='manual_background_mapping.csv')
 
 	for match in matches:
 		ps3_filepath = ps3_filename_to_filepath_map.get(match.ps3_filename)
