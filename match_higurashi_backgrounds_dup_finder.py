@@ -126,7 +126,7 @@ class QuestionArcsBackgroundRemapper:
 
 def remap_naegles():
 	"""Remap naegle's question-arc style names"""
-	naegles_matches = load_rows(r'background_matching_intermediate\naegles_mapping.csv')
+	naegles_matches = load_rows(r'background_matching_intermediate\naegles_pre_processed.csv')[1:]  #skip first header row
 	remapper = QuestionArcsBackgroundRemapper(r'background_matching_intermediate\ryukishi_sha_dups.csv')
 
 	remapped_rows = []
@@ -142,7 +142,7 @@ def remap_naegles():
 
 	remapped_rows = sorted(remapped_rows)
 
-	save_rows(remapped_rows, 'background_matching_intermediate\naegles_remapped.csv')
+	save_rows(remapped_rows, r'background_matching_intermediate\naegles_remapped.csv')
 
 def merge_auto_matching_and_naegles(auto_matching_path, naegles_path, output_path):
 	auto_rows = load_rows(auto_matching_path)[1:]  # Skip column description row
