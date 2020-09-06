@@ -62,7 +62,7 @@ unknown,5,NO_MATCH,5,5,NAEGLES
 unknown,aa,NO_MATCH,aa,aa,NAEGLES
 _mats_024.txt,aka1,aka1,aka1,aka1,IDENTICAL
 _mats_024.txt,aka2,aka2,aka2,aka2,IDENTICAL
-unknown,alphaimage,NO_MATCH,…,…,NAEGLES
+unknown,alphaimage,NO_MATCH,NO_MATCH,NO_MATCH,EFFECT
 _kakera52.txt,basu_soukou,eki2,NO_MATCH,eki2,AUTOMATIC
 unknown,bg_089_mo,NO_MATCH,ke5,ke5,NAEGLES
 unknown,bg_161,NO_MATCH,re1,re1,NAEGLES
@@ -73,7 +73,7 @@ unknown,black,NO_MATCH,black,black,NAEGLES
 wata_ep_02.txt,byo_01,sinryo_sinsatu1,sinryo_sinsatu1,sinryo_sinsatu1,IDENTICAL
 _mats_022.txt,byo_ten,ke6,NO_MATCH,ke6,AUTOMATIC
 unknown,c,NO_MATCH,c,c,NAEGLES
-unknown,centerblind,NO_MATCH,centerblind,centerblind,NAEGLES
+unknown,centerblind,NO_MATCH,centerblind,centerblind,EFFECT
 _mats_022.txt,chika_rouka,sr_2,NO_MATCH,sr_2,AUTOMATIC
 _mats_022.txt,chika_sekyurithi,torakku2,NO_MATCH,torakku2,AUTOMATIC
 _mats_op.txt,chika_shisetsu,ko1,NO_MATCH,ko1,AUTOMATIC
@@ -82,8 +82,8 @@ _mina_op.txt,damu2,damu2,damu2,damu2,IDENTICAL
 _mina_026.txt,damu4,damu3,bg_004,damu3,CONTRADICTORY
 onik_002.txt,damu4_01,NO_MATCH,bg_004,bg_004,NAEGLES
 _mats_018.txt,denwa,denwa,denwa,denwa,IDENTICAL
-unknown,down,NO_MATCH,down,down,NAEGLES
-unknown,e1,NO_MATCH,…,…,NAEGLES
+unknown,down,NO_MATCH,down,down,EFFECT
+unknown,e1,NO_MATCH,NO_MATCH,NO_MATCH,EFFECT
 _meak_tips_08.txt,eki,bg_012,bg_012,bg_012,IDENTICAL
 unknown,end,NO_MATCH,end,end,NAEGLES
 unknown,end_1,NO_MATCH,end_1,end_1,NAEGLES
@@ -454,11 +454,11 @@ _meak_012.txt,torishirabeshitu_01,NO_MATCH,bg_171,bg_171,NAEGLES
 _mina_019.txt,tosyo1,tosyo1,tosyo1,tosyo1,IDENTICAL
 _mina_016.txt,tosyo1_01,mati3,tosyo1,tosyo1,NAEGLES
 _kakera22.txt,tosyo2,tosyo2,tosyo2,tosyo2,IDENTICAL
-unknown,up,NO_MATCH,up,up,NAEGLES
-unknown,white,NO_MATCH,white,white,NAEGLES
-unknown,windo_filter,NO_MATCH,windo_filter,windo_filter,NAEGLES
-unknown,windo_filter_adv,NO_MATCH,…,…,NAEGLES
-unknown,windo_filter_nvladv,NO_MATCH,…,…,NAEGLES
+unknown,up,NO_MATCH,up,up,EFFECT
+unknown,white,NO_MATCH,white,white,EFFECT
+unknown,windo_filter,NO_MATCH,windo_filter,windo_filter,EFFECT
+unknown,windo_filter_adv,NO_MATCH,NO_MATCH,NO_MATCH,EFFECT
+unknown,windo_filter_nvladv,NO_MATCH,NO_MATCH,NO_MATCH,EFFECT
 _mats_op.txt,xta1,ta1_tokyo,NO_MATCH,ta1_tokyo,AUTOMATIC
 _mats_op.txt,xta2,ta2_tokyo,NO_MATCH,ta2_tokyo,AUTOMATIC
 _mats_op.txt,xta3,ta3,NO_MATCH,ta3,AUTOMATIC
