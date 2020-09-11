@@ -206,6 +206,26 @@ def merge_auto_matching_and_naegles(auto_matching_path, naegles_path, output_pat
 
 	save_rows(output_rows, output_path, header_row=["last_file_found", "ps3_name", "auto", "naegles", "final_choice", "status"])
 
+def identify_cg(final_mapping_file_path, ps3_filename_to_path_mapping_file_path, output_path):
+	filename_to_path_dict = dict(load_rows(ps3_filename_to_path_mapping_file_path))
+	ps3_final_mapping_all_rows = load_rows(final_mapping_file_path)
+	ps3_final_mapping_rows = ps3_final_mapping_all_rows[1:]
+
+	out_rows = [ps3_final_mapping_all_rows[0] + ['ps3_path']]
+
+	for row in ps3_final_mapping_rows:
+		ps3_path = row[1]
+		path = filename_to_path_dict.get(ps3_path)
+		if path is None:
+			print(ps3_path, path)
+			raise Exception(f"No file path for {ps3_path} on row [{row}]")
+		else:
+			print(ps3_path, path)
+
+		out_rows.append(row + [path])
+
+	save_rows(out_rows, output_path)
+
 
 if __name__ == '__main__':
 	scan_folder = r'C:\temp\higu_backgrounds_imageComparer\external\ryukishi'
@@ -215,6 +235,10 @@ if __name__ == '__main__':
 	auto_matching_path = 'background_matching_intermediate/auto_matching.csv'
 	naegles_remapped_path = 'background_matching_intermediate/naegles_remapped.csv'
 	merged_output_path = 'background_matching_intermediate/merged_mapping.csv'
+	final_manual_mapping = 'background_matching/manual_background_mapping.csv'
+	ps3_filename_to_path_mapping_file_path = 'imageComparer/ps3_mapping.csv'
+	manual_background_mapping_with_paths_path = 'background_matching/manual_bg_map_paths_generated.csv'
+
 	do_indexing = False
 
 	# if do_indexing:
