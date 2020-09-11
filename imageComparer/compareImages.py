@@ -17,6 +17,7 @@ from tkinter import filedialog
 from typing import List, Optional, Dict
 
 collapseWhiteSpaceRegex = re.compile(r"[\s\b]+")
+episode_marker = re.compile("\\\\ep\d\\\\")
 
 class SpriteMatchResult:
 	def __init__(self, csvRow):
@@ -408,7 +409,7 @@ def normalizePS3PathToName(path):
 	partially_normalized = normalizeFilenameAndRemoveExtension(path)
 	return partially_normalized[:-2]
 
-def buildFilenameFilepathMap(folder, pathFilterString, pathToNameFunction, warnDuplicates=False, excludeFilterString=None, allowedExtensions=(".png", ".jpg")):
+def buildFilenameFilepathMap(folder, pathFilterString, pathToNameFunction, warnLevel=0, excludeFilterString=None, allowedExtensions=(".png", ".jpg")):
 	"""
 	returns a dict of lowercaseFileNameNoExtension -> fullPathWithExtension
 	pathFilterString must be a string which all expected paths would contain. For example 'StreamingAssets\CG\sprite\normal'
@@ -428,8 +429,12 @@ def buildFilenameFilepathMap(folder, pathFilterString, pathToNameFunction, warnD
 						normalizedName = pathToNameFunction(filename)
 						existingPath = retDict.get(normalizedName)
 						if existingPath:
-							if warnDuplicates:
-								print(f"WARNING: duplicate filename {filename} in {existingPath} -> {fullPath}")
+							if warnLevel >= 1:
+								if episode_marker.sub('\\\\', existingPath) == episode_marker.sub(r'\\\\', fullPath):
+									print(f"MAJOR WARN: duplicate filename {filename} in {existingPath} -> {fullPath}")
+								else:
+									if warnLevel >= 2:
+										print(f"minor warn: duplicate filename {filename} in {existingPath} -> {fullPath}")
 						else:
 							retDict[normalizedName] = fullPath
 
@@ -450,34 +455,34 @@ def readCSVAsSpriteMatches(csvFilePath):
 
 	return sprite_match_results
 
-def getBackgroundFilenameMap(warn_duplicate_images):
+def getBackgroundFilenameMap(warn_level, pathFilterString='background'): # only allow backgrounds
 	# Load ps3 backgrounds
 	ps3_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ps3',
-															pathFilterString='background', # only allow backgrounds
-															pathToNameFunction=normalizeFilenameAndRemoveExtension,
-															warnDuplicates=warn_duplicate_images)
+	                                                        pathFilterString=pathFilterString,
+	                                                        pathToNameFunction=normalizeFilenameAndRemoveExtension,
+	                                                        warnLevel=warn_level)
 
 	# Load ryukishi backgrounds
 	ryukishi_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ryukishi',
-															pathFilterString=None,
-															pathToNameFunction=normalizeFilenameAndRemoveExtension,
-															warnDuplicates=warn_duplicate_images)
+	                                                             pathFilterString=None,
+	                                                             pathToNameFunction=normalizeFilenameAndRemoveExtension,
+	                                                             warnLevel=warn_level)
 
 	return ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map
 
-def getSpriteFilenameMap(warn_duplicate_images):
+def getSpriteFilenameMap(warn_level):
 	# Load normal sprites only as first choice
 	ps3_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ps3',
-															pathFilterString=r'sprite\normal', #Only include the 'normal' sprites, not any other variants
-															pathToNameFunction=normalizePS3PathToName,
-															warnDuplicates=warn_duplicate_images)
+	                                                        pathFilterString=r'sprite\normal',  #Only include the 'normal' sprites, not any other variants
+	                                                        pathToNameFunction=normalizePS3PathToName,
+	                                                        warnLevel=warn_level)
 
 	# Load all sprites, except portrait, as second choice
 	ps3_filename_to_filepath_map_all_images = buildFilenameFilepathMap(folder=r'external\ps3',
-															pathFilterString=None, #Only include the 'normal' sprites, not any other variants
-															pathToNameFunction=normalizePS3PathToName,
-															warnDuplicates=warn_duplicate_images,
-															excludeFilterString=r'sprite\portrait')
+	                                                                   pathFilterString=None,  #Only include the 'normal' sprites, not any other variants
+	                                                                   pathToNameFunction=normalizePS3PathToName,
+	                                                                   warnLevel=warn_level,
+	                                                                   excludeFilterString=r'sprite\portrait')
 
 	for ps3_filename, ps3_path in ps3_filename_to_filepath_map_all_images.items():
 		if ps3_filename not in ps3_filename_to_filepath_map:
@@ -485,30 +490,52 @@ def getSpriteFilenameMap(warn_duplicate_images):
 
 	# Load portrait sprites as third choice
 	ps3_filename_to_filepath_map_portrait = buildFilenameFilepathMap(folder=r'external\ps3',
-															pathFilterString=r'sprite\portrait', #Only include the 'normal' sprites, not any other variants
-															pathToNameFunction=normalizePS3PathToName,
-															warnDuplicates=warn_duplicate_images)
+	                                                                 pathFilterString=r'sprite\portrait',  #Only include the 'normal' sprites, not any other variants
+	                                                                 pathToNameFunction=normalizePS3PathToName,
+	                                                                 warnLevel=warn_level)
 
 	for ps3_filename, ps3_path in ps3_filename_to_filepath_map_portrait.items():
 		if ps3_filename not in ps3_filename_to_filepath_map:
 			ps3_filename_to_filepath_map[ps3_filename] = ps3_path
 
 	ryukishi_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ryukishi',
-															pathFilterString=None,
-															pathToNameFunction=normalizeFilenameAndRemoveExtension,
-															warnDuplicates=warn_duplicate_images)
+	                                                             pathFilterString=None,
+	                                                             pathToNameFunction=normalizeFilenameAndRemoveExtension,
+	                                                             warnLevel=warn_level)
 
 	return ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map
 
-def loadImageComparisonObject(mode):
+def loadImageComparisonObject(mode, dump_mapping = False):
 	################# CONFIG OPTIONS
-	WARN_DUPLICATE_IMAGES = False
+	# WARN_LEVEL = 0  # No warnings about duplicate images
+	WARN_LEVEL = 1  # Warn about duplicate images in the same episode folder
+	# WARN_LEVEL = 2  # Warn about any duplicate images (even across different episodes)
 	################# END CONFIG OPTIONS
 
-	if mode == "background":
-		ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map = getBackgroundFilenameMap(WARN_DUPLICATE_IMAGES)
+	if dump_mapping:
+		pathFilterString = None
 	else:
-		ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map = getSpriteFilenameMap(WARN_DUPLICATE_IMAGES)
+		pathFilterString = 'background'
+
+	if mode == "background":
+		ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map = getBackgroundFilenameMap(WARN_LEVEL, pathFilterString=pathFilterString)
+	else:
+		ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map = getSpriteFilenameMap(WARN_LEVEL)
+
+	if dump_mapping:
+		import csv
+		def dump_rows_as_csv(rows, output_path):
+			with open(output_path, 'w', newline='') as csv_file:
+				writer = csv.writer(csv_file)
+				for row in rows:
+					writer.writerow(row)
+
+		ps3_mapping = sorted(ps3_filename_to_filepath_map.items())
+		ryukishi_mapping = sorted(ryukishi_filename_to_filepath_map.items())
+		dump_rows_as_csv(ps3_mapping, "ps3_mapping.csv")
+		dump_rows_as_csv(ryukishi_mapping, "ryukishi_mapping.csv")
+		return
+
 
 	matches = readCSVAsSpriteMatches(csvFilePath='manual_background_mapping.csv')
 
