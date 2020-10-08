@@ -49,6 +49,7 @@ def main():
 
 	root_folder = 'imageComparer'
 	ps3_folder = 'imageComparer/external/ps3'
+	ryukishi_folder = 'imageComparer/external/ryukishi'
 	output_folder = 'higu_backgrounds_output'
 	csv_path = 'background_matching/manual_bg_map_paths_generated.csv'
 
@@ -95,16 +96,18 @@ def main():
 			os.makedirs(os.path.dirname(dst_path), exist_ok=True)
 			process_image(str(full_path), src_path, dst_path)
 
-			# TODO: handle special images (greyscale, sepia etc.)
-			#####shutil.copy(src_path, dst_path)
+	# Special handling for the "background.png" file in the "scenario" folder - just copy the
+	# 'CG/scenario_a.png' image from the ryukishi folder
+	print("Scenario folder handling")
+	for i in range(1, 9):
+		full_path = os.path.join(ps3_folder, f'ep{i}/scenario/background.png')
+		src_path = os.path.join(ryukishi_folder, f'ep{i}/CG/scenario_a.png')
+		dst_path = os.path.join(output_folder, full_path)
 
-	# # Special handling for the "background.png" file in the "scenario" folder - just copy the
-	# # 'CG/scenario_a.png' image from the ryukishi folder
-	# for i in range(1,9):
-	# 	full_path =
-	# 	process_image(str(full_path), src_path, dst_path)
+		print(f"Copying {src_path} -> {dst_path}")
 
-
+		os.makedirs(os.path.dirname(dst_path), exist_ok=True)
+		process_image(str(full_path), src_path, dst_path)
 
 
 if __name__ == '__main__':
