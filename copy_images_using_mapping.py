@@ -100,14 +100,24 @@ def main():
 	# 'CG/scenario_a.png' image from the ryukishi folder
 	print("Scenario folder handling")
 	for i in range(1, 9):
+		# First, copy the entire scenario folder
+		shutil.copytree(src=os.path.join(ps3_folder, f'ep{i}/scenario'),
+		                dst=os.path.join(output_folder, ps3_folder, f'ep{i}/scenario'),
+		                dirs_exist_ok=True)
+
+		# Then, overwite the background.png file with the ryukishi scenario_a.png file
 		full_path = os.path.join(ps3_folder, f'ep{i}/scenario/background.png')
-		src_path = os.path.join(ryukishi_folder, f'ep{i}/CG/scenario_a.png')
+		src_path = os.path.join(ryukishi_folder, f'ep{i}/scenario_a.png')
 		dst_path = os.path.join(output_folder, full_path)
 
 		print(f"Copying {src_path} -> {dst_path}")
 
 		os.makedirs(os.path.dirname(dst_path), exist_ok=True)
 		process_image(str(full_path), src_path, dst_path)
+
+	# Copy pre-processed blur images
+	print(f"Copying 'preprocessed' folder -> {output_folder}")
+	shutil.copytree('preprocessed', output_folder,  dirs_exist_ok=True)
 
 
 if __name__ == '__main__':
