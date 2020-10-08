@@ -9,11 +9,8 @@ from pathlib import Path
 def process_image(src_ps3_path: str, src_ryukishi_path: str, dst_path: str):
 	containing_path = str(Path(src_ps3_path).parent)
 	containing_path_lower = containing_path.lower()
-	#containing_folder = os.path.basename()
-	#image_type = containing_folder.lower()
 
 	ps3_image = Image.open(src_ps3_path)
-	# print(containing_path, ps3_image.format, ps3_image.size, ps3_image.mode)
 
 	ryukishi_image = Image.open(src_ryukishi_path)
 	out_noeffect = ryukishi_image.resize(ps3_image.size)
@@ -41,12 +38,9 @@ def process_image(src_ps3_path: str, src_ryukishi_path: str, dst_path: str):
 
 
 def main():
-	# process_image('C:\\temp\\flashback\\kawa4.png',
-	#               'C:\\temp\\flashback\\kawa4_ryu.png',
-	#               'C:\\temp\\flashback\\kawa4fixed.png')
-	#
-	# exit(-1)
-
+	# This script expects the folder imageComparer/external/ps3/ep1 to contain the PS3 CG folder for episode 1
+	# and imageComparer/external/ryukishi/ep1 to contain the original ryukishi CG folder for episode 1
+	# and so on for each episode.
 	root_folder = 'imageComparer'
 	ps3_folder = 'imageComparer/external/ps3'
 	ryukishi_folder = 'imageComparer/external/ryukishi'
@@ -65,7 +59,6 @@ def main():
 	print("> Generating Mapping")
 	mapping = {}
 	for row in all_rows:
-		# ps3_path = row[6]
 		ps3_filename = row[1]  # PS3 filename without extension
 		ryukishi_path = row[7]
 		if ps3_filename == 'NO_MATCH' or ryukishi_path == 'NO_MATCH':
@@ -102,8 +95,8 @@ def main():
 	for i in range(1, 9):
 		# First, copy the entire scenario folder
 		shutil.copytree(src=os.path.join(ps3_folder, f'ep{i}/scenario'),
-		                dst=os.path.join(output_folder, ps3_folder, f'ep{i}/scenario'),
-		                dirs_exist_ok=True)
+						dst=os.path.join(output_folder, ps3_folder, f'ep{i}/scenario'),
+						dirs_exist_ok=True)
 
 		# Then, overwite the background.png file with the ryukishi scenario_a.png file
 		full_path = os.path.join(ps3_folder, f'ep{i}/scenario/background.png')
