@@ -83,6 +83,9 @@ def main(small_image_mode):
 	output_folder = 'higu_backgrounds_output'
 	csv_path = 'background_matching/manual_bg_map_paths_generated.csv'
 
+	if os.path.exists(output_folder):
+		raise Exception("Output folder already exists - please delete it!")
+
 	# Load all the rows
 	with open(csv_path, newline='') as csvfile:
 		reader = csv.reader(csvfile, delimiter=',', quotechar='"')
@@ -154,6 +157,13 @@ def main(small_image_mode):
 	if small_image_mode:
 		preprocessed_folder = 'preprocessed_small'
 	shutil.copytree(preprocessed_folder, output_folder,  dirs_exist_ok=True)
+
+	for i in range(1, 9):
+		src_path = os.path.join(output_folder, ps3_folder, f'ep{i}')
+		dest_containing_folder = os.path.join(output_folder, f'ep{i}/HigurashiEp0{i}_Data/StreamingAssets')
+		dest_path = os.path.join(dest_containing_folder, 'OGBackgrounds')
+		os.makedirs(dest_containing_folder, exist_ok=True)
+		os.rename(src_path, dest_path)
 
 
 if __name__ == '__main__':
