@@ -6,23 +6,59 @@ from PIL import Image, ImagePalette, ImageOps
 from pathlib import Path
 
 
-def process_image(src_ps3_path: str, src_ryukishi_path: str, dst_path: str):
+# This function is taken from https://stackoverflow.com/questions/43864101/python-pil-check-if-image-is-transparent
+def has_transparency(img):
+	if img.mode == "P":
+		transparent = img.info.get("transparency", -1)
+		for _, index in img.getcolors():
+			if index == transparent:
+				return True
+	elif img.mode == "RGBA":
+		extrema = img.getextrema()
+		if extrema[3][0] < 255:
+			return True
+
+	return False
+
+
+def process_image(src_ps3_path: str, src_ryukishi_path: str, dst_path: str, SMALL_IMAGE_MODE):
 	containing_path = str(Path(src_ps3_path).parent)
 	containing_path_lower = containing_path.lower()
 
 	ps3_image = Image.open(src_ps3_path)
 
 	ryukishi_image = Image.open(src_ryukishi_path)
-	out_noeffect = ryukishi_image.resize(ps3_image.size)
+	output_image_mode = 'RGB'
+	if has_transparency(ryukishi_image):
+		output_image_mode = 'RGBA'
+
+	# Convert paletted images to RGB first
+	if ryukishi_image.mode in ['P', '1']:
+		print(f"WARNING: converting paletted or binary image [{src_ryukishi_path}] to RGB/RGBA")
+		ryukishi_image = ryukishi_image.convert(output_image_mode)
+
+	# Check for strange image modes
+	if ryukishi_image.mode not in ['RGB', 'RGBA', 'L']:
+		raise Exception(f"Unhandled image mode: [{ryukishi_image.mode}]")
+
+	if SMALL_IMAGE_MODE:
+		if ps3_image.size in [(1920, 1080), (1280, 720)]:
+			out_noeffect = ryukishi_image.resize((853, 480))
+		else:
+			out_noeffect = ryukishi_image.resize(ps3_image.size)
+	else:
+		out_noeffect = ryukishi_image.resize(ps3_image.size)
 
 	if 'flashback' in containing_path_lower:
+		# TODO: handle transparency when applying flashback effect! Currently converting to greyscale ('L') loses alpha
 		out = out_noeffect.convert('L')
 		out.putpalette(ImagePalette.sepia())
-		out = out.convert('RGB')
+		out = out.convert(output_image_mode)
 		# Adjust the strength of the sepia effect by blending with the original image
 		# 0 = no sepia, 1 = full sepia
 		out = Image.blend(out_noeffect, out, .7)
 	elif 'greyscale' in containing_path_lower:
+		# TODO: handle transparency when applying greyscale effect! Currently converting to greyscale ('L') loses alpha
 		out = out_noeffect.convert('L')
 	elif 'negative' in containing_path_lower:
 		out = ImageOps.invert(out_noeffect)
@@ -37,7 +73,7 @@ def process_image(src_ps3_path: str, src_ryukishi_path: str, dst_path: str):
 	out.save(dst_path)
 
 
-def main():
+def main(small_image_mode):
 	# This script expects the folder imageComparer/external/ps3/ep1 to contain the PS3 CG folder for episode 1
 	# and imageComparer/external/ryukishi/ep1 to contain the original ryukishi CG folder for episode 1
 	# and so on for each episode.
@@ -61,7 +97,10 @@ def main():
 	for row in all_rows:
 		ps3_filename = row[1]  # PS3 filename without extension
 		ryukishi_path = row[7]
-		if ps3_filename == 'NO_MATCH' or ryukishi_path == 'NO_MATCH':
+		match_type = row[5]
+		if match_type == 'EFFECT':
+			print(f"WARNING: Discarding mapping for effect image [{ps3_filename}] [{ryukishi_path}]")
+		elif ps3_filename == 'NO_MATCH' or ryukishi_path == 'NO_MATCH':
 			print(f"WARNING: not adding file with no match to mapping: [{ps3_filename}] [{ryukishi_path}]")
 		else:
 			mapping[ps3_filename.lower()] = ryukishi_path
@@ -87,18 +126,19 @@ def main():
 				raise Exception(f"Error: output file already exists {dst_path}")
 
 			os.makedirs(os.path.dirname(dst_path), exist_ok=True)
-			process_image(str(full_path), src_path, dst_path)
+			process_image(str(full_path), src_path, dst_path, small_image_mode)
 
 	# Special handling for the "background.png" file in the "scenario" folder - just copy the
 	# 'CG/scenario_a.png' image from the ryukishi folder
 	print("Scenario folder handling")
 	for i in range(1, 9):
+		# This is no longer carried out - game will automatically prefer the images in the CG folder if they don't exist
 		# First, copy the entire scenario folder
-		shutil.copytree(src=os.path.join(ps3_folder, f'ep{i}/scenario'),
-						dst=os.path.join(output_folder, ps3_folder, f'ep{i}/scenario'),
-						dirs_exist_ok=True)
+		# shutil.copytree(src=os.path.join(ps3_folder, f'ep{i}/scenario'),
+		# 				dst=os.path.join(output_folder, ps3_folder, f'ep{i}/scenario'),
+		# 				dirs_exist_ok=True)
 
-		# Then, overwite the background.png file with the ryukishi scenario_a.png file
+		# Copy just the ryukishi `scenario_a.png` file
 		full_path = os.path.join(ps3_folder, f'ep{i}/scenario/background.png')
 		src_path = os.path.join(ryukishi_folder, f'ep{i}/scenario_a.png')
 		dst_path = os.path.join(output_folder, full_path)
@@ -106,12 +146,15 @@ def main():
 		print(f"Copying {src_path} -> {dst_path}")
 
 		os.makedirs(os.path.dirname(dst_path), exist_ok=True)
-		process_image(str(full_path), src_path, dst_path)
+		process_image(str(full_path), src_path, dst_path, small_image_mode)
 
 	# Copy pre-processed blur images
 	print(f"Copying 'preprocessed' folder -> {output_folder}")
-	shutil.copytree('preprocessed', output_folder,  dirs_exist_ok=True)
+	preprocessed_folder = 'preprocessed'
+	if small_image_mode:
+		preprocessed_folder = 'preprocessed_small'
+	shutil.copytree(preprocessed_folder, output_folder,  dirs_exist_ok=True)
 
 
 if __name__ == '__main__':
-	main()
+	main(small_image_mode=True)
