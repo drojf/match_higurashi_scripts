@@ -21,7 +21,26 @@ def has_transparency(img):
 	return False
 
 
-def process_image(src_ps3_path: str, src_ryukishi_path: str, dst_path: str, SMALL_IMAGE_MODE):
+def resize_image(ps3_image, ryukishi_image, SMALL_IMAGE_MODE, FOUR_THREE_ASPECT):
+	if not SMALL_IMAGE_MODE:
+		return ryukishi_image.resize(ps3_image.size)
+
+	# Assume special image size if ps3 size is not one of the standard resolutions, so forcibly resize to exactly
+	# the PS3 image size
+	if ps3_image.size not in [(2560, 1440), (1920, 1080), (1280, 720)]:
+		return ryukishi_image.resize(ps3_image.size)
+
+	if FOUR_THREE_ASPECT:
+		# If in 4:3 aspect ratio don't resize the original as it's already 4:3
+		if ryukishi_image.size[0] != int(ryukishi_image.size[1] * 4 / 3):
+			raise Exception(f"Ryukishi image is of the wrong aspect! {ryukishi_image.size}")
+		return ryukishi_image
+	else:
+		# If in 16:9 aspect ratio mode, resize to 16:9 resoltuion
+		return ryukishi_image.resize((round(ryukishi_image.size[1] * 16 / 9), ryukishi_image.size[1]))
+
+
+def process_image(src_ps3_path: str, src_ryukishi_path: str, dst_path: str, SMALL_IMAGE_MODE: bool, FOUR_THREE_ASPECT: bool):
 	containing_path = str(Path(src_ps3_path).parent)
 	containing_path_lower = containing_path.lower()
 
@@ -41,13 +60,7 @@ def process_image(src_ps3_path: str, src_ryukishi_path: str, dst_path: str, SMAL
 	if ryukishi_image.mode not in ['RGB', 'RGBA', 'L']:
 		raise Exception(f"Unhandled image mode: [{ryukishi_image.mode}]")
 
-	if SMALL_IMAGE_MODE:
-		if ps3_image.size in [(1920, 1080), (1280, 720)]:
-			out_noeffect = ryukishi_image.resize((853, 480))
-		else:
-			out_noeffect = ryukishi_image.resize(ps3_image.size)
-	else:
-		out_noeffect = ryukishi_image.resize(ps3_image.size)
+	out_noeffect = resize_image(ps3_image, ryukishi_image, SMALL_IMAGE_MODE, FOUR_THREE_ASPECT)
 
 	if 'flashback' in containing_path_lower:
 		# TODO: handle transparency when applying flashback effect! Currently converting to greyscale ('L') loses alpha
@@ -73,7 +86,7 @@ def process_image(src_ps3_path: str, src_ryukishi_path: str, dst_path: str, SMAL
 	out.save(dst_path)
 
 
-def main(small_image_mode):
+def main(small_image_mode, four_three_aspect):
 	# This script expects the folder imageComparer/external/ps3/ep1 to contain the PS3 CG folder for episode 1
 	# and imageComparer/external/ryukishi/ep1 to contain the original ryukishi CG folder for episode 1
 	# and so on for each episode.
@@ -129,7 +142,7 @@ def main(small_image_mode):
 				raise Exception(f"Error: output file already exists {dst_path}")
 
 			os.makedirs(os.path.dirname(dst_path), exist_ok=True)
-			process_image(str(full_path), src_path, dst_path, small_image_mode)
+			process_image(str(full_path), src_path, dst_path, small_image_mode, four_three_aspect)
 
 	# Special handling for the "background.png" file in the "scenario" folder - just copy the
 	# 'CG/scenario_a.png' image from the ryukishi folder
@@ -149,7 +162,7 @@ def main(small_image_mode):
 		print(f"Copying {src_path} -> {dst_path}")
 
 		os.makedirs(os.path.dirname(dst_path), exist_ok=True)
-		process_image(str(full_path), src_path, dst_path, small_image_mode)
+		process_image(str(full_path), src_path, dst_path, small_image_mode, four_three_aspect)
 
 	# Copy pre-processed blur images
 	print(f"Copying 'preprocessed' folder -> {output_folder}")
@@ -167,4 +180,4 @@ def main(small_image_mode):
 
 
 if __name__ == '__main__':
-	main(small_image_mode=True)
+	main(small_image_mode=True, four_three_aspect=False)
