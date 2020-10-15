@@ -120,9 +120,9 @@ _tsum_025.txt,gr1_01,gr1,NO_MATCH,gr1,AUTOMATIC
 _mats_025.txt,gr2,gr2,gr2,gr2,IDENTICAL
 _tsum_026.txt,gr2_01,gr2,gr2,gr2,IDENTICAL
 _kakera36.txt,gr3,gr3,gr3,gr3,IDENTICAL
-_mina_ep.txt,gry2,gry1,NO_MATCH,gry1,AUTOMATIC
+_mina_ep.txt,gry2,gry1,gry2,gry2,MANUAL
 _kakera45.txt,gy3_01,gy3,gr3,gy3,CONTRADICTORY
-_tsum_026.txt,gy7,gy1,NO_MATCH,gy3,AUTOMATIC
+_tsum_026.txt,gy7,gy1,gy7,gy7,MANUAL
 unknown,haikei,NO_MATCH,haikei,haikei,NAEGLES
 unknown,haikei-,NO_MATCH,haikei,haikei,NAEGLES
 tata_013_02.txt,hasi1,bg_029,bg_029,bg_029,IDENTICAL
@@ -149,7 +149,7 @@ _kakera32.txt,ho_2,ho_2,bg_057,ho_2,CONTRADICTORY
 _kakera32.txt,ho_r1,ho_r1,ho_r1,ho_r1,IDENTICAL
 tata_001.txt,honoo,NO_MATCH,red,red,NAEGLES
 _mats_019.txt,hoteru,hoteru,hoteru,hoteru,IDENTICAL
-_mats_021.txt,hu2,hu1,NO_MATCH,hu1,AUTOMATIC
+_mats_021.txt,hu2,hu1,hu2,hu2,MANUAL
 _mats_018.txt,hu2_01,hu1,NO_MATCH,hu1,AUTOMATIC
 _kakera52.txt,hu_ima,NO_MATCH,hu_r1,hu_r1,NAEGLES
 _mats_025.txt,hu_r1,hu_r1,hu_r1,hu_r1,IDENTICAL
@@ -159,7 +159,7 @@ _mats_015.txt,ie1,ie1,ie1,ie1,IDENTICAL
 _mina_020.txt,ie1_01,ie2,ie1,ie1,CONTRADICTORY
 _mats_018.txt,ima1,ima1,ima1,ima1,IDENTICAL
 _mats_025.txt,ima3,heya4,ima3,ima3,CONTRADICTORY
-_mats_025.txt,jansou,bg_071,bg_071,bg_071,IDENTICAL
+_mats_025.txt,jansou,bg_071,jansou,jansou,MANUAL
 _mats_025.txt,jd4,jd4,jd4,jd4,IDENTICAL
 onik_009_02.txt,jd4_01,jd4,jd4,jd4,IDENTICAL
 _mats_025.txt,je1,je1,je1,je1,IDENTICAL
@@ -168,10 +168,10 @@ _mats_017.txt,ji1,ji1,ji1,ji1,IDENTICAL
 _mats_025.txt,ji1_01,ji5,ji1,ji1,CONTRADICTORY
 _mats_014.txt,ji2,ji2,ji2,ji2,IDENTICAL
 _mats_018.txt,ji2_01,ji2,ji2,ji2,IDENTICAL
-_mats_014.txt,ji6,ji6,bg_079,bg_079,CONTRADICTORY
+_mats_014.txt,ji6,ji6,ji6,ji6,MANUAL
 _mats_021.txt,jok1,jok1,jok1,jok1,IDENTICAL
 _tsum_012_1.txt,jok2,jok2,jok2,jok2,IDENTICAL
-_mina_004.txt,js1,bg_079,bg_079,bg_079,IDENTICAL
+_mina_004.txt,js1,bg_079,js1,js1,MANUAL
 _mina_004.txt,js1_01,ji5,bg_079,bg_079,CONTRADICTORY
 _mina_006.txt,js3,js3,jsa2,js3,CONTRADICTORY
 _meak_016_2.txt,js3_01,jsa2,jsa2,jsa2,IDENTICAL
@@ -188,7 +188,7 @@ _mats_018.txt,jt2_01,jt2,jt2,jt2,IDENTICAL
 _mats_007.txt,juku1_01,juku1,hi6,hi6,NAEGLES
 _mats_014.txt,jy1,jy1,jy1,jy1,IDENTICAL
 _mats_025.txt,jy2,jy2,jy2,jy2,IDENTICAL
-_kakera27.txt,jys1,js1,jy1,js1,CONTRADICTORY
+_kakera27.txt,jys1,js1,jys1,jys1,MANUAL
 _meak_tips_14.txt,jysa1,jysa1,jysa1,jysa1,IDENTICAL
 _mina_021.txt,jyt1,jyt1,jyt1,jyt1,IDENTICAL
 _mats_018.txt,jyt2,jyt2,jyt2,jyt2,IDENTICAL
@@ -197,12 +197,12 @@ _meak_005.txt,k_kouen1_01,kouen,NO_MATCH,kouen,AUTOMATIC
 _kakera51.txt,k_oyashiro,NO_MATCH,black,black,NAEGLES
 _mats_010.txt,k_ten2,ho1_tokyo,NO_MATCH,ho1_tokyo,AUTOMATIC
 _mats_010.txt,ka1_01,ka2,NO_MATCH,ka2,AUTOMATIC
-_mats_022.txt,ka4,ka1,NO_MATCH,ka1,AUTOMATIC
+_mats_022.txt,ka4,ka1,ka4,ka4,MANUAL
 _mats_020.txt,kai_jyun,ke_s3,NO_MATCH,ke_s3,AUTOMATIC
 _mats_020.txt,kai_ten,ke_s3,ke5,ke5,NAEGLES
 _kakera52.txt,kakera,kakera3,NO_MATCH,kakera3,AUTOMATIC
 _tsum_010.txt,kawa1,kawa1,kawa1,kawa1,IDENTICAL
-hima_002.txt,kawa4,bg_005,bg_087,bg_005,CONTRADICTORY
+hima_002.txt,kawa4,bg_005,kawa4,kawa4,MANUAL
 _mats_019.txt,ke1,ke1,bg_091,bg_091,CONTRADICTORY
 _meak_012.txt,ke1_01,ke1,NO_MATCH,ke1,AUTOMATIC
 _mats_019.txt,ke2,ke2,ke2,ke2,IDENTICAL
@@ -214,7 +214,7 @@ _mats_019.txt,ke_s2,ke_s1,ke_s1,ke_s1,IDENTICAL
 staffroom.txt,ke_shiryou1_02,NO_MATCH,dsc00038,dsc00038,NAEGLES
 hima_tips_14.txt,kimi_o1_08,terebi1,terebi1,terebi1,IDENTICAL
 _kakera52.txt,koudou,mati16,NO_MATCH,mati16,AUTOMATIC
-_mats_024.txt,koya1,koya2,NO_MATCH,koya2,AUTOMATIC
+_mats_024.txt,koya1,koya2,koya1,koya1,MANUAL
 _mats_024.txt,koya1_02,koya1,bg_097,bg_097,CONTRADICTORY
 hima_004.txt,kukou1,NO_MATCH,bg_099,bg_099,NAEGLES
 _mats_023.txt,kuruma1,kuruma1,kuruma1,kuruma1,IDENTICAL
@@ -307,7 +307,7 @@ _kakera46.txt,mati_o6,mati_o6,mati_o6,mati_o6,IDENTICAL
 _mats_024.txt,mo1,mo1,mo1,mo1,IDENTICAL
 tata_011_02.txt,mo1_01,mo1,mo1,mo1,IDENTICAL
 _mats_024.txt,mo1_02,mo1,mo2,mo2,CONTRADICTORY
-_mats_024.txt,mo2,mo2,mo1,mo1,CONTRADICTORY
+_mats_024.txt,mo2,mo2,mo2,mo2,MANUAL
 onik_015_02.txt,mo2_01,mo2,mo1,mo1,CONTRADICTORY
 _mats_024.txt,mo2_02,mo2,ymo1,ymo2,CONTRADICTORY
 _mats_025.txt,mo3,mo3,mo3,mo3,IDENTICAL
@@ -318,7 +318,7 @@ onik_015_02.txt,mo4_01,mo4,mo4,mo4,IDENTICAL
 _mats_024.txt,mo4_02,mo4,bg_144_mo1,bg_144_mo1,CONTRADICTORY
 _mats_006.txt,mo4_04,mo4,NO_MATCH,mo4,AUTOMATIC
 unknown,mo4_05,NO_MATCH,sora,sora,NAEGLES
-hima_002.txt,mo_b1,sora,m_hi9,m_hi9,CONTRADICTORY
+hima_002.txt,mo_b1,sora,mo_b1,mo_b1,MANUAL
 _mats_023.txt,mo_g1,mo_g1,mo_g1,mo_g1,IDENTICAL
 _tsum_op.txt,mo_g1_01,mo_g1,mo_g1,mo_g1,IDENTICAL
 _tsum_010.txt,mo_g2,mo_g2,mo_g2,mo_g2,IDENTICAL
@@ -399,7 +399,7 @@ _mats_021.txt,so2,so2,so2,so2,IDENTICAL
 tata_009_02.txt,so2_01,NO_MATCH,so2,so2,NAEGLES
 _mats_021.txt,so3,so3,so3,so3,IDENTICAL
 _mina_018.txt,so5,so5,NO_MATCH,so5,AUTOMATIC
-_meak_012.txt,so6,so3,NO_MATCH,so3,AUTOMATIC
+_meak_012.txt,so6,so3,so6,so6,MANUAL
 _mats_021.txt,so_chikafuroa,jsa6,black,black,CONTRADICTORY
 _mats_021.txt,so_chikaido1,jsa7,NO_MATCH,jsa7,AUTOMATIC
 _mats_021.txt,so_chikasaishinbu,jsa9,NO_MATCH,jsa9,AUTOMATIC
@@ -407,11 +407,11 @@ _mina_op.txt,so_d1,so_d1,so_d1,so_d1,IDENTICAL
 _meak_021_2.txt,so_d1_01,so_d1,so_d1,so_d1,IDENTICAL
 _kakera38.txt,so_g1,so_g1,so_g1,so_g1,IDENTICAL
 _mats_021.txt,so_k1,so_k1,so_k1,so_k1,IDENTICAL
-_mats_025.txt,sora,sora,sora2,sora2,CONTRADICTORY
+_mats_025.txt,sora,sora,sora,sora,MANUAL
 unknown,sora1,NO_MATCH,sora2,sora2,NAEGLES
 _mats_025.txt,sora2,sora2,sora3,sora2,CONTRADICTORY
-_mats_024.txt,sora5,sora3,sora3,sora3,IDENTICAL
-_mats_018.txt,sora6,sora6,sora3,sora3,CONTRADICTORY
+_mats_024.txt,sora5,sora3,sora5,sora5,MANUAL
+_mats_018.txt,sora6,sora6,sora6,sora6,MANUAL
 _mats_025.txt,sora_01,gy7,NO_MATCH,gy7,AUTOMATIC
 unknown,staff01,NO_MATCH,staff01,staff01,NAEGLES
 _mats_022.txt,susuki,kusa,kusa,kusa,IDENTICAL
@@ -463,7 +463,7 @@ _mats_op.txt,xta2,ta2_tokyo,NO_MATCH,ta2_tokyo,AUTOMATIC
 _mats_op.txt,xta3,ta3,NO_MATCH,ta3,AUTOMATIC
 _kakera13.txt,y_damu2,y_damu2,y_damu2,y_damu2,IDENTICAL
 _meak_022_2.txt,y_ie1,bg_242,bg_242,bg_242,IDENTICAL
-_mats_025.txt,y_kawa3,bg_247,bg_247,bg_247,IDENTICAL
+_mats_025.txt,y_kawa3,bg_247,y_kawa3,y_kawa3,IDENTICAL
 _kakera15.txt,y_oni1,oni2,bg_259,bg_259,CONTRADICTORY
 tata_011_02.txt,y_oni1_01,bg_259,bg_259,bg_259,IDENTICAL
 _mina_ep.txt,yg2,yg2,NO_MATCH,yg2,AUTOMATIC
