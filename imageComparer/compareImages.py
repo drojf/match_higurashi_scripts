@@ -569,5 +569,14 @@ def startBackgroundComparison():
 	gui = InstallerGUI(workingDirectory='.', image_comparison_load_function=loadObject)
 	gui.server_test()
 
+
 if __name__ == '__main__':
-	startSpriteComparison()
+	selection = input("Please enter the mode: 'background', 'sprite', or 'dump_background'\n")
+	if selection == 'sprite':
+		startSpriteComparison()
+	elif selection == 'background':
+		startBackgroundComparison()
+	elif selection == 'dump_background':
+		loadImageComparisonObject(mode="background", dump_mapping=True)
+	else:
+		input(f"Unknown mode {selection} - quitting. Press ENTER to continue.")
