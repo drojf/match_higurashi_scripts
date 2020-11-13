@@ -206,38 +206,81 @@ def merge_auto_matching_and_naegles(auto_matching_path, naegles_path, output_pat
 
 	save_rows(output_rows, output_path, header_row=["last_file_found", "ps3_name", "auto", "naegles", "final_choice", "status"])
 
-def identify_cg(final_mapping_file_path, ps3_filename_to_path_mapping_file_path, output_path):
-	filename_to_path_dict = dict(load_rows(ps3_filename_to_path_mapping_file_path))
-	ps3_final_mapping_all_rows = load_rows(final_mapping_file_path)
-	ps3_final_mapping_rows = ps3_final_mapping_all_rows[1:]
+def identify_cg(final_mapping_file_path, ps3_filename_to_path_mapping_file_path, ryukishi_filename_to_path_mapping_file_path, output_path):
+	def append_paths_to_rows(bg_mapping_rows, bg_mapping_rows_filename_column_index, filename_to_path_dict, column_name):
+		header = bg_mapping_rows[0]
+		body = bg_mapping_rows[1:]
 
-	out_rows = [ps3_final_mapping_all_rows[0] + ['ps3_path']]
+		out_rows = [header + [column_name]]
 
-	for row in ps3_final_mapping_rows:
-		ps3_path = row[1]
-		path = filename_to_path_dict.get(ps3_path)
-		if path is None:
-			print(ps3_path, path)
-			raise Exception(f"No file path for {ps3_path} on row [{row}]")
-		else:
-			print(ps3_path, path)
+		for row in body:
+			filename = row[bg_mapping_rows_filename_column_index]
+			path = filename_to_path_dict.get(filename)
+			if filename == 'NO_MATCH':
+				print("Ignoring NO_MATCH on row", row)
+				out_rows.append(row + ['NO_MATCH'])
+			elif path is None:
+				print(filename, path)
+				raise Exception(f"No file path for {filename} on row [{row}]")
+			else:
+				print(filename, path)
+				out_rows.append(row + [path])
 
-		out_rows.append(row + [path])
+		return out_rows
 
-	save_rows(out_rows, output_path)
+	ps3_filename_to_path_dict = dict(load_rows(ps3_filename_to_path_mapping_file_path))
+	ryukishi_filename_to_path_dict = dict(load_rows(ryukishi_filename_to_path_mapping_file_path))
+	bg_mapping_rows = load_rows(final_mapping_file_path)
+
+	rows_with_ps3_paths = append_paths_to_rows(bg_mapping_rows, 1, ps3_filename_to_path_dict, 'ps3_path')
+	rows_with_both_paths = append_paths_to_rows(rows_with_ps3_paths, 4, ryukishi_filename_to_path_dict, 'ryukishi_path')
+
+	save_rows(rows_with_both_paths, output_path)
+
+# Scan for duplicate images
+def scan_dupes(phash_dupes_path, ryukishi_filename_to_path_mapping_file_path):
+	dup_dict = {}
+
+	with open(phash_dupes_path, newline='') as csvfile:
+		reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+		for row in reader:
+			dup_dict[row[0]] = row[1]
+
+	ryukishi_image_names = set()
+
+	with open(ryukishi_filename_to_path_mapping_file_path, newline='') as csvfile:
+		reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+		for row in reader:
+			ryukishi_image_names.add(row[0])
+
+	with open(final_manual_mapping, newline='') as csvfile:
+		reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+		reader.__next__()
+		for row in reader:
+			if row[1] in ryukishi_image_names:
+				if row[4] == row[1]:
+					continue
+
+				if row[4] in dup_dict:
+					if dup_dict[row[4]] == row[1]:
+						continue
+
+				print(row[1])
 
 
 if __name__ == '__main__':
 	scan_folder = r'C:\temp\higu_backgrounds_imageComparer\external\ryukishi'
 	csv_path = r'background_matching_intermediate\ryukishi_image_signatures.csv'
 	sha_dupes_path = r'background_matching_intermediate\ryukishi_sha_dups_out.csv'
-	phash_dupes_path = r'background_matching_intermediate\ryukishi_phash_dups_out.csv'
 	auto_matching_path = 'background_matching_intermediate/auto_matching.csv'
 	naegles_remapped_path = 'background_matching_intermediate/naegles_remapped.csv'
 	merged_output_path = 'background_matching_intermediate/merged_mapping.csv'
 	final_manual_mapping = 'background_matching/manual_background_mapping.csv'
 	ps3_filename_to_path_mapping_file_path = 'imageComparer/ps3_mapping.csv'
 	manual_background_mapping_with_paths_path = 'background_matching/manual_bg_map_paths_generated.csv'
+
+	phash_dupes_path = r'background_matching_intermediate\ryukishi_phash_dups.csv'
+	ryukishi_filename_to_path_mapping_file_path = 'imageComparer/ryukishi_mapping.csv'
 
 	do_indexing = False
 
@@ -249,4 +292,6 @@ if __name__ == '__main__':
 
 	# remap_naegles()
 
-	merge_auto_matching_and_naegles(auto_matching_path, naegles_remapped_path, merged_output_path)
+	#merge_auto_matching_and_naegles(auto_matching_path, naegles_remapped_path, merged_output_path)
+
+	#identify_cg(final_manual_mapping, ps3_filename_to_path_mapping_file_path, ryukishi_filename_to_path_mapping_file_path, manual_background_mapping_with_paths_path)
