@@ -164,7 +164,7 @@ def main(small_image_mode, four_three_aspect):
 		os.makedirs(os.path.dirname(dst_path), exist_ok=True)
 		process_image(str(full_path), src_path, dst_path, small_image_mode, four_three_aspect)
 
-	# Copy pre-processed blur images
+	# Copy pre-processed images
 	print(f"Copying 'preprocessed' folder -> {output_folder}")
 	preprocessed_folder = 'preprocessed'
 	if small_image_mode:
@@ -173,11 +173,16 @@ def main(small_image_mode, four_three_aspect):
 
 	for i in range(1, 9):
 		src_path = os.path.join(output_folder, ps3_folder, f'ep{i}')
+
+		# Copy pre-processed images common to all projects
+		shutil.copytree('preprocessed_common', src_path, dirs_exist_ok=True)
+
+		# move files from path `higu_backgrounds_output/imageComparer/external/ps3/epX` to
+		# `higu_backgrounds_output/epX/HigurashiEp0X_Data/StreamingAssets`
 		dest_containing_folder = os.path.join(output_folder, f'ep{i}/HigurashiEp0{i}_Data/StreamingAssets')
 		dest_path = os.path.join(dest_containing_folder, 'OGBackgrounds')
 		os.makedirs(dest_containing_folder, exist_ok=True)
 		os.rename(src_path, dest_path)
 
-
 if __name__ == '__main__':
-	main(small_image_mode=True, four_three_aspect=False)
+	main(small_image_mode=True, four_three_aspect=True)
