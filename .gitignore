@@ -1,5 +1,6 @@
 imageComparer/external
 imageComparer/external_jpg
+imageComparer/mapping.txt
 .idea
 __pycache__
 higu_backgrounds_output
