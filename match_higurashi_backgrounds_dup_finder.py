@@ -268,6 +268,15 @@ def scan_dupes(phash_dupes_path, ryukishi_filename_to_path_mapping_file_path):
 				print(row[1])
 
 
+def identify_cg_easy():
+	final_manual_mapping = 'background_matching/manual_background_mapping.csv'
+	ps3_filename_to_path_mapping_file_path = 'imageComparer/ps3_mapping.csv'
+	manual_background_mapping_with_paths_path = 'background_matching/manual_bg_map_paths_generated.csv'
+	ryukishi_filename_to_path_mapping_file_path = 'imageComparer/ryukishi_mapping.csv'
+
+	identify_cg(final_manual_mapping, ps3_filename_to_path_mapping_file_path, ryukishi_filename_to_path_mapping_file_path, manual_background_mapping_with_paths_path)
+
+
 if __name__ == '__main__':
 	scan_folder = r'C:\temp\higu_backgrounds_imageComparer\external\ryukishi'
 	csv_path = r'background_matching_intermediate\ryukishi_image_signatures.csv'
@@ -275,12 +284,8 @@ if __name__ == '__main__':
 	auto_matching_path = 'background_matching_intermediate/auto_matching.csv'
 	naegles_remapped_path = 'background_matching_intermediate/naegles_remapped.csv'
 	merged_output_path = 'background_matching_intermediate/merged_mapping.csv'
-	final_manual_mapping = 'background_matching/manual_background_mapping.csv'
-	ps3_filename_to_path_mapping_file_path = 'imageComparer/ps3_mapping.csv'
-	manual_background_mapping_with_paths_path = 'background_matching/manual_bg_map_paths_generated.csv'
 
 	phash_dupes_path = r'background_matching_intermediate\ryukishi_phash_dups.csv'
-	ryukishi_filename_to_path_mapping_file_path = 'imageComparer/ryukishi_mapping.csv'
 
 	do_indexing = False
 
@@ -294,4 +299,3 @@ if __name__ == '__main__':
 
 	#merge_auto_matching_and_naegles(auto_matching_path, naegles_remapped_path, merged_output_path)
 
-	#identify_cg(final_manual_mapping, ps3_filename_to_path_mapping_file_path, ryukishi_filename_to_path_mapping_file_path, manual_background_mapping_with_paths_path)

@@ -120,9 +120,9 @@ _tsum_025.txt,gr1_01,gr1,NO_MATCH,gr1,AUTOMATIC,external\ps3\ep6\background\gr1_
 _mats_025.txt,gr2,gr2,gr2,gr2,IDENTICAL,external\ps3\ep1\background\gr2.png,external\ryukishi\ep5\gr2.png
 _tsum_026.txt,gr2_01,gr2,gr2,gr2,IDENTICAL,external\ps3\ep3\background\gr2_01.png,external\ryukishi\ep5\gr2.png
 _kakera36.txt,gr3,gr3,gr3,gr3,IDENTICAL,external\ps3\ep1\background\gr3.png,external\ryukishi\ep5\gr3.png
-_mina_ep.txt,gry2,gry1,NO_MATCH,gry1,AUTOMATIC,external\ps3\ep6\background\gry2.png,external\ryukishi\ep6\gry1.png
+_mina_ep.txt,gry2,gry1,gry2,gry2,MANUAL,external\ps3\ep6\background\gry2.png,external\ryukishi\ep7\gry2.png
 _kakera45.txt,gy3_01,gy3,gr3,gy3,CONTRADICTORY,external\ps3\ep3\background\gy3_01.png,external\ryukishi\ep6\gy3.png
-_tsum_026.txt,gy7,gy1,NO_MATCH,gy3,AUTOMATIC,external\ps3\ep6\background\gy7.png,external\ryukishi\ep6\gy3.png
+_tsum_026.txt,gy7,gy1,gy7,gy7,MANUAL,external\ps3\ep6\background\gy7.png,external\ryukishi\ep6\gy7.png
 unknown,haikei,NO_MATCH,haikei,haikei,NAEGLES,external\ps3\ep1\haikei.png,external\ryukishi\ep1\haikei.png
 unknown,haikei-,NO_MATCH,haikei,haikei,NAEGLES,external\ps3\ep1\haikei-.png,external\ryukishi\ep1\haikei.png
 tata_013_02.txt,hasi1,bg_029,bg_029,bg_029,IDENTICAL,external\ps3\ep1\background\hasi1.png,external\ryukishi\ep1\bg_029.png
@@ -149,7 +149,7 @@ _kakera32.txt,ho_2,ho_2,bg_057,ho_2,CONTRADICTORY,external\ps3\ep3\background\ho
 _kakera32.txt,ho_r1,ho_r1,ho_r1,ho_r1,IDENTICAL,external\ps3\ep3\background\ho_r1.png,external\ryukishi\ep5\ho_r1.png
 tata_001.txt,honoo,NO_MATCH,red,red,NAEGLES,external\ps3\ep3\background\honoo.png,external\ryukishi\ep3\red.png
 _mats_019.txt,hoteru,hoteru,hoteru,hoteru,IDENTICAL,external\ps3\ep4\background\hoteru.png,external\ryukishi\ep5\hoteru.png
-_mats_021.txt,hu2,hu1,NO_MATCH,hu1,AUTOMATIC,external\ps3\ep7\background\hu2.png,external\ryukishi\ep7\hu1.png
+_mats_021.txt,hu2,hu1,hu2,hu2,MANUAL,external\ps3\ep7\background\hu2.png,external\ryukishi\ep7\hu2.png
 _mats_018.txt,hu2_01,hu1,NO_MATCH,hu1,AUTOMATIC,external\ps3\ep7\background\hu2_01.png,external\ryukishi\ep7\hu1.png
 _kakera52.txt,hu_ima,NO_MATCH,hu_r1,hu_r1,NAEGLES,external\ps3\ep8\background\hu_ima.png,external\ryukishi\ep5\hu_r1.png
 _mats_025.txt,hu_r1,hu_r1,hu_r1,hu_r1,IDENTICAL,external\ps3\ep2\background\hu_r1.png,external\ryukishi\ep5\hu_r1.png
@@ -159,7 +159,7 @@ _mats_015.txt,ie1,ie1,ie1,ie1,IDENTICAL,external\ps3\ep1\background\ie1.png,exte
 _mina_020.txt,ie1_01,ie2,ie1,ie1,CONTRADICTORY,external\ps3\ep3\background\ie1_01.png,external\ryukishi\ep5\ie1.png
 _mats_018.txt,ima1,ima1,ima1,ima1,IDENTICAL,external\ps3\ep4\background\ima1.png,external\ryukishi\ep5\ima1.png
 _mats_025.txt,ima3,heya4,ima3,ima3,CONTRADICTORY,external\ps3\ep3\background\ima3.png,external\ryukishi\ep5\ima3.png
-_mats_025.txt,jansou,bg_071,bg_071,bg_071,IDENTICAL,external\ps3\ep2\background\jansou.png,external\ryukishi\ep2\bg_071.png
+_mats_025.txt,jansou,bg_071,jansou,jansou,MANUAL,external\ps3\ep2\background\jansou.png,external\ryukishi\ep8\jansou.png
 _mats_025.txt,jd4,jd4,jd4,jd4,IDENTICAL,external\ps3\ep1\background\jd4.png,external\ryukishi\ep6\jd4.png
 onik_009_02.txt,jd4_01,jd4,jd4,jd4,IDENTICAL,external\ps3\ep1\background\jd4_01.png,external\ryukishi\ep6\jd4.png
 _mats_025.txt,je1,je1,je1,je1,IDENTICAL,external\ps3\ep1\background\je1.png,external\ryukishi\ep5\je1.png
@@ -168,10 +168,10 @@ _mats_017.txt,ji1,ji1,ji1,ji1,IDENTICAL,external\ps3\ep1\background\ji1.png,exte
 _mats_025.txt,ji1_01,ji5,ji1,ji1,CONTRADICTORY,external\ps3\ep2\background\ji1_01.png,external\ryukishi\ep6\ji1.png
 _mats_014.txt,ji2,ji2,ji2,ji2,IDENTICAL,external\ps3\ep1\background\ji2.png,external\ryukishi\ep5\ji2.png
 _mats_018.txt,ji2_01,ji2,ji2,ji2,IDENTICAL,external\ps3\ep2\background\ji2_01.png,external\ryukishi\ep5\ji2.png
-_mats_014.txt,ji6,ji6,bg_079,bg_079,CONTRADICTORY,external\ps3\ep1\background\ji6.png,external\ryukishi\ep3\bg_079.png
+_mats_014.txt,ji6,ji6,ji6,ji6,MANUAL,external\ps3\ep1\background\ji6.png,external\ryukishi\ep8\ji6.png
 _mats_021.txt,jok1,jok1,jok1,jok1,IDENTICAL,external\ps3\ep1\background\jok1.png,external\ryukishi\ep5\jok1.png
 _tsum_012_1.txt,jok2,jok2,jok2,jok2,IDENTICAL,external\ps3\ep2\background\jok2.png,external\ryukishi\ep5\jok2.png
-_mina_004.txt,js1,bg_079,bg_079,bg_079,IDENTICAL,external\ps3\ep3\background\js1.png,external\ryukishi\ep3\bg_079.png
+_mina_004.txt,js1,bg_079,js1,js1,MANUAL,external\ps3\ep3\background\js1.png,external\ryukishi\ep5\js1.png
 _mina_004.txt,js1_01,ji5,bg_079,bg_079,CONTRADICTORY,external\ps3\ep2\background\js1_01.png,external\ryukishi\ep3\bg_079.png
 _mina_006.txt,js3,js3,jsa2,js3,CONTRADICTORY,external\ps3\ep1\background\js3.png,external\ryukishi\ep6\js3.png
 _meak_016_2.txt,js3_01,jsa2,jsa2,jsa2,IDENTICAL,external\ps3\ep2\background\js3_01.png,external\ryukishi\ep5\jsa2.png
@@ -188,7 +188,7 @@ _mats_018.txt,jt2_01,jt2,jt2,jt2,IDENTICAL,external\ps3\ep4\background\jt2_01.pn
 _mats_007.txt,juku1_01,juku1,hi6,hi6,NAEGLES,external\ps3\ep4\background\juku1_01.png,external\ryukishi\ep5\hi6.png
 _mats_014.txt,jy1,jy1,jy1,jy1,IDENTICAL,external\ps3\ep2\background\jy1.png,external\ryukishi\ep5\jy1.png
 _mats_025.txt,jy2,jy2,jy2,jy2,IDENTICAL,external\ps3\ep1\background\jy2.png,external\ryukishi\ep5\jy2.png
-_kakera27.txt,jys1,js1,jy1,js1,CONTRADICTORY,external\ps3\ep2\background\jys1.png,external\ryukishi\ep5\js1.png
+_kakera27.txt,jys1,js1,jys1,jys1,MANUAL,external\ps3\ep2\background\jys1.png,external\ryukishi\ep7\jys1.png
 _meak_tips_14.txt,jysa1,jysa1,jysa1,jysa1,IDENTICAL,external\ps3\ep2\background\jysa1.png,external\ryukishi\ep5\jysa1.png
 _mina_021.txt,jyt1,jyt1,jyt1,jyt1,IDENTICAL,external\ps3\ep2\background\jyt1.png,external\ryukishi\ep5\jyt1.png
 _mats_018.txt,jyt2,jyt2,jyt2,jyt2,IDENTICAL,external\ps3\ep1\background\jyt2.png,external\ryukishi\ep5\jyt2.png
@@ -197,12 +197,12 @@ _meak_005.txt,k_kouen1_01,kouen,NO_MATCH,kouen,AUTOMATIC,external\ps3\ep5\backgr
 _kakera51.txt,k_oyashiro,NO_MATCH,black,black,NAEGLES,external\ps3\ep8\background\k_oyashiro.png,external\ryukishi\ep1\black.png
 _mats_010.txt,k_ten2,ho1_tokyo,NO_MATCH,ho1_tokyo,AUTOMATIC,external\ps3\ep8\background\k_ten2.png,external\ryukishi\ep8\ho1_tokyo.png
 _mats_010.txt,ka1_01,ka2,NO_MATCH,ka2,AUTOMATIC,external\ps3\ep7\background\ka1_01.png,external\ryukishi\ep7\ka2.png
-_mats_022.txt,ka4,ka1,NO_MATCH,ka1,AUTOMATIC,external\ps3\ep7\background\ka4.png,external\ryukishi\ep7\ka1.png
+_mats_022.txt,ka4,ka1,ka4,ka4,MANUAL,external\ps3\ep7\background\ka4.png,external\ryukishi\ep7\ka4.png
 _mats_020.txt,kai_jyun,ke_s3,NO_MATCH,ke_s3,AUTOMATIC,external\ps3\ep8\background\kai_jyun.png,external\ryukishi\ep8\ke_s3.png
 _mats_020.txt,kai_ten,ke_s3,ke5,ke5,NAEGLES,external\ps3\ep8\background\kai_ten.png,external\ryukishi\ep5\ke5.png
 _kakera52.txt,kakera,kakera3,NO_MATCH,kakera3,AUTOMATIC,external\ps3\ep8\background\kakera.png,external\ryukishi\ep8\kakera3.png
 _tsum_010.txt,kawa1,kawa1,kawa1,kawa1,IDENTICAL,external\ps3\ep1\background\kawa1.png,external\ryukishi\ep5\kawa1.png
-hima_002.txt,kawa4,bg_005,bg_087,bg_005,CONTRADICTORY,external\ps3\ep1\background\kawa4.png,external\ryukishi\ep1\bg_005.png
+hima_002.txt,kawa4,bg_005,kawa4,kawa4,MANUAL,external\ps3\ep1\background\kawa4.png,external\ryukishi\ep6\kawa4.png
 _mats_019.txt,ke1,ke1,bg_091,bg_091,CONTRADICTORY,external\ps3\ep4\background\ke1.png,external\ryukishi\ep4\bg_091.png
 _meak_012.txt,ke1_01,ke1,NO_MATCH,ke1,AUTOMATIC,external\ps3\ep5\background\ke1_01.png,external\ryukishi\ep5\ke1.png
 _mats_019.txt,ke2,ke2,ke2,ke2,IDENTICAL,external\ps3\ep2\background\ke2.png,external\ryukishi\ep7\ke2.png
@@ -214,7 +214,7 @@ _mats_019.txt,ke_s2,ke_s1,ke_s1,ke_s1,IDENTICAL,external\ps3\ep1\background\ke_s
 staffroom.txt,ke_shiryou1_02,NO_MATCH,dsc00038,dsc00038,NAEGLES,external\ps3\ep5\background\ke_shiryou1_02.png,external\ryukishi\ep5\dsc00038.png
 hima_tips_14.txt,kimi_o1_08,terebi1,terebi1,terebi1,IDENTICAL,external\ps3\ep4\background\kimi_o1_08.png,external\ryukishi\ep6\terebi1.png
 _kakera52.txt,koudou,mati16,NO_MATCH,mati16,AUTOMATIC,external\ps3\ep8\background\koudou.png,external\ryukishi\ep8\mati16.png
-_mats_024.txt,koya1,koya2,NO_MATCH,koya2,AUTOMATIC,external\ps3\ep8\background\koya1.png,external\ryukishi\ep8\koya2.png
+_mats_024.txt,koya1,koya2,koya1,koya1,MANUAL,external\ps3\ep8\background\koya1.png,external\ryukishi\ep8\koya1.png
 _mats_024.txt,koya1_02,koya1,bg_097,bg_097,CONTRADICTORY,external\ps3\ep4\background\koya1_02.png,external\ryukishi\ep4\bg_097.png
 hima_004.txt,kukou1,NO_MATCH,bg_099,bg_099,NAEGLES,external\ps3\ep4\background\kukou1.png,external\ryukishi\ep4\bg_099.png
 _mats_023.txt,kuruma1,kuruma1,kuruma1,kuruma1,IDENTICAL,external\ps3\ep1\background\kuruma1.png,external\ryukishi\ep6\kuruma1.png
@@ -307,7 +307,7 @@ _kakera46.txt,mati_o6,mati_o6,mati_o6,mati_o6,IDENTICAL,external\ps3\ep2\backgro
 _mats_024.txt,mo1,mo1,mo1,mo1,IDENTICAL,external\ps3\ep1\background\mo1.png,external\ryukishi\ep6\mo1.png
 tata_011_02.txt,mo1_01,mo1,mo1,mo1,IDENTICAL,external\ps3\ep1\background\mo1_01.png,external\ryukishi\ep6\mo1.png
 _mats_024.txt,mo1_02,mo1,mo2,mo2,CONTRADICTORY,external\ps3\ep3\background\mo1_02.png,external\ryukishi\ep6\mo2.png
-_mats_024.txt,mo2,mo2,mo1,mo1,CONTRADICTORY,external\ps3\ep1\background\mo2.png,external\ryukishi\ep6\mo1.png
+_mats_024.txt,mo2,mo2,mo2,mo2,MANUAL,external\ps3\ep1\background\mo2.png,external\ryukishi\ep6\mo2.png
 onik_015_02.txt,mo2_01,mo2,mo1,mo1,CONTRADICTORY,external\ps3\ep1\background\mo2_01.png,external\ryukishi\ep6\mo1.png
 _mats_024.txt,mo2_02,mo2,ymo1,ymo2,CONTRADICTORY,external\ps3\ep3\background\mo2_02.png,external\ryukishi\ep5\ymo2.png
 _mats_025.txt,mo3,mo3,mo3,mo3,IDENTICAL,external\ps3\ep1\background\mo3.png,external\ryukishi\ep5\mo3.png
@@ -318,7 +318,7 @@ onik_015_02.txt,mo4_01,mo4,mo4,mo4,IDENTICAL,external\ps3\ep1\background\mo4_01.
 _mats_024.txt,mo4_02,mo4,bg_144_mo1,bg_144_mo1,CONTRADICTORY,external\ps3\ep4\background\mo4_02.png,external\ryukishi\ep4\bg_144_mo1.png
 _mats_006.txt,mo4_04,mo4,NO_MATCH,mo4,AUTOMATIC,external\ps3\ep8\background\mo4_04.png,external\ryukishi\ep5\mo4.png
 unknown,mo4_05,NO_MATCH,sora,sora,NAEGLES,external\ps3\ep2\background\mo4_05.png,external\ryukishi\ep5\sora.png
-hima_002.txt,mo_b1,sora,m_hi9,m_hi9,CONTRADICTORY,external\ps3\ep1\background\mo_b1.png,external\ryukishi\ep5\m_hi9.png
+hima_002.txt,mo_b1,sora,mo_b1,mo_b1,MANUAL,external\ps3\ep1\background\mo_b1.png,external\ryukishi\ep5\mo_b1.png
 _mats_023.txt,mo_g1,mo_g1,mo_g1,mo_g1,IDENTICAL,external\ps3\ep1\background\mo_g1.png,external\ryukishi\ep5\mo_g1.png
 _tsum_op.txt,mo_g1_01,mo_g1,mo_g1,mo_g1,IDENTICAL,external\ps3\ep1\background\mo_g1_01.png,external\ryukishi\ep5\mo_g1.png
 _tsum_010.txt,mo_g2,mo_g2,mo_g2,mo_g2,IDENTICAL,external\ps3\ep1\background\mo_g2.png,external\ryukishi\ep5\mo_g2.png
@@ -399,7 +399,7 @@ _mats_021.txt,so2,so2,so2,so2,IDENTICAL,external\ps3\ep2\background\so2.png,exte
 tata_009_02.txt,so2_01,NO_MATCH,so2,so2,NAEGLES,external\ps3\ep3\background\so2_01.png,external\ryukishi\ep5\so2.png
 _mats_021.txt,so3,so3,so3,so3,IDENTICAL,external\ps3\ep2\background\so3.png,external\ryukishi\ep5\so3.png
 _mina_018.txt,so5,so5,NO_MATCH,so5,AUTOMATIC,external\ps3\ep5\background\so5.png,external\ryukishi\ep7\so5.png
-_meak_012.txt,so6,so3,NO_MATCH,so3,AUTOMATIC,external\ps3\ep5\background\so6.png,external\ryukishi\ep5\so3.png
+_meak_012.txt,so6,so3,so6,so6,MANUAL,external\ps3\ep5\background\so6.png,external\ryukishi\ep7\so6.png
 _mats_021.txt,so_chikafuroa,jsa6,black,black,CONTRADICTORY,external\ps3\ep2\background\so_chikafuroa.png,external\ryukishi\ep1\black.png
 _mats_021.txt,so_chikaido1,jsa7,NO_MATCH,jsa7,AUTOMATIC,external\ps3\ep5\background\so_chikaido1.png,external\ryukishi\ep5\jsa7.png
 _mats_021.txt,so_chikasaishinbu,jsa9,NO_MATCH,jsa9,AUTOMATIC,external\ps3\ep8\background\so_chikasaishinbu.png,external\ryukishi\ep8\jsa9.png
@@ -407,11 +407,11 @@ _mina_op.txt,so_d1,so_d1,so_d1,so_d1,IDENTICAL,external\ps3\ep4\background\so_d1
 _meak_021_2.txt,so_d1_01,so_d1,so_d1,so_d1,IDENTICAL,external\ps3\ep4\background\so_d1_01.png,external\ryukishi\ep5\so_d1.png
 _kakera38.txt,so_g1,so_g1,so_g1,so_g1,IDENTICAL,external\ps3\ep2\background\so_g1.png,external\ryukishi\ep5\so_g1.png
 _mats_021.txt,so_k1,so_k1,so_k1,so_k1,IDENTICAL,external\ps3\ep2\background\so_k1.png,external\ryukishi\ep5\so_k1.png
-_mats_025.txt,sora,sora,sora2,sora2,CONTRADICTORY,external\ps3\ep2\background\sora.png,external\ryukishi\ep5\sora2.png
+_mats_025.txt,sora,sora,sora,sora,MANUAL,external\ps3\ep2\background\sora.png,external\ryukishi\ep5\sora.png
 unknown,sora1,NO_MATCH,sora2,sora2,NAEGLES,external\ps3\ep1\sora1.png,external\ryukishi\ep5\sora2.png
 _mats_025.txt,sora2,sora2,sora3,sora2,CONTRADICTORY,external\ps3\ep2\background\sora2.png,external\ryukishi\ep5\sora2.png
-_mats_024.txt,sora5,sora3,sora3,sora3,IDENTICAL,external\ps3\ep1\background\sora5.png,external\ryukishi\ep5\sora3.png
-_mats_018.txt,sora6,sora6,sora3,sora3,CONTRADICTORY,external\ps3\ep1\background\sora6.png,external\ryukishi\ep5\sora3.png
+_mats_024.txt,sora5,sora3,sora5,sora5,MANUAL,external\ps3\ep1\background\sora5.png,external\ryukishi\ep6\sora5.png
+_mats_018.txt,sora6,sora6,sora6,sora6,MANUAL,external\ps3\ep1\background\sora6.png,external\ryukishi\ep6\sora6.png
 _mats_025.txt,sora_01,gy7,NO_MATCH,gy7,AUTOMATIC,external\ps3\ep2\background\sora_01.png,external\ryukishi\ep6\gy7.png
 unknown,staff01,NO_MATCH,staff01,staff01,NAEGLES,external\ps3\ep4\staff01.png,external\ryukishi\ep4\staff01.png
 _mats_022.txt,susuki,kusa,kusa,kusa,IDENTICAL,external\ps3\ep4\background\susuki.png,external\ryukishi\ep6\kusa.png
@@ -463,7 +463,7 @@ _mats_op.txt,xta2,ta2_tokyo,NO_MATCH,ta2_tokyo,AUTOMATIC,external\ps3\ep8\backgr
 _mats_op.txt,xta3,ta3,NO_MATCH,ta3,AUTOMATIC,external\ps3\ep8\background\xta3.png,external\ryukishi\ep8\ta3.png
 _kakera13.txt,y_damu2,y_damu2,y_damu2,y_damu2,IDENTICAL,external\ps3\ep1\background\y_damu2.png,external\ryukishi\ep6\y_damu2.png
 _meak_022_2.txt,y_ie1,bg_242,bg_242,bg_242,IDENTICAL,external\ps3\ep1\background\y_ie1.png,external\ryukishi\ep2\bg_242.png
-_mats_025.txt,y_kawa3,bg_247,bg_247,bg_247,IDENTICAL,external\ps3\ep1\background\y_kawa3.png,external\ryukishi\ep1\bg_247.png
+_mats_025.txt,y_kawa3,bg_247,y_kawa3,y_kawa3,IDENTICAL,external\ps3\ep1\background\y_kawa3.png,external\ryukishi\ep6\y_kawa3.png
 _kakera15.txt,y_oni1,oni2,bg_259,bg_259,CONTRADICTORY,external\ps3\ep4\background\y_oni1.png,external\ryukishi\ep3\bg_259.png
 tata_011_02.txt,y_oni1_01,bg_259,bg_259,bg_259,IDENTICAL,external\ps3\ep3\background\y_oni1_01.png,external\ryukishi\ep3\bg_259.png
 _mina_ep.txt,yg2,yg2,NO_MATCH,yg2,AUTOMATIC,external\ps3\ep7\background\yg2.png,external\ryukishi\ep7\yg2.png

@@ -5,6 +5,7 @@ import shutil
 from PIL import Image, ImagePalette, ImageOps
 from pathlib import Path
 
+import match_higurashi_backgrounds_dup_finder
 
 # This function is taken from https://stackoverflow.com/questions/43864101/python-pil-check-if-image-is-transparent
 def has_transparency(img):
@@ -87,6 +88,9 @@ def process_image(src_ps3_path: str, src_ryukishi_path: str, dst_path: str, SMAL
 
 
 def main(small_image_mode, four_three_aspect):
+	# Regenerate the `background_matching/manual_bg_map_paths_generated.csv` file
+	match_higurashi_backgrounds_dup_finder.identify_cg_easy()
+
 	# This script expects the folder imageComparer/external/ps3/ep1 to contain the PS3 CG folder for episode 1
 	# and imageComparer/external/ryukishi/ep1 to contain the original ryukishi CG folder for episode 1
 	# and so on for each episode.
@@ -97,7 +101,7 @@ def main(small_image_mode, four_three_aspect):
 	csv_path = 'background_matching/manual_bg_map_paths_generated.csv'
 
 	if os.path.exists(output_folder):
-		raise Exception("Output folder already exists - please delete it!")
+		raise Exception(f"Output folder [{output_folder}] already exists - please delete it!")
 
 	# Load all the rows
 	with open(csv_path, newline='') as csvfile:
