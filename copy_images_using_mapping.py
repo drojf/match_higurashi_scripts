@@ -5,7 +5,7 @@ import shutil
 from PIL import Image, ImagePalette, ImageOps
 from pathlib import Path
 
-import match_higurashi_backgrounds_dup_finder
+import backgrounds_identify_cg
 
 # This function is taken from https://stackoverflow.com/questions/43864101/python-pil-check-if-image-is-transparent
 def has_transparency(img):
@@ -130,7 +130,7 @@ def main(small_image_mode, four_three_aspect):
 	 - an extra step which copies files from the output folder to a format which our mod accepts (I'm not sure why this step is necessary...)
 	"""
 	# Regenerate the `background_matching/manual_bg_map_paths_generated.csv` file
-	match_higurashi_backgrounds_dup_finder.identify_cg_easy()
+	backgrounds_identify_cg.identify_cg_easy()
 
 	# This script expects the folder imageComparer/external/ps3/ep1 to contain the PS3 CG folder for episode 1
 	# and imageComparer/external/ryukishi/ep1 to contain the original ryukishi CG folder for episode 1
