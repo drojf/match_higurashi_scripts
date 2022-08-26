@@ -67,6 +67,13 @@ def resize_image(ps3_image, ryukishi_image, SMALL_IMAGE_MODE, FOUR_THREE_ASPECT)
 
 
 def process_image(src_ps3_path: str, src_ryukishi_path: str, dst_path: str, SMALL_IMAGE_MODE: bool, FOUR_THREE_ASPECT: bool):
+	"""
+	Given the path to a modded image / PS3 image (src_ps3_path) and a unmodded / Ryukishi image (src_ryukishi_path):
+	 - Do some checks on the Ryukishi image to make sure it's the right format etc.
+	 - Resize the image if necessary for it to work in our mod (see the resize_image() function)
+	 - Apply any filter effects if the PS3 path implies it should have some effect (like 'flashback', 'greyscale' etc.)
+	 - Save the new image to dst_path
+	"""
 	containing_path = str(Path(src_ps3_path).parent)
 	containing_path_lower = containing_path.lower()
 
@@ -113,6 +120,15 @@ def process_image(src_ps3_path: str, src_ryukishi_path: str, dst_path: str, SMAL
 
 
 def main(small_image_mode, four_three_aspect):
+	"""
+	This function copies (with filter effects/resize when necessary) unmodded background images so they match
+	the folder structure of our mod. It does the following:
+	 - compile previous mapping files into one file
+	 - iterate over all the 'normal' modded ps3 images and output a corresponding modified ryukishi image suitble for the mod
+	 - repeat the above but for the 'scenario' images, which are handled slightly differently
+	 - copy any manually pre-processed images (files which have been hand edited) directly to the output folder
+	 - an extra step which copies files from the output folder to a format which our mod accepts (I'm not sure why this step is necessary...)
+	"""
 	# Regenerate the `background_matching/manual_bg_map_paths_generated.csv` file
 	match_higurashi_backgrounds_dup_finder.identify_cg_easy()
 
