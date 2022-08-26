@@ -23,6 +23,31 @@ def has_transparency(img):
 
 
 def resize_image(ps3_image, ryukishi_image, SMALL_IMAGE_MODE, FOUR_THREE_ASPECT):
+	"""
+	This function resizes a ryukishi image ONLY if it thinks it is necessary to work properly in the game
+	otherwise it will leave it alone (assuming you set SMALL_IMAGE_MODE to True and FOUR_THREE_ASPECT to True)
+
+	NOTE: "Normal" Images vs "Special" images
+	 - "Normal" images are when the PS3 image is of standard resolutions (1440p, 1080p, 720p)
+	   - The corresponding ryukishi images are handled using the settings below
+	 - "Special images" are ones which are not the above resolutions
+	   - These images are usually for special situations (like events, or special effects), and therefore
+	     may need to be a specific resolution to work properly
+	   - For this reason, special ryukishi images are always resized to match their PS3 counterpart, so that
+	     they work properly in-game.
+
+	SMALL_IMAGE_MODE:
+	 - If set to True, all ryukishi images will be resized to the same size as the original PS3 image
+	 - If set to False, will resize according to below:
+
+	FOUR_THREE_ASPECT:
+	 - If SMALL_IMAGE_MODE is set to False, this setting is ignored
+	 - If set to TRUE, no resizing of "Normal" ryukishi images will be performed, and if a non-4:3 ryukishi image
+	   is detected, an exception will be thrown
+	 - If set to FALSE, "Normal" ryukishi images will be resized to 16:9 aspect ratio. I don't think there is any
+	   use for this any more, since the engine can automatically resize ryukishi backgrounds to 16:9.
+	"""
+
 	if not SMALL_IMAGE_MODE:
 		return ryukishi_image.resize(ps3_image.size)
 
