@@ -8,8 +8,7 @@ import sys
 from match_statistics import MatchStatistics
 from match_statistics_to_csv import convertMatchingToCSV
 from matching_core import get_matching_script_paths_between_folders, update_match_statistics, MatchConfiguration, CustomMatcher
-
-LAST_EPISODE = 8
+from utility import LAST_EPISODE
 
 
 def save_statistics(match_statistics,

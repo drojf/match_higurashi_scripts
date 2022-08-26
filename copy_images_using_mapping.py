@@ -6,6 +6,7 @@ from PIL import Image, ImagePalette, ImageOps
 from pathlib import Path
 
 import backgrounds_identify_cg
+from utility import LAST_EPISODE
 
 # This function is taken from https://stackoverflow.com/questions/43864101/python-pil-check-if-image-is-transparent
 def has_transparency(img):
@@ -192,7 +193,7 @@ def main(small_image_mode, four_three_aspect):
 	# Special handling for the "background.png" file in the "scenario" folder - just copy the
 	# 'CG/scenario_a.png' image from the ryukishi folder
 	print("Scenario folder handling")
-	for i in range(1, 9):
+	for i in range(1, LAST_EPISODE + 1):
 		# This is no longer carried out - game will automatically prefer the images in the CG folder if they don't exist
 		# First, copy the entire scenario folder
 		# shutil.copytree(src=os.path.join(ps3_folder, f'ep{i}/scenario'),
@@ -216,7 +217,7 @@ def main(small_image_mode, four_three_aspect):
 		preprocessed_folder = 'preprocessed_small'
 	shutil.copytree(preprocessed_folder, output_folder,  dirs_exist_ok=True)
 
-	for i in range(1, 9):
+	for i in range(1, LAST_EPISODE + 1):
 		src_path = os.path.join(output_folder, ps3_folder, f'ep{i}')
 
 		# Copy pre-processed images common to all projects

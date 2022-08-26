@@ -1,5 +1,6 @@
 import csv
 
+LAST_EPISODE = 9
 
 def save_rows(rows, csv_path, header_row=None):
 	with open(csv_path, 'w', newline='') as csvfile:
