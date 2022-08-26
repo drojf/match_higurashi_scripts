@@ -1,3 +1,9 @@
+"""
+This file extracts rows containing only certain characters from 'ignore_time_of_day/ignore_time_of_day.txt.csv'
+It then writes the output back to the same file.
+I can't remember why I made this file.
+"""
+
 import csv
 import os
 import re
