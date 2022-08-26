@@ -1,6 +1,6 @@
 import re
+from backgrounds_question_remapper import QuestionArcsBackgroundRemapper
 
-from match_higurashi_backgrounds_dup_finder import QuestionArcsBackgroundRemapper
 from match_statistics import MatchStatistics
 from match_statistics_to_csv import convertMatchingToCSV
 from matching_core import get_matching_script_paths_between_folders, update_match_statistics, MatchConfiguration, CustomMatcher
