@@ -81,8 +81,8 @@ def doSpriteMatching():
 	reverse_match_statistics = MatchStatistics()
 	output_path = 'noconsole_output.txt'
 
-	NO_CONSOLE = True
-	if NO_CONSOLE:
+	if len(sys.argv) == 1:
+		print("No arguments provided - using default settings...")
 		for episode_num in range(1, LAST_EPISODE + 1):
 			config = MatchConfiguration(steamBustMatcher,
 										ps3BustMatcher,
@@ -96,7 +96,8 @@ def doSpriteMatching():
 										ps3_script_path,
 										match_configuration=config)
 	else:
-		parser = MyParser(description='Match sprites between steam and ps3 scripts, given two input folders containing scripts as .txt files.')
+		parser = MyParser(description='Match sprites between steam and ps3 scripts, given two input folders containing scripts as .txt files.\n'
+		'NOTE: To use the default values, run this script with no arguments.')
 		parser.add_argument('steam_scripts_folder', type=str, help='path containing steam scripts as .txt files')
 		parser.add_argument('ps3_scripts_folder', type=str, help='path containing ps3 scripts as .txt files')
 		parser.add_argument('output_file_path', type=str, help='name of file where results are written (JSON format)')
