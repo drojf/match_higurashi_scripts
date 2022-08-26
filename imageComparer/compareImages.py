@@ -1,5 +1,6 @@
 import os
 import json
+from pathlib import Path
 import platform
 import re
 import subprocess
@@ -409,7 +410,7 @@ def normalizePS3PathToName(path):
 	partially_normalized = normalizeFilenameAndRemoveExtension(path)
 	return partially_normalized[:-2]
 
-def buildFilenameFilepathMap(folder, pathFilterString, pathToNameFunction, warnLevel=0, excludeFilterString=None, allowedExtensions=(".png", ".jpg")):
+def buildFilenameFilepathMap(folder, pathFilterStrings, pathToNameFunction, warnLevel=0, excludeFilterString=None, allowedExtensions=(".png", ".jpg")):
 	"""
 	returns a dict of lowercaseFileNameNoExtension -> fullPathWithExtension
 	pathFilterString must be a string which all expected paths would contain. For example 'StreamingAssets\CG\sprite\normal'
@@ -424,7 +425,17 @@ def buildFilenameFilepathMap(folder, pathFilterString, pathToNameFunction, warnL
 		for filename in files:
 			if os.path.splitext(filename)[1].lower() in allowedExtensions:
 				fullPath = os.path.join(root, filename)
-				if pathFilterString is None or pathFilterString in fullPath:
+
+				# Check if the path contains one of the allowed folders
+				pathHasAllowedFolder = False
+				if pathFilterStrings is None:
+					pathHasAllowedFolder = True
+				else:
+					for allowedFolder in pathFilterStrings:
+						if allowedFolder in fullPath:
+							pathHasAllowedFolder = True
+
+				if pathHasAllowedFolder:
 					if excludeFilterString is None or excludeFilterString not in fullPath:
 						normalizedName = pathToNameFunction(filename)
 						existingPath = retDict.get(normalizedName)
@@ -455,16 +466,16 @@ def readCSVAsSpriteMatches(csvFilePath):
 
 	return sprite_match_results
 
-def getBackgroundFilenameMap(warn_level, pathFilterString='background'): # only allow backgrounds
+def getBackgroundFilenameMap(warn_level, PS3BackgroundFilterStrings): # only allow backgrounds
 	# Load ps3 backgrounds
 	ps3_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ps3',
-	                                                        pathFilterString=pathFilterString,
+	                                                        pathFilterStrings=PS3BackgroundFilterStrings,
 	                                                        pathToNameFunction=normalizeFilenameAndRemoveExtension,
 	                                                        warnLevel=warn_level)
 
 	# Load ryukishi backgrounds
 	ryukishi_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ryukishi',
-	                                                             pathFilterString=None,
+	                                                             pathFilterStrings=None,
 	                                                             pathToNameFunction=normalizeFilenameAndRemoveExtension,
 	                                                             warnLevel=warn_level)
 
@@ -473,13 +484,13 @@ def getBackgroundFilenameMap(warn_level, pathFilterString='background'): # only 
 def getSpriteFilenameMap(warn_level):
 	# Load normal sprites only as first choice
 	ps3_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ps3',
-	                                                        pathFilterString=r'sprite\normal',  #Only include the 'normal' sprites, not any other variants
+	                                                        pathFilterStrings=[r'sprite\normal'],  #Only include the 'normal' sprites, not any other variants
 	                                                        pathToNameFunction=normalizePS3PathToName,
 	                                                        warnLevel=warn_level)
 
 	# Load all sprites, except portrait, as second choice
 	ps3_filename_to_filepath_map_all_images = buildFilenameFilepathMap(folder=r'external\ps3',
-	                                                                   pathFilterString=None,  #Only include the 'normal' sprites, not any other variants
+	                                                                   pathFilterStrings=None,  #Only include the 'normal' sprites, not any other variants
 	                                                                   pathToNameFunction=normalizePS3PathToName,
 	                                                                   warnLevel=warn_level,
 	                                                                   excludeFilterString=r'sprite\portrait')
@@ -490,7 +501,7 @@ def getSpriteFilenameMap(warn_level):
 
 	# Load portrait sprites as third choice
 	ps3_filename_to_filepath_map_portrait = buildFilenameFilepathMap(folder=r'external\ps3',
-	                                                                 pathFilterString=r'sprite\portrait',  #Only include the 'normal' sprites, not any other variants
+	                                                                 pathFilterStrings=[r'sprite\portrait'],  #Only include the 'normal' sprites, not any other variants
 	                                                                 pathToNameFunction=normalizePS3PathToName,
 	                                                                 warnLevel=warn_level)
 
@@ -499,7 +510,7 @@ def getSpriteFilenameMap(warn_level):
 			ps3_filename_to_filepath_map[ps3_filename] = ps3_path
 
 	ryukishi_filename_to_filepath_map = buildFilenameFilepathMap(folder=r'external\ryukishi',
-	                                                             pathFilterString=None,
+	                                                             pathFilterStrings=None,
 	                                                             pathToNameFunction=normalizeFilenameAndRemoveExtension,
 	                                                             warnLevel=warn_level)
 
@@ -513,12 +524,12 @@ def loadImageComparisonObject(mode, dump_mapping = False):
 	################# END CONFIG OPTIONS
 
 	if dump_mapping:
-		pathFilterString = None
+		PS3BackgroundFilterStrings = None
 	else:
-		pathFilterString = 'background'
+		PS3BackgroundFilterStrings = ['bg\\', 'background\\']
 
 	if mode == "background":
-		ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map = getBackgroundFilenameMap(WARN_LEVEL, pathFilterString=pathFilterString)
+		ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map = getBackgroundFilenameMap(WARN_LEVEL, PS3BackgroundFilterStrings)
 	else:
 		ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map = getSpriteFilenameMap(WARN_LEVEL)
 
