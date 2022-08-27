@@ -22,21 +22,21 @@ def save_statistics(match_statistics,
 			output_file.write(text)
 
 	print("\n\n----------------------------------------------")
-	y = convertMatchingToCSV(match_statistics, sort_by_score=False)
+	y = convertMatchingToCSV(match_statistics, force_forward_slash=True, sort_by_score=False)
 	for x in y:
 		print(x)
 	write_to_file('\n'.join(y) + '\n', output_path + '.csv')
 
 	if generate_simple:
 		print("\n\n----------------------------------------------")
-		y = convertMatchingToCSV(match_statistics, sort_by_score=False, simple=True)
+		y = convertMatchingToCSV(match_statistics, force_forward_slash=True, sort_by_score=False, simple=True)
 		for x in y:
 			print(x)
 		write_to_file('\n'.join(y) + '\n', output_path + '.simple.csv')
 
 	if generate_reversed:
 		print("\n\n----------------------------------------------")
-		y = convertMatchingToCSV(reverse_match_statistics, sort_by_score=False)
+		y = convertMatchingToCSV(reverse_match_statistics, force_forward_slash=True, sort_by_score=False)
 		for x in y:
 			print(x)
 		write_to_file('\n'.join(y) + '\n', output_path + '.reversed.csv')

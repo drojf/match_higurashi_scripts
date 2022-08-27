@@ -19,7 +19,7 @@ def get_sorted_matches(matches):
 	return sorted(matches.items(), key=lambda x:x[1], reverse=True)
 
 
-def convertMatchingToCSV(match_statistics : MatchStatistics, sort_by_score: bool, simple=False) -> [str]:
+def convertMatchingToCSV(match_statistics : MatchStatistics, sort_by_score: bool, force_forward_slash, simple=False) -> [str]:
 	rows = []
 	for sourceMatch, destinationMatches in match_statistics.statistics.items():
 		sourceFile = match_statistics.sprite_to_file_mapping.get(sourceMatch, "")
@@ -64,5 +64,8 @@ def convertMatchingToCSV(match_statistics : MatchStatistics, sort_by_score: bool
 			rows_as_strings.append(f"{row.source},{row.ryukishiBestMatch}")
 		else:
 			rows_as_strings.append(f"{row.ps3file},{row.source},{row.ryukishiBestMatch},{row.highestCount},{row.confidence:.0f}%,{','.join(matches)}")
+
+	if force_forward_slash:
+		rows_as_strings = [x.replace("\\", "/") for x in rows_as_strings]
 
 	return rows_as_strings
