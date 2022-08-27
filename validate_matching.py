@@ -39,7 +39,8 @@ for episode_num in range(1, utility.LAST_EPISODE + 1):
     for file in os.listdir(ps3_ep_dir):
         fullPath = os.path.join(ps3_ep_dir, file)
         with open(fullPath, 'r', encoding='utf-8') as f:
-            for line in f.readlines():
+            for line_any_slash in f.readlines():
+                line = line_any_slash.replace('\\', '/')
                 for match in sprite_regex.findall(line):
                     ps3_script_used_sprites.add(match)
                     contextDict[match] = PS3ScriptContext(fullPath, line)
