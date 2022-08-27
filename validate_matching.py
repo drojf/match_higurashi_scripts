@@ -35,6 +35,28 @@ def FindRegexInScripts(episode_to_check, regex):
     return sorted(list(matchDict)), contextDict
 
 
+def loadMatchingFromFile(filePath):
+    sprite_matching_rows = utility.load_rows(filePath)
+    matching_set = set()
+    no_match_list = []
+    for row in sprite_matching_rows:
+        name = row[1]
+        matching_ryukishi_name = row[2]
+        matching_set.add(name)
+        if matching_ryukishi_name in ['NO_MATCH', '']:
+            no_match_list.append(f'ERROR: in {filePath}, ps3 name {name} has no match!')
+
+    return matching_set, no_match_list
+
+def PrintStringsWithNoMatch(nameList, matchingSet, contextDict, csv_path, printContext):
+    for name in nameList:
+        if name not in matchingSet:
+            print(f"ERROR: {name} is used in game script, but has no matching in {csv_path}")
+            if printContext:
+                context = contextDict[name]
+                print(f"Context [{context.script}]: {context.line.strip()}")
+
+
 # Check whether the sprite matching
 def CheckSprites(printContext, episode):
     sprite_regex = re.compile('"(sprite\\/[^"]*)"')
@@ -43,28 +65,18 @@ def CheckSprites(printContext, episode):
     ps3_script_used_sprites, contextDict = FindRegexInScripts(episode, sprite_regex)
     ps3_script_portrait_sprites, _ = FindRegexInScripts(episode, portrait_regex)
 
-    # Sort alphabetically
     print(f"Found {len(ps3_script_used_sprites)} unique sprites in the ep{episode} game script")
 
     # Load the manual sprite matching
     sprite_matching_csv = 'imageComparer\\noconsole_output.txt.csv'
-    sprite_matching_rows = utility.load_rows(sprite_matching_csv)
-    sprite_matching_ps3_set = set()
-    for row in sprite_matching_rows:
-        ps3_sprite_name = row[1]
-        matching_ryukishi_name = row[2]
-        sprite_matching_ps3_set.add(ps3_sprite_name)
-        if matching_ryukishi_name in ['NO_MATCH', '']:
-            print(f'ERROR: in {sprite_matching_csv}, ps3 name {ps3_sprite_name} has no match!')
+    sprite_matching_set, no_match_list = loadMatchingFromFile(sprite_matching_csv)
 
-    print(f"Found {len(sprite_matching_ps3_set)} rows in the sprite matching csv {sprite_matching_csv}")
+    for no_match_description in no_match_list:
+        print(no_match_description)
 
-    for ps3_used_name in ps3_script_used_sprites:
-        if ps3_used_name not in sprite_matching_ps3_set:
-            print(f"ERROR: {ps3_used_name} is used in game script, but has no matching in {sprite_matching_csv}")
-            if printContext:
-                context = contextDict[ps3_used_name]
-                print(f"Context [{context.script}]: {context.line.strip()}")
+    print(f"Found {len(sprite_matching_set)} rows in the sprite matching csv {sprite_matching_csv}")
+
+    PrintStringsWithNoMatch(ps3_script_used_sprites, sprite_matching_set, contextDict, sprite_matching_csv, printContext)
 
     print("--------- Portrait Sprites Needing Manual Generation -----------")
     ps3_portrait_sprites = sorted(list(ps3_script_portrait_sprites))
@@ -72,16 +84,36 @@ def CheckSprites(printContext, episode):
         print(portrait)
 
 
-printContext = False
+def CheckBackgrounds(printContext, episode):
+    background_regex = re.compile('"(bg\\/[^"]*)"')
 
-# Set to None to check all episodes
-if len(sys.argv) != 2:
-    print("Please specify which chapter number to validate eg `py validate_matching.py 9`")
-    exit(-1)
+    ps3_script_used_bgs, contextDict = FindRegexInScripts(episode, background_regex)
 
-episode = int(sys.argv[1])
+    print(f"Found {len(ps3_script_used_bgs)} unique backgrounds in the ep{episode} game script")
 
-print(f"Checking episode [{episode}]")
+    # Load the manual sprite matching
+    bg_matching_csv = 'imageComparer\\manual_background_mapping.csv'
+    bg_matching_set, no_match_list = loadMatchingFromFile(bg_matching_csv)
 
-CheckSprites(printContext, episode)
+    print(f"Found {len(bg_matching_set)} rows in the sprite matching csv {bg_matching_csv}")
+    if no_match_list:
+        print(f"WARNING: {len(no_match_list)} rows have no matches in {bg_matching_csv}")
 
+
+if __name__ == '__main__':
+    printContext = False
+
+    # Set to None to check all episodes
+    if len(sys.argv) != 2:
+        print("Please specify which chapter number to validate eg `py validate_matching.py 9`")
+        exit(-1)
+
+    episode = int(sys.argv[1])
+
+    print(f"Checking episode [{episode}]")
+
+    print(f"------------- Checking Sprites -----------------")
+    CheckSprites(printContext, episode)
+
+    print(f"------------- Checking Backgrounds -----------------")
+    CheckBackgrounds(printContext, episode)
