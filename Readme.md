@@ -33,6 +33,16 @@ TODO: create an archive with all the image assets in advance?
   - You only need to check the new rows
   - Check the automatic matches seem correct
   - Search the .csv file for `NO_MATCH`- and fill in those matches
+6. Run `validate_matching.py [CHAPTER_NUMBER]`, and fix any problems that come up
+7. Tell enumag to re-run his script for the new chapter with the updated mapping, and he should give you back a batch file
+  - enumag will give you back a .sh file which copies the files.
+  - add the line `set -e` to the top of this script if you want it to stop on the first error
+8. The batch file expects all the games `CG` folders merged together, then the top level `CG` folder renamed as `sprites`.
+  - drojf TODO: prepare a pre-generated version of this folder so it doens't need to be regenerated each timee
+  - script also expects a `transparent.png` dummy file which will bue substituted for characters who have no matching sprites
+9. Add the latest chapter's `CG` folder to the existing `CG` folder pack
+10. Run the script enumag gave you, fix if necessary
+11. This will produce an OGSprites folder to be included in the OG sprites and background pack
 
 ## Background matching
 
