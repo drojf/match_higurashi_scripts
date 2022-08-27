@@ -6,12 +6,18 @@ The latest sprite matching is kept in `imageCompararer/noconsole_output.txt.csv`
 
 ## Usage
 
+### Important files
+
+The file `imageComparer/noconsole_output.txt.csv` contains the latest sprite matching.
+The file `imageComparer/manual_background_mapping.csv` contains the latest background matching (?).
+
 ### Sprite Matching
 
 1. Update the `LAST_EPISODE` variable in utility.py, to reflect the number of episodes currently released (see the `steam_scripts` folder and `ps3_scripts` folder)
   - Note: the generated files (`noconsole_output.*`) in the root directory will have every line changed compared to the previous version. This is normal.
 2. Run `py match_higurashi_sprites.py`. This will generate an automated matching.
-3. Run `py update_existing_matching.py`. This will merge the just generated automated matching, and output it to  `merged_output.csv`
+3. Run `py update_existing_matching.py`. This will merge the just generated automated matching with the file at `imageComparer/noconsole_output.txt.csv`, and output it `merged_output.csv`
+4. Replace `imageComparer/noconsole_output.txt.csv` with `merged_output.csv` (you should compare the differences between these two files to make sure everything is correct)
 
 ## Background matching
 

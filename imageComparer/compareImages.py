@@ -516,7 +516,7 @@ def getSpriteFilenameMap(warn_level):
 
 	return ps3_filename_to_filepath_map, ryukishi_filename_to_filepath_map
 
-def loadImageComparisonObject(mode, dump_mapping = False):
+def loadImageComparisonObject(mode, matching_csv_path, dump_mapping = False):
 	################# CONFIG OPTIONS
 	# WARN_LEVEL = 0  # No warnings about duplicate images
 	WARN_LEVEL = 1  # Warn about duplicate images in the same episode folder
@@ -548,7 +548,7 @@ def loadImageComparisonObject(mode, dump_mapping = False):
 		return
 
 
-	matches = readCSVAsSpriteMatches(csvFilePath='manual_background_mapping.csv')
+	matches = readCSVAsSpriteMatches(csvFilePath=matching_csv_path)
 
 	for match in matches:
 		ps3_filepath = ps3_filename_to_filepath_map.get(match.ps3_filename)
@@ -568,14 +568,14 @@ def loadImageComparisonObject(mode, dump_mapping = False):
 
 def startSpriteComparison():
 	def loadObject():
-		return loadImageComparisonObject(mode=None)
+		return loadImageComparisonObject(mode=None, matching_csv_path='noconsole_output.txt.csv')
 
 	gui = InstallerGUI(workingDirectory='.', image_comparison_load_function=loadObject)
 	gui.server_test()
 
 def startBackgroundComparison():
 	def loadObject():
-		return loadImageComparisonObject(mode="background")
+		return loadImageComparisonObject(mode="background", matching_csv_path='manual_background_mapping.csv')
 
 	gui = InstallerGUI(workingDirectory='.', image_comparison_load_function=loadObject)
 	gui.server_test()
