@@ -35,16 +35,21 @@ def FindRegexInScripts(episode_to_check, regex):
     return sorted(list(matchDict)), contextDict
 
 
-def loadMatchingFromFile(filePath):
+def loadandCheckMatchingFromFile(filePath, only_warn_auto_match):
     sprite_matching_rows = utility.load_rows(filePath)
     matching_set = set()
     no_match_list = []
     for row in sprite_matching_rows:
         name = row[1]
         matching_ryukishi_name = row[2]
+        match_type = row[5]
         matching_set.add(name)
+
+        if only_warn_auto_match and match_type in ['NAEGLES', 'EFFECT', 'IDENTICAL', 'CONTRADICTORY']:
+             continue
+
         if matching_ryukishi_name in ['NO_MATCH', '']:
-            no_match_list.append(f'ERROR: in {filePath}, ps3 name {name} has no match!')
+                no_match_list.append(f'ERROR: in {filePath}, ps3 name {name} has no match!')
 
     return matching_set, no_match_list
 
@@ -69,7 +74,7 @@ def CheckSprites(printContext, episode):
 
     # Load the manual sprite matching
     sprite_matching_csv = 'imageComparer\\noconsole_output.txt.csv'
-    sprite_matching_set, no_match_list = loadMatchingFromFile(sprite_matching_csv)
+    sprite_matching_set, no_match_list = loadandCheckMatchingFromFile(sprite_matching_csv, only_warn_auto_match=False)
 
     for no_match_description in no_match_list:
         print(no_match_description)
@@ -93,11 +98,13 @@ def CheckBackgrounds(printContext, episode):
 
     # Load the manual sprite matching
     bg_matching_csv = 'imageComparer\\manual_background_mapping.csv'
-    bg_matching_set, no_match_list = loadMatchingFromFile(bg_matching_csv)
+    bg_matching_set, no_match_list = loadandCheckMatchingFromFile(bg_matching_csv, only_warn_auto_match=True)
 
     print(f"Found {len(bg_matching_set)} rows in the sprite matching csv {bg_matching_csv}")
-    if no_match_list:
-        print(f"WARNING: {len(no_match_list)} rows have no matches in {bg_matching_csv}")
+
+    # Print rows which are unmatched and have been matched automatically
+    for no_match_description in no_match_list:
+        print(no_match_description)
 
 
 if __name__ == '__main__':
