@@ -11,13 +11,28 @@ The latest sprite matching is kept in `imageCompararer/noconsole_output.txt.csv`
 The file `imageComparer/noconsole_output.txt.csv` contains the latest sprite matching.
 The file `imageComparer/manual_background_mapping.csv` contains the latest background matching (?).
 
+### ImageComparer / `copy_images_using_mapping.py` setup
+
+TODO: create an archive with all the image assets in advance?
+
+1. For each game:
+  1. Copy the modded game's `CG` folder to `imageComparer\external\ps3\ep[EPISODE_NUMBER]\CG`. For example, `imageComparer\external\ps3\ep9\CG` for episode 9 modded
+  2. Copy the unmodded game's `CG` folder to `imageComparer\external\ryukishi\ep[EPISODE_NUMBER]\CG`. For example `imageComparer\external\ryukishi\ep9\CG` for episode 9 unmodded
+
 ### Sprite Matching
+
+**NOTE: For legacy reasons, the "manual match" column of the sprite matching file is never used. That column is only used in the background file.**
 
 1. Update the `LAST_EPISODE` variable in utility.py, to reflect the number of episodes currently released (see the `steam_scripts` folder and `ps3_scripts` folder)
   - Note: the generated files (`noconsole_output.*`) in the root directory will have every line changed compared to the previous version. This is normal.
 2. Run `py match_higurashi_sprites.py`. This will generate an automated matching.
 3. Run `py update_existing_matching.py`. This will merge the just generated automated matching with the file at `imageComparer/noconsole_output.txt.csv`, and output it `merged_output.csv`
 4. Replace `imageComparer/noconsole_output.txt.csv` with `merged_output.csv` (you should compare the differences between these two files to make sure everything is correct)
+5. Review the new rows in the file by calling `py compareImages.py sprite` from within the `imageComparer` folder
+  - Make sure image comparer is setup and has all the CG files available (see above)
+  - You only need to check the new rows
+  - Check the automatic matches seem correct
+  - Search the .csv file for `NO_MATCH`- and fill in those matches
 
 ## Background matching
 
