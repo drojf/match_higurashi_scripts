@@ -4,6 +4,7 @@ from pathlib import Path
 import platform
 import re
 import subprocess
+import sys
 
 import traceback
 import threading
@@ -425,6 +426,22 @@ def buildFilenameFilepathMap(folder, pathFilterStrings, pathToNameFunction, warn
 		for filename in files:
 			if os.path.splitext(filename)[1].lower() in allowedExtensions:
 				fullPath = os.path.join(root, filename)
+				pathParts = Path(fullPath).parts
+
+				cgRelative = []
+
+				gotCG = False
+				for pathPart in pathParts:
+					if gotCG:
+						cgRelative.append(pathPart)
+					if pathPart.lower() == 'cg':
+						gotCG = True
+
+				cgRelativePath = None
+				if cgRelative:
+					cgRelativePath = os.path.splitext(os.path.join(*cgRelative))[0].replace('\\', '/')
+					print(cgRelativePath)
+				retDict[cgRelativePath] = fullPath
 
 				# Check if the path contains one of the allowed folders
 				pathHasAllowedFolder = False
@@ -582,7 +599,11 @@ def startBackgroundComparison():
 
 
 if __name__ == '__main__':
-	selection = input("Please enter the mode: 'background', 'sprite', or 'dump_background'\n")
+	if len(sys.argv) == 2:
+		selection = sys.argv[1]
+	else:
+		selection = input("Please enter the mode: 'background', 'sprite', or 'dump_background'\n")
+
 	if selection == 'sprite':
 		startSpriteComparison()
 	elif selection == 'background':
