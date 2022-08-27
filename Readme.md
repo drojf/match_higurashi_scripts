@@ -33,3 +33,22 @@ See the script `match_higurashi_backgrounds.py`. I can't remember how much I got
 - preprocessed_small: Contains extra images not present in the unmodded game, which are different for each arc (or not present for some arcs)
 - ps3_scripts: Contains our mod's scripts, which reference the PS3 sprites and backgrounds
 - steam_scripts: Contains the unmodded scripts, which reference the OG sprites and backgrounds
+
+## Note about ep9 (Rei) onwards unmodded CG folder structure
+
+The folder structure has changed for the unmodded Higurashi games from ep9 (rei) onwards.
+
+### Old folder structure
+
+Previously, most images were placed directly in the CG folder with a unique filename.
+
+### New folder structure
+
+Now sprites use the pattern `StreamingAssets\CG\sprites\[CHARACTER_NAME](\[VARIANT])\[FILENAME].png`:
+ - The default outfit is like: `StreamingAssets\CG\sprites\mion\me_akuwaraia1.png`
+ - The variant outfits are in a subfolder like: `StreamingAssets\CG\sprites\mion\sifuku\me_akuwaraia1.png`
+ - Note that zoomed in images/eye images are in a folder like `StreamingAssets\CG\sprites\mion\eye\me_eyex1.png`
+
+Backgrounds use the pattern `StreamingAssets\CG\sprites\[LOCATION]\[FILENAME].png`
+
+I have tried to compensate for this in the matching/image copying scripts, but please keep this in mind when browsing the files.
