@@ -55,7 +55,7 @@ def convertMatchingToCSV(match_statistics : MatchStatistics, sort_by_score: bool
 	if simple:
 		rows_as_strings.append(f'ps3 image, ryukishi best match')
 	else:
-		rows_as_strings.append(f'ps3 sprite file, ps3 image, ryukishi best match, count of best match, confidence,{header_matches}')
+		rows_as_strings.append(f'ps3 sprite file, ps3 image, ryukishi best match, manual match, count of best match, confidence,{header_matches}')
 
 	for row in rows:
 		matches = [f'{x[1]}:{x[0]}' for x in row.sorted_scores]
@@ -63,7 +63,7 @@ def convertMatchingToCSV(match_statistics : MatchStatistics, sort_by_score: bool
 		if simple:
 			rows_as_strings.append(f"{row.source},{row.ryukishiBestMatch}")
 		else:
-			rows_as_strings.append(f"{row.ps3file},{row.source},{row.ryukishiBestMatch},{row.highestCount},{row.confidence:.0f}%,{','.join(matches)}")
+			rows_as_strings.append(f"{row.ps3file},{row.source},{row.ryukishiBestMatch},,{row.highestCount},{row.confidence:.0f}%,{','.join(matches)}")
 
 	if force_forward_slash:
 		rows_as_strings = [x.replace("\\", "/") for x in rows_as_strings]
