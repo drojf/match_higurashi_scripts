@@ -2,10 +2,13 @@ import csv
 import itertools
 import os
 import shutil
+import sys
 from PIL import Image, ImagePalette, ImageOps
 from pathlib import Path
 
 import backgrounds_identify_cg
+import validate_matching
+from imageComparer.compareImages import buildFilenameFilepathMap, normalizeFilenameAndRemoveExtension
 from utility import LAST_EPISODE
 
 # This function is taken from https://stackoverflow.com/questions/43864101/python-pil-check-if-image-is-transparent
@@ -120,7 +123,7 @@ def process_image(src_ps3_path: str, src_ryukishi_path: str, dst_path: str, SMAL
 	out.save(dst_path)
 
 
-def main(small_image_mode, four_three_aspect):
+def main_legacy_ch_1_8(small_image_mode, four_three_aspect):
 	"""
 	This function copies (with filter effects/resize when necessary) unmodded background images so they match
 	the folder structure of our mod. It does the following:
@@ -229,6 +232,127 @@ def main(small_image_mode, four_three_aspect):
 		dest_path = os.path.join(dest_containing_folder, 'OGBackgrounds')
 		os.makedirs(dest_containing_folder, exist_ok=True)
 		os.rename(src_path, dest_path)
+
+def main(small_image_mode, four_three_aspect):
+	"""
+	This function copies (with filter effects/resize when necessary) unmodded background images so they match
+	the folder structure of our mod. It does the following:
+	 - compile previous mapping files into one file
+	 - iterate over all the 'normal' modded ps3 images and output a corresponding modified ryukishi image suitble for the mod
+	 - repeat the above but for the 'scenario' images, which are handled slightly differently
+	 - copy any manually pre-processed images (files which have been hand edited) directly to the output folder
+	 - an extra step which copies files from the output folder to a format which our mod accepts (I'm not sure why this step is necessary...)
+	"""
+	debugPrint = False
+
+	# Set to None to check all episodes
+	if len(sys.argv) != 2:
+		print("Please specify which chapter number to generate eg `python copy_images_using_mapping.py 9`")
+		exit(-1)
+
+	episode = int(sys.argv[1])
+
+	# Validate backgrounds before running this script
+	if validate_matching.CheckBackgrounds(printContext=False, episode=episode):
+		print('Validation successful')
+	else:
+		raise SystemExit('Validation FAILED - please check console output for specific errors. Background generation aborted')
+
+	# Regenerate the `background_matching/manual_bg_map_paths_generated.csv` file
+	backgrounds_identify_cg.identify_cg_easy()
+
+	# # This script expects the folder imageComparer/external/ps3/ep1 to contain the PS3 CG folder for episode 1
+	# # and imageComparer/external/ryukishi/ep1 to contain the original ryukishi CG folder for episode 1
+	# # and so on for each episode.
+	# root_folder = 'imageComparer'
+	# ps3_folder = 'imageComparer/external/ps3'
+	# ryukishi_folder = 'imageComparer/external/ryukishi'
+	output_folder = 'higu_backgrounds_output'
+
+	csv_path = 'background_matching/manual_bg_map_paths_generated.csv'
+	input_ryukishi_images_merged = 'imageComparer\\external\\ryukishi'
+	input_modded_current_chapter = 'imageComparer\\external\\ps3'
+
+	# check the input ryukishi graphics folder exists
+	if not os.path.exists(input_ryukishi_images_merged):
+		raise SystemExit(f"ERROR: ryukishi image input folder [{input_ryukishi_images_merged}] is missing.\n"
+		"please create it and copy in the unmodded CG folders from all (they can overwrite each other)")
+
+	# check the input modded ps3 graphics folder exists
+	if not os.path.exists(input_modded_current_chapter):
+		raise SystemExit(f"ERROR: ryukishi image input folder [{input_modded_current_chapter}] is missing.\n"
+		"please create it and copy in the unmodded CG folders from all (they can overwrite each other)")
+
+
+	# # Load all the rows
+	with open(csv_path, newline='') as csvfile:
+		reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+		header_row = reader.__next__()
+		print(f"Header: {header_row}\n")
+		all_rows = [row for row in reader]
+
+	# Create a mapping of ryukishi filename -> ryukishi filepath
+	ryukishi_filename_to_filepath_map = buildFilenameFilepathMap(	folder=input_ryukishi_images_merged,
+																	pathFilterStrings=None,
+																	pathToNameFunction=normalizeFilenameAndRemoveExtension,
+																	warnLevel=0)
+
+	print(f"Loaded {len(ryukishi_filename_to_filepath_map)} ryukishi filename to filepath mappings")
+
+	# Create mapping of ps3 filename -> ryukishi path
+	# Ignore rows with "NO_MATCH"
+	print("> Generating Mapping")
+	num_effect = 0
+	num_no_match = 0
+	ps3_filename_to_ryukishi_name = {}
+	for row in all_rows:
+		ps3_filename = row[1]  # PS3 filename without extension
+		best_ryukishi_match = row[4]
+		match_type = row[5]
+		if match_type == 'EFFECT':
+			num_effect += 1
+			if debugPrint:
+				print(f"WARNING: Discarding mapping for effect image [{ps3_filename}] [{best_ryukishi_match}]")
+		elif ps3_filename == 'NO_MATCH' or best_ryukishi_match == 'NO_MATCH':
+			num_no_match += 1
+			if debugPrint:
+				print(f"WARNING: not adding file with no match to mapping: [{ps3_filename}] [{best_ryukishi_match}]")
+		else:
+			ps3_filename_to_ryukishi_name[ps3_filename.lower()] = best_ryukishi_match
+
+	print(f"Skipping {num_effect} effect images and {num_no_match} images with no match")
+
+	# Use *.* instead of * to match only files
+	# Use ? to match a single character for ep1, ep2, ep3 etc.
+	ps3_paths_to_replace = list(itertools.chain(
+			Path(input_modded_current_chapter).rglob('bg/*.*'), # Process any files in a 'bg' folder
+	))
+
+	print(f"Attempting to replace {len(ps3_paths_to_replace)} modded ps3 images")
+
+	for input_modded_path in ps3_paths_to_replace:
+		# Determine which ryukishi image should be copied
+		basename = os.path.basename(input_modded_path)
+		name_no_ext, ext = os.path.splitext(basename)
+		ryukishi_name = ps3_filename_to_ryukishi_name.get(name_no_ext.lower(), None)
+
+		output_path = os.path.join(output_folder, input_modded_path)
+		os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+		if ryukishi_name is None:
+			print(f"WARNING: mapping[{name_no_ext}] not found for {input_modded_path}")
+			with open(output_path + '.NO_MATCH', 'w') as f:
+				pass
+
+		else:
+			ryukishi_unmodded_path = ryukishi_filename_to_filepath_map[ryukishi_name]
+
+			print(f"Replacing {input_modded_path} with {ryukishi_unmodded_path} saved to {output_path}")
+
+			# if os.path.exists(output_path):
+			# 	raise Exception(f"Error: output file already exists {output_path}")
+
+			# process_image(input_modded_path, ryukishi_unmodded_path, output_path, small_image_mode, four_three_aspect)
 
 if __name__ == '__main__':
 	main(small_image_mode=True, four_three_aspect=True)

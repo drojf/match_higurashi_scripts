@@ -2,7 +2,7 @@ import csv
 from collections import defaultdict
 from utility import save_rows, load_rows
 
-def identify_cg(final_mapping_file_path, ps3_filename_to_path_mapping_file_path, ryukishi_filename_to_path_mapping_file_path, output_path):
+def identify_cg(final_mapping_file_path, ps3_filename_to_path_mapping_file_path, ryukishi_filename_to_path_mapping_file_path, output_path, debugPrint=False):
 	def append_paths_to_rows(bg_mapping_rows, bg_mapping_rows_filename_column_index, filename_to_path_dict, column_name):
 		header = bg_mapping_rows[0]
 		body = bg_mapping_rows[1:]
@@ -13,13 +13,16 @@ def identify_cg(final_mapping_file_path, ps3_filename_to_path_mapping_file_path,
 			filename = row[bg_mapping_rows_filename_column_index]
 			path = filename_to_path_dict.get(filename)
 			if filename == 'NO_MATCH':
-				print("Ignoring NO_MATCH on row", row)
+				if debugPrint:
+					print("Ignoring NO_MATCH on row", row)
 				out_rows.append(row + ['NO_MATCH'])
 			elif path is None:
-				print(filename, path)
+				if debugPrint:
+					print(filename, path)
 				raise Exception(f"No file path for {filename} on row [{row}]")
 			else:
-				print(filename, path)
+				if debugPrint:
+					print(filename, path)
 				out_rows.append(row + [path])
 
 		return out_rows

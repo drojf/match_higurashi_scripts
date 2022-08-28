@@ -440,8 +440,10 @@ def buildFilenameFilepathMap(folder, pathFilterStrings, pathToNameFunction, warn
 				cgRelativePath = None
 				if cgRelative:
 					cgRelativePath = os.path.splitext(os.path.join(*cgRelative))[0].replace('\\', '/')
-					print(cgRelativePath)
-				retDict[cgRelativePath] = fullPath
+					if warnLevel >= 3:
+						print(cgRelativePath)
+				if cgRelativePath is not None:
+					retDict[cgRelativePath] = fullPath
 
 				# Check if the path contains one of the allowed folders
 				pathHasAllowedFolder = False

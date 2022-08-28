@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import re
 import sys
 from matching_core import get_matching_script_paths_between_folders
@@ -53,14 +54,19 @@ def loadandCheckMatchingFromFile(filePath, only_warn_auto_match):
 
     return matching_set, no_match_list
 
-def PrintStringsWithNoMatch(nameList, matchingSet, contextDict, csv_path, printContext):
+def PrintStringsWithNoMatch(nameList, matchingSet, contextDict, csv_path, printContext) -> bool:
+    errorCount = 0
     for name in nameList:
         if name not in matchingSet:
+            errorCount += 1
             print(f"ERROR: {name} is used in game script, but has no matching in {csv_path}")
             if printContext:
                 context = contextDict[name]
                 print(f"Context [{context.script}]: {context.line.strip()}")
 
+    print(f"ERROR: {errorCount} backgrounds had no match!")
+
+    return errorCount == 0
 
 # Check whether the sprite matching
 def CheckSprites(printContext, episode):
@@ -102,9 +108,18 @@ def CheckBackgrounds(printContext, episode):
 
     print(f"Found {len(bg_matching_set)} rows in the sprite matching csv {bg_matching_csv}")
 
+    # Get only the filename part of the path
+    ps3_script_used_bgs = [Path(x).name for x in ps3_script_used_bgs]
+    # print(ps3_script_used_bgs)
+    # exit(-1)
+
+    success = PrintStringsWithNoMatch(ps3_script_used_bgs, bg_matching_set, contextDict, bg_matching_csv, printContext)
+
     # Print rows which are unmatched and have been matched automatically
     for no_match_description in no_match_list:
         print(no_match_description)
+
+    return len(no_match_list) == 0 and success
 
 
 if __name__ == '__main__':
@@ -112,7 +127,7 @@ if __name__ == '__main__':
 
     # Set to None to check all episodes
     if len(sys.argv) != 2:
-        print("Please specify which chapter number to validate eg `py validate_matching.py 9`")
+        print("Please specify which chapter number to validate eg `python validate_matching.py 9`")
         exit(-1)
 
     episode = int(sys.argv[1])
