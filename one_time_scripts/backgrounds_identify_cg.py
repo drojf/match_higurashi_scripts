@@ -46,3 +46,5 @@ def identify_cg_easy():
 
 if __name__ == '__main__':
 	identify_cg_easy()
+
+# Don't use this file anymore??

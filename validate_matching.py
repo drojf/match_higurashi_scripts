@@ -64,7 +64,8 @@ def PrintStringsWithNoMatch(nameList, matchingSet, contextDict, csv_path, printC
                 context = contextDict[name]
                 print(f"Context [{context.script}]: {context.line.strip()}")
 
-    print(f"ERROR: {errorCount} backgrounds had no match!")
+    if errorCount > 0:
+        print(f"ERROR: {errorCount} backgrounds had no match!")
 
     return errorCount == 0
 

@@ -259,17 +259,11 @@ def main(small_image_mode, four_three_aspect):
 		raise SystemExit('Validation FAILED - please check console output for specific errors. Background generation aborted')
 
 	# Regenerate the `background_matching/manual_bg_map_paths_generated.csv` file
-	backgrounds_identify_cg.identify_cg_easy()
+	# backgrounds_identify_cg.identify_cg_easy()
 
-	# # This script expects the folder imageComparer/external/ps3/ep1 to contain the PS3 CG folder for episode 1
-	# # and imageComparer/external/ryukishi/ep1 to contain the original ryukishi CG folder for episode 1
-	# # and so on for each episode.
-	# root_folder = 'imageComparer'
-	# ps3_folder = 'imageComparer/external/ps3'
-	# ryukishi_folder = 'imageComparer/external/ryukishi'
 	output_folder = 'higu_backgrounds_output'
 
-	csv_path = 'background_matching/manual_bg_map_paths_generated.csv'
+	csv_path = 'imageComparer/manual_background_mapping.csv'
 	input_ryukishi_images_merged = 'imageComparer\\external\\ryukishi'
 	input_modded_current_chapter = 'imageComparer\\external\\ps3'
 
@@ -330,6 +324,8 @@ def main(small_image_mode, four_three_aspect):
 
 	print(f"Attempting to replace {len(ps3_paths_to_replace)} modded ps3 images")
 
+	errors = 0
+
 	for input_modded_path in ps3_paths_to_replace:
 		# Determine which ryukishi image should be copied
 		basename = os.path.basename(input_modded_path)
@@ -344,15 +340,22 @@ def main(small_image_mode, four_three_aspect):
 			with open(output_path + '.NO_MATCH', 'w') as f:
 				pass
 
+			errors += 1
 		else:
 			ryukishi_unmodded_path = ryukishi_filename_to_filepath_map[ryukishi_name]
 
-			print(f"Replacing {input_modded_path} with {ryukishi_unmodded_path} saved to {output_path}")
+			if debugPrint:
+				print(f"Replacing {input_modded_path} with {ryukishi_unmodded_path} saved to {output_path}")
 
-			# if os.path.exists(output_path):
-			# 	raise Exception(f"Error: output file already exists {output_path}")
+			if os.path.exists(output_path):
+				raise Exception(f"Error: output file already exists {output_path}")
 
-			# process_image(input_modded_path, ryukishi_unmodded_path, output_path, small_image_mode, four_three_aspect)
+			process_image(input_modded_path, ryukishi_unmodded_path, output_path, small_image_mode, four_three_aspect)
+
+	if errors > 0:
+		print(f"-------- {errors} ERRORS OCCURED - please check logs and check for *.NO_MATCH files in the output folder --------")
+	else:
+		print(f"-------- SUCCESS --------")
 
 if __name__ == '__main__':
 	main(small_image_mode=True, four_three_aspect=True)
