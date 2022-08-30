@@ -6,7 +6,7 @@ import sys
 from PIL import Image, ImagePalette, ImageOps
 from pathlib import Path
 
-import backgrounds_identify_cg
+import backgrounds_legacy_identify_cg
 import validate_matching
 from imageComparer.compareImages import buildFilenameFilepathMap, normalizeFilenameAndRemoveExtension
 from utility import LAST_EPISODE
@@ -134,7 +134,7 @@ def main_legacy_ch_1_8(small_image_mode, four_three_aspect):
 	 - an extra step which copies files from the output folder to a format which our mod accepts (I'm not sure why this step is necessary...)
 	"""
 	# Regenerate the `background_matching/manual_bg_map_paths_generated.csv` file
-	backgrounds_identify_cg.identify_cg_easy()
+	backgrounds_legacy_identify_cg.identify_cg_easy()
 
 	# This script expects the folder imageComparer/external/ps3/ep1 to contain the PS3 CG folder for episode 1
 	# and imageComparer/external/ryukishi/ep1 to contain the original ryukishi CG folder for episode 1
@@ -319,7 +319,7 @@ def main(small_image_mode, four_three_aspect):
 	# Use *.* instead of * to match only files
 	# Use ? to match a single character for ep1, ep2, ep3 etc.
 	ps3_paths_to_replace = list(itertools.chain(
-			Path(input_modded_current_chapter).rglob('bg/*.*'), # Process any files in a 'bg' folder
+			Path(input_modded_current_chapter).rglob('bg/**/*.*'),
 	))
 
 	print(f"Attempting to replace {len(ps3_paths_to_replace)} modded ps3 images")
